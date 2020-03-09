@@ -1,0 +1,252 @@
+---
+title: "Unidad 1.1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Unidad I. Variables, distribuciones y pruebas de hipótesis.
+- Variables aleatorias y funciones de distribución. Conceptos de variables aleatorias, funciones de distribución, variables aleatorias discretas y continuas, niveles de medición.
+- Distribuciones importantes
+- Generación de distribuciones a partir de operaciones con variables aleatorias conocidas.
+
+## Conceptos de variables aleatorias
+- Variable categórica o cualitativas: Variables que representan grupos o 
+categorías. Puede tener escala nominal u ordinal. Las variables nominales no 
+tienen un orden definido, mientras las ordinales o casi cuantitativas tienen un
+orden definido. Es importante notar que los métodos desarrollados para variables
+ordinales no pueden ser utilizados con variables nominales. Los métodos para
+variables nominales pueden ser utilizados con variables ordinales, pero se
+pierde poder en el proceso, debido a que no se utiliza la información relativa
+al orden. La variables cualitativas con solo dos niveles suelen denominarse
+binarias, dicotómicas o booleanas.
+- Variable cuantitativas: Pueden ser discretas o continuas.
+Las variables categóricas suelen representarse en R usando factors.
+En algunos análisis estadísticos, las variables aleatorias pueden clasificarse
+como variables de variable respuesta y variable explicativa. La variable
+respuesta, es a veces llamada dependiente suele representarse en el eje Y.
+La variable explicativa o independiente, es la que suele controlarse en el
+diseño experimental y suele representarse en el eje X.
+La formula de R ubica las variables respuesta a la izquierda y las variables
+explicativas a la derecha:
+
+
+```{r}
+Y ~ X
+a <- Y ~ X
+class(a)
+```
+
+
+## Funciones de distribución
+
+### Función de masa/densidad de probabilidad
+
+La función de densidad de probabilidad (PDF por Probability Density Function) o
+de masa de probabilidad (PMF por Probability Mass Function) describen la
+probabilidad relativa de una variable a tomar un cierto valor. En general, el
+término masa (PMF) se utiliza para variable categóricas o discretas mientras el
+de densidad (PDF) se usa con variables continuas.
+Sólo en el caso de variables discretas, la función de masa de probabilidad para
+la variable X (PMF_X) evaluada en un punto x retorna la probabilidad de que la
+variable X sea igual a x 
+
+$$PMF_X(x) = P(X=x)$$
+
+Las funciones de masa/densidad de probabilidad son no-negativas a lo largo de todo
+su dominio. En el caso de las funciones de masa de probabilidad, la imagen sólo
+puede tomar valores en el intervalo cerrado [0,1]. La suma de las probabilidades
+(imagen de la PMF) para todos los posibles valores una variable discreta X debe ser
+igual a 1, es decir, al menos uno de sus valores tiene que ocurrir.
+
+$$\sum_{x}{PMF_X(x)} = 1$$
+
+Evaluar la función de densidad de probabilidad de una variable continua X, $PDF_X$,
+en un punto x o retorna la probabilidad de ese punto. Sólo obtenemos probabilidades
+a partir de una función de densidad de probabilidad integrandola en un determinado
+intervalo (la probabilidad es el área bajo la PDF). No existe la probabilidad de
+un punto para variables continuas, así como no existe el área bajo un punto.
+
+$$\int_a^b{PDF_X{(x)}dx} = P(a\leq X \leq b)$$
+
+La integral de una PDF sobre todo su dominio, es decir el área total bajo la PDF debe ser 1.
+
+### Función de distribución acumulada
+
+La función de distribución acumulada (CDF por Cumulative Distribution Function, a veces llamada CMF por Cumulative Mass Function en el caso de variables categóricas) retorna la probabilidad de que una variable aleatoria no nominal sea menor a un determinado valor.
+
+$$CDF_X(x) = P(X\leq x)$$
+
+En el caso de variable categóricas, esto se logra sumando los valores de las probabilidades $PMF$ para todos los valores inferiores o iguales a $x$:
+
+$$ CDF_X(x) = \sum\limits_{X \leqslant x} PMF_X(x) $$ 
+
+Para variables continuas, es la integral desde menos infinito (o el menor valor del dominio) hasta x :
+
+$$CDF_X(x) = \int_{-\infty}^{x} PDF_X(u) du $$
+
+
+La imagen de una CDF es el intervalo $[0,1]$, siendo ésta función monótona creciente.  
+Es fácil obtener la probabilidad de que un valor de $X$ caiga dentro de un cierto intervalo $(a,b]$ usando su $CDF$:
+
+$$P(a < X \leqslant b) = CDF_X(b) - CDF_X(a)$$
+
+Las CDF suelen ser útiles en los *tests de hipótesis*, donde es necesario calcular la probabilidad de observar un valor mayor o menor a un cierto valor $x$. En el caso de querer calcular la probabilidad de observar un valor mayor a $x$  suele usarse la **CCDF** (*Complementary Cumulative Distribution Function*):
+
+$$CCDF(x) = P(X > x) = 1 - CDF(x)$$
+
+
+## Niveles de medición
+
+Una *variable aleatoria* es una función que puede tomar una serie de valores medibles u observables, estando la frecuencia de aparición de esos valores asociados a una distribución de probabilidad. Estas variables resultan de *experimentos aleatorios*, en los cuales dada las mismas condiciones iniciales no se obtienen los mismos resultados en cada *experiencia* o *prueba*.
+
+Los resultados de una *variable aleatoria* pueden medirse en diferentes *escalas de medida* dependiendo de su naturaleza o de la necesidad. Existen diferentes escalas de medidas:
+
+| Nivel | Variable | Precisión | Descripción  | Operaciones |
+|-------|----------|-----------|--------------|-------------|
+| Nominal | Cualitativas | Menor | No hay orden | `==` `!=` |
+| Ordinal | Cualitativas, Cuantitativas | Intermedia | Hay orden pero no hay distancias | ... `<` `>` `<=` `>=` |
+| Intervalar | Cuantitativas | Intermedia | El cero/la escala es arbitrario/a | ... `+` `-` |
+| Racional | Cuantitativas | Mayor | El cero/la escala no es arbitrario/a | ... `/` `//` ... *(todas)* |
+
+## Distribuciones importantes
+
+La distribuciones más conocidas para datos continuos son la distribución Normal y la distribución T. Mientras las distribuciones más importantes para datos categóricos son la **Binomial**, la **Multinomial** y la **Poisson**.
+
+### Distribución Normal
+
+La distribución *Normal*, también llamada *de Gauss* o *Gaussiana*. Su función de densidad de probabilidad es la *campana de Gauss* que es simétrica alrededor de un parámetro μ. 
+
+La distribución normal posee dos parámetros de forma, el promedio μ y la desviación estándar σ (varianza σ²). Una distribución normal con parametros `μ=0` y `σ=1` se conoce como **normal estándar** $\mathcal{N}(0,1)$
+
+$$f(x, μ, σ) = \frac{1}{σ\sqrt{2 π}}exp \Bigg( {-\frac{(x - μ)^2}{2σ^2}} \Bigg)$$
+
+Las distribuciones que poseen parámetros de forma, como la distribución Normal,
+se denominan distribuciones paramétricas. Estás definen una familia de funciones
+de densidad/masa de probabilidad, dependiendo de los parámetros que tomen.
+
+```{r}
+par(mfrow=c(1,3))
+log_norm <- function(x) dnorm(x, log=TRUE)
+curve(dnorm, -3, 3, col = 'blue', lwd=2, main="Normal")
+curve(log_norm, -5, 5, col = "violet", main="log Normal")
+curve(log_norm, -15, 15, col = "violet", main="log Normal")
+
+```
+
+
+
+```{r}
+par(mfrow=c(1,1))
+log_norm <- function(x) dnorm(x, log=TRUE)
+curve(dnorm, -3, 3, col = 'blue', lwd=2, main="Normal distribution", ylim=c(0,1))
+polygon(c(-3,seq(-3,1,0.1),1),c(0,dnorm(seq(-3,1,0.1)),0),col='#aaCDFF')
+curve(pnorm, -3, 3, col = "violet", add=TRUE, lwd=2)
+arrows(0, 0.2, 1 -0.05,pnorm(1)-0.025, lwd=2, code=2, length = 0.15)
+points(1, pnorm(1), col='red', pch=19)
+text(x=1+0.05, y=pnorm(1), "(1, 0.841...)", adj = c(0, 0.5))
+legend(-3, 1, legend=c("density (dnorm)", "cummulative (pnorm)"),
+       col=c("blue", "violet"), lty=1, cex=0.8)
+
+arrows(1.5, 0.4, 1 + 0.05, 0+0.025, lwd=2, code=2, length = 0.15)
+text(x=1.5+0.05, 0.4 + 0.05, "qnorm(0.841...)", adj = c(0, 0.5))
+
+points(1, -0.02, col='red', pch=19)
+
+```
+
+```{r}
+σs = c(0.5, 1, 2, 4)
+par(mfrow=c(2,2))
+log_norm <- function(x) dnorm(x, log=TRUE)
+for (σ in σs) {
+  f <- function(x) dnorm(x, sd=σ)
+  curve(f, -6, 6, col = 'blue', lwd=2, main="Normal distribution", ylim=c(0,1.2))
+  arrows(-σ, dnorm(0, sd=σ)+0.1, σ, dnorm(0, sd=σ)+0.1, code=3, length=0.05)
+  text(0, dnorm(0, sd=σ)+0.3, paste0("sigma = ", σ))
+}
+```
+
+Esta distribución es importante debido al **Teorema Central del Límite**, según el cual, dada una muestra de valores *independientes e idénticamente distribuidos* de tamaño $n$ de una distribución con media poblacional $\mu$ y desviación estándar $\sigma$, la distribución de la media muestral $\overline{x_{n}}$ converge a una distribución
+
+$$\overline{x_{n}} \sim \mathcal{N}(\mu,\frac{\sigma}{\sqrt{n}})$$
+cuando $n \rightarrow \infty$
+
+Debido a la **ley de los grandes números**, la media o promedio de la muestra se acercara a la media poblacional (valor esperado) a medida que el valor de $n$ aumenta. La desviación estándar de la distribución media muestral $\frac{\sigma}{\sqrt{n}}$ se denomina error estadístico.
+
+
+```{r}
+par(mfrow=c(2,2))
+sample_size <- c(10, 50, 100, 500)
+for (s in sample_size) {
+  samples <- sapply(1:50, function(x) {rexp(s)})
+  hist(samples[,1], 100, xlim=c(0,5), main=paste("Exp", s, "elements"))
+  mean_dist <- apply(samples, 2, mean, main=paste("Dist. of means."))
+  hist(mean_dist, 50, xlim=c(0.5,1.5))
+}
+```
+
+
+#### Generación de datos aleatorios de una distribución normal
+
+```{r}
+par(mfrow=c(2,2))
+sample_size = c(10, 500, 1000, 5000)
+samples <- sapply(sample_size, rnorm)
+for (sample in samples) {
+  hist(sample, 100, xlim=c(-4,4))
+}
+```
+
+
+### Distribución T
+
+La distribución T (de *Student*) con $n-1$ grados de libertad es la distribución que sigue la media de una muestra pequeña de tamaño $n$ cuando se le sustrae la media poblacional y se divide al valor restante por la desviación estándar de la muestra sobre $\sqrt{n}$, sólo si la población de la cual se obtiene la muestra tiene una **distribución normal**.
+
+$$t = \frac{\overline{X_{n}}-\mu}{\frac{S_{n}}{\sqrt{n}}}$$
+$$PDF_{T}(x, n) = \frac{\Gamma (\frac{n+1}{2})}{\sqrt{n\pi}\times \Gamma(\frac{n}{2})}\bigg(1+\frac{x^2}{2}\bigg)^{-\frac{n+1}{2}}$$
+Donde $n$ son los grados de libertad.
+
+La distribución T converge hacia una distribución normal $\mathcal{N}(0,1)$ cuando $n \rightarrow \infty$.
+
+```{r}
+t_student <- function(x, n) {
+  gamma((n+1)/2)/(sqrt(pi*n)*gamma(n/2)) * (1+x^2/n)^(-(n+1)/2)
+}
+t_student(2,5)
+dt(2,5)
+```
+
+```{r}
+curve(dnorm, -3, 3, col = 'red', lwd=2, main="Student T distribution", ylim=c(0,0.45), ylab="P. density")
+freedom_degrees <- c(2, 4, 8, 15, 20, 30)
+for (dg in freedom_degrees) {
+  dt10 <- function(x) {dt(x, dg)}
+  curve(dt10, -3, 3, col = 'blue', lwd=1, add=TRUE)
+}
+
+```
+
+
+### Binomial
+
+La distribución binomial se utiliza con variables categóricas que sólo pueden tomar dos valores (dicotómicas) los cuales suelen denominarse *éxito* (`1`, `true`) y *fracaso* (`0`, `false`) generalmente (aunque no estén relacionados con la idea de éxito). El número de éxitos productos de $n$ ensayos (*ensayos de Bernoulli*) sigue una distribución binomial con parámetros $n$ y $p$, donde $p$ es la probabilidad de éxitos.
+La distribución Binomial(n,p) asumen que el valor de $n$ fue fijado y que $p$ es igual en cada uno de los $n$ ensayos. Es decir que **ensayos idénticos** (mismo $p$) e **independientes** dado que un ensayo no afecta a la probabilidad de otro.
+
+
+
+<!-- ### Distribución Multinomial -->
+
+<!-- La distribución multinomial es una generalización de la **distribución binomial**, pudiendo representar más de dos categorías. Para $n$ ensayos independientes que pueden dar un *éxito* solo en una de $k$ categorías, teniendo cada categoría una probabilidad de éxito fija, la distribución multinomial da la probabilidad de una combinación de números de éxitos particular para varias categorías. Los parámetros de la distribución multinomial son $n$ y la probabilidad de éxito $p_{k}$ de cada categoría $k$. -->
+
+<!-- ¿Cuál es la probabilidad de obtener generala servida? -->
+
+<!-- # Generala son 5 veces la misma cara.  -->
+<!-- # Hay una generala posible por cada cara. -->
+<!-- # P_generala = 6 * pdf(distribución, [5,0,0,0,0,0])  -->
+
+
+
+
