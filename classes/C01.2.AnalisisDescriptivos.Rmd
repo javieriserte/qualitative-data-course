@@ -1,0 +1,450 @@
+---
+title: "Unidad 1.2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(moments)
+library(modeest)
+library(gplots)
+library(MASS)
+library(nortest)
+```
+
+# Unidad I. Variables, distribuciones y pruebas de hipótesis.
+
+- Características numéricas de las variables aleatorias
+- Concepto de muestra
+- Estimación estadística de los parámetros de una distribución a partir de los datos de una muestra
+
+## Análisis descriptivo de datos
+
+La estadística descriptiva tiene más que ver con describir una muestra de manera cualitativa (gráfica) o cuantitativa (numérica) que con inferir propiedades acerca de la población de la cual proviene esa muestra (estadística inferencial).
+
+La estadística descriptiva está fuertemente ligada al análisis exploratorio de datos (EDA for Exploratory Data Analysis) y al análisis inicial de datos (IDA por Initial Data Analysis). El primero focaliza en explorar los datos en busca de nuevas hipótesis, las cuales pueden terminar en nuevos muestreos y experimentos, mientras el segundo se focaliza en asegurar la calidad de los datos, chequear las asunciones y realizar las transformaciones necesarias para testear la hipótesis que teníamos en mente a la hora de recolectar los datos.
+
+El análisis inicial de datos no es necesario solamente para el testeo de hipótesis de la estadística inferencial, sino también como un paso previo para el aprendizaje automático (ML por Machine Learning) y forma parte importante de las primeras fases de la minería de datos (Data mining).
+
+### Muestra estadística
+
+Se denomina muestra a un subconjunto de datos tomados o seleccionados de una población estadística mediante un proceso de muestreo determinado. Cada una de las unidades muestrales suele llamarse observación, y es posible medir variables aleatorias para cada una de ellas.
+
+Las **muestras** pueden ser:  
+- **Completas**: Incluye a todos los casos, individuos u objetos de la población que cumplen con un criterio (de selección) determinado. Generalmente es difícil o imposible disponer de muestras completas.  
+- **Representativas** (*representative or unbiased*): Un conjunto de unidades muestrales seleccionados de una muestra completa usando un proceso de selección/muestreo que no depende de las propiedades de estas unidades. Una manera de obtener muestras no sesgadas es seleccionando una **muestra aleatoria** (*random/probability sample*). 
+
+#### Técnicas de muestreo
+
+##### Muestreo aleatorio simple
+
+En el muestreo aleatorio simple se selecciona un número k de unidades muestrales de manera aleatoria, teniendo cada elemento de la población la misma probabilidad de ser seleccionado. El muestreo puede ser con o sin reposición (with or without replacement). Si el muestreo se efectúa con reposición, cada elemento de la población puede ser seleccionado más de una vez. En el muestreo aleatorio sin reposición, donde los elementos no son devueltos a la población y no pueden ser elegidos más de una vez, la probabilidad de sacar un determinado elemento cambia con la extracción del anterior (no son independientes). Sin embargo el muestreo aleatorio simple sin reposición satisface intercambiabilidad, es que cualquier orden de los elementos extraídos es igualmente probable. Si el tamaño de la población es mucho más grande que el tamaño de la muestra, el muestreo aleatorio simple sin reposición se aproxima a un muestreo simple con reposición, dada la baja probabilidad de elegir un mismo elemento dos veces.
+
+La manera más sencilla de hacer un muestreo aleatorio simple con o sin reposición en Julia, es usando la función sample de StatsBase. Ésta es similar a la función sample de R. Ambas toman una lista de valores, el tamaño de la muestra a tomar (size) y se les debe indicar si queremos que sea con o sin reemplazo o reposición (replace). Una diferencia entre ambas funciones es que mientras R por defecto hace el muestreo sin reemplazo, Julia lo hace con reemplazo si no le indicamos lo contrario.
+
+##### Muestreo sistemático
+
+El muestreo sistemático consiste en ordenar los elementos de una población según alguna variable de interés, para luego tomar n unidades muestrales equiespaciadas. El primer elemento debe ser seleccionado al azar, quedando los otros determinados en relación a este. Una ventaja de este tipo de muestreo es que permite muestrear una variable de intereses en todo su rango. Pero debe tenerse cuidado si la variable muestra alguna característica periódica, dado que puede generarse una muestra sesgada de la población. Además debe tenerse en cuenta que no se verá la variación entre dos elementos contiguos en la lista, dado que nunca son seleccionados a la vez.
+
+Por ejemplo, si queremos hacer un muestreo sistemático de las plantas del conjunto de datos iris según largo de sus pétalos:
+
+```{r}
+library(datasets)
+data(iris)
+head(iris)
+```
+
+```{r}
+iris <- iris[order(iris$Petal.Length),]
+pop_size <- nrow(iris)
+samples <- 7 # Número de muestras
+interval <- pop_size %/% samples
+starting_position <- sample(1:samples, 1)
+sample_indexes <- (1:pop_size %% interval) == 0
+iris_samples <- iris[sample_indexes, ]
+iris_samples
+
+```
+
+##### Muestreo estratificado
+
+En el [muestreo estratificado](https://en.wikipedia.org/wiki/Stratified_sampling), se estratifica la población antes de tomar las muestras. En este proceso se divide a los miembros de la población en estratos, grupos o subpoblaciones homogéneas. Estos estratos deben ser mutuamente excluyentes, dado que un miembro de la población no podrá pertenecer a más de una subpoblación. Todos los miembros de la población deben pertenecer a un estrato determinado, no pueden quedar miembros sin clasificar (estratificación exhaustiva). Una vez que se estratifico la población, se realizar un muestreo aleatorio simple o sistemático  dentro de cada estrato.
+
+Existen tres posibles estrategias:  
+- **Asignación proporcional**: El número de unidades muestrales de cada estrato es proporcional al número de individuos del estrato dentro de la población. Es decir, se respeta las proporciones de los estratos en la población.  
+- **Asignación óptima**: El número de muestras seleccionadas para cada estrato es proporcional a la desviación estándar de la variable de interés en cada estrato. Ésto requiere un conocimiento previo de la población.  
+- **Asignación uniforme**: Se selecciona un igual número de elementos para cada estrato. Ésto permite, cuando el tamaño de los estratos varía en la población, equiparar el poder de los test utilizados en cada estratos a la hora de compararlos. El conjunto de datos *iris* fue generado en un muestreo estratificado uniforme (50 flores de cada especie), en el que cada especie conforma un estrato.
+
+La media del muestreo es:
+
+$$ \mu_{s} = \frac{1}{N} \sum_{h=1}^{L} N_{h} \mu_{h} $$
+donde:
+* mu_{s} es la media
+* N es el tamaño de toda la población
+* N_{h} es el tamaño del estrato h
+* \mu_h es la media de la muestra del estrato h.
+
+```{r}
+my_sample_size <- 30
+selected_indexes <- c()
+for (sp in levels(iris$Species)) {
+  current_selectes <- sample(rownames(iris[iris$Species==sp,]), my_sample_size)
+  selected_indexes <- c(selected_indexes, current_selectes)
+  my_sample_size <- my_sample_size + 5
+}
+iris2 <- iris[selected_indexes, ]
+```
+
+```{r}
+# Asignación proporcional
+strate_size <- sapply(
+  levels(iris$Species),
+  function(x) nrow(iris2[iris2$Species==x, ]))
+
+strate_sample_size <- strate_size * 0.25
+
+selected_indexes <- c()
+for (sp in levels(iris2$Species)) {
+  current_selected <- sample(
+    rownames(iris2[iris2$Species==sp, ]),
+    as.integer(strate_sample_size[sp]))
+  selected_indexes <- c(
+    selected_indexes,
+    current_selected)
+}
+stratified <- iris2[selected_indexes, ]
+head(stratified)
+```
+```{r}
+estratos <- data.frame(
+  row.names = levels(stratified$Species),
+  Nh=strate_size,
+  muh=sapply(
+    levels(stratified$Species),
+    function(x) mean(stratified[stratified$Species==x, "Petal.Length"])
+  )
+)
+estratos
+```
+
+```{r}
+mu_g <- sum(estratos$Nh*estratos$muh) / sum(estratos$Nh)
+```
+
+
+### Estadísticos de resumen
+
+Los estadísticos de resumen (*Summary statistics*) describen de manera cuantitativa la distribución de una muestra. Normalmente se obtiene un conjunto de estadísticos que describen cada variable aleatoria/dimensión de los datos de manera independiente (si excluimos medidas de dependencia como las correlaciones).  
+
+Existen estadísticos de:
+
+- tendencia central (location or central tendency)
+- dispersión (spread or dispersion)
+- forma (shape):
+- asimetría (Skewness)
+- apuntamiento (Kurtosis)
+
+Estos estadísticos pueden ser robustos o no, llamándose robustos a los estadísticos menos afectados por valores atípicos (outliers). Estos estadísticos describen la muestra de una manera más robusta cuando su distribución se aleja de una distribución normal (por ejemplo, si la distribución es asimétrica).
+
+#### Estadísticos de tendencia central
+
+Existen diversos estadísticos de tendencia central, siendo la media el más popular de ellos a pesar de no ser un estadístico robusto. La medidas de ubicación robusta más popular es la mediana. La moda es el único estadístico de tendencia central para datos nominales, pero es difícil de estimar correctamente para variables continuos.
+
+```{r}
+for (c in colnames(iris2)) {
+  print(c)
+  c_column <- iris2[,c]
+  if (is.numeric(c_column)) {
+    print(paste0("  - Media   : ", mean(c_column)))
+    print(paste0("  - Mediana : ", median(c_column)))
+  }
+  print(paste0("  - Moda    : ", mlv(c_column, method="mfv")))
+}
+```
+
+#### Estadísticos de dispersión
+
+De los estadísticos de dispersión, la desviación estándar es el más popular acompañando a la media. No debe confundirse con el error estadístico o estándar, que en realidad habla de la dispersión de las medias muestrales, y no de la variable de interés. La desviación estándar no es un estimador robusto. Alternativas más robustas son el rango entre cuartiles y la Median Absolute Deviation (MAD).
+
+- Desviación standard: $s=\sqrt{\frac{\sum_{i=1}^N{(x_i-\bar{x})^2}}{N-1}}$
+- Varianza: $s^2$
+- Rango inter quartil: $Q_3-Q_1$
+- Desviación media absoluta: $mediana(|X_i-mediana(X)|)$
+```{r}
+for (c in colnames(iris2)) {
+  print(c)
+  c_column <- iris2[,c]
+  if (is.numeric(c_column)) {
+    print(paste0("  - Desv. Std.   : ", sd(c_column)))
+    print(paste0("  - Varianza : ", var(c_column)))
+    print(paste0("  - IQR : ", IQR(c_column)))
+    print(paste0("  - MAD : ", mad(c_column)))}
+}
+```
+
+#### Estadísticos de forma
+
+Las dos medidas de forma de la distribución principales son el *Skewness* o *asimetría* y la *Kurtosis* que habla de la concentración de datos cerca de la media y de la probabilidad de observar outliers.
+
+La **kurtosis** de la distribución normal es 3, sin embargo suele usarse la $kurtosis - 3$ o *excess kurtosis* para comparar contra la distribución normal. Distribuciones para las cuales es menos probable observar *outliers* que en la distribución normal, dan valores de kurtosis negativa. Mientras que valores positivos de kurtosis se observan para distribuciones de probabilidad para los cuales se obtienen *outliers* o valores extremos con más frecuencia (es decir, poseen colas más pesadas).
+
+```{r}
+normal_sample <- rnorm(50000)
+poisson_sample <- rpois(50000, 5)
+uniform_sample <- runif(50000, -2, 2)
+
+
+dtriangular <- function(x, a=1) {
+  res <- rep(NA, length(x))
+  res[(x>a | x< (-a))] <- 0
+  res[0<=x & x<=a] <- (1/a-x[0<=x & x<=a]/a^2)
+  res[-a<=x & x<0] <- (x[-a<=x & x<0]+a)/a^2
+  return(res)
+}
+rtriangular <- function(n, a=1) {
+  r <- runif(n, 0, 1)
+  res <- rep(NA, length(n))
+  res[r<=1/2] <- a * (sqrt(2*r[r<=1/2])-1)
+  res[r>1/2] <- a * (1-sqrt(2*(1-r[r>1/2])))
+  return(res)
+}
+
+tri_sample2 <- c(rtriangular(25000, 0.1), rtriangular(25000, 5))
+
+hist(tri_sample2)
+text(4,15000, paste("skewness=",sprintf("%.2e", skewness(tri_sample2))), adj=c(1,0.5))
+text(4,14000, paste("kurtosis=",sprintf("%.2e", kurtosis(tri_sample2))), adj=c(1,0.5))
+
+
+tri_sample <- rtriangular(50000, 1)
+hist(tri_sample)
+text(1,4000, paste("skewness=",sprintf("%.2e", skewness(tri_sample))), adj=c(1,0.5))
+text(1,3500, paste("kurtosis=",sprintf("%.2e", kurtosis(tri_sample))), adj=c(1,0.5))
+
+hist(normal_sample)
+text(-4,8000, paste("skewness=",sprintf("%.2e", skewness(normal_sample))), adj=c(0,0.5))
+text(-4,7200, paste("kurtosis=",sprintf("%.2e", kurtosis(normal_sample))), adj=c(0,0.5))
+
+hist(poisson_sample)
+text(15,8000, paste("skewness=",sprintf("%.2e", skewness(poisson_sample))), adj=c(1,0.5))
+text(15,7200, paste("kurtosis=",sprintf("%.2e", kurtosis(poisson_sample))), adj=c(1,0.5))
+
+hist(uniform_sample)
+text(0.9,2000, paste("skewness=",sprintf("%.2e", skewness(uniform_sample))), adj=c(1,0.5))
+text(0.9,1600, paste("kurtosis=",sprintf("%.2e", kurtosis(uniform_sample))), adj=c(1,0.5))
+
+binomial_sample <- rbinom(50000, 20, 0.1)
+hist(binomial_sample, breaks=c(min(binomial_sample):(max(binomial_sample)+1)), include.lowest=FALSE, right=FALSE)
+text(10, 14000, paste("skewness=",sprintf("%.2e", skewness(binomial_sample))), adj=c(1,0.5))
+text(10, 13000, paste("kurtosis=",sprintf("%.2e", kurtosis(binomial_sample))), adj=c(1,0.5))
+
+
+
+```
+
+#### Descripción gráfica
+
+Los Histogramas permiten tener una visión de cómo sería la forma de una distribución de densidad para una variable aleatoria continua. Se construyen dividiendo la variable en grupos (bins) y contando el número de observaciones dentro de cada uno (representada por la altura de la barra). El siguiente paso de complejidad que podríamos dar para tener una mejor estimación de la función de densidad de probabilidad, es utilizar Averaged Shifted Histograms (ASH) o el estimador por núcleo (KDE por Kernel Density Estimator). R posee una función density que puede observarse usado plot(density(....
+KDE tiene dos parámetros importantes, uno es la función kernel a utilizar que deber ser una distribución de probabilidad, por defecto se utiliza la distribución Normal. El otro parámetro es el ancho de banda a utilizar.
+
+```{r}
+par(mfrow=c(1,2))
+hist(iris$Sepal.Length, xlim=c(0,10), ylim=c(0,40), col="#AACCFF55", main="Histograms of iris")
+hist(iris$Sepal.Width, col="#AAFFCC55", add=TRUE)
+hist(iris$Petal.Length, col="#fAdd4455", add=TRUE)
+hist(iris$Petal.Width, col="#AF2CCa55", add=TRUE)
+
+plot(density((iris$Sepal.Length)), xlim=c(0,10), ylim=c(0,1), col="#AACCFF44", main="Histograms of iris", type="h")
+lines(density((iris$Sepal.Width)), col="#AAFFCC44", type="h")
+lines(density((iris$Petal.Length)), col="#fAdd4444", type="h")
+lines(density((iris$Petal.Width)), col="#AF2CCa44", type="h")
+
+
+```
+
+Los Diagramas de Dispersión (scatter plots) utilizan las coordenadas cartesianas para mostrar cómo se distribuyen dos variables en un espacio bi dimensional. Es posible representar más dimensiones utilizado diferentes formas, tamaños y/o colores.
+
+```{r}
+plot(
+  x=iris$Sepal.Length,
+  y=iris$Petal.Length,
+  col=as.integer(iris$Species)+1,
+  pch=19)
+legend("topright", legend=levels(iris$Species), col=unique(as.integer(iris$Species))+1, pch=19)
+
+```
+
+```{r}
+
+
+
+pairs(iris[,1:4], pch = 19, col=as.integer(iris$Species))
+
+```
+
+
+Otra manera de observar la distribución conjunta de dos variables continuas es haciendo uso de los histogramas bivariados o bidimensionales (2D o bivariate histograms). Los grupos (bins) se establecen para las dos variables, definiendo rectángulos en un espacio bidimensional. Normalmente se utiliza un código de color para indicar la cantidad de valores en cada grupo.
+
+```{r}
+a <- hist2d(
+  x=iris$Sepal.Length,
+  y=iris$Sepal.Width,
+  nbins = 4,
+  xlab="Sepal Length",
+  ylab="Sepal Width",
+  main="Histogram 2D")
+```
+
+Esta representación se asemeja a la de un Mapa de calor (heatmap), pero estos últimos generalmente poseen variable discretas o categóricas en sus ejes (en lugar de la discretización de una variable continua, aunque ésto también es posible). Los heat maps son útiles para mostrar los valores de una matriz, y representan a una variable continua utilizando un gradiente de colores.
+
+```{r}
+mean_by_group <- aggregate(iris[,1:4], list(iris$Species), mean)
+mean_matrix <- as.matrix(mean_by_group[,2:5])
+colnames(mean_matrix) <-  c("SL", "SW", "PL", "PW")
+rownames(mean_matrix) <- rownames(mean_matrix) <- mean_by_group$Group.1
+heatmap(
+  mean_matrix,
+  Rowv=NA,
+  Colv=NA,
+  margins = c(8,2)
+  )
+
+```
+
+Los Diagramas de Cajas (boxplots) son otra forma de visualizar datos acerca de una distribución. Son interesantes porque permiten observar estadísticos robustos de tendencia central (mediana) y de dispersión (rango entre cuartiles).
+
+```{r}
+new_data <- data.frame(
+  measure=c(
+    rep(
+      colnames(iris)[1:4],
+      each=nrow(iris))
+  ),
+  value=do.call(
+    what="c",
+    args=lapply(
+      colnames(iris[1:4]),
+      function(x) {return(iris[,x])}
+    )
+  )
+)
+
+boxplot(
+  value ~ measure,
+  new_data
+)
+
+```
+
+Mientras los density plots permiten observar una PDF inferida a partir de los datos, la función ecdf de la biblioteca StatsBase de Julia, permite observar la función de densidad de probabilidad acumulada empírica de una muestra (Empirical Cumulative Distribution Function ECDF), una aproximación a la CDF.
+
+```{r}
+f <- ecdf(iris$Sepal.Length)
+xs <- seq(4,9,0.2)
+ys <- f(xs)
+plot(
+  x=xs,
+  y=ys,
+  type="l"
+  )
+```
+
+### Ajuste de distribuciones estadísticas
+
+Es posible, para los datos de una muestra, ajustar una distribución de densidad de probabilidad (distribution fitting). Muchos de los estadísticos determinados durante la exploración de datos pueden son los estimadores de máxima verosimilitud o maximum-likelihood estimator (MLE) de algunas distribuciones. Por ejemplo, la media es el estimador de máxima verosimilitud de la media poblacional $\mu$ de una distribución normal. Tanto los estadísticos cuantitativos, como el análisis gráfico realizado en la etapa de exploración (histogramas, density plots, boxplots y ecdf) pueden ayudar a decidir cuál familia de funciones de densidad de probabilidad debemos ajustar.
+  
+```{r}
+
+par(mfrow=c(1,2))
+normal_sample <- rnorm(100, 2, 3)
+fitted <- fitdistr(
+  normal_sample,
+  densfun = "normal")
+
+hist(
+  normal_sample,
+  10,
+  freq = FALSE,
+  ylim=c(0,0.25))
+
+estimated_normal <- function(x){
+  dnorm(
+    x,
+    fitted$estimate["mean"],
+    fitted$estimate["sd"]
+  )
+}
+curve(
+  estimated_normal, 
+  from=-6,
+  to=10,
+  add=TRUE)
+
+
+xs <- seq(-6,10,0.2)
+ys <- ecdf(x = normal_sample)(xs)
+plot(
+  x=xs,
+  y=ys,
+  type="l"
+  )
+
+estimated_normal_cdf <- function(x){
+  pnorm(
+    x,
+    fitted$estimate["mean"],
+    fitted$estimate["sd"]
+  )
+}
+
+curve(
+  estimated_normal_cdf, 
+  from=-6,
+  to=10,
+  add=TRUE)
+
+
+```
+
+### Tests de normalidad
+
+Como parte del análisis inicial de datos, muchas veces debemos comprobar si los valores de una variable en nuestra muestra se distribuyen de manera normal. Existen diversas manera de testear normalidad, las más populares son:
+
+#### Gráfico de probabilidad normal
+
+Los gráficos QQ (qq plots por quantile) permiten comparar los cuantiles de dos distribuciones. Cuando en uno de los ejes se colocan los cuantiles de una distribución normal canónica, hablamos de un gráfico de probabilidad normalidad. Si la distribución de los datos es aproximadamente normal, el gráfico de normalidad mostrará los puntos equivalente a los datos distribuidos sobre una línea.
+
+```{r}
+normal_sample <- rnorm(500, 1, 2)
+qqnorm(normal_sample)
+qqplot(normal_sample, rt(500, 3))
+```
+
+#### Test de hipótesis
+
+Existen diversos test de hipótesis para testear normalidad (Ghasemi & Zahediasl 2012), estos tienen como hipótesis nula que los datos provienen de una cierta distribución (en particular de una distribución normal). Por lo tanto, p values altos son indicativos de que no hay evidencia suficiente para rechazar que los datos provienen de una distribución normal. Las dos pruebas de normalidad recomendadas son la de Anderson-Darling y la prueba de Shapiro-Wilk, ambas poseen más poder que Kolmogorov-Smirnov para esa tarea.
+
+
+```{r}
+normal_sample <- rnorm(50)
+ad.test(normal_sample)
+shapiro.test (normal_sample)
+```
+
+
+
+### Teorización Post Hoc
+
+Se denomina teorización post hoc a la generación de hipótesis sugeridas por el conjunto de datos observado, sin testear esta hipótesis en nuevos datos. Hacerlo puede resultar en aceptar hipótesis incorrectas, que sólo son válidas en el presente conjunto de datos, dado que es más probable aceptar una hipótesis testeada en el conjunto de datos en el cual se genero.
+Es necesario testear estas nuevas hipotesis en una nueva muestra de la población. Sin embargo, en muchas casos eso puede ser imposible, por ejemplo al analizar un fenómeno natural finito. Este problema de disponer de un conjunto limitado de datos, haciendo difícil o imposible la recolección de nuevos datos para la fase de confirmación fue denominado por John Tukey como uncomfortable science.
+Un caso no tan obvio de uncomfortable science o de teorización post hoc puede surgir bioinformática cuando se toman todos los elementos disponibles de una base de datos para hacer los análisis exploratorios sin dejar datos suficientes para testear las hipótesis que surgen de ese análisis. Otro proceso que puede generar este tipo de problemas es el conocido como data fishing, el cual consiste en ir testeando hipótesis sobre un conjunto de datos hasta encontrar una un valor estadísticamente significativo en algún test de hipótesis. El término data fishing posee una connotación negativa, dado que representa el comportamiento poco ético de buscar, seleccionar e informar sólo los resultados positivos sin el debido control, muchas veces como si las hipótesis hubiera sido anterior al análisis (Leung 2011).
+Buscar patrones en los datos, muchas veces aplicando test estadísticos, no es incorrecto. Lo incorrecto es utilizar el mismo conjunto de datos (in-sample data) para soportar esa hipótesis. Las alternativas posibles para no caer en este problema son:
+
+Recolectar nuevos datos (out-of-sample data), realizar un nuevo experimento, para testear la nueva hipótesis.
+Si no es posible recolectar nuevos datos, es posible separar el conjunto de datos de manera aleatoria en dos grupos. Uno puede ser usado para plantear nuevas hipótesis, que luego serán testeadas en el otro conjunto.
+Dado que la teorización post hoc y los casos de uncomfortable science pueden terminar en sobreajuste (overfitting), los métodos de validación cruzada (cross validation) pueden resultar útiles para evitarlo.
+Aplicar correcciones por testeo múltiple, considerando todas las hipótesis testeadas (por ejemplo, todas las hipótesis testeadas durante el proceso de data fishing).
+
+
+
+

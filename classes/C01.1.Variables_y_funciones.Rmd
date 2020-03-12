@@ -235,17 +235,72 @@ for (dg in freedom_degrees) {
 La distribución binomial se utiliza con variables categóricas que sólo pueden tomar dos valores (dicotómicas) los cuales suelen denominarse *éxito* (`1`, `true`) y *fracaso* (`0`, `false`) generalmente (aunque no estén relacionados con la idea de éxito). El número de éxitos productos de $n$ ensayos (*ensayos de Bernoulli*) sigue una distribución binomial con parámetros $n$ y $p$, donde $p$ es la probabilidad de éxitos.
 La distribución Binomial(n,p) asumen que el valor de $n$ fue fijado y que $p$ es igual en cada uno de los $n$ ensayos. Es decir que **ensayos idénticos** (mismo $p$) e **independientes** dado que un ensayo no afecta a la probabilidad de otro.
 
+$$P(X=k) = {n\choose k}p^k(1-p)^{n-k}, 0 \leq k \leq n$$
 
 
-<!-- ### Distribución Multinomial -->
+$$ {n \choose k} = \frac{n!}{(n-k)!k!} $$
+```{r}
+par(mfrow=c(1,2))
+success_probability <- 0.5
+trials <- 10
+success <- c(0:trials)
+success_mass_p <- sapply(success, function(x)dbinom(x, trials, success_probability))
+plot(
+  success_mass_p,
+  pch=19,
+  main="Mass Binomial Probability",
+  xlab="successful trials",
+  ylab="probability")
 
-<!-- La distribución multinomial es una generalización de la **distribución binomial**, pudiendo representar más de dos categorías. Para $n$ ensayos independientes que pueden dar un *éxito* solo en una de $k$ categorías, teniendo cada categoría una probabilidad de éxito fija, la distribución multinomial da la probabilidad de una combinación de números de éxitos particular para varias categorías. Los parámetros de la distribución multinomial son $n$ y la probabilidad de éxito $p_{k}$ de cada categoría $k$. -->
+success_cumm_p <- sapply(success, function(x)pbinom(x, trials, success_probability))
 
-<!-- ¿Cuál es la probabilidad de obtener generala servida? -->
+plot(
+  success_cumm_p,
+  pch=19,
+  main="Cummulative Binomial Probability",
+  xlab="successful trials",
+  ylab="probability")
 
-<!-- # Generala son 5 veces la misma cara.  -->
-<!-- # Hay una generala posible por cada cara. -->
-<!-- # P_generala = 6 * pdf(distribución, [5,0,0,0,0,0])  -->
+```
+
+### Distribución Multinomial
+
+La distribución multinomial es una generalización de la **distribución binomial**, pudiendo representar más de dos categorías. Para $n$ ensayos independientes que pueden dar un *éxito* solo en una de $k$ categorías, teniendo cada categoría una probabilidad de éxito fija, la distribución multinomial da la probabilidad de una combinación de números de éxitos particular para varias categorías. Los parámetros de la distribución multinomial son $n$ y la probabilidad de éxito $p_{k}$ de cada categoría $k$.
+
+$$ \frac{n!}{x_1! \dotsm x_k!}p_1^{x_1} \dotsm {p_k^{x_k}}$$
+
+¿Cuál es la probabilidad de obtener generala servida?
+
+Generala son 5 veces la misma cara.
+Hay una generala posible por cada cara.
+
+```{r}
+pk <- rep(1/6,6)
+dados <- c(5,0,0,0,0,0)
+n_dados <- 5
+6 * dmultinom(
+  dados,
+  n_dados,
+  pk)
+```
+
+### Poisson Distribution
+
+Describe la cantidad de eventos (independiente) que ocurren dentro de una unidad de tiempo.
+
+$$PMF(k, \lambda) = \frac{\lambda^k}{k!}e^{-\lambda}$$
+
+```{r}
+lambdas <- c(1,2,5,10)
+events <- c(0:15)
+ys = sapply(lambdas, function(l) dpois(events, l))
+plot(x=events, y=ys[,1], pch=19, col="red", type="o")
+lines(x=events, y=ys[,2], pch=19, col="blue", type="o")
+lines(x=events, y=ys[,3], pch=19, col="green", type="o")
+lines(x=events, y=ys[,4], pch=19, col="violet", type="o")
+legend(10, 0.35, legend=c("lambda: 1", "lambda: 2","lambda: 5", "lambda: 10"),
+       col=c("red", "blue", "green", "violet"), lty=1, cex=0.8, pch=19)
+```
 
 
 

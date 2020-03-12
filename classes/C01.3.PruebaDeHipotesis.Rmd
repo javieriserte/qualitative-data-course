@@ -1,0 +1,110 @@
+---
+title: "PruebaDeHipotesis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Unidad I. Variables, distribuciones y pruebas de hipótesis. 
+
+## Prueba de Hipótesis. Verificación estadística de hipótesis estadística.
+
+- Prueba de bondad de ajuste a una distribución. 
+    - Procedimientos no paramétricos chi cuadrado y Kolmogorov–Smirnov
+- Comparación de dos poblaciones.
+ - Test de Student y Fischer para comparar variables independientes con distribución normal. Test de Student para comparar variables apareadas.
+ - Alternativas no paramétricas de comparación transversal y longitudinal. Los tests de Mann Whitney y Wicolxon.
+ - Otras pruebas de comparación no paramétricas: El test de Kolmogorov-Smirnov y de la Mediana. Test de los signos y de McNemar.
+ 
+### Estadística inferencial
+
+La estadística inferencial trata de inferir información acerca de la distribución de probabilidad de una población, partiendo de la información de una muestra. Se diferencia de la estadística descriptiva en que en lugar de simplemente describir la muestra, trata de describir algo acerca de la población. Uno puede realizar diferentes estimaciones acerca de la población, la cual normalmente se conduce haciendo uso de la estadística frecuentista:
+
+- Estimación puntual: Estimación de un parámetro poblacional haciendo uso del valor que mejor lo aproxime.
+- Estimación por intervalos: Estimación de un intervalo de valores para un parámetro poblacional desconocido. Por ejemplo, la estimación de un intervalo de confianza para un parámetro poblacional.
+- Test de hipótesis
+
+### Test de hipótesis
+
+Una prueba de hipótesis es análoga a una demostración matemática
+por contradicción (en particular es un tipo de reductio ad absurdum),
+aunque no debe considerarse en ningún caso una demostración matemática.
+Ambos métodos, parten de considerar una declaración verdadera, en el
+caso del test de hipótesis, la hipótesis nula ó H₀. En ambos métodos
+se trata de llegar a una contradicción, dado que una implicación
+solo puede ser falsa si partiendo de una premisa verdadera llegamos
+a una conclusión falsa (tabla de verdad):
+
+| *p*      | *q*       | *p → q*   |
+|----------|-----------|-----------|
+| *true*   | *true*    | *true*    |
+| **true** | **false** | **false** |
+| *false*  | *true*    | *true*    |
+| *false*  | *false*   | *true*    |
+
+
+Acá es donde ambos métodos divergen, dado que la demostración matemática lo hace siguiendo reglas lógicas determinadas y procedimientos matemáticos permitidos, llegando a un resultado determinado no azaroso. Finalmente, si se llega a una contradicción, se concluye que la declaración original es falsa, aceptando la negación de dicha declaración. En el caso de la prueba de hipótesis, rechazar H₀ implica aceptar la hipótesis alternativa Hₐ.
+
+Sin embargo, no rechazar H₀ no implica aceptarla, decimos simplemente que no hay evidencia suficiente para rechazar la hipótesis nula. En cualquier caso, una prueba de hipótesis no demuestra una hipótesis, sólo la soporta con un cierto grado de confianza. Acumular evidencia a favor de una hipótesis (razonamiento inductivo) no es suficiente para demostrarla, la evidencia acumulada solo puede soportar dicha hipótesis.
+
+
+Existen dos tipos de errores que podemos cometer (Neyman & Pearson, 1933):
+
+|                   | **H₀ es cierta**  | **Hₐ es cierta**   |
+|-------------------|-------------------|--------------------|
+| **Se escogió Hₐ** | *Error de tipo I* | Decisión correcta  |
+| **Se escogió H₀** | Decisión correcta | *Error de tipo II* |
+
+El riesgo o probabilidad de caer en un error del tipo I se conoce como nivel de significación estadistica, normalmente indicado con la letra griega $\alpha$. La probabilidad de caer en un error del tipo II normalmente se anota con la letra griega $\beta$. Siendo $1-\beta$ la potencia o poder del test.
+
+
+$$P(escoger H_a | H_0 cierta) = \alpha$$
+$$P(escoger H_0 | H_a cierta) = \beta$$
+
+$$P(escoger H_a | H_a cierta) = 1 - \beta$$
+
+### Valor P
+
+El valor P (*p value*) es la probabilidad de observar un determinado valor (o uno más extremo) dado que H₀ es correcta. En ningún caso debe interpretarse como una probabilidad de la hipótesis nula. Un valor P bajo indica que los datos son inconsistentes con la hipótesis nula, permitiéndonos rechazar la hipótesis nula ante esa observación. Para decidir que es un valor bajo, uno puede recurrir al valor de significación α.
+
+
+$$P(escoger H_a | H_0 cierta) = P(p \le \alpha | H_0 cierta) = \alpha$$
+
+#### T de Student para una muestra 
+
+
+La prueba de T de Student para una muestra permite probar si
+la media de una muestra es diferente de una media $\mu_0$.
+Algo que tenemos que tener en cuenta, es que no podemos
+testear que la media poblacional sea un determinado valor.
+Ésto se debe a que no podemos saber cuál es la media
+poblacional sin analizar toda la población. Es decir,
+no podemos saber dónde se encuentra localizada la distribución
+*T Student* correspondiente a la media poblacional. Para
+determinar probabilidades necesitamos un parámetro de
+ubicación exacto. Es por esto que la hipótesis nula será
+la ubicación de la media poblacional en un lugar determinado.
+De hecho, las hipótesis nulas se caracterizan normalmente por
+tener igualdades (uno supone una distribución con parámetros
+determinados).  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
