@@ -59,8 +59,8 @@ iris <- iris[order(iris$Petal.Length),]
 pop_size <- nrow(iris)
 samples <- 7 # Número de muestras
 interval <- pop_size %/% samples
-starting_position <- sample(1:samples, 1)
-sample_indexes <- (1:pop_size %% interval) == 0
+starting_position <- sample(0:(interval-1), 1)
+sample_indexes <- (1:pop_size %% interval) == starting_position
 iris_samples <- iris[sample_indexes, ]
 iris_samples
 
@@ -141,8 +141,8 @@ Existen estadísticos de:
 - tendencia central (location or central tendency)
 - dispersión (spread or dispersion)
 - forma (shape):
-- asimetría (Skewness)
-- apuntamiento (Kurtosis)
+  - asimetría (Skewness)
+  - apuntamiento (Kurtosis)
 
 Estos estadísticos pueden ser robustos o no, llamándose robustos a los estadísticos menos afectados por valores atípicos (outliers). Estos estadísticos describen la muestra de una manera más robusta cuando su distribución se aleja de una distribución normal (por ejemplo, si la distribución es asimétrica).
 

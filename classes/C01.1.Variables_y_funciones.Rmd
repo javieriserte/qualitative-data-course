@@ -24,6 +24,8 @@ al orden. La variables cualitativas con solo dos niveles suelen denominarse
 binarias, dicotómicas o booleanas.
 - Variable cuantitativas: Pueden ser discretas o continuas.
 Las variables categóricas suelen representarse en R usando factors.
+
+
 En algunos análisis estadísticos, las variables aleatorias pueden clasificarse
 como variables de variable respuesta y variable explicativa. La variable
 respuesta, es a veces llamada dependiente suele representarse en el eje Y.
@@ -176,15 +178,22 @@ cuando $n \rightarrow \infty$
 
 Debido a la **ley de los grandes números**, la media o promedio de la muestra se acercara a la media poblacional (valor esperado) a medida que el valor de $n$ aumenta. La desviación estándar de la distribución media muestral $\frac{\sigma}{\sqrt{n}}$ se denomina error estadístico.
 
+```{r}
+m <- sapply(c(1,2,3,4),function(x) x^2)
+m
+```
 
 ```{r}
 par(mfrow=c(2,2))
-sample_size <- c(10, 50, 100, 500)
+sample_size <- c(10000, 50000)
 for (s in sample_size) {
-  samples <- sapply(1:50, function(x) {rexp(s)})
+  samples <- sapply(1:5000, function(x) {rexp(s)})
+  # Samples tiene 50 muestras de s elementos 
+  # samples es una matriz
   hist(samples[,1], 100, xlim=c(0,5), main=paste("Exp", s, "elements"))
-  mean_dist <- apply(samples, 2, mean, main=paste("Dist. of means."))
-  hist(mean_dist, 50, xlim=c(0.5,1.5))
+  
+  mean_dist <- apply(samples, 2, mean)
+  hist(mean_dist, 50, main=paste("Dist. of means."))
 }
 ```
 
@@ -195,6 +204,7 @@ for (s in sample_size) {
 par(mfrow=c(2,2))
 sample_size = c(10, 500, 1000, 5000)
 samples <- sapply(sample_size, rnorm)
+class(samples)
 for (sample in samples) {
   hist(sample, 100, xlim=c(-4,4))
 }
@@ -217,6 +227,8 @@ t_student <- function(x, n) {
 }
 t_student(2,5)
 dt(2,5)
+
+?dt
 ```
 
 ```{r}
@@ -241,11 +253,12 @@ $$P(X=k) = {n\choose k}p^k(1-p)^{n-k}, 0 \leq k \leq n$$
 $$ {n \choose k} = \frac{n!}{(n-k)!k!} $$
 ```{r}
 par(mfrow=c(1,2))
-success_probability <- 0.5
+success_probability <- 0.8
 trials <- 10
 success <- c(0:trials)
 success_mass_p <- sapply(success, function(x)dbinom(x, trials, success_probability))
 plot(
+  x=c(0:trials),
   success_mass_p,
   pch=19,
   main="Mass Binomial Probability",
@@ -275,13 +288,23 @@ Generala son 5 veces la misma cara.
 Hay una generala posible por cada cara.
 
 ```{r}
-pk <- rep(1/6,6)
+pk <- c(1/2, 1/10, 1/10, 1/10, 1/10, 1/10)
 dados <- c(5,0,0,0,0,0)
 n_dados <- 5
-6 * dmultinom(
+pg1 <- dmultinom(
   dados,
   n_dados,
   pk)
+
+
+dados <- c(0,5,0,0,0,0)
+n_dados <- 5
+pg2_6 <- 5*dmultinom(
+  dados,
+  n_dados,
+  pk)
+
+pg <- pg1 + pg2_6
 ```
 
 ### Poisson Distribution
