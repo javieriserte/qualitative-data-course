@@ -90,15 +90,53 @@ De hecho, las hipótesis nulas se caracterizan normalmente por
 tener igualdades (uno supone una distribución con parámetros
 determinados).  
 
+$$H_0 : \mu = \mu_0$$
+
+Si para una muestra de tamaño $n$ se cumplen las supuestos del test:  
+
+- Distribución normal de la variable (continua) en la población  
+- Muestreo al azar (cada observación es independiente)  
+
+Entonces el estadístico $t$ sigue una distribución *T de Student* con $n - 1$ grados de libertad.  
+
+$$ t = \frac{ \bar{x} - \mu }{ \frac{s}{\sqrt{n}} }$$
+
+Supongamos una variable aleatoria $X$ que en la población se distribuye con una distribución `Normal(0.1,0.1)`. Y supongamos que estamos interesados en demostrar que la media de esa variable $X$ en la población es mayor a 0. Es decir:
+
+$$H_0 : \mu = 0$$  
+
+$$H_a : \mu > 0$$
+
+Otras dos hipótesis alternativas son posibles; $H_a \ne 0$ ó $H_a < 0$. Podemos elegir cualquiera de éstas dependiendo de nuestro hipótesis de trabajo, determinando si el test será a una o dos colas. En este caso el test será a una cola y el *p value* para un valor observado $T$ será: 
+
+
+$$P(t \ge T|H_0)$$
+
+```{r}
+n <- 5
+normal_sample <- rnorm(n, mean=0.1, sd=0.1)
+xm <- mean(normal_sample)
+s = sd(normal_sample)
+
+# Hipotesis Nula. La distribución es T de Student
+m0 = 0
+T_value = (xm-m0)/(s/sqrt(n))
+T_value
+
+# Calculo el pvalue
+p = 1-pt(T_value, n-1)
+p
+
+# Usando las funciones incluidas en R
+t.test(
+    normal_sample,
+    alternative="greater",
+    mu=0,
+    )
 
 
 
-
-
-
-
-
-
+```
 
 
 
