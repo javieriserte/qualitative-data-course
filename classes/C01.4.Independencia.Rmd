@@ -1,0 +1,235 @@
+---
+title: "Unidad 1.4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Unidad I. Regresiones y reducción de dimensionalidad.
+
+## Independencia de variables y medidas de asociación.
+
+- Distribución conjunta de variables aleatorias. 
+ - Tablas de Contingencia.
+ - Concepto de independencia. 
+ 
+Llamamos [**distribución conjunta**] (o *multivariada*) de dos (*distribución bivariada*) o más variables aleatorias a la distribución de la **intersección** de las variables. En el caso de dos variables aleatorias $X$ e $Y$:
+
+$$P(X=x, Y=y) = P(X=x|Y=y) \cdot P(Y=y) = P(Y=y|X=x) \cdot P(X=x)$$
+
+Donde $P(x|y)$ es la **probabilidad condicional** de $x$ dado $y$.  
+
+La probabilidad conjunta cumple:  
+$$\sum_{i}\sum_{j} P(X=x_{i}, Y=y_{j}) = 1$$
+
+
+Si $X$ e $Y$ son variables **independientes**, se cumple que:
+
+$$P(X=x, Y=y) = P(X=x) \cdot P(Y=y)$$
+
+Las definiciones anteriores son para dos variables categóricas, sin embargo la misma idea se extiende para variables continuas, donde la función de densidad de probabilidad (*PDF*) conjunta se define como:
+
+$$PDF_{X,Y}(x,y) = PDF_{X|Y}(x|y) \cdot PDF_{Y}(y) = PDF_{Y|X}(y|x) \cdot PDF_{X}(x)$$
+
+Donde $PDF_{X}(x)$ es la función de densidad de probabilidad marginal o **distribución marginal**.
+
+
+$$PDF_{X}(x) = \int_{y} PDF_{X,Y}(x,y) dy = \int_{y} PDF_{X|Y}(x|y) \cdot PDF_{Y}(y) dy$$
+
+En el caso de variables categóricas:
+
+$$ P(X=x) = \sum_{y} P(X=x, Y=y) = \sum_{y} P(X=x|Y=y) \cdot P(Y=y)$$
+
+La función de densidad de probabilidad acumulada (*CDF*) para dos variables se define como:
+
+$$CDF_{X,Y}(x,y) = P(X \le x, Y \le y)$$
+
+### Tablas de Contingencia
+
+Las **tablas de contingencia** representan todas las combinaciones de valores posibles para un determinado número de variables categóricas. Si por ejemplo tenemos tres variables categóricas $X$, $Y$ y $Z$, cada una con $i$, $j$ y $k$ niveles respectivamente. La tabla de contingencia que contiene la clasificación cruzada entre $X$ e $Y$ será una tabla $i \times j$ (*two-way table*). La tabla que además incluya a la variable $Z$ será una tabla $i \times j \times k$ (*three-way contingency table*).
+
+```{r}
+head(MASS::survey)
+
+# Tabla de contingencia para una vartiable
+table(MASS::survey$Sex)
+
+# Tabla de contingencia para dos variables
+recuentos <- table(
+  MASS::survey$Sex,   # Sexo
+  MASS::survey$W.Hnd) # writing hand of student.
+recuentos
+```
+
+```{r}
+total <- margin.table(recuentos)
+probabilidades = table(MASS::survey$Sex, MASS::survey$W.Hnd)/total
+probabilidades
+```
+
+```{r}
+margin_sex = margin.table(recuentos, 1)
+margin_sex
+margin_hwnd = margin.table(recuentos, 2)
+margin_hwnd
+```
+
+Calculemos las probabilidades condicionales:
+
+```{r}
+# P(W.Hnd | Sex)
+pW_S <- apply(
+  X=recuentos,
+  MARGIN = 2,
+  FUN = function(x) x/margin_sex
+)
+pW_S
+```
+
+¿Cuál es la probabilidad de que una mujer se zurda? o dicho de otro modo, ¿cuál es la probabilidad de que una persona sea zurda, dado que es mujer?
+
+```{r}
+pW_S["Female", "Left"]
+```
+
+### Pearson's Chi-square Test
+
+El **test χ² de Pearson** utiliza el estadístico X² bajo la hipótesis nula de que las variables son independientes. Es decir, $p_{ij} = p_{i} \cdot p_{j}$ para todo $i,j$ cuando $H_{0}$ es vedadera Siendo $\mu_{ij} = n \cdot p_{i} \cdot p_{j}$ la frecuencia esperada bajo $H_{0}$:
+
+$$ X^{2} = \sum \frac{(n_{ij}-\mu_{ij})^{2}}{\mu_{ij}} $$
+
+X² sigue aproximadamente una distribución χ² para tamaños muestrales grandes. El *P value* es el área a la derecha (*right-tail probability*) de X² (dado que grandes valores de X² se corresponden a una mayor distancia de $H_{0}$. La aproximación χ²  mejora para grandes valores de $\mu_{ij}$, (siendo suficiente $\mu_{ij} \ge 5$). Los grados de libertad para una tabla de contingencia $I \times J$ es $(I-1)(J-1)$.
+
+```{r}
+
+recuentos <- table(
+  MASS::survey$Smoke,
+  MASS::survey$Exer
+)
+recuentos
+```
+
+```{r}
+total <- margin.table(recuentos)
+probabilidades <- recuentos / total
+probabilidades
+
+```
+
+```{r}
+margin_smoke <- margin.table(probabilidades, 1)
+margin_smoke
+```
+
+
+```{r}
+margin_exer <- margin.table(probabilidades, 2)
+margin_exer
+
+```
+
+```{r}
+
+mu_ij <- total * (margin_smoke %*% t(margin_exer))
+mu_ij
+
+```
+
+```{r}
+
+X2 <- margin.table((recuentos - mu_ij)^2/mu_ij)
+X2
+
+```
+```{r}
+pchisq(
+  X2,
+  df=6,
+  lower.tail = FALSE
+)
+```
+
+
+```{r}
+chisq.test(recuentos)
+
+```
+
+El *P value* el test nos describe la evidencia contra la hipótesis nula, pero no nos da un indicio de la naturaleza de las diferencias. Para poder ganar conocimiento acerca de lo que está pasando en al tabla, es posible hacer las diferencias celda a celda entre los valores observados y los valores esperados: $n_{ij} - \mu_{ij}$. Sin embargo, estos valores serán más grandes a medida que las celdas tengan valores esperados mayores. Para poder evitar esto, se utilizan los residuos estandarizados, que no son más que la diferencia sobre su error estadístico:
+
+$$\frac{n_{ij}-\mu_{ij}}{\sqrt{\mu_{ij}(1-p_{i})(1-p_{j})}}$$
+
+```{r}
+
+diferencia = recuentos - mu_ij
+diferencia
+
+se = sqrt(mu_ij*( (1-margin_smoke) %*% t(1-margin_exer)))
+
+resid <- diferencia / se
+resid
+
+```
+
+### Fisher's Exact Test 
+
+El test de χ² de Pearson, es un test para tamaños muestrales grandes dado que utiliza una distribución asintótica. Para tamaños de muestra más chicos, en particular para tablas de 2x2, el **test de independencia de Fisher** utiliza la distribución exacta.
+
+Éste último es útil también cuando los valores de frecuencia esperados son bajos. Sin embargo, el test está pensado para un diseño experimental en el que se controlan ambos marginales. El ejemplo clásico es:
+
+```{r}
+
+prediciones <- c(
+  "Leche", "Leche", "Leche", "Te",
+  "Leche", "Te", "Te", "Te")
+real <- c(
+  "Leche", "Leche", "Leche", "Leche",
+  "Te", "Te", "Te", "Te")
+pred_vs_real <- table(
+  prediciones,
+  real
+)
+```
+
+```{r}
+fisher.test(
+  pred_vs_real
+)
+```
+
+```{r}
+
+prediciones <- c(
+  "Leche", "Leche", "Leche", "Leche",
+  "Leche", "Te", "Te", "Te")
+real <- c(
+  "Leche", "Leche", "Leche", "Leche",
+  "Leche", "Te", "Teç", "Te")
+pred_vs_real <- table(
+  prediciones,
+  real
+)
+```
+
+```{r}
+fisher.test(
+  pred_vs_real
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

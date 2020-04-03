@@ -5,6 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(boot)
 ```
 
 ### Unidad I. Variables, distribuciones y pruebas de hipótesis. 
@@ -40,7 +41,7 @@ a una conclusión falsa (tabla de verdad):
 | *p*      | *q*       | *p → q*   |
 |----------|-----------|-----------|
 | *true*   | *true*    | *true*    |
-| **true** | **false** | **false** |
+| **true** | **false** | **false** |git sta
 | *false*  | *true*    | *true*    |
 | *false*  | *false*   | *true*    |
 
@@ -130,19 +131,540 @@ p
 # Usando las funciones incluidas en R
 t.test(
     normal_sample,
-    alternative="greater",
+    alternative="two.sided",
     mu=0,
     )
+```
+
+El *p value* depende de si el test es a una o dos colas, en este caso, como la
+distribución es simétrica alrededor del 0, es obvio que el *p value* para el
+test a dos colas es el doble del *p value* que obtuvimos. Pero calcular el
+*p value* a dos colas no es trivial, principalmente puede ser un problema para
+distribuciones asimétricas. Pero en
+general se toma la idea de doblar el valor del P value menor al testear las dos
+opciones a una cola (es como si hiciéramos una *corrección de Bonferroni* al
+haber realizado dos pruebas).  
+
+
+En particular, para una variable aleatoria $X$, que sigue una determinada
+distribución si $H_0$ es cierta, dado un estimador $x_0$, el *p value* es:
+
+$P(X \geq x|H_0)$ prueba de una cola hacia la derecha y 
+$P(X \leq x|H_0)$ prueba de una cola hacia la izquierda.
+
+```{r}
+par(mfrow=c(1,2))
+my_t <- function(x) {return(dt(x, n-1))}
+
+# p-value for 'greater'.
+curve(
+    my_t,
+    from=-5,
+    to=5,
+    xlab="T",
+    ylab="P",
+    main="Cola derecha")
+
+# Área bajo la curva, 'greater'.
+polygon(
+    c(T_value, seq(T_value, 5, 0.01), 5),
+    c(0, my_t(seq(T_value, 5, 0.01)),0),
+    col = "darksalmon")
+
+# p-value for 'lower'.
+curve(
+    my_t,
+    from=-5,
+    to=5,
+    xlab="T",
+    ylab="P",
+    main="Cola izquierda")
+
+# Área bajo la curva, 'lower'.
+polygon(
+    c(-5, seq(-5,T_value, 0.01), T_value),
+    c(0, my_t(seq(-5,T_value,0.01)),0),
+    col = "darksalmon")
+
+```
+
+Para el test a dos colas (*double-tailed event*):
+$$2 \times min({P(X \leq x|H_0), P(X \geq x|H_0)})$$
+
+
+
+```{r}
+my_t <- function(x) {return(dt(x, n-1))}
+
+# p-value for 'greater'.
+curve(
+    my_t,
+    from=-5,
+    to=5,
+    xlab="T",
+    ylab="P",
+    main="Dos colas")
+
+# Área bajo la curva, 'greater'.
+polygon(
+    c(T_value, seq(T_value, 5, 0.01), 5),
+    c(0, my_t(seq(T_value, 5, 0.01)),0),
+    col = "darksalmon")
+
+
+# Área bajo la curva, 'lower'.
+polygon(
+    c(-5, seq(-5,-T_value, 0.01), -T_value),
+    c(0, my_t(seq(-5,-T_value,0.01)),0),
+    col = "darksalmon")
+```
+
+### Intervalo de confianza
+
+El intervalo de confianza
+es un tipo de estimador por intervalo para un parámetro de la población. Se
+calcula a partir de una o más muestras de la población, y posee un
+**nivel de confianza** que determina qué tan frecuentemente una serie de
+intervalos estimados de la misma manera contiene al parámetro poblacional.
+
+Es importante notar que el intervalo de confianza calculado a partir de una única
+muestra puede no contener al parámetro a estimar, pero aún así es una buena
+estimación intervalar del mismo. Así un intervalo con una confianza del 95%,
+significa que de un número `N` de intervalos calculados, `0.95N` contendrán al
+parámetro a estimar. No debe interpretarse nunca como un intervalo con una
+probabilidad del 95% de contener el parámetro.
+
+El intervalo para una media se calcula utilizando el valor crítico de $t$ si la
+desviación estándar proviene de la muestra o $Z$ si se conoce la desviación
+estándar de la población. Los valores críticos son aquellos valores de $t$ o $Z$
+que dejan un área de $\frac{\alpha}{2}$ hacia la izquierda del menor valor
+crítico, y el mismo hacia la derecha (dejando un área $1-\alpha$ en el
+intervalo).
+
+Así el valor crítico, utilizando la distribución T de Student con $n-1$ grados
+de libertad, para una confianza del 95% ($\alpha = 5%$) puede calcularse con la
+función *qt* (para calcular cuantiles).
+
+```{r}
+t_left <- qt(0.05/2, df = n-1)
+t_right <- qt(1-0.05/2, df = n-1)
+
+t_left
+t_right
+
+```
+
+
+Los valores son iguales en módulo dada la simetría de la distribución T de
+Student. Siendo $t$ ese módulo, el intervalo de confianza para la media de la
+población sería:
+
+$$(\bar{x}-t\frac{s}{\sqrt{n}} , \bar{x}+t\frac{s}{\sqrt{n}})$$
+
+```{r}
+c(
+    mean(normal_sample + t_left*sd(normal_sample)/sqrt(n)),
+    mean(normal_sample + t_right*sd(normal_sample)/sqrt(n))
+)
+```
+
+#### Nivel de confianza
+
+```{r}
+intervalos <- sapply(
+    c(1:1000),
+    function(x){
+        normal_sample <- rnorm(5, mean=0.1, sd=0.1)
+        t.test(normal_sample, alternative="two.sided", mu=0)$conf.int
+    }
+)
+matplot(
+    x=intervalos[,1:20],
+    y=rbind(c(1:20), c(1:20)),
+    type="l",
+    col = "red",
+    lty=1,
+    ylab="Rangos",
+    xlab="Intervalos"
+)
+abline(v=0.1)
+```
+
+```{r}
+contains_mu <- intervalos[1,] < 0.1 & 0.1 < intervalos[2,]
+mean(contains_mu)
+```
+
+### Bootstrap
+
+**Bootstrap** nos permite obtener estimaciones puntuales o por intervalos, en
+particular, intervalos de confianza, para parámetros poblacionales sin necesidad
+de conocer la distribución subyacente.
+
+Básicamente la técnica de *bootstrap* se basa en hacer un muestreo aleatorio con
+reemplazo de nuestra muestra, calculando el parámetro de interés en cada
+muestra.
+
+La muestra de la que se parte debe ser una muestra representativa, en particular
+debe complir con ser una muestra de valores independientes e idénticamente
+distribuidos. Si bien la distribución de la variable de interés en la población
+no forma parte de los supuestos del método, una implementación *naïve* puede
+generar resultados incorrectos con distribuciones con colas pesadas. *Bootstrap*
+también puede presentar problemas con distribuciones discretas y poco densas.
+
+
+```{r}
+my_sample <- c(
+    rnorm(50, 3, 2),
+    runif(50, 0,6)
+)
+
+replicates <- replicate(
+    1000,
+    sample(
+        x = my_sample,
+        size=50,
+        replace=TRUE
+    )
+)
+
+means <- apply(replicates, 2, mean)
+hist(means, 100)
+
+quantile(means, 0.025)
+
+quantile(means, 0.975)
+
+```
+
+Esta implementación es muy sencilla, el paquete de R *boot* ofrece implementaciones más complejas.
+
+```{r}
+mmean <- function(d, i) {
+    mean(d[i])
+}
+my_sample.boot <- boot(
+    my_sample,
+    mmean,
+    R = 100,
+    sim = "ordinary",
+)
+boot.ci(
+    my_sample.boot,
+    conf = c(0.90, 0.95),
+    type = c("norm", "basic", "perc", "bca")
+)
+```
+
+### Prueba de bondad de ajuste a una distribución.
+
+Muchas veces es necesario saber cuando los datos de una muestra se ajustan a una determinada distribución. En ese sentido uno se puede preguntar si la distribución observada (en general, para una muestra) es igual, o no, a una distribución esperada (en general, para la población). Para testear ésto, disponemos de las siguientes pruebas:
+
+
+
+#### Prueba χ²
+
+La prueba χ² se puede utilizar para testear la bondad de ajuste de cualquier distribución univariada para la cual se pueda calcular la *CDF*. Dado que requiere datos en grupos, por lo que puede utilizarse para testear distribución para datos categóricos (a diferencia de  *KS*). Para poder utilizar el test en una distribución de probabilidad para datos continuos, debemos [discretizar/agrupar] los datos de la misma manera en que lo hacemos al calcular un histograma.
+
+Debemos tener en cuenta q el test es sensible a la elección de los *bins*. Una desventaja de este test es que requiere de un tamaño muestral de al menos 1000 para que la aproximación χ² sea válida.
+
+
+```{r}
+observed <- rbinom(1000, 100, 0.05)
+hist(observed, 100)
+```
+
+```{r}
+xs <- seq(0, max(observed), 1) 
+observed_cdf <- ecdf(observed)
+plot(
+    x=xs,
+    y=observed_cdf(xs),
+    pch=19,
+    col="red")
+points(
+    x=xs,
+    pbinom(q=xs, size = 100, p=0.055)
+)
+
+```
+
+Dadas $k$ categorías, para la categoría $i$, $O_i$ representa la frecuencia observada para esa categoría, mientras $E_i$ representa la frecuencia esperada (nuestra hipótesis nula). 
+
+$$ χ^{2} = \sum_{i=1}^{k}{\frac{(O_i - E_i)^{2}}{E_i}} $$
+
+Ésta última, en el caso de haber generado *bins* para una variable continua, la calculamos usando la *CDF* evaluada en el extremo superior *bin*, menos su valor en el extremo inferior del *bin*. N es el tamaño de la muestra.
+
+$$Ei=N(CDF(X_f)−CDF(X_i))$$
+
+
+```{r}
+
+Oi <- 1000 * observed_cdf(xs)
+Ei <- 1000 * pbinom(q=xs, size = 100, p=0.055)
+
+chi2 <- sum((Oi - Ei)^2/Ei)
+
+df = 15 # (16 bins - 1) * (2 cond - 1)
+
+pchisq(
+    chi2,
+    df,
+    lower.tail=FALSE
+    )
+
+```
+
+#### Prueba de Kolmogórov-Smirnov
+
+La prueba de Kolmogorov-Smirnov es otra prueba de ajuste a una distribución que usa la función de densidad acumulada (*CDF*).
+
+En particular, su estadístico, $D$ mide la distancia entre la *CDF* de la distribución, que suponemos correcta en la hipótesis nula, y la *ECDF* de la muestra. En particular, el estadístico $D$ es el valor máximo de las diferencias. Si la función de densidad acumulada empírica es igual a la función de densidad de nuestra distribución a ajustar, el estadístico $D$ será 0 ($H_0$: $D = 0$).
+
+Éste es un test paramétrico, por lo que hace pocas supuestos, pero debe tenerse en cuenta que la distribución que suponemos en nuestra $H_0$ no puede tener parámetros libres, debe estar completamente determinada y debe ser **continua**. Es sensible tanto a cambios en la ubicación como en la forma de la distribución, pero no tiene gran poder, por lo que puede requerir un tamaño muestral grande para rechazar correctamente la hipótesis nula.
+
+
+```{r}
+my_sample <- rnorm(100, 2, 2)
+ks.test(my_sample, "pnorm",2,2)
+
+my_other_sample <- runif(10000, 0, 4)
+ks.test(my_sample, my_other_sample)
+```
+
+### Comparación de dos poblaciones.
+
+```{r}
+head(sleep)
+```
+
+#### ¿Son variables independientes con distribución normal?
+
+```{r}
+shapiro.test(
+    sleep$extra[sleep$group==1]
+)
+shapiro.test(
+    sleep$extra[sleep$group==2]
+)
+
+```
+
+#### Tests de igualdad de varianza
+
+```{r}
+boxplot(
+    extra ~ group,
+    sleep)
+```
+```{r}
+sapply(
+    X=unique(levels(sleep$group)),
+    FUN=function(g){
+        var(sleep$extra[sleep$group==g])
+    }
+)
+```
+
+Todos los **test de igualdad de varianza** tienen como hipótesis nula que las varianzas son iguales.  
+  
+El **test F de igualdad de varianzas** tiene como supuesto que las distribuciones son normales.
+
+```{r}
+var.test(
+    sleep$extra[sleep$group==1],
+    sleep$extra[sleep$group==2]
+)
+
+```
+
+El **test de Bartlett** es sensible a las desviaciones de la normalidad, por lo que no es recomendable usarlo con distribuciones no normales.
+
+```{r}
+bartlett.test(
+    extra ~ group,
+    sleep
+)
+```
+
+El **test de Levene** es robusto ante distribuciones no normales. 
+
+```{r}
+library("car")
+leveneTest(
+    extra ~ group,
+    sleep)
+```
+
+#### Test de Student para dos muestras
+
+El test de Student asume que las varianzas son iguales, pero existe una alternativa a este test, tste de Welch, que no requiere este asumpción.
+
+```{r}
+sample_1 <- rnorm(15, 2, 1)
+sample_2 <- rnorm(15, 3, 1)
+
+t.test(
+    x = sample_1,
+    y = sample_2,
+    var.equal = TRUE
+)
+
+t.test(
+    x = sample_1,
+    y = sample_2,
+    var.equal = FALSE
+)
+```
+
+#### Test de Student para muestras apareadas
+
+Asume que los valores de ambas muestras corresponden a los mismos individuos en dos condiciones diferentes. Por ejemplo, antes y después de un tratamiento.
+
+```{r}
+sample_1 <- rnorm(25, 0, 1)
+sample_2 <- sample_1 + runif(25, 0, 0.02)
+
+sapply(
+    c(TRUE, FALSE),
+    FUN=function(x) t.test(sample_1, sample_2, paired=x)
+)
 
 
 
 ```
 
+### Alternativas no paramétricas
+
+#### Mann Whitney
+
+- Todas las observaciones son independientes en ambos grupos.
+- La hipótesis nula asume que las distribuciones de las dos poblaciones son iguales.
+- La hipótesis alternativa es que las dos distribuciones no son iguales.
+
+```{r}
+    sample_1 <- rexp(25, 1)
+    sample_2 <- rexp(25, 2)
+    t.test(
+        sample_1,
+        sample_2
+    )
+    wilcox.test(
+        sample_1,
+        sample_2
+    )
+
+```
+
+#### Wilcoxon signed rank text
+
+```{r}
+sample_1 <- rexp(25, 1)
+sample_2 <- sample_1 + runif(25,0,.5)
+wilcox.test(
+    sample_1,
+    sample_2
+)
+wilcox.test(
+    sample_1,
+    sample_2,
+    paired=TRUE)
+
+```
+
+
+#### Kolmogorov-Smirnov
+
+```{r}
+sample_1 <- rexp(25, 1)
+sample_2 <- rexp(25, 4)
+ks.test(
+    sample_1,
+    sample_2
+)
+```
+
+#### Test de signos
+
+En muestras pareadas, si la $H_0$ es verdad,
+el número de veces que la diferencia entre pares es positiva debe distribuirse como una binomial con probabilidad 0.5.
+
+```{r}
+sample_1 <- rexp(25, 1)
+sample_2 <- sample_1 + runif(25, -3, 3)
+
+positives <- sum(sample_2>sample_1)
+negatives <- sum(sample_2<sample_1)
+
+pbinom(
+    c(positives,negatives),
+    size = 25,
+    prob = 0.5,
+    lower.tail = FALSE
+)
+
+sample_1 <- rexp(25, 1)
+sample_2 <- sample_1 + runif(25, -1, 3)
+
+positives <- sum(sample_2>sample_1)
+negatives <- sum(sample_2<sample_1)
+
+pbinom(
+    c(positives,negatives),
+    size = 25,
+    prob = 0.5,
+    lower.tail = FALSE
+)
+
+
+```
+
+#### Test de la mediana
+
+Es un caso especial de la prueba de **chi-cuadrado**. Esta prueba posee poco poder.  
+Se calcula la mediana para todos los datos ($x$ e $y$), estableciéndose dos grupos (por encima o por debajo de ésta). Luego se arma una tabla de contingencia con esta nueva variable versus las dos variables anteriores ($x$ e $y$).
+
+
+```{r}
+sample_1 <- rbinom(25, 15, 0.04 )
+sample_2 <- rbinom(25, 15, 0.1 )
+m <- median(c(sample_1, sample_2))
+
+chisq.test(
+    table(
+        c(sample_1, sample_2)>=m,
+        rep(1:2, each=25)))
+
+```
+
+#### Test de Fischer
+
+Se usa si se tienen dos variables nominales, y se quiere saber si las proporciones de una variable se mantiene entre los valores de la otra variable.
+
+
+```{r}
+sample_1 <- rbinom(25, 15, 0.04 )
+sample_2 <- rbinom(25, 15, 0.1 )
+fisher.test(
+    table(
+        c(sample_1, sample_2)>=m,
+        rep(1:2, each=25))
+)
+
+```
+
+#### McNemar test
+
+Se usa para buscar diferencias en tablas de contingencia cuando se tienen muestra aparedas.
 
 
 
-
-
-
-
-
+```{r}
+sample_1 <- rbinom(25, 15, 0.04 )
+sample_2 <- sample_1 + runif(25, 2, 4 )
+mcnemar.test(
+    table(
+        c(sample_1, sample_2)>=m,
+        rep(1:2, each=25))
+)
+```

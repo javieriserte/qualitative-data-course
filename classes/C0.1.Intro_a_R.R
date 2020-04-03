@@ -3,8 +3,15 @@
 #-------------------------------------------- Elementos básicos de R ------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
+<<<<<<< HEAD
 #En el día de hoy vamos a comenzar viendo los elementos básicos de la sintaxis de R
 #Entre las muchas cosas que podemos con R, lo podemos usar como si fuera una calculadora.
+=======
+# En el día de hoy vamos a comenzar viendo los elementos básicos de la 
+# sintaxis de R. 
+# Entre las muchas cosas que podemos con R, lo podemos usar como si 
+# fuera una calculadora.
+>>>>>>> 56d2ad41003c4758f9b468483fe35b777bf35061
 
 2+10
 315/7

@@ -1,0 +1,590 @@
+---
+title: "Unidad 0.1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Elementos básicos de R 
+
+En el día de hoy vamos a comenzar viendo los elementos básicos de
+lasintaxis de R. 
+Entre las muchas cosas que podemos con R, lo podemos usar como si 
+fuera una calculadora.
+
+```{r}
+2+10
+315/7
+89*3
+sqrt(99225)
+21^pi
+```
+# Tipos de Datos
+
+En R todo el tiempo vamos a estar trabajando con datos, por lo
+cual una de las primeras cosas que debemos hacer es crear los 
+distintos "objetos" que van a contener nuestros datos. Por 
+ejemplo podemos crear un objeto que se llame "cursos".
+
+```{r}
+cursos <- 3
+```
+
+En R hay varios tipos de objetos: numeric, integer, character,
+logical, ... Para saber de qué clase es un objetos  podemos usar
+la función **class**.
+
+```{r}
+# ?class
+class(cursos)
+```
+
+con los objetos en R se pueden realizar una gran cantidad de
+operaciones. Por ejemplo, imaginen que en la segunda parte del
+año damos 2 cursos más, ahora podríamos crear un segundo objeto
+**cursos2**.
+
+```{r}
+cursos2 <- 2
+```
+
+Si lo que queremos es a partir de los dos objetos anteriores
+saber cuántos cursos de Bioinformática se dieron en el año 
+podemos simplemente sumar los objetos "cursos" y "cursos2".
+
+```{r}
+cursos + cursos2
+cursos_totales <- cursos + cursos2
+cursos_totales
+```
+Por otro lado, podemos convertir los objetos en R de una clase a
+otra, aunque con algunas excepciones....
+
+```{r}
+as.integer(cursos_totales)
+as.character(cursos_totales)
+as.logical(cursos_totales)
+```
+
+# Estructuras de Datos
+
+En R podremos encontrar objetos que contengan más de un dato como
+puede ser una tabla, una matriz o un vector.
+
+```{r}
+cursos <- c("Linux", "Python", "R")
+horas  <- c(8, 12, 20)
+cursos
+horas
+```
+
+De la misma manera que podemos realizar cálculos con números
+también lo podemos hacer con vectores.
+
+```{r}
+horas + 2
+horas*horas
+horas + c(1, 2, 3, 4,5,6)
+```
+
+Los vectores sólo aceptan que todos los elementos que sean
+guardados en los mismos sean de la misma clase.
+
+```{r}
+cs <- c(2, 1, 5, "R") #¿Qué ocurrió con el 2?
+cs
+```
+
+En cambio, las listas nos permiten contener elementos de
+diferentes clases en el mismo objeto.
+
+```{r}
+cs <- list("Linux", "Python", "R", c(1,2,3))
+cs[2:4]
+class(cs[2:4]) #¿De que clase es el primer elemento de la lista?
+cs[[1]]
+class(cs[[1]]) #¿De que clase es el cuarto elemento de la lista?
+```
+
+En R también encontramos estructuras de datos que son de dos
+dimensiones que nos van a permitir trabajar con tablas (a las que
+vamos a llamar data.frames) y matrices.
+
+A partir de los dos vectores que creamos anteriormente vamos a
+generar un data.frame
+
+```{r}
+horas
+cursos
+carga_horaria <- data.frame(
+  horas,
+  cursos,
+  stringsAsFactors = FALSE)
+carga_horaria
+
+class(carga_horaria)
+str(carga_horaria)       # la función str nos permite analizar
+                         # la estructura de los datos.
+dim(carga_horaria)       # dim devuelve las dimensiones del
+                         # data.frame.
+rownames(carga_horaria)  # colnames nos devuelve los nombres de
+                         # las columnas, de forma similar existe
+                         # rownames.
+rownames(carga_horaria) <- c("Fila1", "Fila2", "Fila3")
+```
+
+También podemos agregar más columnas o filas a un dataframe.
+
+```{r}
+# ?cbind
+# ?rbind
+profes <- c("eli", "javi", "andres")
+
+carga_horaria2 <- cbind( # Fijense que estoy pisando la variable
+  carga_horaria,         # vieja agregando una nueva columna.
+  profes) 
+carga_horaria2
+```
+
+```{r}
+class(carga_horaria2$profes)
+```
+
+```{r, error=TRUE}
+f4 <- list(
+  10, 
+  "Biologia de sistemas")
+rbind(carga_horaria, f4) # de forma similar puedo agregar filas
+                         # con rbind
+carga_horaria
+```
+
+```{r}
+# Aunque es necesario tener cuidado si estamos agregando un 
+# nuevo valor a una columna tipo factor.
+f4 <- list(
+  10,
+  "Biologia de sistemas",
+  "Ariel")
+rbind(carga_horaria2, f4)
+
+class(carga_horaria[, 2])
+carga_horaria2
+```
+
+```{r}
+# Una forma de solucionarlo es convertir la columna con factors
+# a character. Otra es modificar los niveles de la columna para
+# contenga al nuevo valor.
+carga_horaria2 <- cbind(
+  carga_horaria,        
+  profes) 
+
+carga_horaria2$profes <- factor( # Modifico los niveles del los
+  x = carga_horaria2$profes,     # factores de la columna.
+  levels = c(
+    levels(carga_horaria2$profes),
+    "Ariel"
+  )
+)
+
+f4 <- list(
+  10,
+  "Biologia de sistemas",
+  "Ariel")
+carga_horaria2 <- rbind(
+  carga_horaria2,
+  Fila4=f4)
+carga_horaria2
+
+```
+
+
+Las matrices de forma similar a los vectores, sólo van a permitir
+contener un solo tipo de dato.
+```{r}
+# ?matrix
+# ?seq
+v1 <- c(1, 2, 3)
+v2 <- c(4, 5, 6)
+v3 <- c(7, 8, 9)
+
+m1 <- matrix(
+  data = c(v1, v2, v3),
+  nrow = 3,
+  ncol=3,
+  byrow = TRUE)
+m1
+```
+
+```{r}
+v <- seq(1, 9)
+m2 <- matrix(
+  data = v,
+  nrow = 3,
+  ncol = 3,
+  byrow = FALSE)
+m2
+
+```
+
+# Subsetting
+
+Vamos a trabajar con un dataset que se encuentra dentro del
+paquete 'datasets' que se llama PlantGrowth, que contiene los
+datos de peso seco de plantas crecidas bajo distintas
+condiciones.
+
+```{r}
+plantas <- datasets::PlantGrowth # al dataset lo nombro como
+                                 # "plantas"
+head(plantas)     # Nos muestra las primeras filas del dataset
+colnames(plantas)
+dim(plantas)
+str(plantas)
+```
+
+```{r}
+# ?PlantGrowth
+class(plantas$group)  # Factor es una clase de escructura de
+                      # datos similar a un vector que se reserva
+                      # para asignar variables cualitativas.
+levels(plantas$group) # Los niveles son los distintos valores que
+                      # puede tomar los elementos dentro del
+                      # objeto factor, en este caso serán los
+                      # distintos tratamiento a los que se
+                      # sometieron las plantas.
+```
+
+```{r}
+plantas$weight       # Imprimir en pantalla la primera columna
+                     # del dataset. 
+plantas[, 1]         # otra forma de hacer lo mismo.
+plantas[, "weight"]  # y otra más...
+
+plantas[15, 1]  # Imprimo en pantalla el valor que toma el peso 
+                # (primera columna) en la planta número 15 el
+                # primer valor entre corchetes indica a qué fila
+                # quiero acceder, y el segundo valor a qué
+                # columna.
+```
+
+¿cómo haría si quiero que me muestre en pantalla solamente las
+filas que corresponden al tratamiento 2?
+
+```{r}
+# ?which
+which(plantas$group == "trt2")
+
+plantas[                   
+  which(                    # con which le estoy preguntando 
+    plantas$group == "trt2" # cuáles son las filas en las que en
+    ),                      # la columna "group" el valor sea
+  ]                         # igual a "trt2"
+                                          
+```
+
+¿Y si quiero que me muestre las plantas que pesan más que 5.5?
+```{r}
+plantas[which(plantas$weight > 5.5), ]
+
+# Otra manera de hacer lo mismo,
+# pero antes genero un vector 
+# lógico que va a evaluar en
+# cada fila si el valor de peso
+# es mayor a 5.5 o no.
+mayor5.5 <- plantas$weight > 5.5 
+
+plantas[
+  mayor5.5, # Uso ese vector para subsettear el 
+            # data.frame
+  ]
+```
+
+Ahora vamos a hacer lo mismo pero con dos condiciones: 
+Voy a querer imprimir en pantalla las plantas que pertenecen al
+tratamiento 2 y que pesen más de 5.5.
+
+```{r}
+trat2 <- plantas$group == "trt2"
+plantas[mayor5.5 & trat2, ]
+plantas[which(plantas$weight > 5.5 & plantas$group == "trt2"), ]
+
+# también puedo guardar la tabla subseteada como un nuevo objeto
+plantas2 <- plantas[
+  which(plantas$weight > 5.5 & plantas$group == "trt2"),
+  ]
+plantas2
+```
+
+En resumen, se puede subsetear un data.frame usando:
+
+- El símbolo pesos para recuperar una columna.
+- Con corchetes:
+  - Con un vector de índices numérico.
+  - Con un vector de nombres de filas o columnas.
+  - Con un vector de valores lógicos.
+
+
+Ahora vamos a ver cómo se subsetea una lista. En las listas, al
+poder contener objetos muy variados, hay que tener ciertas
+consideraciones a la hora de subsetear
+
+
+```{r}
+tecnicas_BioMol <- list(
+  "Southern",
+  "Western" ,
+  c("Northern", "RNASeq", "RTPCR")
+  )
+
+# ¿cuántos elementos tiene la lista? ¿por qué?
+length(tecnicas_BioMol)     
+
+# quiero imprimir el primer elemento de la lista...
+tecnicas_BioMol[1]
+# pero...
+class(tecnicas_BioMol[1])   
+
+```
+
+```{r}
+tecnicas_BioMol[1]
+#¿cuál es la diferencias con el paso anterior?
+tecnicas_BioMol[[1]]
+class(tecnicas_BioMol[[1]])
+
+# ¿qué ocurre cuando tengo un vector dentro de una lista?
+tecnicas_BioMol[3]
+tecnicas_BioMol[[3]]
+# para llegar al elemento que se encuentra en la 2da posición en
+# la lista.
+tecnicas_BioMol[[3]][2]
+```
+
+También puedo nombrar a cada elemento de la lista y usarlos para
+subsetear:
+
+```{r}
+tecnicas_BioMol <- list(
+  DNA = "Southern",
+  Proteinas = "Western",
+  RNA = c("Northern", "RNASeq", "RTPCR"))
+  tecnicas_BioMol$RNA
+```
+
+Estructuras de Control
+
+Vamos a usar un ejemplo: queremos saber cuanto vale la suma de
+los primeros 100 números naturales para eso tenemos que tener una
+variable que vaya acumulando el resultado de la suma en cada
+iteración (n),y otra variable que vaya recorriendo los números
+desde 1 hasta 100 (i).
+
+```{r}
+n=0
+for (i in 1:100) {
+  n=n+i
+}
+n
+```
+
+¿Hay alguna forma de hacer lo mismo pero sin utilizar un **for**?
+
+```{r}
+sum(1:100)
+```
+
+Queremos saber si un número es par o impar, entonces debemos usar
+la estructura **if** - **else**.
+
+```{r}
+numero = 10
+if (numero%%2 == 0){
+  print("El número es par")
+}else{
+  print("El número es impar")
+}
+```
+
+Esta es otra forma pero imprimiendo de otra manera los resultados
+
+```{r}
+# ?paste
+numero = 10
+if (numero%%2 == 0){
+  print(paste("El número", numero, "es par"))
+}else{
+  print(paste("El número", numero, "es impar"))
+}
+```
+
+
+Ahora queremos guardar en una variable la suma de los números
+pares desde 1 a 100 y en otra variable la suma de los números
+impares. En este caso vamos a necesitar un "if" que me permita
+saber si un número es par o impar la expresión %% me permite
+saber el resto de la división, por ej. 48%%2 va a devolver 0,
+por que 48 es divisible por 2.
+
+```{r}
+pares   = 0
+impares = 0
+reg_pares = c()
+for (i in 1:100){
+  if (i%%2 == 0){
+    pares = pares + i
+    reg_pares <- c(reg_pares, pares)
+    }
+  else{
+    impares = impares +i
+  }
+}
+pares
+impares
+reg_pares
+```
+
+Otra forma de hacerlo, sin usar el **if**:
+
+```{r}
+impares <- sum(
+  seq(
+    from = 1,
+    to = 100,
+    by = 2))
+impares
+
+pares <- sum(
+  seq(
+    from = 0,
+    to = 100,
+    by = 2))
+pares
+```
+# Crear Funciones
+
+Primer ejemplo sencillo para definir una función en R:
+```{r}
+sumar <- function(x, y) {
+  x+y
+}
+sumar(2, 3)
+```
+
+
+```{r}
+mi_funcion <- function(x, y){
+  if(x>0) {
+    return(x + y)
+  } else {
+    return(2*x)
+  }
+}
+mi_funcion(2, 3)
+total <- mi_funcion(-4, 3)
+total <- mi_funcion(total, 10)
+total
+```
+
+
+Otro ejemplo pero usando un for dentro de la función...
+
+```{r}
+sumar_hasta <- function(n){
+  suma_i <- 0
+  for(i in 1:n){
+    suma_i = suma_i + i
+  }
+  return(suma_i)
+}
+
+sumar_hasta(100)
+sumar_hasta(1010)
+```
+
+# Importación de Paquetes
+
+```{r, eval=FALSE}
+# Importación desde CRAN
+install.packages("moments")
+library(moments)
+```
+
+# Exportación e Importación
+
+Vamos a exportar la tabla del experimento de crecimiento de 
+plantas filtrada por tipo de tratamiento (trt2) y por peso 
+(plantas con peso mayor a 5.5)
+
+```{r, eval=FALSE}
+? write.csv
+write.csv(x = plantas2, file = "~/plantas_filtradas.csv")
+```
+
+También se puede exportar en un tipo de archivo especial que 
+permite guardar en un solo archivo uno o más objetos de R. Vamos
+a exportar tanto la tabla original como la tabla filtrada en el
+archivo "plantas_filtradas.RData"
+
+```{r, eval=FALSE}
+?save
+save(plantas, plantas2, file = "~/plantas_filtradas.RData")
+```
+
+Vamos a borrar los objetos que acabamos de guardar para ver cómo
+los importamos de nuevo a nuestra sesión.
+
+```{r}
+rm(plantas, plantas2)  # Este comando eliminará de nuestra sesión
+                       # estos dos objetos
+```
+
+Ahora los volvemos a importar desde el archivo
+*plantas_filtradas.RData* 
+```{r, eval=FALSE}
+load("~/plantas_filtradas.RData") 
+```
+
+#  Ejercicios
+
+1. A partir del paquete dataset generen un data.frame "air" que
+   contiene datos climáticos de la ciudad de Nueva York, usando
+   el siguiente comando: air <- datasets::airquality.
+    a. Imprime en pantalla solamente las primeras filas del
+       data.frame y luego las últimas. Ayuda: ?head, ?tail.
+    b. Imprime en pantalla todos los valores correspondientes con
+       la Temperatura registrada y luego solamente el valor de
+       Temperatura que se registró el tercer día.
+    c. Seleccioná todas las filas de air del mes de mayo.
+    d. ¿Qué día fue en el que hubo menor radiación solar?
+       Ayuda: ?which.min
+    e. ¿Cuál fue la temperatura el 27 de Agosto?
+       Ayuda: ?which, & (and)
+    f. Seleccioná todas las filas de air del mes de mayo cuya
+       radiación solar sea mayor a 150.
+    g. Genera un nuevo data.frame llamado "calor" que contenga la
+       información de los días en los que hizo más de 90 °F.
+       Utilizando la función table contesta a qué meses pertenecen
+       los días más calurosos.
+    h. La temperatura en el data.frame está expresada en grados
+       Fahrenheit, convierte la columna de temperaturas para que
+       las mismas se expresen en grados Celsius.
+       Ayuda: °C = (°F - 32)/1.8
+    i. Elimina las filas que tienen al menos un valor NA.
+       (ayuda: na.omit)
+
+2. Generar una matriz de 5x10. Colocar dentro de cada posición la
+   suma de la fila y de la columna de esa posición.
+    a. Utilizá un for dentro de otro for.
+    b. No utilizar for.
+
+3. Generar una matriz de 2x2 con números enteros aleatorios.
+   Generar otra matrix de 1x2 con números enteros aleatorios.
+    a. Calcular el producto matricial de las dos matrices, usando
+       el operador %*%
+    b. Escribir una función que calcule el producto matricial de
+       las dos matrices. Usando for anidados.
+    

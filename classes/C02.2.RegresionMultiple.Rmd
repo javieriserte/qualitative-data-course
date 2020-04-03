@@ -1,0 +1,446 @@
+---
+title: "Unidad 2.2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ridge)
+library(car)
+```
+
+# Unidad II. Regresiones y reducción de dimensionalidad.
+
+## Regresión Lineal Múltiple por el método de los Mínimos Cuadrados.
+
+- Examen de los residuos. Prueba de normalidad de los residuales. 
+- Prueba de homogeneidad de varianza. 
+- Mínimos Cuadrados Ponderados. 
+- Observaciones extremas. 
+- Búsqueda de la mejor ecuación de regresión. Stepwise regression
+
+### Regresión Lineal Múltiple
+
+Vamos a simular un modelo lineal completo.
+
+```{r}
+# Simulación de las variables aleatorias.
+nvars <- 2
+nvalues <- 10
+variables <- replicate(nvars, {runif(nvalues)})
+```
+
+```{r}
+# Simulación de la intersección
+alpha <- runif(1)
+alpha
+```
+
+```{r}
+# Simulación de la intersección
+betas <- runif(nvars)
+betas
+```
+
+```{r}
+errors <- 0.05 * runif(nvalues)
+```
+
+```{r}
+Y <- alpha + variables %*% betas + errors
+Y
+```
+
+En R, la función *lm* permite hacer regresiones de cuadrados mínimos para modelos lineales.
+
+
+```{r}
+my_model <- lm(Y ~ variables[,1] + variables[,2])
+my_model
+coefficients(my_model)
+residuals(my_model)
+summary(my_model)
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(
+  x=Y,
+  y=my_model$fitted.values,
+  main="Valores vs predicción",
+  xlab="Valores",
+  ylab="Predicciones",
+  col="darkblue",
+  pch=19
+)
+
+hist(
+  my_model$residuals,
+  main="Residuales",
+  xlab="residuales",
+  col="salmon"
+)
+```
+
+```{r}
+glm(
+  Y ~ variables[,1] + variables[,2]
+)
+```
+
+#### Coeficientes de determinación
+
+Es el valor $R^2$ de la regresión. Es la proporción de la varianza de la variables de respuesta que puede ser predicha a partir de las variables explicativas.
+
+El valor de $R^2$ varía entre 0 y 1. Cuanto mayor es, menos incerteza se tiene
+de los valores reales a partir del modelo. Es decir, mejor es la predicción.
+
+\[
+  \text{sum of squares of the data} = SS_{data} = \sum_i{(y_i-\bar{y})^2} \\
+  \text{sum of squares of prediction} = SS_{pred} = \sum_i{(fit(y_i)-\bar{y})^2} \\
+  R^2 = \frac{SS_{pred}}{SS_{data}}
+\]
+
+```{r}
+# Calculo la media de los valores observados
+mean_y <- mean(Y)
+
+# Calculo la suma de cuadrados de las observaciones
+ss_data <- sum((Y-mean_y)^2)
+
+# Calculo la suma de cuadrados de las predicciones
+ss_pred <- sum((my_model$fitted.values-mean_y)^2)
+
+# Calculo el coeficiente de determinación
+R2a <- ss_pred/ss_data
+R2a
+
+# Extraigo el coeficiente de determinación del modelo.
+R2b <- summary(my_model)$r.squared
+R2b
+```
+
+Veamos como cambia el $R^2$ con el error del modelo.
+
+```{r}
+nvars <- 2
+nvalues <- 50
+variables <- replicate(nvars, {runif(nvalues)})
+
+alpha <- runif(1)
+alpha
+
+betas <- runif(nvars)
+betas
+
+par(mfrow=c(2,2))
+for (i in c(0.05, 0.2, 0.5, 1)) {
+  errors <- i * runif(nvalues)
+  Y <- alpha + variables %*% betas + errors
+  my_model <- lm(Y ~ variables)
+  plot(
+    Y ~ my_model$fitted.values,
+    main=paste("R2", round(summary(my_model)$r.squared, 4))
+  )
+}
+```
+
+#### Residuos
+
+Los residuos es la diferencia entre los valores observados y los valores
+predichos.
+
+```{r}
+
+residuos = Y - fitted.values(my_model)
+
+res <- data.frame(
+  "a mano"= residuos,
+  "del modelo"= my_model$residuals
+)
+head(res)
+
+```
+
+
+#### Supuestos
+
+- **Linealidad**: Si no se cumple se comete un error de especificación, dado que el modelo será incorrecto. En el caso de una o dos variables independientes, ayuda observar un gráfico de dispersión en busca de una tendencia lineal (línea, plano).   
+
+- **Independencia de los residuos**: Los residuos no deben estar correlacionados (deben ser una variable aleatoria). El *estadístico de Durbin-Watson* puede ayudar en la detección de autocorrelaciones.  
+
+- **Homocedasticidad**: Igualdad de varianza para cada valor o grupo de valores de la/s variable/s independiente/s  
+
+- **Normalidad**: Para cada valor o grupo de valores de la/s variable/s independiente/s los residuos se distribuyen de manera normal con $\mu = 0$   
+
+- **No-colinealidad**: Las variables independientes no pueden ser combinaciones lineales unas de otras, no debe haber correlación entre ellas.   
+
+### Mínimos Cuadrados Ponderados.
+
+En el caso de no cumplirse con la homocedacia, es posible darle a cada observación un peso inversamente proporcional a la varianza para ese valor o grupo de valores de la/s variable/s independiente/s en una regresion por minimos cuadrados ponderados.
+
+Lo óptimo es conocer de antemano cual es la varianza de cada medición. Por ejemplo si medimos cada dato con una herramienta diferente y conocemos su error. Sino existen maneras de determinar los posibles valores de la varianza (o de un estimador robusto correlacionado con ésta) con respecto a las variables independientes.  
+
+```{r}
+nobs <- 30
+nvars <- 1
+values <- replicate(nvars, {runif(nobs)})
+beta <- 4
+alpha <- 1
+
+# Acá estamos introduciendo la
+# heterocedasticidad
+errors <- rnorm(nobs, 0, 1) * values
+
+Y <- alpha + values*beta + errors
+
+my_model <- lm(
+  formula = Y ~ values
+)
+
+plot(values, Y)
+abline(my_model)
+
+summary(my_model)
+beta
+```
+```{r}
+plot(
+  values,
+  my_model$residuals)
+```
+
+Vamos a modelar los residuos. Primero vamos a estimar la varianza localmente usando bins.
+
+```{r}
+my_bins <- as.data.frame(cbind(
+  start=seq(0,0.9,0.05),
+  midpoint=seq(0,0.9,0.05)+0.05,
+  end=seq(0,0.9,0.05)+0.1
+))
+
+mad_bins <- apply(
+  my_bins,
+  MARGIN = 1,
+  FUN = function(x) {
+    r <- residuals(my_model)
+    r <- r[x["start"]<values & values<=x["end"]]
+    mad(r)
+  }
+)
+
+my_bins <- cbind(
+  my_bins,
+  mad=mad_bins
+)
+```
+
+```{r}
+plot(
+  x=my_bins$midpoint,
+  y=mad_bins
+)
+```
+
+
+Ahora, generamos un modelo lineal, con el resultado de los bins.
+
+```{r}
+res_mad_model <- lm(
+  mad ~ midpoint,
+  data=my_bins
+)
+
+predicted_mad <- predict.lm(
+  res_mad_model,
+  data.frame(
+    midpoint=values
+    )
+)
+
+pesos <- 1 / predicted_mad
+
+plot(
+  x=values,
+  y=pesos
+)
+
+```
+
+```{r}
+weighted_model <- lm(
+  formula = Y ~ values,
+  weights = pesos
+)
+plot(values, Y)
+abline(my_model)
+
+weighted_model
+```
+
+En general es preferible usar pesos cuando éstos se conocen de antemano. Por ejemplo si se conoce el error experimental de los instrumentos, B factors o resolución en estructuras cristalográficas, etc.  Tratar de encontrar pesos puede ser complicado.
+
+### Ridge Regression 
+
+Esta regresión es mucho más robusta a la presencia de variables explicativas correlacionadas (colineales).
+
+
+```{r}
+# En este ejemplo, vamos a modelar la 
+# variable GNP.deflator como respuesta al
+# resto de las variables aleatorias.
+head(longley)
+```
+
+#### Buscando colinearidad
+
+##### Calculemos las correlaciones.
+
+La correlación y la covarianza son medidas de variación conjunta entre dos variables aleatorias.
+
+La covarianza es una medida que depende de las unidades y escalas de las variables aleatorias, por lo que no siempre es útil. 
+La correlación es una medida sin unidades que varía entre -1 y 1. Lo cual la hace mucho más fácil de trabajar e interpretar.
+
+$$
+cov(X,Y) =\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{n-1} \\
+cor(X,Y) = cov(X,Y)/(\sigma_x \sigma_y)
+$$
+
+```{r}
+a <- c(1,3,5)
+b <- c(3,4,7)
+
+cov(a,b)
+ad <- a - mean(a)
+bd <- b - mean(b)
+
+cv <- sum(ad*bd) / 2
+
+cor(a,b)
+
+cr <- cv / (sd(a)*(sd(b)))
+cr
+```
+
+```{r}
+cor(longley[-1])
+plot(GNP~Year, longley)
+```
+
+
+##### Calculamos el Variance Increasing Factor
+
+El VIF es una medida de la colinearidad en un sistema de regresión multiple.
+Es una medida del incremento de la varianza en el modelo completo vs al modelo
+con una sola varible.
+
+Se calcular un valor de VIF para cada variable aleatoria del modelo.
+
+```{r}
+# Calculo un modelo donde la variable a evaluar
+# Year en este caso es respuesta de las demás
+# variables aleatorias del modelo.
+# La variable de respuesta original se elimina.
+my_vif_model <- lm(
+  Year ~ .,
+  data=longley[-1]
+)
+
+# Calculo el coeficiente de determinación
+r2 <- summary(my_vif_model)$r.squared
+
+# Calculo el vif para year
+vif_year <- 1/(1-r2)
+vif_year
+
+# Calculamos el VIF para todas las variables
+
+# Calculo el vif en este modelo
+vif(
+  lm(
+    GNP.deflator ~ .,
+    data=longley
+  )
+)
+```
+
+
+Separamos los datos en un conjunto de entrenamiento y un conjunto de prueba
+
+```{r}
+training_size <- as.integer(nrow(longley) * 0.6)
+test_size <- nrow(longley) - training_size
+
+training_rows <- sample(
+    x=nrow(longley),
+    size=training_size
+)
+
+training_set <- longley[training_rows, ]
+test_set <- longley[-training_rows, ]
+```
+
+Calculemos un modelo lineal en el grupo de entrenamiento.
+
+```{r}
+my_model <- lm(
+  GNP.deflator ~ .,
+  data=training_set)
+
+summary(my_model)
+```
+
+Usamos el modelo para predecir las respuestas del modelo en el conjunto de datos
+de prueba.
+
+```{r}
+predicted <- predict (
+  my_model,
+  test_set
+)
+res_mean <- mean(abs(predicted - training_set$GNP.deflator))
+res_mean
+```
+Ahora probamos el *ridge model*.
+```{r}
+my_ridged_model <- linearRidge(
+  GNP.deflator ~ .,
+  data=training_set
+)
+summary(my_ridged_model)
+```
+
+```{r}
+predicted <- predict (
+  my_ridged_model,
+  test_set
+)
+res_mean <- mean(abs(predicted - test_set$GNP.deflator))
+res_mean
+```
+
+# Crear un modelo recalibrado
+
+En el nuevo modelo eliminas las varibles con el mayor VIF:
+"Year", "Population" y "GNP"
+
+```{r}
+trimmed_training_set <- training_set[,
+  !colnames(training_set) %in% c("Year", "Population", "GNP")
+  ]
+my_trimmed_model <- lm(
+  GNP.deflator ~ .,
+  data=trimmed_training_set
+)
+summary(my_trimmed_model)
+predicted <- predict (
+  my_trimmed_model,
+  test_set
+)
+res_mean <- mean(abs(predicted - test_set$GNP.deflator))
+res_mean
+
+predicted
+test_set$GNP.deflator
+```
+

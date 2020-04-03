@@ -1,0 +1,43 @@
+---
+title: "Unidad 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Unidad II. Regresiones y reducción de dimensionalidad.
+
+
+## Planteamiento del problema de regresión en forma general.
+
+Tanto las **regresiones**, como los [análisis de varianza (*analysis of variance*, **ANOVA**) y los de covarianza ([*analysis of covariance*](**ANCOVA**) forman parte del **modelo lineal generalizado** (*general linear model*, **GLM**).
+
+Los *GLM* suelen predecir una variable (*dependiente* o *respuesta*) $Y$ como combinación lineal de otro conjunto de $k$ variables (*independientes*, *predictoras*, *explicativa*) $X_{1} ... X_{k}$.  
+Sin embargo, los modelos lineales también son útiles para la predicción de varias variables independientes, por ejemplo mediante la *regresión multivariante* o el *análisis multivariante de la varianza* (*multivariate analysis of variance*, **MANOVA**).  
+Al ajustar el modelo lineal, uno encuentra una serie de pesos (*weights*) o **coeficientes** (*coefficients*) $\beta_{1} ... \beta_{k}$ para cada variable independiente, que satisfacen un criterio estadístico. Además se tiene un término intersección o constante (*intercept*) $\alpha$ y un término que representa el error de la predicción (*prediction error*) $E$.
+
+$$Y = \alpha + \beta_{1}X_{1} + \beta_{2}X_{2} + ... + \beta_{k}X_{k} + E$$
+
+La ecuación para los valores predichos para la variable dependiente sería:
+
+
+$$\hat{Y} = \alpha + \beta_{1}X_{1} + \beta_{2}X_{2} + ... + \beta_{k}X_{k}$$
+
+
+La ecuación para los valores predichos para la variable dependiente sería:
+
+$$\hat{Y} = \alpha + \beta_{1}X_{1} + \beta_{2}X_{2} + ... + \beta_{k}X_{k}$$
+
+
+La estimación de estos parámetros suele hacerse mediante el criterio de **cuadrados mínimos**, que minimiza la suma de las diferencias entre los valores predichos y los observados al cuadrado $SS_{E}$.
+
+$$ \sum_{i=1}^{N}(Y_{i}-\hat{Y}_{i})^{2} = \sum_{i=1}^{N} E_{i}^{2} $$
+
+Uno puede establecer test estadísticos para el modelo general. Pero comúnmente se lo hace para cada uno de sus parámetros, dado que esto último permite analizar la influencia de las variables independientes sobre la dependiente.
+
+Si bien el *ANOVA* es un *GLM*, tiene una terminología particular, en el cual cada variable independiente es denominada un **factor** (*factor*) con diferentes **niveles** (*levels*) en lugar de categorías o grupos. Se denomina *oneway ANOVA* al modelo que posee un solo factor, y *n-way ANOVA* o ANOVA factorial al que posee dos o más variables independientes categóricas. Mientras todas las variables independientes de un *ANOVA* son categóricas, un *ANCOVA* puede tener una o más variables continuas (covariables o *covariates*) entre sus variables independientes. 
+
+
+
