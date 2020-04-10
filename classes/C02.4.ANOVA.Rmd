@@ -1,0 +1,202 @@
+---
+title: "Unidad 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(purrr)
+library(PMCMR)
+```
+
+### ANOVA
+
+El análisis de la varianza es un herramienta que se usa para estudiar diferencias en al media entre dos o más grupos, definidos por una variables aleatoria categórica.
+
+Si hay una solos grupo de varaibles aleatorias, se dice que el análisis es de una vía (*One-way ANOVA*), en cambio si hay dos grupos de variable aleatorias es un análisis de
+dos vías (*Two-way ANOVA*).
+
+#### Premisas
+
+- Cada factor es aleatorio e independiente.
+- Los valores están normalmente distribuidos.
+- Las varianzas son iguales.
+
+### ANOVA de una vía
+
+Construyamos un pequeño conjunto de datos para el ejemplo.
+
+```{r}
+Fat1 <- c(164.5, 172, 168, 176.5, 156, 195)
+Fat2 <- c(178, 191, 197, 182, 185, 177)
+Fat3 <- c(175, 193, 178.5, 171, 163, 176)
+Fat4 <- c(155, 166, 149, 164, 170, 167.5)
+donuts <- data.frame(
+  "Contenido.graso"=c(Fat1, Fat2, Fat3, Fat4),
+  "Producto"=rep(c("Fat1", "Fat2", "Fat3", "Fat4"), each=6)
+)
+
+boxplot(
+  Contenido.graso ~ Producto,
+  data=donuts,
+  col=c("red", "blue", "green", "orange")
+)
+```
+
+```{r}
+shapiro.results <- aggregate(
+  Contenido.graso~Producto,
+  data=donuts,
+    compose(
+    function(x) {x[[2]]}, # Extrae el p-value
+    shapiro.test
+  )
+)
+
+shapiro.results
+```
+
+Los resutados de la prueba de Shapiro no muestran evidencia que de que desviaciones estándar sean diferentes.
+
+```{r}
+anova_result <- aov(
+  formula=Contenido.graso~Producto,
+  data=donuts)
+
+summary(anova_result)
+pval <- summary(anova_result)[[1]]$"Pr(>F)"[1]
+pval
+```
+
+```{r}
+my_model <- lm(
+   formula=Contenido.graso~Producto,
+  data=donuts
+)
+
+summ_model <- summary(my_model)
+summary(my_model)
+pf(
+  q = summ_model$fstatistic["value"],
+  df1 = summ_model$fstatistic["numdf"], 
+  df2 = summ_model$fstatistic["dendf"],
+  lower.tail = FALSE)
+```
+
+### Corrección por comparación múltiple
+
+Los procedimientos de comparación múltiple se usan comunmente después de obtener un resultado de ANOVA que
+muestra alguna diferencia entre grupos.
+
+Para determinar que grupo/grupos son diferenciales, hay que hacer comparaciones de a pares. Si tenes N grupos, entonces hay $$\frac{N \times (N-1)}{2}$$ pares que hacer.
+
+Cada comparación de a pares tiene su propio p-value como resultado. Si consideramos un $\alpha$ igual a 0.5 (1/20) como valor de significancia. Entonces estamos aceptando que un 5% de nuestras comparaciones múltiples sean significativas por azar.
+
+Los procedimientos de comparación múltiple se pueden entender como una correción de los p-value obtenidos.
+
+#### Bonferroni
+
+En la corrección de Bonferroni, los p-values se multiplican por el número de comparaciones.
+
+```{r}
+pairwise.t.test(
+  x=donuts$Contenido.graso,
+  g=donuts$Producto,
+  data=donuts,
+  p.adjust.method = "bonferroni"
+)
+
+```
+
+#### Tukey's HSD (Honestly significant difference)
+
+Otra de los procedimientos de comparación multiple es la prueba de Tukey-HSD. Esta prueba se basa en la distribución de Tukey (tambíen conocida como *Studentized Range Distribution*). Esta distribución considera tomar $k$ muestras de tamaño $n$ de una distribución normal. $Y_{max}$ es la media máxima y $Y_{min}$ es la media mínima entre las k muestras. Entonces el estadístico q toma la distribución de Tukey.
+
+$$
+q = \frac{Y_{max}-Y_{min}}{S\sqrt{2/n}}
+$$
+Donse S es la desviación estándar conjunta de todas las muestras.
+
+En base a esta distribución se calcula, para todos los pares de grupos en nuestros datos, un valor crítico q:
+
+$$
+q_c = \frac{\bar{Y_A} - \bar{Y_A}}{SE} \\
+SE = \sqrt{\frac{\sum_{G \in Grupo}{var(G)}}{N}}
+$$
+
+```{r}
+means_product <- aggregate(
+  Contenido.graso ~ Producto,
+  data=donuts,
+  mean
+)
+rownames(means_product) <- means_product$Producto
+
+# Diferencia entre el grupo Fat2 y Fat4
+ydiff <- abs(
+  means_product["Fat2", "Contenido.graso"]-
+  means_product["Fat4", "Contenido.graso"]
+)
+
+N <- nrow(donuts) # Cantidad de muestras
+k <- length(unique(donuts$Producto)) # Cantidad de grupos
+n <- N/k # Muestras por grupo
+
+# Calculo el Error Standard 
+se <- sum(
+  aggregate(
+    Contenido.graso~Producto,
+    data=donuts,
+    FUN=var
+    )$Contenido.graso
+  )
+se <- sqrt(se/N)
+
+# Calculo el valor crítico de Q
+qvalue <- ydiff/se
+
+# Calculo el p-value.
+ptukey(
+  qvalue,
+  nmeans = 4,
+  lower.tail = FALSE,
+  df=20
+)
+
+```
+
+
+```{r}
+TukeyHSD(anova_result)
+```
+
+
+
+### Prueba de Kruskal-Wallis
+
+Este prueba es una alternativa no paramétrica para el análisis de varianza. Es una generalización de la prueba de Wilcoxon para comparar dos distribuciones.
+
+```{r}
+kruskal.test(
+  x = donuts$Contenido.graso,
+  g = donuts$Producto
+)
+```
+
+#### Corrección por comparación múltiple
+
+```{r}
+posthoc.kruskal.nemenyi.test(
+  x=donuts$Contenido.graso,
+  g=donuts$Producto,
+  dist="Tukey"
+  )
+
+posthoc.kruskal.nemenyi.test(
+  x=donuts$Contenido.graso,
+  g=donuts$Producto,
+  dist="Chisq"
+  )
+table(donuts$Contenido.graso)
+```
+

@@ -1,0 +1,168 @@
+---
+title: "Unidad 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ROCR)
+```
+
+### Análisis de Regresión Logística.
+
+Vamos a analizar los datos del dataset *survey* del paquete MASS. Este dataset tiene datos de estudiantes.
+Queremos generar un modelo que nos permita predecir si un
+estudiante es hombre o mujer, usando como variable independiente la altura.
+
+En este caso un modelo linear simple no es una buena solución. Sin embargo podemos hacer una regresión logistica, con la función de R *glm*.
+
+$$logistic(x, \alpha, \beta) = \frac{1}{1+e^{-(\alpha+\beta x)}}$$
+
+Para ello, necesitamos modificar nuestros datos, para que los valores del sexo,
+que queremos predecir sean 1 y 0.
+
+```{r}
+survey_data <- MASS::survey
+
+survey_data <- survey_data[
+  !(is.na(survey_data$Sex)|is.na(survey_data$Height)),]
+survey_data$bin_sex[survey_data$Sex=="Female"] <- 0
+survey_data$bin_sex[survey_data$Sex=="Male"] <- 1
+
+plot(
+  bin_sex ~ Height,
+  data=survey_data,
+  pch=19)
+
+alpha <- -52
+beta <- 0.3
+
+flog <- 1 / (1+ exp(-(alpha+beta*seq(150,200,0.1))))
+
+lines(
+  y=flog,
+  x=seq(150,200,0.1),
+  col="#FF999977",
+  lwd=3
+)
+```
+
+Usamos la función *glm* de R, tenemos que especificar que tipo de regresión es.
+Para ello debemos usar el argumento *family*, en este caso como la respuesta es una varaible de Bernoulli, la familia que le corresponde es *binomial*.
+
+
+```{r}
+my_model <- glm(
+  bin_sex ~ Height,
+  data=survey_data,
+  family="binomial"
+)
+coefficients(my_model)
+```
+
+
+```{r}
+alpha <- coefficients(my_model)[1]
+beta <- coefficients(my_model)[2]
+
+fitted_logistic <- function(x) {
+  1/(1+exp(-(alpha+beta*x)))
+}
+
+plot(
+  bin_sex ~ Height,
+  data=survey_data,
+  pch=19)
+
+flog <- fitted_logistic(seq(150,200,0.1))
+
+lines(
+  y=flog,
+  x=seq(150,200,0.1),
+  col="#FF999977",
+  lwd=3
+)
+
+# Calculamos los intervalos de confianza
+confint(my_model)
+```
+
+
+Luego del ajuste podemos considerar como "Female" aquellos valores menores a 0.5 y "Male" a los mayores.
+
+### Curvas ROC
+
+Una de las formas más usadas para visualizar y evaluar el resultado de un 
+predictor binario, como en este ejemplo, es mediante una curva ROC (Receiver operating characteristic).
+
+Una curva ROC es un gráfico que muestra la tasa de *falsos positivos* en el eje X y la tasa de *verdaderos positivos* en el eje Y. Para ello se ordenan los valores de la predicción y se le asocia a cada uno una etiqueta Verdadero/Falso de acuerdo a la información real. 
+
+| Pred | Etiqueta | Clas. (0.5) |
+| --   | --       | --          |
+| 0.9  | TRUE     | TP          |
+| 0.8  | FALSE    | FP          |
+| 0.7  | TRUE     | TP          |
+| 0.6  | FALSE    | FP          |
+| 0.5  | TRUE     | TP          |
+| 0.4  | TRUE     | FN          |
+| 0.3  | FALSE    | TN          |
+| 0.2  | FALSE    | TN          |
+
+
+Si tomamos un valor de corte, por ejemplo 0.5. Consideramos Verdaderos como resultado de la predicción los valores mayores o iguales a 0.5 y negativos 
+a los menores. Entonces podemos construir una tabla de contingencia:
+
+
+| TP=4 | FP=2 |
+| TN=2 | FN=1 |
+
+Podemos calcular entonces la tasa de verdaderos positivos y falsos positivos: 
+
+$$
+tpr = \frac{TP}{TP+FN}
+$$
+
+$$
+fpr = \frac{FP}{TP+FN}
+$$
+Este mismo cálculo se hace para cada valor de corte posible, que sea igual a un valor del predictor. De esta forma se tiene una lista de valor de *fpr* y *tpr*. Luego se grafican estos en un gráfico X-Y. Finalmente se toma como medida de calidad el área bajo la curva de este gráfico.
+
+```{r}
+roc_data <- data.frame(
+  pred=fitted_logistic(survey_data$Height),
+  label=survey_data$bin_sex
+)
+
+roc_data <- roc_data[order(roc_data$pred,decreasing = TRUE),]
+total_pos <- sum(roc_data$label)
+total_neg <- sum(1-roc_data$label)
+
+tpr <- cumsum(roc_data$label)/total_pos
+fpr <- cumsum(1-roc_data$label)/total_neg
+
+plot(
+  y=tpr,
+  x=fpr,
+  type="l"
+)
+```
+
+
+```{r}
+data(ROCR.simple)
+
+pred <- prediction(
+  predictions = fitted_logistic(survey_data$Height),
+  labels = survey_data$bin_sex
+)
+
+
+perf <- performance(pred,"tpr","fpr")
+plot(perf,colorize=TRUE)
+
+auc_value <- performance(pred, "auc")@y.values[[1]]
+auc_value
+
+```
+Si el valor de AUC es cercano a 0.5 entonces no tenemos capacidad de predicción. Es el valor que se esperaría de una elección al azar.
+Si el valor es cercano a 1, tenemos una buena predicción. Si el valor es cercano a 0, tenemos un antipredictor.

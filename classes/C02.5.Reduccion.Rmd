@@ -1,0 +1,187 @@
+---
+title: "Unidad 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library()
+```
+
+
+### Analisis de componentes principales
+
+
+```{r}
+xa <- rnorm(100, 4, 2.5)
+ya <- -10 + 0.3*xa  + rnorm(100)*4
+
+xb <- rnorm(100, -4, 2.5)
+yb <- 10 + 0.3*xb + rnorm(100)*4
+
+data_points <- rbind(
+  c(xa, xb),
+  c(ya, yb)
+)
+
+par(mfrow=c(1,2))
+plot(
+  data_points[1,], 
+  data_points[2,],
+  xlab="X",
+  ylab="Y",
+  pch=19
+)
+
+plot(
+  c(data_points[1,], data_points[2,]), 
+  rep(c(1,2),each=200),
+  ylim=c(0,3),
+  pch=19,
+  cex=0.7,
+  ylab="Eje",
+  xlab="Valores",
+  yaxt="n"
+)
+axis(side=2, at=c(1,2), labels = c("X", "Y"))
+```
+
+
+```{r}
+par(mfrow=c(1,2))
+
+for (angle in c(0, 60*pi/180)) {
+
+rot_matrix <- matrix(
+  c(cos(angle), -sin(angle), sin(angle), cos(angle)),
+  ncol=2,
+  byrow = TRUE)
+
+rotated <- rot_matrix %*% data_points
+
+plot(
+  rotated[1,], 
+  rotated[2,],
+  xlab="X",
+  ylab="Y",
+  pch=19,
+  xlim=c(-20, 20),
+  ylim=c(-20, 20)
+)
+
+points(
+  rotated[1,],
+  rep(-20,length(rotated[1,]))
+)
+
+}
+
+```
+
+```{r}
+pca <- prcomp(
+  t(data_points),
+  center=TRUE,
+  scale=TRUE)
+
+spca <- summary(pca)
+
+plot(
+  pca$x[,"PC1"],
+  pca$x[,"PC2"],
+  col=rep(c('red', 'blue'), each=200),
+  pch=19,
+  cex=0.6,
+  xlab=paste("PC1", spca$importance[2,1]),
+  ylab=paste("PC2", spca$importance[2,2]))
+
+```
+
+
+
+```{r}
+iris
+```
+
+
+
+```{r}
+
+pca <- prcomp(
+  as.matrix(iris[1:4]),
+  center=TRUE,
+  scale=TRUE)
+
+spca <- summary(pca)
+
+plot(
+  pca$x[,"PC1"],
+  pca$x[,"PC2"],
+  col=rep(c('red', 'blue', 'green'), each=50),
+  pch=19,
+  cex=0.6,
+  xlab=paste("PC1", spca$importance[2,1]),
+  ylab=paste("PC2", spca$importance[2,2]))
+
+for (x in 1:4) {
+lines(
+  x=c(0, pca$rotation[x, 1]*2),
+  y=c(0, pca$rotation[x, 2]*2))
+text(
+  pca$rotation[x, 1]*2,
+  pca$rotation[x, 2]*2,
+  rownames(pca$rotation)[x],
+  adj = c(0,1)
+  
+  )
+}
+```
+
+
+```{r}
+biplot(
+  x=pca,
+  )
+```
+
+### Gráfico de escalas multidimensionales
+
+Es una gráfico relacionado al PCA. Parte de datos diferentes, en lugar de 
+valores abolutos para las variables aleatorias, lo hace de una matriz de 
+distancias.
+
+```{r}
+
+# Calculo distancias euclideas
+distancias <- dist(iris[1:4])
+
+fit <- cmdscale(distancias, eig=TRUE, k=2)
+
+# plot solution
+x <- fit$points[,1]
+y <- fit$points[,2]
+plot(
+  x,
+  y,
+  xlab="Coordinate 1",
+  ylab="Coordinate 2",
+  main="Metric MDS",
+  col=rep(c("green", "blue", "red"),each=50),
+  pch=19)
+
+legend(
+  "topright",
+  legend=unique(levels(iris$Species)),
+  col=c("green", "blue", "red"),
+  pch=19,
+  lty = 1
+)
+
+
+
+```
+
+
+
+
+

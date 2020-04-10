@@ -1,0 +1,144 @@
+---
+title: "Unidad 2.2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ejercicios
+
+## Ejercicio 1.
+
+La distribución de Poisson es el caso límite de una distribución binomial cuando
+el número de eventos tiende a infinito. 
+En este ejercicio vamos a hacer una simulación para mostrar esta relación entre
+ambas distribuciones.
+
+Para ello:
+- Simular una serie de 1000000 eventos independientes. Con una probabilidad de
+  éxito de 0.02. 
+- Seleccionar rangos de 200 eventos, que consideraremos como nuestra unidad de
+  tiempo.
+- Haga un gráfico de la distribución binomial para un rango.
+- Contar la cantidad de éxitos en cada rango y calcular el promedio. Considerar
+  este valor como el valor $\lambda$ de la distribución de Poisson.
+- Calcular las probabilidades empíricas de 1, 2, 3, etc éxitos para un rango
+  dado y compararlas con las probabilidades teóricas según la distribución de
+  Poisson. Para ello, construya un gráfico de la distribución de Poisson y
+  muestre las diferencias entre las probabilidades empíricas y teóricas.
+
+```{r}
+
+
+
+```
+
+# Ejercicio 2.
+
+El archivo *Enz.txt* contiene datos de un experimento de cinética enzimática.
+En ese experimento se midió la actividad de una enzima a ocho concentraciones de
+su sustrato en dos condiciones diferentes ("A" y "B"). Se hicieron siete
+réplicas de cada medición.
+
+La actividad enzimática no tiene una respuesta lineal con respecto a la
+concentración de sustrato. Sin embargo, la inversa de la actividad si tiene una
+respuesta lineal con respecto a la inversa de la concentración de sustrato.
+
+Genere un modelo lineal ponderado para cada condición. Calcule los pesos como
+la inversa de la desviación estándar para cada concentración de sustrato y
+condición.
+
+Muestre los resultados del modelo lineal y haga un gráfico con los datos
+experimentales y las rectas de regresión obtenidas.
+
+```{r, eval=FALSE}
+
+# Modificar el argumento de la función setwd, para que sea la carpeta donde
+# está guardado el archivo enz.txt en su PC.
+setwd(".")
+data <- read.table("enz.txt")
+```
+
+# Ejercicio 3
+
+El conjunto de datos *HairEyeColor* contiene un arreglo de tres dimensiones de
+observaciones cruzadas de tres variables categóricas: Color de cabello, color de
+ojos y sexo.
+
+Use un test de $\chi^2$ para mostrar que las proporciones del color de ojos.
+no se mantienen en poblaciones de distinto color de cabellos, pero si se
+mantiene en los dos sexos.
+
+
+```{r}
+HairEyeColor
+
+# Combinamos los datos de color de ojos y cabellos de los dos sexos.
+HairEyeColor[,,"Female"] + HairEyeColor[,,"Male"]
+
+```
+
+# Ejericio 4
+
+El conjunto de datos *trees* contiene el diámetro (*girth*), altura y volumen de
+31 árboles caidos de cerezo negro americano. Se quiere generar un modelo lineal
+para estimar el volumen a partir de las otras variables (diámetro y altura).
+
+Para el análisis proceda de la siguiente manera:
+- Genere al alzar un subconjunto de datos de 20 árboles tomados al azar. Este
+  será el conjunto de entrenamiento.
+- Los árboles excluidos en el conjunto de entrenamiento conformarán el conjunto
+  de prueba.
+- Con el conjunto de entrenamiento genere un modelo lineal.
+
+Las dos variables no son igualmente importantes en el modelo.
+
+- Genere un nuevo modelo lineal excluyendo la variable menos importante.
+- Evalue los factores de determinación, ¿Qué modelo es el que mejor ajusta?
+
+Para evitar caer en un análisis *Post hoc*, vamos a hacer un análisis en el
+conjunto de datos de prueba. Para ello:
+
+- Prediga con los resultados de cada modelo los valores del volumen del 
+  conjunto de prueba. Calcule para cada caso la suma de las diferencias
+  absolutas entre las predicciones y los valores reales.
+
+Luego repetiremos el análisis hasta obetener 1000 réplicas.
+
+- Genere nuevos conjuntos de prueba y conjuntos de entrenamiento de la misma
+  forma que ya se hizo. Genere para cada réplica dos modelos lineales con los
+  datos de entrenamiento, evalúelos con los datos de prueba y calcule la suma de
+  las diferencias absolutas entre observado y predicho. Registre estos valores
+  para cada réplica.
+- Muestre en un histograma la distribución de estos valores para cada modelo.
+- Realice un prueba T de dos muestras para evaluar la igualdad de la media en
+  los dos conjuntos de las diferencias absolutas de cada modelo. ¿Cuál es la
+  hipótesis alternativa más apropiada para este caso?
+
+```{r}
+head(trees)
+```
+
+# Ejercicio 5
+
+Verificar la alta colinearidad de las variables aleatorios del conjunto de datos
+*EuStockMarkets*. Utilice correlaciones y VIF.
+
+```{r}
+eudf <- as.data.frame(EuStockMarkets)
+head(eudf)
+```
+
+# Ejercicio 6
+
+El conjunto de datos *discoveries* contiene la cantidad de descubrimientos
+importantes por año desde 1860 hasta 1959. Compare en un gráfico adecuado estos
+datos con una distribución de Poisson. Realice una prueba de $\chi^2$ para
+verificar si los datos se ajustan a la distribución de Poisson, basado en la
+distribución acumulada empírica de los datos.
+
+```{r}
+head(discoveries)
+```
