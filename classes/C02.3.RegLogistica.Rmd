@@ -57,7 +57,10 @@ my_model <- glm(
   data=survey_data,
   family="binomial"
 )
+summary(my_model)
 coefficients(my_model)
+
+?glm
 ```
 
 
@@ -134,6 +137,7 @@ roc_data <- data.frame(
 )
 
 roc_data <- roc_data[order(roc_data$pred,decreasing = TRUE),]
+
 total_pos <- sum(roc_data$label)
 total_neg <- sum(1-roc_data$label)
 

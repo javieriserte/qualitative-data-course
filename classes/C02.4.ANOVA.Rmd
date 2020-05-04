@@ -13,7 +13,7 @@ library(PMCMR)
 
 El análisis de la varianza es un herramienta que se usa para estudiar diferencias en al media entre dos o más grupos, definidos por una variables aleatoria categórica.
 
-Si hay una solos grupo de varaibles aleatorias, se dice que el análisis es de una vía (*One-way ANOVA*), en cambio si hay dos grupos de variable aleatorias es un análisis de
+Si hay una solos grupo de variables aleatorias, se dice que el análisis es de una vía (*One-way ANOVA*), en cambio si hay dos grupos de variable aleatorias es un análisis de
 dos vías (*Two-way ANOVA*).
 
 #### Premisas
@@ -81,6 +81,7 @@ pf(
   df1 = summ_model$fstatistic["numdf"], 
   df2 = summ_model$fstatistic["dendf"],
   lower.tail = FALSE)
+
 ```
 
 ### Corrección por comparación múltiple
@@ -90,7 +91,7 @@ muestra alguna diferencia entre grupos.
 
 Para determinar que grupo/grupos son diferenciales, hay que hacer comparaciones de a pares. Si tenes N grupos, entonces hay $$\frac{N \times (N-1)}{2}$$ pares que hacer.
 
-Cada comparación de a pares tiene su propio p-value como resultado. Si consideramos un $\alpha$ igual a 0.5 (1/20) como valor de significancia. Entonces estamos aceptando que un 5% de nuestras comparaciones múltiples sean significativas por azar.
+Cada comparación de a pares tiene su propio p-value como resultado. Si consideramos un $\alpha$ igual a 0.05 (1/20) como valor de significancia. Entonces estamos aceptando que un 5% de nuestras comparaciones múltiples sean significativas por azar.
 
 Los procedimientos de comparación múltiple se pueden entender como una correción de los p-value obtenidos.
 
@@ -120,7 +121,7 @@ Donse S es la desviación estándar conjunta de todas las muestras.
 En base a esta distribución se calcula, para todos los pares de grupos en nuestros datos, un valor crítico q:
 
 $$
-q_c = \frac{\bar{Y_A} - \bar{Y_A}}{SE} \\
+q_c = \frac{\bar{Y_A} - \bar{Y_B}}{SE} \\
 SE = \sqrt{\frac{\sum_{G \in Grupo}{var(G)}}{N}}
 $$
 
@@ -167,6 +168,9 @@ ptukey(
 
 
 ```{r}
+anova_result <- aov(
+  formula=Contenido.graso~Producto,
+  data=donuts)
 TukeyHSD(anova_result)
 ```
 
@@ -197,6 +201,5 @@ posthoc.kruskal.nemenyi.test(
   g=donuts$Producto,
   dist="Chisq"
   )
-table(donuts$Contenido.graso)
 ```
 
