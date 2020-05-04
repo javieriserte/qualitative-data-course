@@ -78,8 +78,7 @@ La manera más sencilla de hacer un muestreo aleatorio simple en R con o sin
 reposición es usando la función sample R. Toma una lista de valores, el tamaño
 de la muestra a tomar (size) y se les debe indicar si queremos que sea con o
 sin reemplazo o reposición (replace). Una diferencia entre ambas funciones es
-que mientras R por defecto hace el muestreo sin reemplazo, Julia lo hace con
-reemplazo si no le indicamos lo contrario.
+que mientras R por defecto hace el muestreo sin reemplazo.
 
 ##### Muestreo sistemático
 
@@ -219,11 +218,17 @@ de una distribución normal (por ejemplo, si la distribución es asimétrica).
 
 #### Estadísticos de tendencia central
 
-Existen diversos estadísticos de tendencia central, siendo la media el más
+Existen diversos estadísticos de tendencia central, siendo la *media* el más
 popular de ellos a pesar de no ser un estadístico robusto. La medidas de
-ubicación robusta más popular es la mediana. La moda es el único estadístico de
+ubicación robusta más popular es la *mediana*. La *moda* es el único estadístico de
 tendencia central para datos nominales, pero es difícil de estimar correctamente
 para variables continuos.
+
+
+```{r}
+iris2
+```
+
 
 ```{r}
 for (c in colnames(iris2)) {
@@ -239,7 +244,7 @@ for (c in colnames(iris2)) {
 
 #### Estadísticos de dispersión
 
-De los estadísticos de dispersión, la desviación estándar es el más popular
+De los estadísticos de dispersión, la *desviación estándar* es el más popular
 acompañando a la media. No debe confundirse con el error estadístico o estándar,
 que en realidad habla de la dispersión de las medias muestrales, y no de la
 variable de interés. La desviación estándar no es un estimador robusto.
@@ -250,6 +255,7 @@ Deviation** (MAD).
 - Varianza: $$s^2$$
 - Rango inter quartil: $$Q_3-Q_1$$
 - Desviación media absoluta: $$mediana(|X_i-mediana(X)|)$$
+
 ```{r}
 for (c in colnames(iris2)) {
   print(c)
@@ -277,6 +283,7 @@ cuales se obtienen *outliers* o valores extremos con más frecuencia (es decir,
 poseen colas más pesadas).
 
 ```{r}
+# Análogo de dnorm
 dtriangular <- function(x, a=1) {
   res <- rep(NA, length(x))
   res[(x>a | x< (-a))] <- 0
@@ -284,6 +291,7 @@ dtriangular <- function(x, a=1) {
   res[-a<=x & x<0] <- (x[-a<=x & x<0]+a)/a^2
   return(res)
 }
+# Análogo de rnorm
 rtriangular <- function(n, a=1) {
   r <- runif(n, 0, 1)
   res <- rep(NA, length(n))
@@ -291,7 +299,7 @@ rtriangular <- function(n, a=1) {
   res[r>1/2] <- a * (1-sqrt(2*(1-r[r>1/2])))
   return(res)
 }
-# 
+
 # fit_tri <- function(x) {
 #   x <- x[x>=0]
 #   h <- hist(x, 100)
@@ -305,13 +313,14 @@ rtriangular <- function(n, a=1) {
 # }
 # fit_tri(rtriangular(100, 1))
 
-
 tri_sample <- rtriangular(50000, 1)
 hist(tri_sample)
 text(1,4000, paste("skewness=",sprintf("%.2e", skewness(tri_sample))), adj=c(1,0.5))
 text(1,3500, paste("kurtosis=",sprintf("%.2e", kurtosis(tri_sample))), adj=c(1,0.5))
 
-tri_sample2 <- c(rtriangular(25000, 0.1), rtriangular(25000, 5))
+tri_sample2 <- c(
+  rtriangular(25000, 0.1),
+  rtriangular(25000, 5))
 hist(tri_sample2)
 text(4,15000, paste("skewness=",sprintf("%.2e", skewness(tri_sample2))), adj=c(1,0.5))
 text(4,14000, paste("kurtosis=",sprintf("%.2e", kurtosis(tri_sample2))), adj=c(1,0.5))
@@ -321,16 +330,16 @@ hist(normal_sample)
 text(-4,8000, paste("skewness=",sprintf("%.2e", skewness(normal_sample))), adj=c(0,0.5))
 text(-4,7200, paste("kurtosis=",sprintf("%.2e", kurtosis(normal_sample))), adj=c(0,0.5))
 
-poisson_sample <- rpois(50000, 5)
+poisson_sample <- rpois(50000, 3)
 hist(poisson_sample)
-text(15,8000, paste("skewness=",sprintf("%.2e", skewness(poisson_sample))), adj=c(1,0.5))
-text(15,7200, paste("kurtosis=",sprintf("%.2e", kurtosis(poisson_sample))), adj=c(1,0.5))
+text(7,8000, paste("skewness=",sprintf("%.2e", skewness(poisson_sample))), adj=c(1,0.5))
+text(7,7200, paste("kurtosis=",sprintf("%.2e", kurtosis(poisson_sample))), adj=c(1,0.5))
 
 
 uniform_sample <- runif(50000, -2, 2)
-hist(uniform_sample)
-text(0.9,2000, paste("skewness=",sprintf("%.2e", skewness(uniform_sample))), adj=c(1,0.5))
-text(0.9,1600, paste("kurtosis=",sprintf("%.2e", kurtosis(uniform_sample))), adj=c(1,0.5))
+hist(uniform_sample, ylim=c(0,7000))
+text(0.9,5000, paste("skewness=",sprintf("%.2e", skewness(uniform_sample))), adj=c(1,0.5))
+text(0.9,3600, paste("kurtosis=",sprintf("%.2e", kurtosis(uniform_sample))), adj=c(1,0.5))
 
 binomial_sample <- rbinom(50000, 20, 0.1)
 hist(binomial_sample, breaks=c(min(binomial_sample):(max(binomial_sample)+1)), include.lowest=FALSE, right=FALSE)
@@ -341,7 +350,7 @@ text(10, 13000, paste("kurtosis=",sprintf("%.2e", kurtosis(binomial_sample))), a
 
 #### Descripción gráfica
 
-Los Histogramas permiten tener una visión de cómo sería la forma de una
+Los *Histogramas* permiten tener una visión de cómo sería la forma de una
 distribución de densidad para una variable aleatoria continua. Se construyen
 dividiendo la variable en grupos (bins) y contando el número de observaciones
 dentro de cada uno (representada por la altura de la barra).
@@ -422,7 +431,7 @@ legend(
 pairs(
   iris[,1:4],
   pch = 19,
-  col=as.integer(iris$Species))
+  col=as.integer(iris$Species)+1)
 ```
 
 
@@ -433,6 +442,7 @@ rectángulos en un espacio bidimensional. Normalmente se utiliza un código de
 color para indicar la cantidad de valores en cada grupo.
 
 ```{r}
+?hist2d
 a <- hist2d(
   x=iris$Sepal.Length,
   y=iris$Sepal.Width,
@@ -449,10 +459,17 @@ posible). Los heat maps son útiles para mostrar los valores de una matriz, y
 representan a una variable continua utilizando un gradiente de colores.
 
 ```{r}
-mean_by_group <- aggregate(iris[,1:4], list(iris$Species), mean)
-mean_matrix <- as.matrix(mean_by_group[,2:5])
+mean_by_group <- aggregate(
+  iris[,1:4],
+  list(iris$Species),
+  mean)
+
+mean_matrix <- as.matrix(
+  mean_by_group[,2:5])
+
 colnames(mean_matrix) <-  c("SL", "SW", "PL", "PW")
 rownames(mean_matrix) <- rownames(mean_matrix) <- mean_by_group$Group.1
+
 heatmap(
   mean_matrix,
   Rowv=NA,
@@ -490,14 +507,18 @@ boxplot(
 ```
 
 Mientras los density plots permiten observar una PDF inferida a partir de los
-datos, la función ecdf de la biblioteca StatsBase de Julia, permite observar la
+datos, la función ecdf, permite observar la
 función de densidad de probabilidad acumulada empírica de una muestra (Empirical
 Cumulative Distribution Function ECDF), una aproximación a la CDF.
 
 ```{r}
+?ecdf
 f <- ecdf(iris$Sepal.Length)
 xs <- seq(4,9,0.2)
+xs
+
 ys <- f(xs)
+ys
 plot(
   x=xs,
   y=ys,
@@ -520,11 +541,16 @@ familia de funciones de densidad de probabilidad debemos ajustar.
 ```{r}
 
 par(mfrow=c(1,2))
-normal_sample <- rnorm(100, 2, 3)
+
+normal_sample <- rnorm(
+  100, 2, 3)
+
 fitted <- fitdistr(
   normal_sample,
   densfun = "normal")
+summary(fitted)
 
+fitted$n
 hist(
   normal_sample,
   10,
@@ -542,8 +568,9 @@ curve(
   estimated_normal, 
   from=-6,
   to=10,
-  add=TRUE)
-
+  add=TRUE,
+  col="red",
+  lwd=3)
 
 xs <- seq(-6,10,0.2)
 ys <- ecdf(x = normal_sample)(xs)
@@ -565,10 +592,28 @@ curve(
   estimated_normal_cdf, 
   from=-6,
   to=10,
-  add=TRUE)
+  add=TRUE,
+  col="red")
 
 
 ```
+
+```{r}
+normal_sample <- rnorm(
+  1000, 10, 3)
+
+fitted <- fitdistr(
+  normal_sample,
+  densfun = "lognormal")
+fitted$loglik
+
+fitted <- fitdistr(
+  normal_sample,
+  densfun = "normal")
+fitted$loglik
+
+```
+
 
 ### Tests de normalidad
 
@@ -588,7 +633,9 @@ línea.
 ```{r}
 normal_sample <- rnorm(500, 1, 2)
 qqnorm(normal_sample)
-qqplot(normal_sample, rt(500, 3))
+qqplot(
+  normal_sample,
+  rt(500, 3))
 ```
 
 #### Test de hipótesis

@@ -53,7 +53,6 @@ Y
 
 En R, la función *lm* permite hacer regresiones de cuadrados mínimos para modelos lineales.
 
-
 ```{r}
 my_model <- lm(Y ~ variables[,1] + variables[,2])
 my_model
@@ -140,7 +139,9 @@ for (i in c(0.05, 0.2, 0.5, 1)) {
   my_model <- lm(Y ~ variables)
   plot(
     Y ~ my_model$fitted.values,
-    main=paste("R2", round(summary(my_model)$r.squared, 4))
+    main=paste("R2", round(summary(my_model)$r.squared, 4)),
+    pch=19,
+    col="blue"
   )
 }
 ```
@@ -309,11 +310,10 @@ $$
 ```{r}
 a <- c(1,3,5)
 b <- c(3,4,7)
-
 cov(a,b)
+
 ad <- a - mean(a)
 bd <- b - mean(b)
-
 cv <- sum(ad*bd) / 2
 
 cor(a,b)
@@ -354,8 +354,7 @@ vif_year <- 1/(1-r2)
 vif_year
 
 # Calculamos el VIF para todas las variables
-
-# Calculo el vif en este modelo
+# library(car)
 vif(
   lm(
     GNP.deflator ~ .,
@@ -398,7 +397,7 @@ predicted <- predict (
   my_model,
   test_set
 )
-res_mean <- mean(abs(predicted - training_set$GNP.deflator))
+res_mean <- mean(abs(predicted - test_set$GNP.deflator))
 res_mean
 ```
 Ahora probamos el *ridge model*.
