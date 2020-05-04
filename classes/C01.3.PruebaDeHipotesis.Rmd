@@ -6,6 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(boot)
+library(car)
 ```
 
 ### Unidad I. Variables, distribuciones y pruebas de hipótesis. 
@@ -41,7 +42,7 @@ a una conclusión falsa (tabla de verdad):
 | *p*      | *q*       | *p → q*   |
 |----------|-----------|-----------|
 | *true*   | *true*    | *true*    |
-| **true** | **false** | **false** |git sta
+| **true** | **false** | **false** |
 | *false*  | *true*    | *true*    |
 | *false*  | *false*   | *true*    |
 
@@ -74,7 +75,6 @@ El valor P (*p value*) es la probabilidad de observar un determinado valor (o un
 $$P(escoger H_a | H_0 cierta) = P(p \le \alpha | H_0 cierta) = \alpha$$
 
 #### T de Student para una muestra 
-
 
 La prueba de T de Student para una muestra permite probar si
 la media de una muestra es diferente de una media $\mu_0$.
@@ -117,16 +117,17 @@ $$P(t \ge T|H_0)$$
 n <- 5
 normal_sample <- rnorm(n, mean=0.1, sd=0.1)
 xm <- mean(normal_sample)
-s = sd(normal_sample)
+s <- sd(normal_sample)
 
 # Hipotesis Nula. La distribución es T de Student
-m0 = 0
-T_value = (xm-m0)/(s/sqrt(n))
+m0 <- 0
+T_value <- (xm-m0)/(s/sqrt(n))
 T_value
 
 # Calculo el pvalue
-p = 1-pt(T_value, n-1)
+p = 1 - pt(T_value, n-1)
 p
+# 0.0008768362
 
 # Usando las funciones incluidas en R
 t.test(
@@ -134,6 +135,7 @@ t.test(
     alternative="two.sided",
     mu=0,
     )
+# 0.0008768
 ```
 
 El *p value* depende de si el test es a una o dos colas, en este caso, como la
@@ -155,7 +157,7 @@ $P(X \leq x|H_0)$ prueba de una cola hacia la izquierda.
 ```{r}
 par(mfrow=c(1,2))
 my_t <- function(x) {return(dt(x, n-1))}
-
+T_value <- 4
 # p-value for 'greater'.
 curve(
     my_t,
@@ -190,7 +192,6 @@ polygon(
 
 Para el test a dos colas (*double-tailed event*):
 $$2 \times min({P(X \leq x|H_0), P(X \geq x|H_0)})$$
-
 
 
 ```{r}
@@ -246,8 +247,8 @@ de libertad, para una confianza del 95% ($\alpha = 5%$) puede calcularse con la
 función *qt* (para calcular cuantiles).
 
 ```{r}
-t_left <- qt(0.05/2, df = n-1)
-t_right <- qt(1-0.05/2, df = n-1)
+t_left <- qt(0.05/2, df = n-1) # 2.5 %
+t_right <- qt(1-0.05/2, df = n-1) # 97.5 %
 
 t_left
 t_right
@@ -323,7 +324,7 @@ replicates <- replicate(
     1000,
     sample(
         x = my_sample,
-        size=50,
+        size=100,
         replace=TRUE
     )
 )
@@ -332,7 +333,6 @@ means <- apply(replicates, 2, mean)
 hist(means, 100)
 
 quantile(means, 0.025)
-
 quantile(means, 0.975)
 
 ```
@@ -359,8 +359,6 @@ boot.ci(
 ### Prueba de bondad de ajuste a una distribución.
 
 Muchas veces es necesario saber cuando los datos de una muestra se ajustan a una determinada distribución. En ese sentido uno se puede preguntar si la distribución observada (en general, para una muestra) es igual, o no, a una distribución esperada (en general, para la población). Para testear ésto, disponemos de las siguientes pruebas:
-
-
 
 #### Prueba χ²
 
@@ -401,7 +399,7 @@ $$Ei=N(CDF(X_f)−CDF(X_i))$$
 ```{r}
 
 Oi <- 1000 * observed_cdf(xs)
-Ei <- 1000 * pbinom(q=xs, size = 100, p=0.055)
+Ei <- 1000 * pbinom(q=xs, size = 100, p=0.054)
 
 chi2 <- sum((Oi - Ei)^2/Ei)
 
@@ -425,10 +423,13 @@ En particular, su estadístico, $D$ mide la distancia entre la *CDF* de la distr
 
 
 ```{r}
+?ks.test
 my_sample <- rnorm(100, 2, 2)
-ks.test(my_sample, "pnorm",2,2)
+ks.test(my_sample, "pnorm",2, 2)
 
-my_other_sample <- runif(10000, 0, 4)
+
+my_sample <- rnorm(100, 2, 2)
+my_other_sample <- rnorm(10000, 2, 2)
 ks.test(my_sample, my_other_sample)
 ```
 
@@ -447,7 +448,6 @@ shapiro.test(
 shapiro.test(
     sleep$extra[sleep$group==2]
 )
-
 ```
 
 #### Tests de igualdad de varianza
@@ -464,6 +464,12 @@ sapply(
         var(sleep$extra[sleep$group==g])
     }
 )
+aggregate(
+  extra~group,
+  data=sleep,
+  FUN=var
+)
+
 ```
 
 Todos los **test de igualdad de varianza** tienen como hipótesis nula que las varianzas son iguales.  
@@ -472,8 +478,13 @@ El **test F de igualdad de varianzas** tiene como supuesto que las distribucione
 
 ```{r}
 var.test(
-    sleep$extra[sleep$group==1],
-    sleep$extra[sleep$group==2]
+    x=sleep$extra[sleep$group==1],
+    y=sleep$extra[sleep$group==2]
+)
+
+var.test(
+    extra ~ group,
+    data=sleep
 )
 
 ```
@@ -490,19 +501,21 @@ bartlett.test(
 El **test de Levene** es robusto ante distribuciones no normales. 
 
 ```{r}
-library("car")
+#library("car")
 leveneTest(
     extra ~ group,
     sleep)
 ```
 
-#### Test de Student para dos muestras
+### Test de Student para dos muestras
 
-El test de Student asume que las varianzas son iguales, pero existe una alternativa a este test, tste de Welch, que no requiere este asumpción.
+El test de Student asume que las varianzas son iguales, pero
+existe una alternativa a este test, test de Welch, que no
+requiere asumir esta condición.
 
 ```{r}
-sample_1 <- rnorm(15, 2, 1)
-sample_2 <- rnorm(15, 3, 1)
+sample_1 <- rnorm(n=25, mean=2, sd=1)
+sample_2 <- rnorm(n=25, mean=5, sd=6)
 
 t.test(
     x = sample_1,
@@ -578,6 +591,17 @@ wilcox.test(
 ```{r}
 sample_1 <- rexp(25, 1)
 sample_2 <- rexp(25, 4)
+
+hist(
+  sample_1,
+  col="#FF000077")
+
+hist(
+  sample_2,
+  col="#0000FF77",
+  add=TRUE)
+
+
 ks.test(
     sample_1,
     sample_2
@@ -630,6 +654,9 @@ sample_1 <- rbinom(25, 15, 0.04 )
 sample_2 <- rbinom(25, 15, 0.1 )
 m <- median(c(sample_1, sample_2))
 
+table(c(sample_1, sample_2)>=m,
+    rep(1:2, each=25))
+
 chisq.test(
     table(
         c(sample_1, sample_2)>=m,
@@ -639,7 +666,9 @@ chisq.test(
 
 #### Test de Fischer
 
-Se usa si se tienen dos variables nominales, y se quiere saber si las proporciones de una variable se mantiene entre los valores de la otra variable.
+Se usa si se tienen dos variables nominales, y se quiere saber si
+las proporciones de una variable se mantiene entre los valores de
+la otra variable.
 
 
 ```{r}
@@ -657,12 +686,15 @@ fisher.test(
 
 Se usa para buscar diferencias en tablas de contingencia cuando se tienen muestra aparedas.
 
-
-
 ```{r}
 sample_1 <- rbinom(25, 15, 0.04 )
-sample_2 <- sample_1 + runif(25, 2, 4 )
+sample_2 <- sample_1 + runif(25, 1, 2 )
 mcnemar.test(
+    table(
+        c(sample_1, sample_2)>=m,
+        rep(1:2, each=25))
+)
+fisher.test(
     table(
         c(sample_1, sample_2)>=m,
         rep(1:2, each=25))

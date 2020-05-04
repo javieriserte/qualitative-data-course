@@ -96,7 +96,11 @@ pW_S["Female", "Left"]
 
 ### Pearson's Chi-square Test
 
-El **test χ² de Pearson** utiliza el estadístico X² bajo la hipótesis nula de que las variables son independientes. Es decir, $p_{ij} = p_{i} \cdot p_{j}$ para todo $i,j$ cuando $H_{0}$ es vedadera Siendo $\mu_{ij} = n \cdot p_{i} \cdot p_{j}$ la frecuencia esperada bajo $H_{0}$:
+El **test χ² de Pearson** utiliza el estadístico X² bajo la hipótesis nula de que las variables son independientes. Es decir, 
+$$p_{ij} = p_{i} \cdot p_{j}$$
+para todo $i,j$ cuando $H_{0}$ es vedadera Siendo 
+$$\mu_{ij} = n \cdot p_{i} \cdot p_{j}$$
+la frecuencia esperada bajo $H_{0}$:
 
 $$ X^{2} = \sum \frac{(n_{ij}-\mu_{ij})^{2}}{\mu_{ij}} $$
 
@@ -157,7 +161,14 @@ chisq.test(recuentos)
 
 ```
 
-El *P value* el test nos describe la evidencia contra la hipótesis nula, pero no nos da un indicio de la naturaleza de las diferencias. Para poder ganar conocimiento acerca de lo que está pasando en al tabla, es posible hacer las diferencias celda a celda entre los valores observados y los valores esperados: $n_{ij} - \mu_{ij}$. Sin embargo, estos valores serán más grandes a medida que las celdas tengan valores esperados mayores. Para poder evitar esto, se utilizan los residuos estandarizados, que no son más que la diferencia sobre su error estadístico:
+El *P value* el test nos describe la evidencia contra la hipótesis nula, pero no nos da un indicio de la naturaleza de las diferencias.
+
+Para poder ganar conocimiento acerca de lo que está pasando en al tabla, es posible hacer las diferencias celda a celda entre los valores observados y los valores esperados:
+$$n_{ij} - \mu_{ij}$$.
+
+Sin embargo, estos valores serán más grandes a medida que las celdas tengan valores esperados mayores.
+
+Para poder evitar esto, se utilizan los residuos estandarizados, que no son más que la diferencia sobre su error estadístico:
 
 $$\frac{n_{ij}-\mu_{ij}}{\sqrt{\mu_{ij}(1-p_{i})(1-p_{j})}}$$
 

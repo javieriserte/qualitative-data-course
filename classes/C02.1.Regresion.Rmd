@@ -25,12 +25,6 @@ La ecuación para los valores predichos para la variable dependiente sería:
 
 $$\hat{Y} = \alpha + \beta_{1}X_{1} + \beta_{2}X_{2} + ... + \beta_{k}X_{k}$$
 
-
-La ecuación para los valores predichos para la variable dependiente sería:
-
-$$\hat{Y} = \alpha + \beta_{1}X_{1} + \beta_{2}X_{2} + ... + \beta_{k}X_{k}$$
-
-
 La estimación de estos parámetros suele hacerse mediante el criterio de **cuadrados mínimos**, que minimiza la suma de las diferencias entre los valores predichos y los observados al cuadrado $SS_{E}$.
 
 $$ \sum_{i=1}^{N}(Y_{i}-\hat{Y}_{i})^{2} = \sum_{i=1}^{N} E_{i}^{2} $$
