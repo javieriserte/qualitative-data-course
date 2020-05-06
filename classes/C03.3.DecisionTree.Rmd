@@ -1,0 +1,86 @@
+---
+title: "Unidad 3 - Decision Tree"
+output: html_document
+---
+```{r}
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(party)
+library(randomForest)
+```
+
+## Árboles de decisión
+
+Cuando se tienen varias variables aleatorias que describen distintos elementos,
+que pertenecen a diferentes categorías, se puede tomar cada una de las variables
+como un clasificador binario. Estos clasificadores se pueden combinar en 
+sucesión, obteniendose una estructura de árbol.
+
+
+### Ejemplo
+
+Vamos a trabajar nuevamente con el dataset iris.
+
+Separamos los datos en un conjunto de entrenamiento y otro de prueba.
+
+```{r}
+training_fraction = 0.8
+training_index <- sample(
+  1:nrow(iris),
+  training_fraction * nrow(iris)
+  )
+
+training_set <- iris[training_index, ]
+testing_set <- iris[-training_index, ]
+```
+
+Generamos el árbol de clasificación.
+
+```{r}
+clas <- ctree(
+  Species ~.,
+  data=training_set
+)
+```
+
+Veamos el árbol de clasificación.
+
+```{r}
+plot(clas)
+```
+
+Usemos el resultado del clasificador para predecir las categorías del conjunto
+de prueba.
+
+```{r}
+prediction <- predict(clas, testing_set)
+mean(prediction==testing_set$Species)
+```
+
+### Random forest
+
+En un random forest, se crean muchos árboles de decición. Se evalua cada valor
+en todos los árboles de decisión y luego se tomar una decisión final que es el
+valor de salida más votado.
+
+```{r}
+rf_model <- randomForest(
+  Species~.,
+  data=training_set)
+
+plot(rf_model)
+
+prediction <- predict(rf_model, testing_set)
+
+rf_model
+importance(rf_model,type = 2)
+
+
+mean(prediction==testing_set$Species)
+
+```
+
+

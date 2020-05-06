@@ -1,0 +1,111 @@
+---
+title: "Unidad 3 - Clustering"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dynamicTreeCut)
+```
+
+## Técnicas de agrupamiento - Clustering
+
+Hay dos grupos de técnicas de agrupamientos, las jerárquicas y las no 
+jerárquicas.
+
+En las jerárquicas se genera una estructura de árbol. En la raiz de este árbol
+se tiene un único grupo que contiene a todos lo elementos. Este grupo se divide
+en dos subgrupos (o ramas), las cuales se siguen dividiendo hasta llegar a 
+grupos terminales de un solo individuo (hojas). 
+
+En las no jerárquicas suele partirse de de los elementos separados y en pasos 
+iterativos se toman elementos y se genera un nuevo grupo o se une a un grupo
+existente.
+
+### Agrupamiento jerarquico
+
+Primero calculamos una matriz de distancias entre los elementos que quiero
+agrupar.
+
+En el ejemplo, estamos calculando distancias euclideas, pero podemos usar otra 
+medida de distancia. La medida que usemos va a afectar el resultado.
+
+También es recomendable normalizar los datos antes de calcular las distancias.
+
+```{r}
+iris_dist <- dist(
+  iris[,1:4],
+  method="euclidean")
+```
+
+Genermos un árbol jerarquico.
+
+```{r}
+cl <- hclust(iris_dist)
+plot(cl)
+```
+
+Para extraer los grupos, debemos cortar el árbol a cierta altura.
+
+```{r}
+members <- cutree(
+  cl,
+  k=3) # K=3, significa que la altura sea tal que genere tres árboles.
+members
+```
+
+Veamos en un plot XY como fue nuestro agrupamiento.
+
+```{r}
+plot(
+  iris$Petal.Length,
+  iris$Petal.Width,
+  pch=22,
+  col=as.integer(iris$Species),
+  bg=members
+  )
+```
+
+```{r}
+a <- cutreeDynamic(cl, distM = as.matrix(iris_dist))
+plot(
+  iris$Petal.Length,
+  iris$Petal.Width,
+  pch=22,
+  col=as.integer(iris$Species),
+  bg=a
+  )
+```
+
+### Agrupamiento no jerarquico
+
+Como ejemplo de agrupamiento no jerárquico vamos a ver kmeans.
+
+
+```{r}
+
+groups <- kmeans(
+  x=iris[,1:4],
+  centers=3
+)
+
+plot(
+  iris$Petal.Length,
+  iris$Petal.Width,
+  pch=22,
+  col=as.integer(iris$Species),
+  bg=groups$cluster
+  )
+
+points(
+  x=groups$centers[, 3],
+  y=groups$centers[, 4],
+  col = "orange",
+  pch=19
+)
+
+
+```
+
+
+

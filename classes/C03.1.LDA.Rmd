@@ -1,0 +1,216 @@
+---
+title: "Unidad 3 - Linear Discriminant Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(MASS)
+library(klaR)
+library(mda)
+```
+
+## Análisis discriminante
+
+El Análisis discriminante se usa para predecir la probabilidad de que un 
+elemento pertenezca a una categoria a partir de una o más variables 
+independientes (categóricas o continuas).
+
+
+### Ejemplo
+
+Usamos el set de datos de iris.
+
+Separamos el conjunto de datos en dos grupos.
+Uno de entrenamiento y otro de prueba.
+
+```{r}
+training_fraction = 0.8
+training_index <- sample(
+  1:nrow(iris),
+  training_fraction * nrow(iris)
+  )
+
+training_set <- iris[training_index, ]
+testing_set <- iris[-training_index, ]
+```
+
+Hacemos una normalización de los datos.
+
+```{r}
+training_set_norm <- training_set
+training_set_norm[, 1:4] <- apply(
+  X = training_set[, 1:4],
+  MARGIN = 2,
+  FUN = function(x) (x-mean(x))/sd(x) )
+training_set_norm
+
+
+testing_set_norm <- testing_set
+testing_set_norm[, 1:4] <- apply(
+  X = testing_set[, 1:4],
+  MARGIN = 2,
+  FUN = function(x) (x-mean(x))/sd(x) )
+testing_set_norm
+```
+
+Se entrena un modelo para el análisis discriminante con la función *lda* y los
+datos de entrenamiento.
+Queremos que el modelo sea capaz de decidir a que especie pertenece una planta
+en base a los demás datos.
+
+```{r}
+lda_model <- lda(
+  Species ~ .,
+  data=training_set_norm
+)
+```
+
+Se hace la predicción sobre los datos de prueba.
+
+```{r}
+predictions <- predict(lda_model, testing_set_norm)
+predictions
+```
+
+Calculamos la eficiencia de la predicción.
+
+```{r}
+print(
+  paste(
+    "Predicciones correctas:",
+    sum(predictions$class==testing_set$Species),
+    "de",
+    length(predictions$class)
+    )
+)
+
+testing_set[predictions$class!=testing_set$Species, ]
+
+```
+
+Hacemos un plots de los discriminantes.
+
+```{r}
+plot(
+  predictions$x[,1],
+  predictions$x[,2],
+  col=predictions$class,
+  bg=testing_set$Species,
+  pch=22,
+  lwd=3,
+  xlab="LD1",
+  ylab="LD2"
+)
+
+```
+
+Graficamos las particiones.
+
+```{r}
+partimat(
+  Species ~ .,
+  data=testing_set_norm,
+  method="lda") 
+```
+
+### Otro ejemplo
+
+
+```{r}
+
+group_a_d1 <- rnorm(20, 1, 1)
+group_a_d2 <- rnorm(20, 1, 1)
+
+group_b_d1 <- rnorm(20, 6, 1)
+group_b_d2 <- rnorm(20, 2.5, 1)
+
+group_c_d1 <- rnorm(20, 11, 1)
+group_c_d2 <- rnorm(20, 1, 1)
+
+data <- data.frame(
+  d1=c(group_a_d1, group_b_d1, group_c_d1),
+  d2=c(group_a_d2, group_b_d2, group_c_d2),
+  cat=rep(c('red', 'blue', 'red'), each=20)
+)
+
+plot(
+  data$d1,
+  data$d2,
+  col=data$cat,
+  pch=20
+)
+
+```
+
+```{r}
+
+lda_model <- lda(
+  cat~.,
+  data=data
+)
+
+predictions <- predict(
+  lda_model,
+  data
+)
+
+mean(predictions$class==data$cat)
+```
+
+```{r}
+partimat(
+  cat~.,
+  data=data,
+  method="lda"
+)
+```
+
+### Vamos a usar Quadratic Discriminant Analysis
+
+```{r}
+qda_model <- qda(
+  cat~.,
+  data=data
+)
+
+predictions <- predict(
+  qda_model,
+  data
+)
+
+mean(predictions$class==data$cat)
+
+partimat(
+  cat~.,
+  data=data,
+  method="qda"
+)
+```
+
+### Otras variantes
+
+Hay otras variantes además de *lda* y *qda*:
+
+- MDA : Mixture discriminant analysis. Disponible en el paquete *mda*.
+- FDA : Flexible discriminant analysis. Disponible en el paquete *mda*.
+- RDA : Regularized discriminant analysis. Disponible en el paquete *klaR*.
+
+```{r}
+mda_model <- mda(
+  cat~.,
+  data=data
+)
+
+predictions <- predict(
+  mda_model,
+  data
+)
+
+mean(predictions==data$cat)
+
+plot(mda_model)
+
+```
+
+
