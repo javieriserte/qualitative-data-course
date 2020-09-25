@@ -1,0 +1,627 @@
+## ----------------------------------------------------- ##
+## --- EXAMEN FINAL - ANALISIS DE DATOS CUALITATIVOS --- ##
+##     Integrantes: 
+##                 Nazar Yael 
+##                 Pe?as Ballesteros Andrea 
+##                 Piccione Magal?
+##                 Ruiz Guillermina
+## ----------------------------------------------------- ##
+---
+title: "Examen"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Condideraciones generales
+
+El trabajo final consiste de cuatro ejercicios. Se puede resolver de forma
+individual o en grupos de hasta tres personas.
+
+La entrega debe ser un único archivo de R o R markdown e incluir el código
+ejecutable y comentarios con la explicación y justificación de cada punto
+pedido.
+
+La fecha final de entrega es el último día hábil del mes de Junio de 2020.
+
+## Ejercicio 1 - Confórmeros de RMN 
+
+La t?cnica de resonancia magn?tica nuclear (RMN) permite la obtenci?n de estructuras de prote?nas en soluci?n. A diferencia de la difracci?n de rayos X, es posible obtener estructuras de m?ltiples conf?rmeros mediante RMN en un solo expertimento.
+
+La similitud entre dos estructuras de la misma proteina se puede medir calculando
+el RMSD (Root Mean Square Deviation) entre sus ?tomos luego de alinear ambas 
+estructuras. Se pude considerar que es RMSD como una medida de distancia, cuanto
+menor sea este valor, m?s similares son las estructuras y si es cero implica que
+las estructuras son id?nticas.
+
+En los datos proporcianados debajo, se tiene una matriz de distancia obtenida
+para veinte conf?rmeros de la prote?na 16-1 del floema de Arabidopsis thaliana.
+
+- Realice un clustering jer?rquico de los conf?rmeros a partir de los datos.
+- Genere una visualizaci?n del ?rbol jer?rquico, elija un n?mero de clusters de 
+  acuerdo a su interpretaci?n del gr?fico y corte el ?rbol para obtener los grupos.
+- Genere una visualizaci?n usando la t?cnica de escalas multidimensionales (MDS).
+  Asigne un color a cada punto de acuerdo a los grupos obtenidos.
+- Repita el corte del ?rbol usando dynamicTreeCut, repita la visualicaci?n por
+  MDS.
+
+```{r}
+# Este c?digo genera los datos necesarios para el ejercicio
+# Ejecute el código obtener la matriz de distancias.
+dist_data <- data.frame(
+  model_01 = c(0, 16.4852, 26.7001, 6.6758, 25.6860, 17.2724, 16.4360, 17.5262, 5.7859, 4.5729, 7.3545, 16.2985, 27.9932, 15.6142, 20.5686, 9.3243, 17.8689, 23.9115, 10.3299, 17.2828),
+  model_02 = c(16.4852, 0, 18.2345, 17.7663, 16.3651, 11.7960, 8.2189, 10.8417, 15.2919, 16.4171, 16.9726, 13.7641, 18.3786, 14.3336, 11.6759, 17.1467, 11.2420, 16.8094, 13.8109, 9.7168),
+  model_03 = c(26.7001, 18.2345, 0, 24.9232, 10.1868, 21.4135, 14.6915, 14.5236, 23.4392, 26.3174, 24.9146, 14.3248, 11.5938, 17.7416, 14.0819, 23.1910, 11.6983, 5.7072, 22.7548, 12.6613),
+  model_04 = c(6.6758, 17.7663, 24.9232, 0, 24.0685, 16.6095, 16.4687, 17.1476, 5.2863, 5.8117, 4.9092, 14.5118, 26.3781, 13.4018, 21.3679, 5.9685, 17.0221, 22.1496, 8.6671, 16.8856),
+  model_05 = c(25.6860, 16.3651, 10.1868, 24.0685, 0, 16.1106, 15.2739, 16.7502, 22.4373, 25.0151, 23.1993, 13.3762, 6.1724, 13.9120, 17.6865, 21.5592, 13.8006, 10.6359, 20.0988, 13.9501),
+  model_06 = c(17.2724, 11.7960, 21.4135, 16.6095, 16.1106, 0, 14.4798, 17.2628, 15.2802, 15.9306, 14.9138, 15.1275, 17.7061, 10.7905, 20.2664, 14.7562, 17.0877, 20.1955, 10.3066, 15.7021),
+  model_07 = c(16.4360, 8.2189, 14.6915, 16.4687, 15.2739, 14.4798, 0, 6.1707, 14.5125, 16.2804, 16.4638, 10.9738, 17.2864, 13.7019, 9.7053, 15.8147, 7.5667, 12.4539, 14.3201, 5.1190),
+  model_08 = c(17.5262, 10.8417, 14.5236, 17.1476, 16.7502, 17.2628, 6.1707, 0, 15.4003, 17.7589, 17.6089, 10.9059, 18.4387, 14.6958, 9.3566, 16.5306, 6.8907, 11.9384, 16.3907, 5.7788),
+  model_09 = c(5.7859, 15.2919, 23.4392, 5.2863, 22.4373, 15.2802, 14.5125, 15.4003, 0, 5.8535, 5.4776, 12.8612, 24.8279, 12.1619, 18.9797, 6.3361, 15.0996, 20.5545, 7.8011, 14.8662),
+  model_10 = c(4.5729, 16.4171, 26.3174, 5.8117, 25.0151, 15.9306, 16.2804, 17.7589, 5.8535, 0, 5.9455, 16.1058, 27.3436, 14.7760, 21.2119, 8.1079, 17.9523, 23.6218, 8.6544, 17.3343),
+  model_11 = c(7.3545, 16.9726, 24.9146, 4.9092, 23.1993, 14.9138, 16.4638, 17.6089, 5.4776, 5.9455, 0, 14.0077, 25.4121, 12.1996, 21.7709, 5.3425, 17.2134, 22.1693, 7.0570, 16.9675),
+  model_12 = c(16.2985, 13.7641, 14.3248, 14.5118, 13.3762, 15.1275, 10.9738, 10.9059, 12.8612, 16.1058, 14.0077, 0, 15.3454, 7.7219, 15.2254, 11.7657, 8.6621, 11.5023, 13.0254, 9.2705),
+  model_13 = c(27.9932, 18.3786, 11.5938, 26.3781, 6.1724, 17.7061, 17.2864, 18.4387, 24.8279, 27.3436, 25.4121, 15.3454, 0, 15.6845, 19.9546, 23.6483, 15.9775, 12.4275, 22.0478, 16.2506),
+  model_14 = c(15.6142, 14.3336, 17.7416, 13.4018, 13.9120, 10.7905, 13.7019, 14.6958, 12.1619, 14.7760, 12.1996, 7.7219, 15.6845, 0, 19.1618, 9.8197, 12.9266, 15.5429, 10.1634, 13.0122),
+  model_15 = c(20.5686, 11.6759, 14.0819, 21.3679, 17.6865, 20.2664, 9.7053, 9.3566, 18.9797, 21.2119, 21.7709, 15.2254, 19.9546, 19.1618, 0, 21.3889, 9.5500, 13.0831, 20.3184, 9.0762),
+  model_16 = c(9.3243, 17.1467, 23.1910, 5.9685, 21.5592, 14.7562, 15.8147, 16.5306, 6.3361, 8.1079, 5.3425, 11.7657, 23.6483, 9.8197, 21.3889, 0, 15.8248, 20.3619, 7.5788, 15.8322),
+  model_17 = c(17.8689, 11.2420, 11.6983, 17.0221, 13.8006, 17.0877, 7.5667, 6.8907, 15.0996, 17.9523, 17.2134, 8.6621, 15.9775, 12.9266, 9.5500, 15.8248, 0, 9.0847, 15.9460, 5.4431),
+  model_18 = c(23.9115, 16.8094, 5.7072, 22.1496, 10.6359, 20.1955, 12.4539, 11.9384, 20.5545, 23.6218, 22.1693, 11.5023, 12.4275, 15.5429, 13.0831, 20.3619, 9.0847, 0, 20.4288, 10.1646),
+  model_19 = c(10.3299, 13.8109, 22.7548, 8.6671, 20.0988, 10.3066, 14.3201, 16.3907, 7.8011, 8.6544, 7.0570, 13.0254, 22.0478, 10.1634, 20.3184, 7.5788, 15.9460, 20.4288, 0, 15.2810),
+  model_20 = c(17.2828, 9.7168, 12.6613, 16.8856, 13.9501, 15.7021, 5.1190, 5.7788, 14.8662, 17.3343, 16.9675, 9.2705, 16.2506, 13.0122, 9.0762, 15.8322, 5.4431, 10.1646, 15.2810, 0)
+)
+rownames(dist_data) <- colnames(dist_data)
+dist_data <- as.dist(dist_data)
+```
+
+## ------------------- ##
+## Comienzo del c?digo ##
+```{r}
+# install.packages('ggfortify', 'ggplot2', 'dynamicTreeCut')
+
+# library(Biostrings)
+# library(rDNAse)
+# library(seqinr)
+# library(foreach)
+# library(doParallel)
+# library(factoextra)
+# library(ape)
+# library(fpc)
+# library(cluster)
+library(ggfortify)
+# library(plyr)
+library(ggplot2)
+# library(ggalt)
+library(dynamicTreeCut)
+
+# Ejercicio 1. 
+# a) Realice un clustering jer?rquico de los conf?rmeros a partir de los datos.
+
+# Realizamos el cl?stering jer?rquico con los datos utilizando distintos m?todos.
+arbol_single <- hclust(d = as.dist(dist_data), method = "single")
+arbol_average <- hclust(d = as.dist(dist_data), method = "average")
+
+# Elegimos el Average ya que da un mejor agrupamiento.
+arbol <- arbol_average
+# arbol <- arbol_single
+
+arbol$merge
+
+# Generamos la Vista gr?fica.
+plot(arbol)
+
+# Reacomodamos el ?rbol a una distancia = 0 para lo cual usamos un Hang negativo.
+plot(arbol, hang = -1)
+
+# b) Genere una visualizaci?n del ?rbol jer?rquico, elija un n?mero de clusters de acuerdo a su interpretaci?n del gr?fico y corte el ?rbol para obtener los grupos.
+
+# Elegimos la altura para el corte, seg?n vemos comienzan los saltos mas bruscos.
+altura <- 12
+
+# Trazamos una l?nea visualizando la altura de corte elegida.
+abline(h = altura, col = "red", lty="dashed")
+
+# Graficamos en el ?rbol los cl?sters que se obtendr?n con el corte.
+plot(arbol, hang = -1)
+rect.hclust(arbol, h = altura, border = 2:6)
+
+# Realizamos el corte del ?rbol a la altura designada y obtenemos los cl?sters.
+clusters <- cutree(arbol, h = altura)
+clusters
+
+# c) Genere una visualizaci?n usando la t?cnica de escalas multidimensionales (MDS)
+
+# Convertimos la matriz de distancias mediante la t?cnica de escala multidimensional.
+distdatascale <- cmdscale(dist_data, eig=TRUE)
+
+# La vemos en un plot con colores seg?n los clusters obtenidos, donde se observan 5 clusters.
+x <- distdatascale$points[,1]
+y <- distdatascale$points[,2]    
+ggplot(distdatascale, aes(x, y, group=clusters, color=clusters)) +
+  geom_point() +
+  scale_colour_gradientn(colours=rainbow(5)) +
+  stat_ellipse(type = "norm")
+
+# d) Repita el corte del ?rbol usando dynamicTreeCut, repita la visualicaci?n por MDS
+
+# Generamos un corte din?mico del ?rbol, con un m?ximo de 4 clusters.  
+dyntree <- cutreeDynamic(
+  arbol,
+  distM = as.matrix(dist_data),
+  minClusterSize = 4
+)
+
+# Vemos el resultado del corte din?mico realizado, en este caso se observan 3 clusters.
+ggplot(as.dist(dist_data), aes(x, y, group=dyntree, color=dyntree)) +
+  geom_point() +
+  scale_colour_gradientn(colours=rainbow(5)) +
+  stat_ellipse(type = "norm")
+```
+
+> COMENTARIO: No es una buena práctica incluir líneas de código para instalar 
+> paquetes en los scripts (con install.package). También es recomendable, no 
+> pedir que se carguen paquetes que no se van a usar (p.e Biostrings, rDNAse, etc).
+
+## Ejercicio 2 - Resultado de docking
+
+El docking molecular es una técnica computacional que intenta predecir el sitio
+de unión de una proteína con un ligando, otra proteína, o un ácido nucleico.
+
+Los métodos de docking suelen generar entre cientos a miles de posibles
+estructuras de interacción entre las moléculas. Una étapa común suele ser la de
+generar grupos y luego analizar las propiedades de los grupos obtenidos.
+
+En el archivo 'hdock_5ecae82ecf8f7.txt' se tienen datos del resultado de docking
+para el pétido adrenomedullin 2 (ADM2) con el receptor CLR (calcitonin 
+receptor-like) y la proteína RAMP1 (Receptor Activity-Modifying Protein 1).
+El archivo contiene datos de más de 4000 estructuras del ligando. Las tres
+primeras columnas corresponden a las coordenadas X, Y y Z del centro de rotación
+del ligando, las siguientes tres rotaciones son las rotaciones en cada eje, 
+la séptima es una medida de la energía del docking (cuanto menor es, la 
+estructura es más estable. Los datos están ordenados por energía). Las últimas
+columnas son datos internos del docking y no son relevantes para este ejercicio.
+
+- Reliace un análisis de componentes principales con los datos de las primeras
+  columnas (que describen la geometría).
+- ¿que proporción de la varianza está representada en las dos primeras
+  componentes?
+- Proponga un número de clusters según su interpretación del gráfico y genere 
+  esa cantidad de clusters usando kmeans.
+- Rehaga el gráfico de PCA, asignando un color a cada punto de acuerdo a los
+  grupos obtenidos.
+- Haga un boxplot de la energía para cada grupo.
+- Haga uno o más tests para decidir si la energía entre grupos es similar o no.
+
+```{r}
+# Cambiar la ruta de acceso al archivo.
+docking_data <- read.table("..\\data\\hdock_5ecae82ecf8f7.txt")
+colnames(docking_data) <- c("X", "Y", "Z", "Rot1", "Rot2", "Rot3", "Energ", "?", "??")
+head(docking_data)
+```
+
+```{r}
+#Ejercicio 2
+#install.packages('markdown', 'stats', 'tidyverse', 'dplyr')
+library(markdown)
+library(stats)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+
+## a) Reliace un análisis de componentes principales con los datos de las primeras columnas (que describen la geometr??a).
+
+correlacion <- docking_data %>% 
+  select(1:6)
+
+cor(correlacion)
+
+layout(matrix(1:2, ncol=2, nrow=1))
+pca <- prcomp(correlacion, center = TRUE, scale=TRUE)
+plot(pca)
+
+spca <- summary(pca)
+
+plot(
+  pca$x[,"PC1"],
+  pca$x[,"PC2"],
+  pch=19,
+  cex=0.6,
+  xlab=paste("PC1", spca$importance[2,1]),
+  ylab=paste("PC2", spca$importance[2,2]))
+
+biplot(pca, scale = 0.5, cex = 0.8, col = c("black", "red"))
+
+##Las rotaciones de cada eje tienen influencias en la primera componente, mientras que las coordenadas X,Y,Z influyen en la segunda componente. 
+
+ ## b) ¿que proporción de la varianza está representada en las dos primeras
+  componentes?
+
+spca
+
+##Agregamos el gr?fico 
+
+pca$sdev^2
+prop_varianza <- pca$sdev^2 / sum(pca$sdev^2)
+prop_varianza
+
+prop_varianza_acum <- cumsum(prop_varianza)
+prop_varianza_acum
+
+
+ggplot(data = data.frame(prop_varianza_acum, pc = 1:6),
+       aes(x = pc, y = prop_varianza_acum, group = 1)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  labs(x = "Componente principal",
+       y = "Prop. varianza explicada acumulada")
+
+##La proporci?n de varianza explicada por las primeras dos componentes es del 0.4648.
+
+## c) Proponga un número de clusters según su interpretación del gráfico y genere esa cantidad de clusters usando kmeans.
+
+
+##Segun la interpretaci?n del grafico, observamos 3 clusters, por lo que generamos esa cantidad de clusters usando kmeans:
+
+plot(
+  pca$x[,"PC1"],
+  pca$x[,"PC2"],
+  pch=19,
+  cex=0.6,
+  xlab=paste("PC1", spca$importance[2,1]),
+  ylab=paste("PC2", spca$importance[2,2]))
+
+
+set.seed(123)
+
+groups <- kmeans(
+  x=docking_data[,1:6],
+  centers=3
+)
+
+## d) Rehaga el gráfico de PCA, asignando un color a cada punto de acuerdo a los grupos obtenidos.
+
+plot(
+  pca$x,
+  pch=22,
+  bg= c("red", "green3", "blue")[groups$cluster])
+legend("topleft",legend=c("Grupo 1", "Grupo 2", "Grupo 3"), col=c("red", "green3", "blue"),cex=0.9,pch=22,fill=c("red", "green3", "blue"))
+
+
+## e)Haga un boxplot de la energ??a para cada grupo.
+
+##Para realizar el boxplot para la variable Energ?a para cada grupo, primero agregamos una columna a la base de datos que indicaba a que grupo pertenec?a cada observaci?n:
+
+grupos<- groups[["cluster"]]
+
+docking_datagrupos<- cbind(docking_data,grupos)
+
+head(docking_datagrupos)
+
+##Luego de generar esta nueva tabla, pudimos generar el boxplot para la variable Energ?a segun los grupos:
+
+boxplot(docking_datagrupos$Energ ~ docking_datagrupos$grupos, col=c("red", "green3", "blue"), main= "Energ?a por grupos", ylab= "Energ?a",xlab="Grupos")
+
+## f) Haga uno o más tests para decidir si la energ??a entre grupos es similar o no.
+
+##Al tratarse de un metodo de agrupaci?n no param?trico, decidimos compararar los grupos por la prueba de Kruskal-Wallis
+
+install.packages("PMCMR")
+
+library(PMCMR)
+
+
+posthoc.kruskal.nemenyi.test(
+  x=docking_datagrupos$Energ,
+  g=docking_datagrupos$grupos,
+  dist="Tukey"
+  )
+
+posthoc.kruskal.nemenyi.test(
+   x=docking_datagrupos$Energ,
+  g=docking_datagrupos$grupos,
+  dist="Chisq"
+  )
+
+##No se encontraron diferencias significativas entre los grupos 1 y 3 para la variable Energia.
+##En cambio, se encontraron diferencias significativas para ambos grupos respecto del grupo 2 para la misma variable. 
+```
+
+## Ejercicio 3 - Expresion de genes
+
+Se quiere analizar una pequeña red de regulación génica en un microorganismo
+recientemente descubierto: Bacillus novusvillam.
+Esta red está formada por ocho proteínas reguladores y treinta genes blancos de
+regulación.
+
+Analizando la secuencia promotora de cada gen blanco se encontraron putativas
+regiones de unión de una o más de las proteínas regulatorias.
+
+Se quiere construir un modelo lineal que pueda explicar la expresión de estos
+genes, durante la fase de síntesis del ciclo celular, de acuerdo a la presencia
+de las secuencias de unión a las proteínas regulatorias.
+
+En la tabla de datos proporcionada, se tienen datos de la medición de la
+expresión génica (durante la fase de síntesis) de cada uno de los genes blanco
+en la primer columna, en las ocho siguientes columnas está codificada la
+presencia (1) o ausencia (0) de cada la secuencia de unión de cada proteína
+reguladora en el promotor del gen blanco. Finalmente, en la última columna, hay
+una asignación de la función del gen blanco, en tres categorías: señalización,
+metabolismo o respuesta a stress.
+
+- Genere un modelo lineal simple para modelar la expresión de este conjunto de
+  genes blanco.
+- Haga una análisis discriminante lineal (LDA) para predecir la pertencia de 
+  cada gen blanco a las categorías funcionales ("signaling", "Mmetabolism" y 
+  "Stress"). Para ello, construya un conjunto de entrenamiento y otro de prueba.
+
+  
+```{r}
+# Este código genera los datos necessarios para el ejercicio
+# Ejecute el código para obtener los datos de partida.
+expdata <- data.frame(
+  matrix(
+    data=c(
+      "11.076", "0", "1", "0", "1", "1", "0", "0", "1", "Signaling",
+       "6.982", "0", "0", "1", "0", "0", "0", "1", "1", "Metabolism",
+       "3.641", "0", "0", "1", "0", "1", "0", "0", "1", "Stress",
+       "9.778", "0", "0", "1", "1", "1", "1", "0", "0", "Stress",
+      "10.995", "0", "1", "0", "1", "0", "0", "1", "1", "Signaling",
+       "7.213", "0", "1", "0", "1", "0", "1", "0", "1", "Signaling",
+       "9.292", "0", "0", "1", "0", "1", "1", "1", "0", "Stress",
+       "7.437", "0", "0", "0", "0", "1", "0", "1", "0", "Signaling",
+       "1.381", "1", "0", "0", "0", "1", "1", "0", "1", "Signaling",
+      "14.812", "0", "0", "1", "1", "0", "1", "1", "0", "Stress",
+       "3.536", "1", "0", "0", "0", "1", "0", "0", "1", "Signaling",
+       "8.384", "0", "0", "0", "0", "1", "0", "1", "1", "Metabolism",
+       "5.433", "0", "0", "0", "0", "1", "1", "1", "1", "Signaling",
+       "7.068", "1", "0", "0", "1", "1", "1", "0", "0", "Signaling",
+      "-0.962", "1", "1", "0", "0", "1", "0", "0", "0", "Metabolism",
+       "3.725", "0", "0", "1", "0", "1", "1", "0", "0", "Stress",
+      "12.031", "1", "0", "0", "1", "0", "1", "1", "0", "Signaling",
+       "2.779", "1", "0", "1", "0", "1", "0", "0", "1", "Metabolism",
+       "4.730", "1", "1", "1", "0", "0", "0", "0", "1", "Metabolism",
+      "13.597", "1", "1", "0", "1", "0", "0", "1", "0", "Metabolism",
+       "8.690", "0", "1", "0", "1", "0", "0", "0", "1", "Metabolism",
+       "2.394", "0", "1", "0", "0", "1", "1", "1", "0", "Signaling",
+      "12.631", "0", "0", "0", "1", "0", "1", "1", "0", "Signaling",
+       "9.043", "0", "0", "1", "0", "1", "0", "1", "0", "Stress",
+      "11.414", "0", "0", "0", "1", "0", "0", "1", "1", "Signaling",
+       "5.610", "0", "1", "1", "0", "0", "0", "1", "1", "Metabolism",
+      "10.922", "0", "0", "1", "1", "1", "0", "0", "0", "Stress",
+       "5.502", "1", "0", "0", "0", "1", "0", "0", "0", "Signaling",
+       "3.769", "1", "1", "0", "0", "1", "0", "1", "0", "Metabolism",
+       "2.601", "1", "1", "1", "0", "0", "1", "0", "0", "Metabolism"
+      ),
+    byrow = TRUE,
+    ncol=10,
+  ),
+  stringsAsFactors = FALSE
+)
+
+expdata[,1] <- as.numeric(expdata[,1])
+expdata[,2] <- as.numeric(expdata[,2])
+expdata[,3] <- as.numeric(expdata[,3])
+expdata[,4] <- as.numeric(expdata[,4])
+expdata[,5] <- as.numeric(expdata[,5])
+expdata[,6] <- as.numeric(expdata[,6])
+expdata[,7] <- as.numeric(expdata[,7])
+expdata[,8] <- as.numeric(expdata[,8])
+expdata[,9] <- as.numeric(expdata[,9])
+expdata[,10] <- factor(expdata[,10])
+rownames(expdata) <- c(
+  "BN43692", "BN14803", "BN09935", "BN41071", "BN79318", "BN28948", "BN57814",
+  "BN29770", "BN05403", "BN99720", "BN59592", "BN83110", "BN08049", "BN97505",
+  "BN04609", "BN44066", "BN50732", "BN68717", "BN16980", "BN60240", "BN66629",
+  "BN55826", "BN48684", "BN82698", "BN09817", "BN53059", "BN92537", "BN09699",
+  "BN36675", "BN33697"
+)
+colnames(expdata) <- c("Expr", "BN55201", "BN91693", "BN56179", "BN19314",
+                       "BN41333", "BN41266", "BN56652", "BN02864", "Type")
+head(expdata)
+```
+
+```{r}
+
+#Ejercicio 3
+# a)
+prueba <- lm(Expr ~ BN55201 + BN91693 + BN56179 + BN19314 + BN41333 + BN41266 + BN56652 + BN02864, data=expdata, family=binomial)
+summary(prueba)
+prueba$coefficients
+plot(prueba)
+
+#b)
+# Carga de librer?as
+
+install.packages('MASS', 'klaR', 'ggplot2')
+library(MASS)     # para lda()
+library(klaR)
+library(ggplot2)
+
+# Selecci?n de una submuestra de 21 (el 70% de los datos). De esta forma genero un conjunto de entrenamiento, que corresponde al 70% de los datos, y un conjunto de prueba que corresponde al 30% restante de los datos.
+
+tamano.total <- nrow(expdata)
+tamano.entrenamiento <- round(30*0.7)
+seleccion.datos <- sample(1:tamano.total , size=tamano.entrenamiento)
+datos.entrenamiento <- expdata[seleccion.datos,]
+datos.prueba <- expdata[-seleccion.datos,]
+
+# Ejecuci?n del an?lisis discriminante con los datos de entrenamiento.
+datos.entrenamiento.lda <- lda(formula= Type~. , data=datos.entrenamiento)
+
+# Asignaci?n de colores a cada  categor?a funcional para graficar.
+# Se a?ade una variable nueva con los colores
+color <- rep("green",nrow(datos.entrenamiento))
+color[datos.entrenamiento$Type == "Signaling"] <- "red"
+color[datos.entrenamiento$Type == "Metabolism"] <- "blue"
+color[datos.entrenamiento$Type == "Stress"] <- "purple"
+
+# Gr?ficos del resultado del an?lisis discriminante para observaci?n
+plot(datos.entrenamiento.lda, dimen=2, col=color, abbrev=3)
+
+# Asignaci?n a cada clase, proporciona la probabilidad de pertenencia a cada una.
+datos.entrenamiento.lda.p <- predict(datos.entrenamiento.lda, newdata=datos.prueba, interval='confidence')
+
+# De esta forma vemos las probabilidades calculadas y la asigaci?n dada a cada gen
+# seg?n la probabilidad de pertenencia a cada categor?a funcional. 
+prediccion <- data.frame(datos.entrenamiento.lda.p)
+prediccion
+
+# Gr?fico de la asignaci?n a grupos seg?n probabilidad de pertenencia.
+ggplot(data=prediccion, aes(x = x.LD1, y = x.LD2)) +
+  geom_point(aes(color = class)) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(x = "x", y = "y") + 
+  theme_bw() +
+  ggtitle("Predicci?n")
+
+```
+
+## Ejercicio 4 - Covariación
+
+El análisis de covariación de pares de residuos en un conjuntos de secuencias 
+homólogas de una proteína permite predecir con cierta exactitud los contactos
+tridimensionales en la estructura tridimensional de una proteína.
+
+El archivo "covdata.txt" contiene datos de los resultados de covariación 
+obtenidas por dos metodologías: Direct Coupling Analysis (DCA) y Mutual
+Information (MI) para la proteína tioredoxina. Cada fila de la tabla contiene
+datos para un par de residuos de la proteína. En los dos primeras columnas,
+están los números de las posiciones de los residuos, en las dos columnas 
+siguientes están los puntajes de covariaciones para los dos métodos usados y
+en la última columna dice si ese par de residuos están realmente en contacto en 
+la estructura tridimensional de la proteína (este valor no es una predicción, 
+es 1 para los que están en contacto y 0 para los que no).
+
+Se quiere obtener un método que combine información de los métodos usados para
+mejorar la predicción. Como primer acercamiento, se quiere hacer una prueba con
+una sola proteína.
+
+- Genere una visualización de las curva ROC para la predicción de contactos para
+  ambos métodos. Calcule el área bajo la curca (AUC) en cada caso.
+- Haga una regresión logística para obtener un método que combine información
+  de los otros dos métodos. Intente prededir los datos de contacto, a partir de
+  ellos.
+- Genere una nueva curva ROC y calcule el AUC para el nuevo método.
+
+
+```{r}
+# Cambie la ruta del archivo
+cov_data <- read.table("../data/covdata.txt")
+head(cov_data)
+
+### Ejercicio 4 - Covariaci?n
+
+# Cambiamos la ruta del archivo
+#cov_data <- read.table("C:/Users/Guille/Documents/Maestr?a/An?lisis datos Cualit/Examen/covdata.txt")
+summary(cov_data)
+head(cov_data)
+
+#Generamos la visualizaci?n de las curvas ROC
+install.packages("ROCR", "pROC", "stats")
+library(pROC)
+library(ROCR)
+
+#Para dca
+curvaROC_dca <- roc(cov_data$is_contact,cov_data$dca)
+
+#Para mi:
+curvaROC_mi <- roc(cov_data$is_contact,cov_data$mi)
+
+
+#Visualizamos las curvas:
+c(1,2) # ????
+
+plot(curvaROC_mi, main="Curva ROC MI", col="red")
+plot(curvaROC_dca, main="Curva ROC DCA", col="blue")
+#Calculamos el area bajo la curva
+
+area_dca <- auc(curvaROC_dca)
+area_dca
+#Resultado=0.8401
+
+area_mi <- auc(curvaROC_mi)
+area_mi
+#Resultado=0.8339
+
+#Si el valor de AUC es cercano a 0.5 entonces no tenemos capacidad de predicci?n.Si el valor es cercano a 1, 
+#tenemos una buena predicci?n. Si el valor es cercano a 0, tenemos un antipredictor.
+#En este caso, AUC= 0.8401 y 0.8339 son bastante buenos.
+
+#Lo que sigue es hacer una regreasion logistica para obtener un metodo que combine ambos metodos.
+#generar un modelo que nos permita predecir el dato de contacto a partir de ambas.
+
+my_model <- glm(
+  is_contact ~ dca*mi,
+  data= cov_data,
+  family="binomial"
+)
+
+coefficients(my_model)
+alpha <- coefficients(my_model)[1]
+beta <- coefficients(my_model)[2]
+
+# EDIT JAVIER: El modelo tiene cuatro términos:
+# alpha, se corresponde con el intercept.
+# beta, se corresponde con el primer término lineal(dca)
+# Y agrego gamma y delta:
+# gamma, se corresponde con el segundo término lineal(mi)
+# delta, se corresponde con el término interacción (dca:mi)
+gamma <- coefficients(my_model)[3]
+delta <- coefficients(my_model)[4]
+
+x <- cov_data$dca
+y <- cov_data$mi
+
+
+# EDIT JAVIER: Esta función de ajuste no es correcta.
+# No se corresponde con el modelo.
+# fitted_logistic <- function(x,y) {
+#   1/(1+exp(-(alpha+beta*x)))
+# }
+
+# EDIT JAVIER: Esta es la función de ajuste correcta:
+fitted_logistic <- function(x,y) {
+  1/(1+exp(-(alpha+beta*x+gamma*y+delta*x*y)))
+}
+
+# EDIT JAVIER: se hace la predicción con la 
+# función de ajuste modificada.
+pred <- prediction(
+   predictions = fitted_logistic(x,y),
+   labels = cov_data$is_contact
+ )
+
+# EDIT JAVIER: En lugar de calcular manualmente los valores ajustados
+# se puede usar la función fitted.values.
+pred <- prediction(
+    predictions = fitted.values(my_model),
+    labels = cov_data$is_contact
+)
+
+#Generamos una nueva curva ROC para esta predicci?n
+perf <- performance(pred,"tpr","fpr")
+plot(perf, colorize=TRUE)
+
+auc_value <- performance(pred, "auc")@y.values[[1]]
+auc_value
+
+```
+
+> COMENTARIO: La última parte del ejercicio no está bien. La función
+> 'fitted_logistic' no está bien definida (La cantidad y tipo de parámetros
+> no coincide con el modelo).
+> En lugar de ajustar los valores con las fórmula, se puede tomar los valores
+> ajustados contenidos en el modelo: fitted.values(my_model). 
+> Reescribí esa parte del código para que funcione.
+> No era neceario plantear un modelo con interacción. No es incorrecto hacerlo,
+> pero en este caso no era importante hacerlo y además no los vimos en las
+> clases.
+
+
+
+
+
+
