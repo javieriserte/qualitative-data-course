@@ -1,17 +1,12 @@
 
 #--------------------------------------------------------------------------------------------------------------#
-#-------------------------------------------- Elementos básicos de R ------------------------------------------#
+#-------------------------------------------- Elementos bï¿½sicos de R ------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
-<<<<<<< HEAD
-#En el día de hoy vamos a comenzar viendo los elementos básicos de la sintaxis de R
-#Entre las muchas cosas que podemos con R, lo podemos usar como si fuera una calculadora.
-=======
-# En el día de hoy vamos a comenzar viendo los elementos básicos de la 
+# En el dï¿½a de hoy vamos a comenzar viendo los elementos bï¿½sicos de la 
 # sintaxis de R. 
 # Entre las muchas cosas que podemos con R, lo podemos usar como si 
 # fuera una calculadora.
->>>>>>> 56d2ad41003c4758f9b468483fe35b777bf35061
 
 2+10
 315/7
@@ -30,19 +25,19 @@ sqrt(99225)
 
 cursos <- 3
 
-#en R hay varios tipos de objetos: numeric, integer, character, logical, ... Para saber de qué clase es un objetos 
-#podemos usar la función class.
+#en R hay varios tipos de objetos: numeric, integer, character, logical, ... Para saber de quï¿½ clase es un objetos 
+#podemos usar la funciï¿½n class.
 
 ?class
 class(cursos)
 
 #con los objetos en R se pueden realizar una gran cantidad de operaciones. Por ejemplo, imaginen que en la segunda 
-#parte del año damos 2 cursos más, ahora podríamos crear un segundo objeto cursos2.
+#parte del aï¿½o damos 2 cursos mï¿½s, ahora podrï¿½amos crear un segundo objeto cursos2.
 
 cursos2 <- 2
 
 #Si lo que queremos es a partir de los dos objetos anteriores saber cuÃ¡ntos cursos de BioinformÃ¡tica se dieron en el
-#año podemos simplemente sumar los objetos "cursos" y "cursos2"
+#aï¿½o podemos simplemente sumar los objetos "cursos" y "cursos2"
 
 cursos + cursos2
 cursos_totales <- cursos + cursos2 
@@ -64,23 +59,23 @@ as.logical(cursos_totales)
 cursos <- c("Linux", "Python", "R")
 horas  <- c(8, 12, 20)
 
-#De la misma manera que podemos realizar cálculos con números también lo podemos hacer con vectores
+#De la misma manera que podemos realizar cï¿½lculos con nï¿½meros tambiï¿½n lo podemos hacer con vectores
 
 horas + 2
 2*horas
 horas +c(1, 2, 3, 4)
 
-#Los vectores sólo aceptan que todos los elementos que sean guardados en los mismos sean de la misma clase.
+#Los vectores sï¿½lo aceptan que todos los elementos que sean guardados en los mismos sean de la misma clase.
 
-cs <- c("Linux", "Python", "R", 2) #¿Qué ocurrió con el 2?
+cs <- c("Linux", "Python", "R", 2) #ï¿½Quï¿½ ocurriï¿½ con el 2?
 
 #En cambio, las listas nos permiten contener elementos de diferentes clases en el mismo objeto.
 
 cs <- list("Linux", "Python", "R", 2)
-class(cs[[1]]) #¿De que clase es el primer elemento de la lista?
-class(cs[[4]]) #¿De que clase es el cuarto elemento de la lista?
+class(cs[[1]]) #ï¿½De que clase es el primer elemento de la lista?
+class(cs[[4]]) #ï¿½De que clase es el cuarto elemento de la lista?
 
-#En R también encontramos estructuras de datos que son de dos dimensionen que nos van a permitir trabajar con
+#En R tambiï¿½n encontramos estructuras de datos que son de dos dimensionen que nos van a permitir trabajar con
 #tablas (a las que vamos a llamar data.frames) y matrices.
 
 #A partir de los dos vectores que creamos anteriormente vamos a generar un data.frame
@@ -88,20 +83,20 @@ class(cs[[4]]) #¿De que clase es el cuarto elemento de la lista?
 carga_horaria <- data.frame(cursos, horas)
 
 class(carga_horaria)
-str(carga_horaria)       #la función str nos permite analizar la estructura de los datos
+str(carga_horaria)       #la funciï¿½n str nos permite analizar la estructura de los datos
 dim(carga_horaria)       #dim devuelve las dimensiones del data.frame
 colnames(carga_horaria)  #colnames nos devuelve los nombres de las columnas, de forma similar existe rownames
 
-#También podemos agregar más columnas o filas a un dataframe
+#Tambiï¿½n podemos agregar mï¿½s columnas o filas a un dataframe
 ?cbind
 ?rbind
 
-profes <- c("eli", "javi", "andrés")
+profes <- c("eli", "javi", "andrï¿½s")
 
 carga_horaria <- cbind(carga_horaria, profes) #fijense que estoy pisando la variable vieja agregando una nueva columna
                                               #de forma similar puedo agregar filas con rbind 
 
-#Las matrices de forma similar a los vectores, sólo van a permitir contener un solo tipo de dato
+#Las matrices de forma similar a los vectores, sï¿½lo van a permitir contener un solo tipo de dato
 ?matrix
 ?seq
 
@@ -136,13 +131,13 @@ plantas[15, 1]  #imprimo en pantalla el valor que toma el peso (primera columna)
                 #el primer valor entre corchetes indica a quÃ© fila quiero acceder, y el segundo valor a quÃ© columna
 
 
-#¿cómo haría si quiero que me muestre en pantalla solamente las filas que corresponden al tratamiento 2?
+#ï¿½cï¿½mo harï¿½a si quiero que me muestre en pantalla solamente las filas que corresponden al tratamiento 2?
 
 ?which
-plantas[which(plantas$group == "trt2"), ] #con which le estoy preguntando cuáles son las filas en las que en la columna
+plantas[which(plantas$group == "trt2"), ] #con which le estoy preguntando cuï¿½les son las filas en las que en la columna
                                           #"group" el valor sea igual a "trt2"
 
-#¿Y si quiero que me muestre las plantas que pesan más que 5.5?
+#ï¿½Y si quiero que me muestre las plantas que pesan mï¿½s que 5.5?
 
 plantas[which(plantas$weight > 5.5), ]
 
@@ -157,28 +152,28 @@ plantas[mayor5.5, ]              #uso ese vector para subsettear el data.frame
 
 plantas[which(plantas$weight > 5.5 & plantas$group == "trt2"), ]
 
-#también puedo guardar la tabla subseteada como un nuevo objeto
+#tambiï¿½n puedo guardar la tabla subseteada como un nuevo objeto
 plantas2 <- plantas[which(plantas$weight > 5.5 & plantas$group == "trt2"), ]
 
 
-#Ahora vamos a ver cómo se subsetea una lista. En las listas, al poder contener objetos muy variados, hay que tener 
+#Ahora vamos a ver cï¿½mo se subsetea una lista. En las listas, al poder contener objetos muy variados, hay que tener 
 #ciertas consideraciones a la hora de subsetear
 
 tecnicas_BioMol <- list("Southern", "Western" , c("Northern", "RNASeq", "RTPCR"))
 
-length(tecnicas_BioMol)     #¿cuántos elementos tiene la lista? ¿por qué?
+length(tecnicas_BioMol)     #ï¿½cuï¿½ntos elementos tiene la lista? ï¿½por quï¿½?
 
 tecnicas_BioMol[1]          #quiero imprimir el primer elemento de la lista...
 class(tecnicas_BioMol[1])   #pero...
 
-tecnicas_BioMol[[1]]        #¿cuál es la diferencias con el paso anterior?
+tecnicas_BioMol[[1]]        #ï¿½cuï¿½l es la diferencias con el paso anterior?
 class(tecnicas_BioMol[[1]])
 
-tecnicas_BioMol[[3]]        #¿qué ocurre cuando tengo un vector dentro de una lista?
+tecnicas_BioMol[[3]]        #ï¿½quï¿½ ocurre cuando tengo un vector dentro de una lista?
 tecnicas_BioMol[[3]][2]     #para llegar al elemento que se encuentra en la 2da posiciÃ³n en la lista
 
 
-#también puedo nombrar a cada elemento de la lista y usarlos para subsetear
+#tambiï¿½n puedo nombrar a cada elemento de la lista y usarlos para subsetear
 tecnicas_BioMol <- list(DNA = "Southern", Proteinas = "Western" , RNA = c("Northern", "RNASeq", "RTPCR"))
 
 tecnicas_BioMol$RNA
@@ -188,9 +183,9 @@ tecnicas_BioMol$RNA
 #----------------------------------Estructuras de Control------------------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
-#vamos a usar un ejemplo: queremos saber cuanto vale la suma de los primeros 100 números naturales
-#para eso tenemos que tener una variable que vaya acumulando el resultado de la suma en cada iteración (n),y otra 
-#variable que vaya recorriendo los números desde 1 hasta 100 (i)
+#vamos a usar un ejemplo: queremos saber cuanto vale la suma de los primeros 100 nï¿½meros naturales
+#para eso tenemos que tener una variable que vaya acumulando el resultado de la suma en cada iteraciï¿½n (n),y otra 
+#variable que vaya recorriendo los nï¿½meros desde 1 hasta 100 (i)
 
 n=0
 for (i in 1:100){
@@ -198,16 +193,16 @@ for (i in 1:100){
 }
 print(n)
 
-#¿Hay alguna forma de hacer lo mismo pero sin utilizar un for?
+#ï¿½Hay alguna forma de hacer lo mismo pero sin utilizar un for?
 sum(1:100)
 
-#queremos saber si un número es par o impar, entonces debemos usar la estructura if - else
+#queremos saber si un nï¿½mero es par o impar, entonces debemos usar la estructura if - else
 
 numero = 10
 if (numero%%2 == 0){
-  print("El número es par")
+  print("El nï¿½mero es par")
 }else{
-  print("El número es impar")
+  print("El nï¿½mero es impar")
   }
 
 #esta es otra forma pero imprimiendo de otra manera los resultados
@@ -215,15 +210,15 @@ if (numero%%2 == 0){
 
 numero = 10
 if (numero%%2 == 0){
-  print(paste("El número", numero, "es par"))
+  print(paste("El nï¿½mero", numero, "es par"))
 }else{
-  print(paste("El número", numero, "es impar"))
+  print(paste("El nï¿½mero", numero, "es impar"))
 }
 
 
-#Ahora queremos guardar en una variable la suma de los números pares desde 1 a 100 y en otra variable la suma de 
-#los números impares. En este caso vamos a necesitar un "if" que me permita saber si un número es par o impar
-#la expresión %% me permite saber el resto de la división, por ej. 48%%2 va a devolver 0, que 48 es divisible 
+#Ahora queremos guardar en una variable la suma de los nï¿½meros pares desde 1 a 100 y en otra variable la suma de 
+#los nï¿½meros impares. En este caso vamos a necesitar un "if" que me permita saber si un nï¿½mero es par o impar
+#la expresiï¿½n %% me permite saber el resto de la divisiï¿½n, por ej. 48%%2 va a devolver 0, que 48 es divisible 
 #por 2
 
 pares   = 0
@@ -240,7 +235,7 @@ for (i in 1:100){
 print(pares)
 print(impares)
 
-#¿Hay alguna forma de hacer lo mismo pero sin utilizar un for ni un if?
+#ï¿½Hay alguna forma de hacer lo mismo pero sin utilizar un for ni un if?
 
 pares = sum(seq(2, 100, by = 2))
 impares = sum(seq(1, 100, by = 2))
@@ -249,7 +244,7 @@ impares = sum(seq(1, 100, by = 2))
 #----------------------------------------------Crear Funciones-------------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
-#primer ejemplo sencillo para definir una función en R
+#primer ejemplo sencillo para definir una funciï¿½n en R
 sumar <- function(x, y){
   print(x+y)
 }
@@ -267,7 +262,7 @@ print(total)
 total <- sumar(total, 10)
 
 
-#otro ejemplo pero usando un for dentro de la función...
+#otro ejemplo pero usando un for dentro de la funciï¿½n...
 sumar_hasta(100)
 
 sumar_hasta <- function(n){
@@ -283,15 +278,15 @@ sumar_hasta(1010)
 
 
 #--------------------------------------------------------------------------------------------------------------#
-#-------------------------------------------Importación de Paquetes--------------------------------------------#
+#-------------------------------------------Importaciï¿½n de Paquetes--------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
-#Importación desde CRAN
+#Importaciï¿½n desde CRAN
 install.packages("moments")
 library(moments)
 
 #--------------------------------------------------------------------------------------------------------------#
-#-------------------------------------------Exportación e Importación------------------------------------------#
+#-------------------------------------------Exportaciï¿½n e Importaciï¿½n------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
 #Vamos a exportar la tabla del experimento de crecimiento de plantas filtrada por tipo de tratamiento (trt2) y por 
@@ -300,15 +295,15 @@ library(moments)
 ?write.csv
 write.csv(x = plantas2, file = "~/plantas_filtradas.csv")
 
-#también se puede exportar en un tipo de archivo especial que permite guardar en un solo archivo uno o más objetos
+#tambiï¿½n se puede exportar en un tipo de archivo especial que permite guardar en un solo archivo uno o mï¿½s objetos
 #de R. Vamos a exportar tanto la tabla original como la tabla filtrada en el archivo "plantas_filtradas.RData"
 ?save
 
 save(plantas, plantas2, file = "~/plantas_filtradas.RData")
 
-#vamos a borrar los objetos que acabamos de guardar para ver cómo los importamos de nuevo a nuestra sesión
+#vamos a borrar los objetos que acabamos de guardar para ver cï¿½mo los importamos de nuevo a nuestra sesiï¿½n
 
-rm(plantas, plantas2)  #este comando eliminará de nuestra sesión estos dos objetos
+rm(plantas, plantas2)  #este comando eliminarï¿½ de nuestra sesiï¿½n estos dos objetos
 
 load("~/plantas_filtradas.RData") #ahora los volvemos a importar desde el archivo plantas_filtradas.RData
 
@@ -316,34 +311,34 @@ load("~/plantas_filtradas.RData") #ahora los volvemos a importar desde el archiv
 #------------------------------------------------- Ejercicios -------------------------------------------------#
 #--------------------------------------------------------------------------------------------------------------#
 
-# 1) A partir del paquete dataset generen un data.frame "air" que contiene datos climáticos de la
+# 1) A partir del paquete dataset generen un data.frame "air" que contiene datos climï¿½ticos de la
 # ciudad de Nueva York, usando el siguiente comando: air <- datasets::airquality.
 
-# Imprime en pantalla solamente las primeras filas del data.frame y luego las últimas.
+# Imprime en pantalla solamente las primeras filas del data.frame y luego las ï¿½ltimas.
 # Ayuda: ?head, ?tail
 # a) Imprime en pantalla todos los valores correspondientes con la Temperatura
-# registrada y luego solamente el valor de Temperatura que se registró el tercer día.
-# b) Seleccioná todas las filas de air del mes de mayo.
-# c) ¿Qué día fue en el que hubo menor radiación solar? Ayuda: ?which.min
-# d) ¿Cuál fue la temperatura el 27 de Agosto? Ayuda: ?which, & (and)
-# e) Seleccioná todas las filas de air del mes de mayo cuya radiación solar sea mayor a
+# registrada y luego solamente el valor de Temperatura que se registrï¿½ el tercer dï¿½a.
+# b) Seleccionï¿½ todas las filas de air del mes de mayo.
+# c) ï¿½Quï¿½ dï¿½a fue en el que hubo menor radiaciï¿½n solar? Ayuda: ?which.min
+# d) ï¿½Cuï¿½l fue la temperatura el 27 de Agosto? Ayuda: ?which, & (and)
+# e) Seleccionï¿½ todas las filas de air del mes de mayo cuya radiaciï¿½n solar sea mayor a
 # 150.
-# g) Genera un nuevo data.frame llamado "calor" que contenga la información de los días
-# en los que hizo más de 90 °F. Utilizando la función table contesta a qué meses
-# pertenecen los días más calurosos.
+# g) Genera un nuevo data.frame llamado "calor" que contenga la informaciï¿½n de los dï¿½as
+# en los que hizo mï¿½s de 90 ï¿½F. Utilizando la funciï¿½n table contesta a quï¿½ meses
+# pertenecen los dï¿½as mï¿½s calurosos.
 
-# h) La temperatura en el data.frame está expresada en grados Fahrenheit, convierte la
+# h) La temperatura en el data.frame estï¿½ expresada en grados Fahrenheit, convierte la
 # columna de temperaturas para que las mismas se expresen en grados Celsius.
-# Ayuda: °C = (°F - 32)/1.8
+# Ayuda: ï¿½C = (ï¿½F - 32)/1.8
 # i) Elimina las filas que tienen al menos un valor NA. (ayuda: na.omit)
 
-# 2) Generar una matriz de 5x10. Colocar dentro de cada posición la suma de la fila y de
-# la columna de esa posición.
-# a) Utilizá un for dentro de otro for.
+# 2) Generar una matriz de 5x10. Colocar dentro de cada posiciï¿½n la suma de la fila y de
+# la columna de esa posiciï¿½n.
+# a) Utilizï¿½ un for dentro de otro for.
 # b) No utilizar for.
 
-# 3) Generar una matriz de 2x2 con números enteros aleatorios.
-# Generar otra matrix de 1x2 con números enteros aleatorios.
+# 3) Generar una matriz de 2x2 con nï¿½meros enteros aleatorios.
+# Generar otra matrix de 1x2 con nï¿½meros enteros aleatorios.
 # a) Calcular el producto matricial de las dos matrices, usando el operador %*%
-# b) Escribir una función que calcule el producto matricial de las dos matrices. Usando for anidados.
+# b) Escribir una funciï¿½n que calcule el producto matricial de las dos matrices. Usando for anidados.
 
