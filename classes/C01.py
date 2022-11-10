@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy
 import pandas as pd
 from sympy import Symbol, integrate
 
@@ -165,3 +166,98 @@ def cdf_example():
     zorder = 2
   )
   axes.legend()
+
+def normal_distribution_plot():
+  x = np.linspace(
+    scipy.stats.norm.ppf(0.001),
+    scipy.stats.norm.ppf(0.999),
+    100
+  )
+  _, axes = plt.subplots()
+  axes.plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=0, scale=1),
+    label=r'$Normal PDF(\sigma=1, \mu=0)$'
+  )
+  axes.plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=1, scale=1.2),
+    label=r'$Normal PDF(\sigma=1.2, \mu=1)$'
+  )
+  axes.plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=-1, scale=0.8),
+    label=r'$Normal PDF(\sigma=0.8, \mu=-1)$'
+  )
+  axes.legend()
+
+def normal_dist_description():
+  x = np.linspace(
+    scipy.stats.norm.ppf(0.001),
+    scipy.stats.norm.ppf(0.999),
+    100
+  )
+  _, axes = plt.subplots()
+  axes.plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=0, scale=1),
+    label=r'$Normal PDF(\sigma=1, \mu=0)$'
+  )
+  axes.plot(
+    x,
+    scipy.stats.norm.cdf(x, loc=0, scale=1),
+    label=r'$Normal CDF(\sigma=1, \mu=0)$',
+    color = 'red'
+  )
+  axes.annotate(
+    xy = (1,0),
+    xytext = (0.7, 0.4),
+    text = r"$quantile(0.841) = 1$",
+    arrowprops = dict(
+      facecolor = 'black',
+      width = 4,
+      ec = 'none',
+      shrink = 0.05
+    ),
+    fontsize = 16
+  )
+  x_fill = np.linspace(
+    scipy.stats.norm.ppf(0.001),
+    scipy.stats.norm.ppf(0.841),
+    100
+  )
+  axes.fill_between(
+    x_fill,
+    scipy.stats.norm.pdf(x_fill, loc=0, scale=1),
+    color = 'lightblue'
+  )
+  axes.legend()
+  axes.scatter(
+    x = [1, 1],
+    y = [0, scipy.stats.norm.cdf(1)],
+    color = 'green',
+    zorder = 2
+  )
+  axes.annotate(
+    xy = (1, scipy.stats.norm.cdf(1)),
+    xytext = (-2.5, 0.6),
+    text = r"$CDF(1) = 0.841$",
+    arrowprops = dict(
+      facecolor = 'black',
+      width = 4,
+      ec = 'none',
+      shrink = 0.05
+    ),
+    fontsize = 16
+  )
+
+σs = c(0.5, 1, 2, 4)
+par(mfrow=c(2,2))
+log_norm <- function(x) dnorm(x, log=TRUE)
+for (σ in σs) {
+  f <- function(x) dnorm(x, sd=σ)
+  curve(f, -6, 6, col = 'blue', lwd=2, main="Normal distribution", ylim=c(0,1.2))
+  arrows(-σ, dnorm(0, sd=σ)+0.1, σ, dnorm(0, sd=σ)+0.1, code=3, length=0.05)
+  text(0, dnorm(0, sd=σ)+0.3, paste0("sigma = ", σ))
+}
+
