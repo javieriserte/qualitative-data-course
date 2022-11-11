@@ -1,8 +1,11 @@
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 import pandas as pd
 from sympy import Symbol, integrate
+from matplotlib.patches import FancyArrowPatch
+
 
 plt.rcParams['text.usetex'] = True
 
@@ -167,29 +170,75 @@ def cdf_example():
   )
   axes.legend()
 
-def normal_distribution_plot():
+def normal_distribution_mu_plot():
   x = np.linspace(
-    scipy.stats.norm.ppf(0.001),
-    scipy.stats.norm.ppf(0.999),
+    -6.5,
+    6.5,
     100
   )
-  _, axes = plt.subplots()
+  fig, axes = plt.subplots()
   axes.plot(
     x,
     scipy.stats.norm.pdf(x, loc=0, scale=1),
-    label=r'$Normal PDF(\sigma=1, \mu=0)$'
+    label=r'$(\sigma=1, \mu=0)$',
   )
   axes.plot(
     x,
-    scipy.stats.norm.pdf(x, loc=1, scale=1.2),
-    label=r'$Normal PDF(\sigma=1.2, \mu=1)$'
+    scipy.stats.norm.pdf(x, loc=3, scale=1),
+    label=r'$(\sigma=1, \mu=3)$'
   )
   axes.plot(
     x,
-    scipy.stats.norm.pdf(x, loc=-1, scale=0.8),
-    label=r'$Normal PDF(\sigma=0.8, \mu=-1)$'
+    scipy.stats.norm.pdf(x, loc=-3, scale=1),
+    label=r'$(\sigma=1, \mu=-3)$'
   )
-  axes.legend()
+  axes.set_ylim(0, 0.65)
+  axes.legend(fontsize = 12)
+  axes.set_title("Normal Distribution PDF")
+  axes.plot(
+    [0, 0],
+    [0, scipy.stats.norm.pdf(0)],
+    color = "blue"
+  )
+  axes.annotate(
+    xy = (0, 0.4),
+    xytext = (0, 0.47),
+    text = r"$\mu=0$",
+    arrowprops = {
+      "arrowstyle": "->"
+    },
+    fontsize = 14
+  )
+  axes.plot(
+    [-3, -3],
+    [0, scipy.stats.norm.pdf(0)],
+    color = "green"
+  )
+  axes.annotate(
+    xy = (-3, 0.4),
+    xytext = (-3, 0.47),
+    text = r"$\mu=-3$",
+    arrowprops = {
+      "arrowstyle": "->"
+    },
+    fontsize = 14
+  )
+  axes.plot(
+    [3, 3],
+    [0, scipy.stats.norm.pdf(0)],
+    color = "orange"
+  )
+  axes.annotate(
+    xy = (3, 0.4),
+    xytext = (3, 0.47),
+    text = r"$\mu=3$",
+    arrowprops = {
+      "arrowstyle": "->"
+    },
+    fontsize = 14
+  )
+
+  fig.tight_layout()
 
 def normal_dist_description():
   x = np.linspace(
@@ -251,13 +300,177 @@ def normal_dist_description():
     fontsize = 16
   )
 
-σs = c(0.5, 1, 2, 4)
-par(mfrow=c(2,2))
-log_norm <- function(x) dnorm(x, log=TRUE)
-for (σ in σs) {
-  f <- function(x) dnorm(x, sd=σ)
-  curve(f, -6, 6, col = 'blue', lwd=2, main="Normal distribution", ylim=c(0,1.2))
-  arrows(-σ, dnorm(0, sd=σ)+0.1, σ, dnorm(0, sd=σ)+0.1, code=3, length=0.05)
-  text(0, dnorm(0, sd=σ)+0.3, paste0("sigma = ", σ))
-}
+def normal_distribution_sigma_plot():
+  x = np.linspace(-6.5, 6.5, 100)
+  fig, axes = plt.subplots(ncols=1, nrows=2)
+  axes = axes.flatten()
+  for ax in axes:
+    ax.set_ylim(0, 0.55)
+  axes[0].plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=0, scale=1),
+    label=r'$(\sigma=1, \mu=0)$',
+  )
+  axes[0].set_xlabel('Domain')
+  axes[0].set_ylabel('Density')
+  bracket = FancyArrowPatch(
+    (-1, 0.45),
+    (1, 0.45),
+    arrowstyle = "<->",
+    mutation_scale = 6,
+  )
+  axes[0].add_patch(bracket)
+  axes[0].text(
+    x = 0,
+    y = 0.50,
+    s = r"$\sigma = 1$",
+    horizontalalignment = "center",
+    verticalalignment = "center",
+    fontsize = 14
+  )
+  axes[1].plot(
+    x,
+    scipy.stats.norm.pdf(x, loc=0, scale=2),
+    label=r'$(\sigma=2, \mu=0)$',
+  )
+  axes[1].set_xlabel('Domain')
+  axes[1].set_ylabel('Density')
+  bracket = FancyArrowPatch(
+    (-2, 0.25),
+    (2, 0.25),
+    arrowstyle = "<->",
+    mutation_scale = 6,
+  )
+  axes[1].add_patch(bracket)
+  axes[1].text(
+    x = 0,
+    y = 0.30,
+    s = r"$\sigma = 2$",
+    horizontalalignment = "center",
+    verticalalignment = "center",
+    fontsize = 14
+  )
+  fig.tight_layout()
 
+def central_limit_plot():
+  fig, axes = plt.subplots(
+    ncols = 2,
+    nrows = 3,
+    figsize = (6, 7)
+  )
+  axes = axes.flatten()
+  sample_sizes = [10, 50, 250]
+  xs = np.linspace(0, 6, 100)
+  xs2 = np.linspace(0, 2, 100)
+  for i, ssize in enumerate(sample_sizes):
+    samples = [
+      scipy.stats.expon.rvs(size = ssize)
+      for _ in range(1000)
+    ]
+    sample_means = [
+      s.mean()
+      for s in samples
+    ]
+    axes[2*i].hist(
+      samples[0],
+      bins = 100,
+      density = True
+    )
+    axes[2*i].set_title(f"Exp. Dist. Sample({ssize})")
+    axes[2*i].plot(
+      xs,
+      scipy.stats.expon.pdf(xs),
+      color = "red"
+    )
+    axes[2*i+1].hist(
+      sample_means,
+      bins = 50,
+      density = True
+    )
+    axes[2*i+1].set_xlim(0, 2)
+    axes[2*i+1].plot(
+      xs2,
+      scipy.stats.norm.pdf(
+        xs2,
+        loc=1,
+        scale = scipy.stats.expon.std() / math.sqrt(ssize)
+      ),
+      color = "red"
+    )
+    fig.tight_layout()
+
+def distribution_t_plot():
+  fig, axes = plt.subplots()
+  x = np.linspace(-3, 3, 100)
+  freedom_degrees = [1, 5, 10, 20]
+  for fd in freedom_degrees:
+    y = scipy.stats.t.pdf(x, fd)
+    axes.plot(
+      x,
+      y,
+      label = f"freedom degrees = {fd}"
+    )
+  axes.plot(
+    x,
+    scipy.stats.norm.pdf(x),
+    label = "Normal distribution"
+  )
+  axes.legend()
+  fig.tight_layout()
+
+def binomial_plot():
+  fig, axes = plt.subplots()
+  trials = 10
+  ps = [0.25, 0.5]
+  for p in ps:
+    x = np.linspace(start = 0, stop = trials, num = trials+1)
+    axes.scatter(
+      x = x,
+      y = scipy.stats.binom.pmf(
+        k = x,
+        n = trials,
+        p = p
+      ),
+      label = rf"$(n={trials}, p={p})$"
+    )
+    axes.plot(
+      x,
+      scipy.stats.binom.pmf(
+        k = x,
+        n = trials,
+        p = p
+      )
+    )
+  axes.legend()
+  axes.set_title("Binomial Distribution")
+  axes.set_ylabel("Probaility")
+  axes.set_xlabel("Successful trials")
+
+
+def binomial_cmf_plot():
+  fig, axes = plt.subplots()
+  trials = 10
+  ps = [0.25, 0.5]
+  for p in ps:
+    x = np.linspace(start = 0, stop = trials, num = trials+1)
+    axes.scatter(
+      x = x,
+      y = scipy.stats.binom.cdf(
+        k = x,
+        n = trials,
+        p = p
+      ),
+      label = rf"$(n={trials}, p={p})$"
+    )
+    axes.plot(
+      x,
+      scipy.stats.binom.cdf(
+        k = x,
+        n = trials,
+        p = p
+      )
+    )
+  axes.legend()
+  axes.set_title("Cummulative Binomial Distribution")
+  axes.set_ylabel("Probaility")
+  axes.set_xlabel("Successful trials")
