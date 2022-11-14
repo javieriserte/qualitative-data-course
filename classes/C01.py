@@ -441,10 +441,35 @@ def binomial_plot():
         p = p
       )
     )
+    if p == 0.5:
+      axes.fill_between(
+        x[x<=5],
+        scipy.stats.binom.pmf(
+          k = x[x<=5],
+          n = trials,
+          p = p
+        ),
+        color = "tab:orange",
+        alpha = 0.4
+      )
   axes.legend()
   axes.set_title("Binomial Distribution")
   axes.set_ylabel("Probaility")
   axes.set_xlabel("Successful trials")
+  axes.annotate(
+    xy = (5, scipy.stats.binom.pmf(5, 10, 0.5)),
+    xytext = (7, 0.2),
+    text = f"$PMF_X(5) = {scipy.stats.binom.pmf(5, 10, 0.5):0.3f}...$",
+    arrowprops = dict(
+      arrowstyle = "->",
+      facecolor = "black"
+    ),
+    fontsize = 12,
+    bbox = dict(
+      boxstyle = "round",
+      facecolor = "lightgray"
+    )
+  )
 
 
 def binomial_cmf_plot():
@@ -474,3 +499,17 @@ def binomial_cmf_plot():
   axes.set_title("Cummulative Binomial Distribution")
   axes.set_ylabel("Probaility")
   axes.set_xlabel("Successful trials")
+  axes.annotate(
+    xy = (5, scipy.stats.binom.cdf(5, 10, 0.5)),
+    xytext = (6.5, 0.35),
+    text = f"$CDF_X(5) = {scipy.stats.binom.cdf(5, 10, 0.5):0.3f}...$",
+    arrowprops = dict(
+      arrowstyle = "->",
+      facecolor = "black"
+    ),
+    fontsize = 12,
+    bbox = dict(
+      boxstyle = "round",
+      facecolor = "lightgray"
+    )
+  )
