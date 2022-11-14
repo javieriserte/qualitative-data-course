@@ -513,3 +513,153 @@ def binomial_cmf_plot():
       facecolor = "lightgray"
     )
   )
+
+def mean_mode_median():
+  d1 = scipy.stats.norm.rvs(
+    loc = 12,
+    scale = 3,
+    size = 150,
+    random_state = 1
+  )
+  d2 = scipy.stats.norm.rvs(
+    loc = 19,
+    scale = 5,
+    size = 100,
+    random_state = 1
+  )
+  d3 = scipy.stats.norm.rvs(
+    loc = 40,
+    scale = 2,
+    size = 25,
+    random_state = 1
+  )
+  d1 = pd.Series(np.concatenate((d1, d2))).astype(int)
+  d2 = pd.Series(np.concatenate((d1, d3))).astype(int)
+  fig, axes = plt.subplots(
+    nrows=2,
+    figsize=(9, 9)
+  )
+  axes[0].hist(
+    d1,
+    bins = np.arange(5, 45)
+  )
+  m_x = d1.mean()
+  md_x = d1.median()
+  mode_x = d1.mode()
+  axes[0].plot(
+    [m_x, m_x],
+    [0, 25],
+    label = "Media"
+  )
+  axes[0].plot(
+    [md_x, md_x],
+    [0, 25],
+    label = "Mediana"
+  )
+  axes[0].plot(
+    [mode_x, mode_x],
+    [0, 25],
+    label = "Moda"
+  )
+  axes[0].legend(
+    fontsize=14
+  )
+  axes[1].hist(
+    d2,
+    bins = np.arange(5, 45)
+  )
+  m_x = d2.mean()
+  md_x = d2.median()
+  mode_x = d2.mode()
+  axes[1].plot(
+    [m_x, m_x],
+    [0, 25],
+    label = "Media"
+  )
+  axes[1].plot(
+    [md_x, md_x],
+    [0, 25],
+    label = "Mediana"
+  )
+  axes[1].plot(
+    [mode_x, mode_x],
+    [0, 25],
+    label = "Moda"
+  )
+  axes[1].legend(
+    fontsize=14
+  )
+
+def dispersion_measures():
+  d1 = scipy.stats.norm.rvs(
+    loc = 12,
+    scale = 3,
+    size = 350,
+    random_state = 1
+  )
+  d2 = scipy.stats.norm.rvs(
+    loc = 19,
+    scale = 5,
+    size = 250,
+    random_state = 1
+  )
+  d1 = pd.Series(np.concatenate((d1, d2))).astype(int)
+  fig, axes = plt.subplots(
+    figsize=(9, 6)
+  )
+  axes.hist(
+    d1,
+    bins = np.arange(0, 35),
+    width = 0.9,
+  )
+  axes.set_ylim(0, 100)
+  sd = d1.std()
+  mean = d1.mean()
+  q31 = d1.quantile(0.75) - d1.quantile(0.25)
+  median = d1.median()
+  mad = (d1-d1.median()).abs().median()
+  sd_arrows_center = (((mean - sd/2, 70), (mean + sd/2, 70)))
+  sd_arrows = FancyArrowPatch(
+    *sd_arrows_center,
+    arrowstyle="|-|",
+    mutation_scale = 5
+  )
+  axes.add_patch(sd_arrows)
+  axes.text(
+    mean,
+    71,
+    horizontalalignment = "center",
+    verticalalignment = "bottom",
+    s = "Std. Dev."
+  )
+  q31_arrows_center = ((d1.quantile(0.25), 76), (d1.quantile(0.75), 76))
+  q31_arrows = FancyArrowPatch(
+    *q31_arrows_center,
+    arrowstyle = "|-|",
+    mutation_scale = 5
+  )
+  axes.add_patch(q31_arrows)
+  axes.text(
+    median,
+    77,
+    horizontalalignment = "center",
+    verticalalignment = "bottom",
+    s = "$Q_3 - Q_1$"
+  )
+  mad_arrows_center = ((median-mad/2, 82), (median+mad/2, 82))
+  print(mad_arrows_center)
+  mad_arrows = FancyArrowPatch(
+    *mad_arrows_center,
+    arrowstyle = "|-|",
+    mutation_scale = 5
+  )
+  axes.add_patch(mad_arrows)
+  axes.text(
+    median,
+    83,
+    horizontalalignment = "center",
+    verticalalignment = "bottom",
+    s = "M.A.D."
+  )
+
+
