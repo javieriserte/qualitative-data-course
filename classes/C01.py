@@ -663,3 +663,108 @@ def dispersion_measures():
   )
 
 
+def triang_rvs(size:int):
+  cdf = lambda x : math.sqrt(x)
+  x = np.random.random(size)
+  y = [cdf(v) for v in x]
+  return y
+
+def skewness_plot():
+  data_tri = pd.Series(triang_rvs(5000))
+  data_norm = pd.Series(scipy.stats.norm.rvs(size=5000))
+  data_alpha = pd.Series(scipy.stats.alpha.rvs(size=5000, a=3.5))
+  data_alpha = data_alpha[data_alpha < 1]
+  fig, axes = plt.subplots(
+    figsize = (6, 9),
+    nrows = 3
+  )
+  axes = axes.flatten()
+  axes[0].hist(
+    data_tri,
+    bins=25,
+    label=f"Skew={data_tri.skew():0.3f}"
+  )
+  axes[0].set_title("Triangular Distribution")
+  axes[1].hist(
+    data_norm,
+    bins=25,
+    label=f"Skew={data_norm.skew():0.3f}"
+  )
+  axes[1].set_title("Normal Distribution")
+  axes[2].hist(
+    data_alpha,
+    bins=np.linspace(0, 0.75, 25),
+    label=f"Skew={data_alpha.skew():0.3f}"
+  )
+  axes[2].set_title("Alpha Distribution")
+  axes[0].legend()
+  axes[1].legend()
+  axes[2].legend()
+  fig.tight_layout()
+
+def kurtosis_plot():
+  data_norm = pd.Series(scipy.stats.norm.rvs(size=5000))
+  data_tri = pd.Series(scipy.stats.triang.rvs(size=5000, c=0.5))
+  data_uniform = pd.Series(scipy.stats.uniform.rvs(size=5000))
+  fig, axes = plt.subplots(
+    figsize = (6, 9),
+    nrows = 3
+  )
+  axes = axes.flatten()
+  axes[0].hist(
+    data_norm,
+    label = f"Kurtosis:{data_norm.kurtosis()+3:0.3f}"
+  )
+  axes[0].set_title("Normal Distribution")
+  axes[0].legend()
+  axes[1].hist(
+    data_tri,
+    label = f"Kurtosis:{data_tri.kurtosis()+3:0.3f}"
+  )
+  axes[1].set_title("Triangular Distribution")
+  axes[1].legend()
+  axes[2].hist(
+    data_uniform,
+    label = f"Kurtosis:{data_uniform.kurtosis()+3:0.3f}"
+  )
+  axes[2].set_ylim(0, 700)
+  axes[2].set_title("Uniform Distribution")
+  axes[2].legend()
+  plt.tight_layout()
+
+def kde_plot():
+  data_norm = pd.Series(scipy.stats.norm.rvs(size=5000))
+  kde_01 = scipy.stats.gaussian_kde(data_norm, bw_method=0.1)
+  kde_1 = scipy.stats.gaussian_kde(data_norm, bw_method=1)
+  kde_2 = scipy.stats.gaussian_kde(data_norm, bw_method=2)
+  xs = np.linspace(data_norm.max(), data_norm.min(), 100)
+  fig, axes = plt.subplots(
+    figsize=(6, 9),
+    nrows = 3
+  )
+  axes = axes.flatten()
+  axes[0].hist(data_norm, density=True)
+  axes[0].plot(
+    xs,
+    kde_01(xs),
+    label = "$h=0.1$"
+  )
+  fig.tight_layout()
+  axes[1].hist(data_norm, density=True)
+  axes[1].plot(
+    xs,
+    kde_1(xs),
+    label = "$h=1$"
+  )
+  fig.tight_layout()
+  axes[2].hist(data_norm, density=True)
+  axes[2].plot(
+    xs,
+    kde_2(xs),
+    label = "$h=2$"
+  )
+  for ax in axes:
+    ax.legend()
+    ax.set_xlabel("Domain")
+    ax.set_ylabel("Density")
+  fig.tight_layout()
