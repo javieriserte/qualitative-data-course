@@ -1,10 +1,14 @@
+from sklearn import datasets
+import pandas as pd
+import numpy as np
+
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy
 import pandas as pd
 from sympy import Symbol, integrate
-from matplotlib.patches import FancyArrowPatch
+from matplotlib.patches import FancyArrowPatch, Circle
 
 
 plt.rcParams['text.usetex'] = True
@@ -768,3 +772,98 @@ def kde_plot():
     ax.set_xlabel("Domain")
     ax.set_ylabel("Density")
   fig.tight_layout()
+
+def boxplot_example():
+  iris = datasets.load_iris(as_frame=True)
+  df: pd.DataFrame = iris.frame
+
+  fig, axes = plt.subplots(
+    figsize = (8, 6),
+    ncols = 2,
+    width_ratios = [1, 3]
+  )
+
+  axes[0].boxplot(df.iloc[:, 1])
+
+  axes[1].boxplot(df.iloc[:, 1])
+  q3 = df.iloc[:, 1].quantile(0.75)
+  q2 = df.iloc[:, 1].quantile(0.50)
+  q1 = df.iloc[:, 1].quantile(0.25)
+  iqr = q3 - q1
+  whisker = 1.5 * iqr
+  ubound = q3 + whisker
+  lbound = q1 - whisker
+
+  axes[1].annotate(
+    xy = (1.08, q1),
+    xytext = (1.13, q1),
+    text = "$Q_1$",
+    arrowprops={
+      "arrowstyle" : "->"
+    }
+  )
+  axes[1].annotate(
+    xy = (1.08, q2),
+    xytext = (1.13, q2),
+    text = "$Q_2$",
+    arrowprops={
+      "arrowstyle" : "->"
+    }
+  )
+  axes[1].annotate(
+    xy = (1.08, q3),
+    xytext = (1.13, q3),
+    text = "$Q_3$",
+    arrowprops={
+      "arrowstyle" : "->"
+    }
+  )
+  axes[1].annotate(
+    xy = (1.05, lbound),
+    xytext = (1.1, lbound),
+    text = "$Q_1 - 1.5 \\times IQR$",
+    arrowprops={
+      "arrowstyle" : "->"
+    }
+  )
+  axes[1].annotate(
+    xy = (1.05, ubound),
+    xytext = (1.1, ubound),
+    text = "$Q_3 + 1.5 \\times IQR$",
+    arrowprops={
+      "arrowstyle" : "->"
+    }
+  )
+  axes[1].scatter(
+    [1],
+    [df.iloc[:, 1].max()],
+    marker = "o",
+    ec = "red",
+    s = 200,
+    c = "white"
+  )
+  axes[1].annotate(
+    xy = (1.05, df.iloc[:, 1].max()),
+    xytext = (1.10, df.iloc[:, 1].max()),
+    text = "outlier",
+    arrowprops = {
+      "arrowstyle": "->"
+    }
+  )
+  axes[1].plot(
+    [0.95, 1.05],
+    [ubound, ubound],
+    color = "red"
+  )
+  axes[1].plot(
+    [0.95, 1.05],
+    [lbound, lbound],
+    color = "red"
+  )
+  points = df.iloc[:, 1].value_counts()
+  points = (points.map(np.arange)).explode()
+  points = 0.90 - (points / points.max()) * 0.4
+  axes[1].scatter(
+    points,
+    points.index
+  )
