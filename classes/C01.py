@@ -11,7 +11,7 @@ from sympy import Symbol, integrate
 from matplotlib.patches import FancyArrowPatch, Circle
 
 
-plt.rcParams['text.usetex'] = True
+# plt.rcParams['text.usetex'] = True
 
 data = {
   "Var. Explicativa" : [
