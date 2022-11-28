@@ -781,6 +781,7 @@ def boxplot_example():
     figsize = (8, 6),
     ncols = 2,
     # width_ratios = [1, 3]
+    gridspec_kw = {'width_ratios': [1, 3]}
   )
 
   axes[0].boxplot(df.iloc[:, 1])
