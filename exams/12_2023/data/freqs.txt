@@ -1,0 +1,58 @@
+provincia, Buenos Aires, 0
+provincia, CABA, 0
+provincia, Catamarca, 0
+provincia, Chaco, 0
+provincia, Chubut, 0
+provincia, Córdoba, 0
+provincia, Corrientes, 0
+provincia, Entre Ríos, 0
+provincia, Formosa, 0
+provincia, Jujuy, 0
+provincia, La Pampa, 0
+provincia, La Rioja, 0
+provincia, Mendoza, 0
+provincia, Misiones, 0
+provincia, Neuquén, 0
+provincia, Río Negro, 0
+provincia, Salta, 0
+provincia, San Juan, 0
+provincia, San Luis, 0
+provincia, Santa Cruz, 0
+provincia, Santa Fe, 0
+provincia, Santiago del Estero, 0
+provincia, Tierra del Fuego, 0
+provincia, Tucumán, 0
+centro_de_salud_cercano, True, 0
+centro_de_salud_cercano, False, 0
+estadio_al_momento_de_diagnostica, I, 0
+estadio_al_momento_de_diagnostica, II, 0
+estadio_al_momento_de_diagnostica, III, 0
+estadio_al_momento_de_diagnostica, IV, 0
+consulta_en_el_ano_previo_al_diagnostico, True, 0
+consulta_en_el_ano_previo_al_diagnostico, False, 0
+cobertura_de_salud, Publico, 0
+cobertura_de_salud, Proveedor A, 0
+cobertura_de_salud, Proveedor B, 0
+cobertura_de_salud, Proveedor C, 0
+edad, menos_de_40, 0
+edad, entre_40_y_50, 0
+edad, entre_50_y_60, 0
+edad, mas_de_60, 0
+comorbilidad_cardiaca, True, 0
+comorbilidad_cardiaca, False, 0
+comorbilidad_sistema_digestivo, True, 0
+comorbilidad_sistema_digestivo, False, 0
+comorbilidad_sistema_endocrino, True, 0
+comorbilidad_sistema_endocrino, False, 0
+tamano_tumor, pequeno, 0
+tamano_tumor, mediano, 0
+tamano_tumor, grande, 0
+estado_nodos_linfatico, positivo, 0
+estado_nodos_linfatico, negativo, 0
+estado_receptor_hormonas, ER, 0
+estado_receptor_hormonas, PR, 0
+estado_receptor_hormonas, ER/PR, 0
+estado_receptor_hormonas, Ninguno, 0
+grado_diferenciacion_tumor, bajo, 0
+grado_diferenciacion_tumor, medio, 0
+grado_diferenciacion_tumor, alto, 0
