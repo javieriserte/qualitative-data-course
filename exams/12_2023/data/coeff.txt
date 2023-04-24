@@ -1,58 +1,58 @@
-provincia_Buenos Aires, 0.35
-provincia_CABA, 0.01
-provincia_Catamarca, 0.03
-provincia_Chaco, 0.09
-provincia_Chubut, 0.03
-provincia_Córdoba, 0.05
-provincia_Corrientes, 0.04
-provincia_Entre Ríos, 0.04
-provincia_Formosa, 0.08
-provincia_Jujuy, 0.02
-provincia_La Pampa, 0.02
-provincia_La Rioja, 0.04
-provincia_Mendoza, 0.05
-provincia_Misiones, 0.07
-provincia_Neuquén, 0.05
-provincia_Río Negro, 0.06
-provincia_Salta, 0.03
-provincia_San Juan, 0.03
-provincia_San Luis, 0.03
-provincia_Santa Cruz, 0.02
-provincia_Santa Fe, 0.03
-provincia_Santiago del Estero, 0.02
-provincia_Tierra del Fuego, 0.01
-provincia_Tucumán, 0.02
-centro_de_salud_cercano_True, 0.3
-centro_de_salud_cercano_False, 0.45
-estadio_al_momento_de_diagnostica_I, 0.01
-estadio_al_momento_de_diagnostica_II, 0.06
-estadio_al_momento_de_diagnostica_III, 0.2
-estadio_al_momento_de_diagnostica_IV, 0.9
-consulta_en_el_ano_previo_al_diagnostico_True, 0.02
-consulta_en_el_ano_previo_al_diagnostico_False, 0.06
-cobertura_de_salud_Publico, 0.1
-cobertura_de_salud_Proveedor A, 0.05
-cobertura_de_salud_Proveedor B, 0.03
-cobertura_de_salud_Proveedor C, 0.02
-edad_menos_de_40, 0.01
-edad_entre_40_y_50, 0.03
-edad_entre_50_y_60, 0.1
-edad_mas_de_60, 0.2
-comorbilidad_cardiaca_True, 0.5
-comorbilidad_cardiaca_False, 0.01
-comorbilidad_sistema_digestivo_True, 0.3
-comorbilidad_sistema_digestivo_False, 0.01
-comorbilidad_sistema_endocrino_True, 0.4
-comorbilidad_sistema_endocrino_False, 0.01
-tamano_tumor_pequeno, 0.01
-tamano_tumor_mediano, 0.2
-tamano_tumor_grande, 1.2
-estado_nodos_linfatico_positivo, 0.9
-estado_nodos_linfatico_negativo, 0.01
-estado_receptor_hormonas_ER, 0.5
-estado_receptor_hormonas_PR, 0.6
-estado_receptor_hormonas_ER/PR, 1.3
-estado_receptor_hormonas_Ninguno, 0.01
-grado_diferenciacion_tumor_bajo, 0.01
-grado_diferenciacion_tumor_medio, 0.2
-grado_diferenciacion_tumor_alto, 0.6
+provincia,Buenos Aires,0.025
+provincia,CABA,0.01
+provincia,Catamarca,0.03
+provincia,Chaco,0.09
+provincia,Chubut,0.03
+provincia,Córdoba,0.05
+provincia,Corrientes,0.04
+provincia,Entre Ríos,0.04
+provincia,Formosa,0.08
+provincia,Jujuy,0.02
+provincia,La Pampa,0.02
+provincia,La Rioja,0.04
+provincia,Mendoza,0.05
+provincia,Misiones,0.07
+provincia,Neuquén,0.05
+provincia,Río Negro,0.06
+provincia,Salta,0.03
+provincia,San Juan,0.03
+provincia,San Luis,0.03
+provincia,Santa Cruz,0.02
+provincia,Santa Fe,0.03
+provincia,Santiago del Estero,0.02
+provincia,Tierra del Fuego,0.01
+provincia,Tucumán,0.02
+centro_de_salud_cercano,True,0.3
+centro_de_salud_cercano,False,0.45
+estadio_al_momento_de_diagnostica,I,0.01
+estadio_al_momento_de_diagnostica,II,0.06
+estadio_al_momento_de_diagnostica,III,0.2
+estadio_al_momento_de_diagnostica,IV,0.9
+consulta_en_el_ano_previo_al_diagnostico,True,0.02
+consulta_en_el_ano_previo_al_diagnostico,False,0.06
+cobertura_de_salud,Publico,0.1
+cobertura_de_salud,Proveedor A,0.05
+cobertura_de_salud,Proveedor B,0.03
+cobertura_de_salud,Proveedor C,0.02
+edad_menos_de,40,0.01
+edad_entre_40_y,50,0.03
+edad_entre_50_y,60,0.1
+edad_mas_de,60,0.2
+comorbilidad_cardiaca,True,0.5
+comorbilidad_cardiaca,False,0.01
+comorbilidad_sistema_digestivo,True,0.3
+comorbilidad_sistema_digestivo,False,0.01
+comorbilidad_sistema_endocrino,True,0.4
+comorbilidad_sistema_endocrino,False,0.01
+tamano_tumor,pequeno,0.01
+tamano_tumor,mediano,0.2
+tamano_tumor,grande,1.2
+estado_nodos_linfatico,positivo,0.9
+estado_nodos_linfatico,negativo,0.01
+estado_receptor_hormonas,ER,0.5
+estado_receptor_hormonas,PR,0.6
+estado_receptor_hormonas,ER/PR,1.3
+estado_receptor_hormonas,Ninguno,0.01
+grado_diferenciacion_tumor,bajo,0.01
+grado_diferenciacion_tumor,medio,0.2
+grado_diferenciacion_tumor,alto,0.6
