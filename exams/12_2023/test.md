@@ -98,4 +98,3 @@ la alta de expresión de uno de ellos suele estar acompañada con la alta
 expresión del otro. Del forma parecida, la expresión de AT3G02860 está asociada
 de forma inversa con respecto a AT5G12041, es decir que la expresión alta de uno
 de ellos suele estar acompañada con la expresión baja o nula del otro.
-
