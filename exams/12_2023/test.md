@@ -1,3 +1,4 @@
+
 # Trabajo Final - Análisis de datos cualitativos
 
 La resolución de los ejercicios debe entregarse en un documento junto con el
@@ -85,6 +86,8 @@ La expresión de los genes está medida en cinco niveles: "No_expresado",
 frecuencias y asociaciones entre variables observadas consitentemente en datos
 previos. La tabla resumen las frecuencias.
 
+\footnotesize
+
 | Expr/Gene              |AT1G01239|AT2G01130|AT1G01060|AT3G02860|AT5G12041|
 | ----                   | ----    | ----    | ----    | ----    | ----    |
 | No_expresado           | 13.2%   |  9.2%   | 15.8%   | 11.2%   | 30.9%   |
@@ -92,6 +95,8 @@ previos. La tabla resumen las frecuencias.
 | Medianamente_expresado | 25.3%   | 15.1%   | 17.4%   | 30.4%   | 24.0%   |
 | Bastante_expreado      | 20.9%   | 12.4    | 22.5%   | 19.0%   | 19.3%   |
 | Muy_Expresado          | 10.2%   |  2.6%   | 28.4%   | 19.1%   |  0.6%   |
+
+\normalsize
 
 La expresión de los genes AT1G01239 y AT1G01060 está asociada, de forma tal que
 la alta de expresión de uno de ellos suele estar acompañada con la alta
