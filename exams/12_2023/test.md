@@ -83,7 +83,7 @@ La expresión de los genes está medida en cinco niveles: "No_expresado",
 "Muy_Expresado". Los genes medidos son: "AT1G01239", "AT2G01130", "AT1G01060",
 "AT3G02860" y "AT5G12041". Los datos generados deben respetar ciertas
 frecuencias y asociaciones entre variables observadas consitentemente en datos
-previos. La tabla resumen las frecuencias y asociaciones.
+previos. La tabla resumen las frecuencias.
 
 | Expr/Gene              |AT1G01239|AT2G01130|AT1G01060|AT3G02860|AT5G12041|
 | ----                   | ----    | ----    | ----    | ----    | ----    |
@@ -92,3 +92,10 @@ previos. La tabla resumen las frecuencias y asociaciones.
 | Medianamente_expresado | 25.3%   | 15.1%   | 17.4%   | 30.4%   | 24.0%   |
 | Bastante_expreado      | 20.9%   | 12.4    | 22.5%   | 19.0%   | 19.3%   |
 | Muy_Expresado          | 10.2%   |  2.6%   | 28.4%   | 19.1%   |  0.6%   |
+
+La expresión de los genes AT1G01239 y AT1G01060 está asociada, de forma tal que
+la alta de expresión de uno de ellos suele estar acompañada con la alta
+expresión del otro. Del forma parecida, la expresión de AT3G02860 está asociada
+de forma inversa con respecto a AT5G12041, es decir que la expresión alta de uno
+de ellos suele estar acompañada con la expresión baja o nula del otro.
+
