@@ -84,7 +84,7 @@ La expresión de los genes está medida en cinco niveles: "No_expresado",
 También se tienen datos del crecimiento de las plantas crecidas a tres
 diferentes temperaturas 20°C, 25°C y 30°C.
 
-### 2.A - Diseño un modelo lineal
+### 2.A - Diseño de un modelo lineal
 
 En base a las variables descriptas y a los datos presentes en el archivo
 "exercise_two_data.csv", diseñe un modelo lineal que permita predecir la
