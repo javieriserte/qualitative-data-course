@@ -545,7 +545,8 @@ def mean_mode_median():
   )
   axes[0].hist(
     d1,
-    bins = np.arange(5, 45)
+    bins = np.arange(5, 45),
+    color = "#6879C4"
   )
   m_x = d1.mean()
   md_x = d1.median()
@@ -553,24 +554,32 @@ def mean_mode_median():
   axes[0].plot(
     [m_x, m_x],
     [0, 25],
-    label = "Media"
+    label = "Media",
+    c = "#dd4F44",
+    linewidth = 3
   )
   axes[0].plot(
     [md_x, md_x],
     [0, 25],
-    label = "Mediana"
+    label = "Mediana",
+    c = "#8f4c00",
+    linewidth = 3
   )
   axes[0].plot(
     [mode_x, mode_x],
     [0, 25],
-    label = "Moda"
+    label = "Moda",
+    c = "#336d22",
+    linewidth = 3
+
   )
   axes[0].legend(
     fontsize=14
   )
   axes[1].hist(
     d2,
-    bins = np.arange(5, 45)
+    bins = np.arange(5, 45),
+    color = "#6879C4"
   )
   m_x = d2.mean()
   md_x = d2.median()
@@ -578,20 +587,36 @@ def mean_mode_median():
   axes[1].plot(
     [m_x, m_x],
     [0, 25],
-    label = "Media"
+    label = "Media",
+    c = "#dd4F44",
+    linewidth = 3
+
   )
   axes[1].plot(
     [md_x, md_x],
     [0, 25],
-    label = "Mediana"
+    label = "Mediana",
+    c = "#8f4c00",
+    linewidth = 3
+
   )
   axes[1].plot(
     [mode_x, mode_x],
     [0, 25],
-    label = "Moda"
+    label = "Moda",
+    c = "#336d22",
+    linewidth = 3
+
   )
   axes[1].legend(
     fontsize=14
+  )
+  axes[1].annotate(
+    "La media se ve muy afectada por el grupo outlier",
+    xy=[40, 5],
+    xytext=[24, 10],
+    arrowprops=dict(arrowstyle="->", lw=1.0),
+    ha='left'
   )
 
 def dispersion_measures():
@@ -651,7 +676,6 @@ def dispersion_measures():
     s = "$Q_3 - Q_1$"
   )
   mad_arrows_center = ((median-mad/2, 82), (median+mad/2, 82))
-  print(mad_arrows_center)
   mad_arrows = FancyArrowPatch(
     *mad_arrows_center,
     arrowstyle = "|-|",
@@ -710,30 +734,43 @@ def kurtosis_plot():
   data_norm = pd.Series(scipy.stats.norm.rvs(size=5000))
   data_tri = pd.Series(scipy.stats.triang.rvs(size=5000, c=0.5))
   data_uniform = pd.Series(scipy.stats.uniform.rvs(size=5000))
+  data_t = pd.Series(scipy.stats.t.rvs(df=10, size=5000))
   fig, axes = plt.subplots(
     figsize = (6, 9),
-    nrows = 3
+    nrows = 4
   )
   axes = axes.flatten()
   axes[0].hist(
     data_norm,
+    bins=100,
     label = f"Kurtosis:{data_norm.kurtosis()+3:0.3f}"
   )
   axes[0].set_title("Normal Distribution")
   axes[0].legend()
   axes[1].hist(
     data_tri,
+    bins=100,
     label = f"Kurtosis:{data_tri.kurtosis()+3:0.3f}"
   )
   axes[1].set_title("Triangular Distribution")
   axes[1].legend()
   axes[2].hist(
     data_uniform,
+    bins=100,
     label = f"Kurtosis:{data_uniform.kurtosis()+3:0.3f}"
   )
   axes[2].set_ylim(0, 700)
   axes[2].set_title("Uniform Distribution")
   axes[2].legend()
+  axes[3].hist(
+    data_t,
+    bins=100,
+    label = f"Kurtosis:{data_t.kurtosis()+3:0.3f}"
+  )
+  axes[3].set_ylim(0, 700)
+  axes[3].set_title("T distribution")
+  axes[3].legend()
+
   plt.tight_layout()
 
 def kde_plot():
