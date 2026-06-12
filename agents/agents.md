@@ -27,6 +27,7 @@ pyproject.toml            Python project definition (managed with uv)
 ```
 
 Each class `CXX.N` contains:
+
 - `CXX.N.<Topic>.ipynb` — Jupyter notebook with code, examples, and exercises
 - `CXX.N.presentation/CXX.N.<Topic>.typ` — Typst source for the slide deck
 - `CXX.N.presentation/CXX.N.<Topic>.pdf` — Compiled slides
@@ -39,32 +40,32 @@ Each class `CXX.N` contains:
 
 ### Module 1 — Statistical foundations with Python (`C01`)
 
-| ID     | Topic                        | Notebook                            |
-|--------|------------------------------|-------------------------------------|
-| C01.0  | Python introduction          | `C01.Intro.Python.ipynb`            |
-| C01.1  | Variables and functions      | `C01.1.Variables_y_funciones.ipynb` |
-| C01.2  | Descriptive analysis         | `C01.2.AnalisisDescriptivos.ipynb`  |
-| C01.3  | Independence and correlation | `C01.3.Independencia.ipynb`         |
-| C01.4  | Hypothesis testing           | `C01.4.PruebaDeHipotesis.ipynb`     |
+| ID    | Topic                        | Notebook                            |
+| ----- | ---------------------------- | ----------------------------------- |
+| C01.0 | Python introduction          | `C01.Intro.Python.ipynb`            |
+| C01.1 | Variables and functions      | `C01.1.Variables_y_funciones.ipynb` |
+| C01.2 | Descriptive analysis         | `C01.2.AnalisisDescriptivos.ipynb`  |
+| C01.3 | Independence and correlation | `C01.3.Independencia.ipynb`         |
+| C01.4 | Hypothesis testing           | `C01.4.PruebaDeHipotesis.ipynb`     |
 
 ### Module 2 — Regression models (`C02`)
 
-| ID     | Topic                              | Notebook                           |
-|--------|------------------------------------|------------------------------------|
-| C02.1  | Linear regression                  | `C02.1.Regresion.ipynb`            |
-| C02.2  | Data partitioning                  | (no notebook — slides only)        |
-| C02.3  | Logistic regression                | `C02.3.RegLogistica.ipynb`         |
-| C02.4  | Regression with categorical vars   | `C02.4.RegConVarCategoricas.ipynb` |
-| C02.5  | Dimensionality reduction (PCA/MDS/UMAP) | `C02.5.Reduccion.ipynb`       |
+| ID    | Topic                                   | Notebook                           |
+| ----- | --------------------------------------- | ---------------------------------- |
+| C02.1 | Linear regression                       | `C02.1.Regresion.ipynb`            |
+| C02.2 | Data partitioning                       | (no notebook — slides only)        |
+| C02.3 | Logistic regression                     | `C02.3.RegLogistica.ipynb`         |
+| C02.4 | Regression with categorical vars        | `C02.4.RegConVarCategoricas.ipynb` |
+| C02.5 | Dimensionality reduction (PCA/MDS/UMAP) | `C02.5.Reduccion.ipynb`            |
 
 ### Module 3 — Classification & machine learning (`C03`)
 
-| ID     | Topic                      | Notebook                   |
-|--------|----------------------------|----------------------------|
-| C03.1  | Linear Discriminant Analysis | `C03.1.LDA.ipynb`        |
-| C03.2  | Clustering (k-means, hierarchical) | `C03.2.Clustering.ipynb` |
-| C03.3  | Decision trees             | `C03.3.DecisionTree.ipynb` |
-| C03.4  | Naive Bayes and kNN        | (no notebook — slides only) |
+| ID    | Topic                              | Notebook                    |
+| ----- | ---------------------------------- | --------------------------- |
+| C03.1 | Linear Discriminant Analysis       | `C03.1.LDA.ipynb`           |
+| C03.2 | Clustering (k-means, hierarchical) | `C03.2.Clustering.ipynb`    |
+| C03.3 | Decision trees                     | `C03.3.DecisionTree.ipynb`  |
+| C03.4 | Naive Bayes and kNN                | (no notebook — slides only) |
 
 ---
 
@@ -77,6 +78,7 @@ Each class `CXX.N` contains:
   `umap-learn`, `sympy`
 
 Setup:
+
 ```bash
 uv sync
 uv run jupyter notebook
@@ -102,22 +104,6 @@ See `docs/presentation-style.md` for full Typst snippets and spacing conventions
 
 ---
 
-## Speech / presenter notes format
-
-Files named `CXX.N.speech.md` contain the spoken script for each slide deck.
-Structure:
-```markdown
-# Speech para CXX.N — <Topic>
-
-## PORTADA
-...
-
-## Sección N — <Section title>
-...
-```
-
----
-
 ## Naming conventions
 
 - Class IDs: `CXX.N` where `XX` = two-digit module number, `N` = class number
@@ -130,7 +116,6 @@ Structure:
 ## What agents are typically asked to do
 
 - **Create or update Typst slides** following the style in `docs/presentation-style.md`
-- **Write or edit speech/presenter notes** for a given class
 - **Add or extend Jupyter notebook content** with Python examples, exercises, or explanations
 - **Generate image data** (via `generate_images.py` scripts) for use in slides
 - **Update the README** to reflect new classes or structure changes
