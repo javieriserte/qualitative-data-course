@@ -1433,7 +1433,7 @@
         Calcula directamente la probabilidad de observar una tabla *igual o más extrema* bajo $H_0$, usando la distribución *hipergeométrica*.
       ]
       #v(8pt)
-      $ P = frac(\(a+b\)! \(c+d\)! \(a+c\)! \(b+d\)!, n!\, a!\, b!\, c!\, d!) $
+      $ P = frac(\(a+b\)! \(c+d\)! \(a+c\)! \(b+d\)!, n! a! b! c! d!) $
       #v(6pt)
       #text(fill: gry, size: 13pt)[
         No exige ningún tamaño mínimo de celda. Recomendado siempre que alguna frecuencia esperada sea < 5.

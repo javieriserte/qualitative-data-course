@@ -225,18 +225,18 @@
       Para incluir una variable categórica como independiente en un
       modelo lineal, se transforma en una o más variables binarias (0/1).
 
-      #v(8pt)
+      #v(0pt)
       #ssstitle[Variable dicotómica]
-      #v(4pt)
+      #v(0pt)
       #text(fill: gry, size: 13pt)[
         - Se crea *una sola* variable: 1 para una categoría, 0 para la otra.
         - Ejemplo: `Sex_Female = 1` si mujer, `0` si hombre.
       ]
 
-      #v(8pt)
+      #v(0pt)
       #ssstitle[Variable con N categorías]
-      #v(4pt)
-      #text(fill: gry, size: 13pt)[
+      #v(0pt)
+      #text(fill: gry, size: 11pt)[
         - *Dummies:* se crean $N - 1$ variables (se excluye una categoría
           de referencia para evitar multicolinealidad perfecta).
         - *One-Hot:* se crean $N$ variables (una por categoría).
@@ -244,7 +244,16 @@
       ]
     ],
     [
-      #figure(image("images/onehot_example.png", height: 230pt))
+
+      #align(center)[
+        #styled-table(
+          columns: (100pt, 100pt),
+          th[Categoría], th[Encoding],
+          td[Rojo],    tdg[1 0 0],
+          td[Verde],   tdg[0 1 0],
+          td[Azul],       tdg[0 0 1],
+        )
+      ]
       #text(fill: gry, size: 12pt)[
         Cada fila tiene exactamente un `1` en la columna correspondiente
         a su categoría; el resto son `0`.
@@ -379,7 +388,46 @@
       ]
     ],
     [
-      #figure(image("images/target_encoding.png", height: 210pt))
+      #grid(
+        columns: (1fr, 1fr),
+        gutter: 10pt,
+        [
+          #text(size:12pt)[Original]
+          #scale(60%, reflow:true)[
+            #styled-table(
+              columns: (1fr, 1fr, 1fr),
+              th[Y], th[A], th[Color],
+              td[1], td[1], td[Rojo],
+              td[2], td[4], td[Rojo],
+              td[3], td[3], td[Verde],
+              td[3], td[4], td[Verde],
+              td[6], td[7], td[Verde],
+              td[2], td[4], td[Verde],
+              td[1], td[5], td[Azul],
+              td[2], td[7], td[Azul],
+            )
+          ]
+        ],
+        [
+          #text(size:12pt)[Target Encoding]
+          #scale(60%, reflow:true)[
+            #styled-table(
+              columns: (1fr, 1fr, 1fr),
+              th[Y], th[A], th[Color],
+              td[1], td[1], td[1.5],
+              td[2], td[4], td[1.5],
+              td[3], td[3], td[3.5],
+              td[3], td[4], td[3.5],
+              td[6], td[7], td[3.5],
+              td[2], td[4], td[3.5],
+              td[1], td[5], td[1.5],
+              td[2], td[7], td[1.5],
+            )
+          ]
+        ]
+      )
+
+
       #v(4pt)
       #block(stroke: 1.5pt + red, inset: 7pt, radius: 4pt, width: 100%)[
         #text(size: 11pt)[
@@ -558,21 +606,23 @@
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
-      Extensión natural de la regresión logística binaria cuando la
-      variable dependiente tiene *más de dos categorías nominales*.
+      #text(size:14pt)[
+        Extensión natural de la regresión logística binaria cuando la
+        variable dependiente tiene *más de dos categorías nominales*.
+        #v(2pt)
+        Para cada categoría $k$ se define un predictor lineal:
 
-      #v(6pt)
-      Para cada categoría $k$ se define un predictor lineal:
+        $ eta_k = beta_(0k) + beta_(1k) x_1 + dots.c + beta_(p k) x_p $
 
-      $ eta_k = beta_(0k) + beta_(1k) x_1 + dots.c + beta_(p k) x_p $
+        #v(2pt)
+        Las probabilidades se obtienen con la función *softmax*:
+
+        $ P(Y = k | bold(x)) = frac(exp(eta_k), sum_(j=1)^K exp(eta_j)) $
+      ]
+
 
       #v(4pt)
-      Las probabilidades se obtienen con la función *softmax*:
-
-      $ P(Y = k | bold(x)) = frac(exp(eta_k), sum_(j=1)^K exp(eta_j)) $
-
-      #v(4pt)
-      #text(fill: gry, size: 13pt)[
+      #text(fill: gry, size: 11pt)[
         - Las probabilidades son *no negativas* y suman 1. \
         - Una categoría actúa como *referencia* (coeficientes = 0). \
         - Los coeficientes se interpretan como *log-odds* respecto
@@ -667,16 +717,14 @@
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
       #ssstitle[OvR — Matriz de confusión]
-      #v(4pt)
-      #figure(image("images/ovr_confusion.png", height: 195pt))
+      #figure(image("images/ovr_confusion.png", height: 175pt))
     ],
     [
       #ssstitle[MNLogit — Matriz de confusión]
-      #v(4pt)
-      #figure(image("images/mnlogit_confusion.png", height: 195pt))
+      #figure(image("images/mnlogit_confusion.png", height: 175pt))
     ],
   )
-  #v(6pt)
+  #v(2pt)
   #slide[
     #styled-table(
       columns: (auto, 1fr, 1fr),

@@ -212,14 +212,8 @@ mn_classes = mn_fitted.model.endog_names if hasattr(mn_fitted.model, 'endog_name
 mn_class_order = mn_fitted.model.wendog.columns.tolist() if hasattr(mn_fitted.model.wendog, 'columns') else None
 
 # predict: argmax over columns
-mn_pred_idx = np.argmax(mn_pred_probs.values, axis=1)
-# get the class labels the model used
-try:
-    class_labels = mn_fitted.model.endog_names
-except:
-    class_labels = sorted(c_data["lugar"].unique())
-
-mn_pred_labels = [class_labels[i] for i in mn_pred_idx]
+mn_pred_idx    = np.argmax(mn_pred_probs.values, axis=1)
+mn_pred_labels = [mn_pred_probs.columns[i] for i in mn_pred_idx]
 cont2 = st.contingency.crosstab(c_test["lugar"], mn_pred_labels)
 
 fig, ax = plt.subplots(figsize=(5, 4), facecolor=BG)

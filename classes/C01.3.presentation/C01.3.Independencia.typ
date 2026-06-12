@@ -136,7 +136,7 @@
 #cover(
   "Unidad I",
   "Independencia de variables",
-  "Distribución conjunta, independencia y medidas de asociación",
+  [Distribución conjunta, independencia y \ medidas de asociación],
   "Análisis de Datos Cualitativos",
   "2026",
 )
@@ -474,8 +474,6 @@
     tdg[Eta cuadrado ($eta^2$)],
     tdg[$[0, 1]$], tdg[$eta^2 = .01$], tdg[$eta^2 = .14$],
   )
-  #v(4pt)
-  #text(fill: gry, size: 12pt)[Umbrales de Cohen: pequeño / mediano ($times 3$) / grande. Son orientativos; el contexto disciplinar siempre prevalece.]
   #v(12pt)
   #text(fill: gry, size: 14pt)[
     - *Asociación positiva:* valores altos de una variable tienden a acompañarse de valores altos de la otra. \

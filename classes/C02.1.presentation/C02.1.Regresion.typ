@@ -405,9 +405,9 @@
         columns: (1fr, 1fr),
         th[Modelo],
         th[$hat(beta)_"riego"$],
-        tdg[$Y$ ~ $X_1$ (simple)],
+        tdg[$Y tilde X_1$ (simple)],
         tdg[$+0.3$],
-        tdg[$Y$ ~ $X_1 + X_2$ (múltiple)],
+        tdg[$Y tilde X_1 + X_2$ (múltiple)],
         tdg[$-0.1$],
       )
       #v(8pt)
@@ -618,23 +618,23 @@
   )
 ]
 
-#pagebreak()
-#counter-display
-#stitle("Unidad II", sub: "Evaluación del modelo")
-#sstitle("Efecto del nivel de error en R²")
-#slide[
-  #grid(
-    columns: (1fr, 1.7fr),
-    gutter: 10pt,
-    [
-      #text(fill: gry, size: 12pt)[
-        El mismo modelo con cuatro niveles de error ($sigma = 0.05, 0.20, 0.50, 1.00$).
-        A mayor error, los puntos se alejan de la diagonal y $R^2$ disminuye.
-      ]
-    ],
-    align(center, figure(image("images/cell_19.png", height: 270pt))),
-  )
-]
+// #pagebreak()
+// #counter-display
+// #stitle("Unidad II", sub: "Evaluación del modelo")
+// #sstitle("Efecto del nivel de error en R²")
+// #slide[
+//   #grid(
+//     columns: (1fr, 1.7fr),
+//     gutter: 10pt,
+//     [
+//       #text(fill: gry, size: 12pt)[
+//         El mismo modelo con cuatro niveles de error ($sigma = 0.05, 0.20, 0.50, 1.00$).
+//         A mayor error, los puntos se alejan de la diagonal y $R^2$ disminuye.
+//       ]
+//     ],
+//     align(center, figure(image("images/cell_19.png", height: 270pt))),
+//   )
+// ]
 
 #pagebreak()
 #counter-display
