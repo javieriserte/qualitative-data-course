@@ -18,14 +18,14 @@ pedido.
 
 La fecha final de entrega es el último día hábil del mes de Junio de 2020.
 
-## Ejercicio 1 - Confórmeros de RMN 
+## Ejercicio 1 - Confórmeros de RMN
 
 La técnica de resonancia magnética nuclear (RMN) permite la obtención de estructuras
-de proteínas en solución. A diferencia de la difracción de rayos X, es posible 
+de proteínas en solución. A diferencia de la difracción de rayos X, es posible
 obtener estructuras de múltiples confórmeros mediante RMN en un solo expertimento.
 
 La similitud entre dos estructuras de la misma proteina se puede medir calculando
-el RMSD (Root Mean Square Deviation) entre sus átomos luego de alinear ambas 
+el RMSD (Root Mean Square Deviation) entre sus átomos luego de alinear ambas
 estructuras. Se pude considerar que es RMSD como una medida de distancia, cuanto
 menor sea este valor, más similares son las estructuras y si es cero implica que
 las estructuras son idénticas.
@@ -34,7 +34,7 @@ En los datos proporcianados debajo, se tiene una matriz de distancia obtenida
 para veinte confórmeros de la proteína 16-1 del floema de Arabidopsis thaliana.
 
 - Realice un clustering jerárquico dede los confórmeros a partir de los datos.
-- Genere una visualización del árbol jerárquico, elija un número de clusters de 
+- Genere una visualización del árbol jerárquico, elija un número de clusters de
   acuerdo a su interpretación del gráfico y corte el árbol para obtener los grupos.
 - Genere una visualización usando la técnica de escalas multidimensionales (MDS).
   Asigne un color a cada punto un color de acuerdo a los grupos obtenidos.
@@ -80,12 +80,12 @@ estructuras de interacción entre las moléculas. Una étapa común suele ser la
 generar grupos y luego analizar las propiedades de los grupos obtenidos.
 
 En el archivo 'hdock_5ecae82ecf8f7.txt' se tienen datos del resultado de docking
-para el pétido adrenomedullin 2 (ADM2) con el receptor CLR (calcitonin 
+para el pétido adrenomedullin 2 (ADM2) con el receptor CLR (calcitonin
 receptor-like) y la proteína RAMP1 (Receptor Activity-Modifying Protein 1).
 El archivo contiene datos de más de 4000 estructuras del ligando. Las tres
 primeras columnas corresponden a las coordenadas X, Y y Z del centro de rotación
-del ligando, las siguientes tres rotaciones son las rotaciones en cada eje, 
-la séptima es una medida de la energía del docking (cuanto menor es, la 
+del ligando, las siguientes tres rotaciones son las rotaciones en cada eje,
+la séptima es una medida de la energía del docking (cuanto menor es, la
 estructura es más estable. Los datos están ordenados por energía). Las últimas
 columnas son datos internos del docking y no son relevantes para este ejercicio.
 
@@ -93,7 +93,7 @@ columnas son datos internos del docking y no son relevantes para este ejercicio.
   columnas (que describen la geometría).
 - ¿que proporción de la varianza está representada en las dos primeras
   componentes?
-- Proponga un número de clusters según su interpretación del gráfico y genere 
+- Proponga un número de clusters según su interpretación del gráfico y genere
   esa cantidad de clusters usando kmeans.
 - Rehaga el gráfico de PCA, asignando un color a cada punto de acuerdo a los
   grupos obtenidos.
@@ -132,8 +132,8 @@ metabolismo o respuesta a stress.
 
 - Genere un modelo lineal simple para modelar la expresión de este conjunto de
   genes blanco.
-- Haga una análisis discriminante lineal (LDA) para predecir la pertencia de 
-  cada gen blanco a las categorías funcionales ("signaling", "Mmetabolism" y 
+- Haga una análisis discriminante lineal (LDA) para predecir la pertencia de
+  cada gen blanco a las categorías funcionales ("signaling", "Mmetabolism" y
   "Stress"). Para ello, construya un conjunto de entrenamiento y otro de prueba.
 
 ```{r}
@@ -204,18 +204,18 @@ head(expdata)
 
 ## Ejercicio 4 - Covariación
 
-El análisis de covariación de pares de residuos en un conjuntos de secuencias 
+El análisis de covariación de pares de residuos en un conjuntos de secuencias
 homólogas de una proteína permite predecir con cierta exactitud los contactos
 tridimensionales en la estructura tridimensional de una proteína.
 
-El archivo "covdata.txt" contiene datos de los resultados de covariación 
+El archivo "covdata.txt" contiene datos de los resultados de covariación
 obtenidas por dos metodologías: Direct Coupling Analysis (DCA) y Mutual
 Information (MI) para la proteína tioredoxina. Cada fila de la tabla contiene
 datos para un par de residuos de la proteína. En los dos primeras columnas,
-están los números de las posiciones de los residuos, en las dos columnas 
+están los números de las posiciones de los residuos, en las dos columnas
 siguientes están los puntajes de covariaciones para los dos métodos usados y
-en la última columna dice si ese par de residuos están realmente en contacto en 
-la estructura tridimensional de la proteína (este valor no es una predicción, 
+en la última columna dice si ese par de residuos están realmente en contacto en
+la estructura tridimensional de la proteína (este valor no es una predicción,
 es 1 para los que están en contacto y 0 para los que no).
 
 Se quiere obtener un método que combine información de los métodos usados para

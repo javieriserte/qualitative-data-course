@@ -319,7 +319,7 @@
 
   #v(12pt)
   #grid(columns: (1fr, 1fr, 1fr), gutter: 14pt,
-    block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
+    block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt, width:100%, height:35%)[
       #ssstitle[Situación típica]
       #v(6pt)
       #text(fill: gry, size: 14pt)[
@@ -328,14 +328,14 @@
         Variable continua.
       ]
     ],
-    block(stroke: 2pt + cm2, inset: 14pt, radius: 5pt)[
+    block(stroke: 2pt + cm2, inset: 14pt, radius: 5pt, width:100%, height:35%)[
       #ssstitle[Pregunta]
       #v(6pt)
       #text(fill: gry, size: 14pt)[
         ¿Podría esta muestra provenir de una población con media $mu_0$?
       ]
     ],
-    block(stroke: 2pt + cm1, inset: 14pt, radius: 5pt)[
+    block(stroke: 2pt + cm1, inset: 14pt, radius: 5pt, width:100%, height:35%)[
       #ssstitle[Ejemplos]
       #v(6pt)
       #text(fill: gry, size: 14pt)[
@@ -1532,11 +1532,65 @@
   )
 ]
 
+// ── Odds Ratio ────────────────────────────────────────────────────────────────
+#pagebreak()
+#counter-display
+#stitle("Unidad I", sub: "Test de Mantel-Haenszel")
+#sstitle("Odds Ratio — concepto")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 16pt,
+    [
+      #text(size: 14pt)[
+        El *odds ratio (OR)* mide la *fuerza de asociación* entre una exposición y un resultado binario.
+        Compara las probabilidades relativas de que ocurra el evento en dos grupos.
+      ]
+      #v(10pt)
+      #styled-table(
+        columns: (auto, auto, auto),
+        th[], th[Resultado+], th[Resultado−],
+        td[*Expuesto*],     td[$a$], td[$b$],
+        td[*No expuesto*],  td[$c$], td[$d$],
+      )
+      #v(10pt)
+      $ "OR" = frac(a \/ b, c \/ d) = frac(a dot d, b dot c) $
+      #v(6pt)
+      #text(fill: gry, size: 13pt)[
+        El *odds* de un grupo es la razón entre la probabilidad de que el evento ocurra y la de que no ocurra.
+        El OR compara los odds de los dos grupos.
+      ]
+    ],
+    [
+      #align(center)[
+        #scale(75%, reflow:true)[
+          #styled-table(
+            columns: (auto, 1fr),
+            th[Valor OR], th[Interpretación],
+            td[$"OR" = 1$],   tdg[Sin asociación — los grupos tienen el mismo riesgo relativo],
+            td[$"OR" > 1$],   tdg[La exposición *aumenta* las probabilidades del evento],
+            td[$"OR" < 1$],   tdg[La exposición *reduce* las probabilidades del evento],
+          )
+        ]
+      ]
+      #v(00pt)
+      #block(stroke: 2pt + cm3, inset: 12pt, radius: 5pt)[
+        #text(fill: cm3, size: 12pt, weight: "bold")[OR ajustado en Mantel-Haenszel]
+        #v(6pt)
+        #text(fill: gry, size: 10pt)[
+          Cuando existe una *variable de confusión*, el OR crudo (calculado sobre todos los datos juntos) puede ser engañoso. \
+          #v(4pt)
+          El *OR#sub[MH]* promedia los OR de cada estrato ponderando por su tamaño, obteniendo una estimación *libre del efecto confusor*:
+          $ hat("OR")_"MH" = frac(sum_k frac(a_k d_k, n_k), sum_k frac(b_k c_k, n_k)) $
+        ]
+      ]
+    ],
+  )
+]
+
 // ── Mantel-Haenszel — Ejemplo (paradoja de Simpson) ───────────────────────────
 #pagebreak()
 #counter-display
 #stitle("Unidad I", sub: "Test de Mantel-Haenszel")
-#sstitle("Ejemplo — la paradoja de Simpson en la práctica")
+#sstitle("Ejemplo — la paradoja de Simpson")
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 16pt,
     [
