@@ -1,0 +1,121 @@
+hogar_id,municipio,nivel_socioeconomico,fuente_agua,recibio_intervencion,diarrea_antes,diarrea_despues
+80,San Isidro del Valle,bajo,pozo,False,False,False
+276,Villa Aparicio,bajo,pozo,True,False,True
+4,San Isidro del Valle,bajo,pozo,False,False,False
+160,Colonia Güemes,bajo,pozo,True,False,False
+253,Villa Aparicio,bajo,pozo,True,True,False
+90,San Isidro del Valle,bajo,pozo,True,True,False
+321,Villa Aparicio,bajo,pozo,False,False,False
+84,San Isidro del Valle,bajo,pozo,True,False,False
+153,Colonia Güemes,medio,pozo,True,False,False
+201,Colonia Güemes,bajo,pozo,True,True,False
+319,Villa Aparicio,bajo,pozo,True,False,False
+119,San Isidro del Valle,bajo,pozo,True,True,False
+173,Colonia Güemes,medio,pozo,True,False,False
+152,Colonia Güemes,bajo,pozo,False,False,True
+168,Colonia Güemes,medio,pozo,False,False,False
+315,Villa Aparicio,bajo,pozo,True,True,False
+212,Colonia Güemes,bajo,pozo,True,True,False
+255,Villa Aparicio,bajo,pozo,False,False,True
+267,Villa Aparicio,bajo,pozo,False,False,False
+156,Colonia Güemes,bajo,pozo,False,False,False
+24,San Isidro del Valle,bajo,pozo,False,False,True
+70,San Isidro del Valle,bajo,pozo,False,False,True
+25,San Isidro del Valle,bajo,pozo,True,False,False
+97,San Isidro del Valle,bajo,pozo,True,False,True
+33,San Isidro del Valle,bajo,pozo,False,True,False
+58,San Isidro del Valle,bajo,pozo,False,True,True
+133,San Isidro del Valle,bajo,pozo,False,False,True
+56,San Isidro del Valle,bajo,pozo,False,True,False
+220,Colonia Güemes,bajo,pozo,False,False,False
+95,San Isidro del Valle,bajo,pozo,True,False,False
+3,San Isidro del Valle,medio,pozo,True,False,False
+329,Villa Aparicio,bajo,pozo,True,True,True
+206,Colonia Güemes,medio,pozo,True,False,False
+59,San Isidro del Valle,alto,pozo,False,True,False
+286,Villa Aparicio,bajo,pozo,True,False,False
+68,San Isidro del Valle,bajo,pozo,True,False,False
+196,Colonia Güemes,medio,pozo,True,False,False
+29,San Isidro del Valle,medio,pozo,True,True,False
+67,San Isidro del Valle,bajo,pozo,False,False,False
+74,San Isidro del Valle,medio,pozo,False,False,False
+262,Villa Aparicio,bajo,pozo,False,True,True
+298,Villa Aparicio,bajo,pozo,False,False,False
+134,San Isidro del Valle,bajo,pozo,True,True,True
+126,San Isidro del Valle,bajo,pozo,True,True,False
+46,San Isidro del Valle,medio,pozo,True,False,True
+132,San Isidro del Valle,medio,pozo,False,False,False
+167,Colonia Güemes,medio,pozo,True,False,False
+285,Villa Aparicio,medio,pozo,False,True,True
+69,San Isidro del Valle,alto,pozo,False,False,True
+211,Colonia Güemes,bajo,pozo,True,False,False
+223,Colonia Güemes,medio,pozo,True,False,False
+261,Villa Aparicio,bajo,pozo,True,True,False
+288,Villa Aparicio,bajo,pozo,False,False,True
+192,Colonia Güemes,bajo,pozo,False,False,True
+100,San Isidro del Valle,bajo,pozo,True,True,False
+259,Villa Aparicio,bajo,pozo,True,True,False
+37,San Isidro del Valle,bajo,pozo,False,False,True
+177,Colonia Güemes,medio,pozo,True,False,False
+268,Villa Aparicio,bajo,pozo,False,False,False
+318,Villa Aparicio,bajo,pozo,False,True,False
+221,Colonia Güemes,medio,pozo,False,True,False
+6,San Isidro del Valle,medio,pozo,True,True,False
+296,Villa Aparicio,bajo,pozo,False,False,False
+309,Villa Aparicio,bajo,pozo,True,True,False
+214,Colonia Güemes,medio,pozo,True,False,False
+32,San Isidro del Valle,bajo,pozo,True,False,False
+227,Colonia Güemes,bajo,pozo,True,False,False
+174,Colonia Güemes,medio,pozo,False,True,False
+178,Colonia Güemes,bajo,pozo,True,True,False
+108,San Isidro del Valle,medio,pozo,False,False,True
+332,Villa Aparicio,bajo,pozo,True,False,False
+128,San Isidro del Valle,bajo,pozo,True,False,False
+107,San Isidro del Valle,medio,pozo,False,True,False
+43,San Isidro del Valle,bajo,pozo,False,False,False
+257,Villa Aparicio,bajo,pozo,True,False,False
+280,Villa Aparicio,bajo,pozo,False,False,False
+179,Colonia Güemes,medio,pozo,False,False,False
+141,Colonia Güemes,medio,pozo,True,False,False
+140,San Isidro del Valle,medio,red,False,False,False
+213,Colonia Güemes,alto,red,False,False,False
+271,Villa Aparicio,medio,red,False,False,False
+199,Colonia Güemes,medio,red,False,False,False
+228,Colonia Güemes,medio,red,False,False,False
+170,Colonia Güemes,medio,red,False,False,False
+83,San Isidro del Valle,medio,red,False,False,False
+96,San Isidro del Valle,medio,red,False,False,False
+209,Colonia Güemes,alto,red,False,False,False
+258,Villa Aparicio,bajo,red,False,False,False
+73,San Isidro del Valle,medio,red,False,False,False
+187,Colonia Güemes,medio,red,False,False,False
+98,San Isidro del Valle,bajo,red,False,False,False
+310,Villa Aparicio,alto,red,False,False,False
+87,San Isidro del Valle,medio,red,False,False,False
+35,San Isidro del Valle,medio,red,False,False,False
+269,Villa Aparicio,medio,red,False,False,True
+34,San Isidro del Valle,bajo,red,False,False,False
+117,San Isidro del Valle,medio,red,False,True,False
+39,San Isidro del Valle,medio,red,False,False,False
+204,Colonia Güemes,alto,red,False,False,False
+91,San Isidro del Valle,bajo,red,False,False,False
+311,Villa Aparicio,alto,red,False,False,False
+22,San Isidro del Valle,bajo,red,False,True,False
+79,San Isidro del Valle,medio,red,False,False,False
+224,Colonia Güemes,medio,red,False,False,False
+226,Colonia Güemes,medio,red,False,True,False
+210,Colonia Güemes,alto,red,False,False,False
+112,San Isidro del Valle,alto,red,False,False,False
+45,San Isidro del Valle,medio,red,False,False,False
+239,Colonia Güemes,bajo,red,False,False,False
+330,Villa Aparicio,bajo,red,False,True,True
+169,Colonia Güemes,medio,red,False,False,False
+188,Colonia Güemes,medio,red,False,False,False
+249,Colonia Güemes,bajo,red,False,True,False
+104,San Isidro del Valle,bajo,red,False,False,False
+157,Colonia Güemes,medio,red,False,True,False
+12,San Isidro del Valle,bajo,red,False,False,True
+189,Colonia Güemes,medio,red,False,False,False
+28,San Isidro del Valle,alto,red,False,False,False
+21,San Isidro del Valle,bajo,red,False,False,False
+89,San Isidro del Valle,bajo,red,False,False,False

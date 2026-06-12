@@ -1,0 +1,13 @@
+municipio,fuente_agua,diarrea_ultimo_mes,n_hogares
+San Isidro del Valle,red,True,7
+San Isidro del Valle,red,False,52
+San Isidro del Valle,pozo,True,30
+San Isidro del Valle,pozo,False,51
+Colonia Güemes,red,True,7
+Colonia Güemes,red,False,51
+Colonia Güemes,pozo,True,22
+Colonia Güemes,pozo,False,30
+Villa Aparicio,red,True,5
+Villa Aparicio,red,False,25
+Villa Aparicio,pozo,True,29
+Villa Aparicio,pozo,False,31

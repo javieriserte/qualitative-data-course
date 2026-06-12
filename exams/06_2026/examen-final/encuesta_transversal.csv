@@ -1,0 +1,341 @@
+hogar_id,municipio,nivel_socioeconomico,fuente_agua,diarrea_ultimo_mes
+1,San Isidro del Valle,medio,red,False
+2,San Isidro del Valle,medio,pozo,False
+3,San Isidro del Valle,medio,pozo,False
+4,San Isidro del Valle,bajo,pozo,False
+5,San Isidro del Valle,bajo,pozo,False
+6,San Isidro del Valle,medio,pozo,False
+7,San Isidro del Valle,bajo,pozo,False
+8,San Isidro del Valle,medio,red,False
+9,San Isidro del Valle,medio,pozo,False
+10,San Isidro del Valle,bajo,pozo,True
+11,San Isidro del Valle,bajo,pozo,False
+12,San Isidro del Valle,bajo,red,True
+13,San Isidro del Valle,bajo,pozo,False
+14,San Isidro del Valle,bajo,pozo,False
+15,San Isidro del Valle,bajo,pozo,False
+16,San Isidro del Valle,medio,red,False
+17,San Isidro del Valle,alto,red,False
+18,San Isidro del Valle,medio,pozo,False
+19,San Isidro del Valle,medio,red,False
+20,San Isidro del Valle,alto,red,False
+21,San Isidro del Valle,bajo,red,False
+22,San Isidro del Valle,bajo,red,False
+23,San Isidro del Valle,medio,red,True
+24,San Isidro del Valle,bajo,pozo,True
+25,San Isidro del Valle,bajo,pozo,True
+26,San Isidro del Valle,bajo,pozo,False
+27,San Isidro del Valle,bajo,pozo,False
+28,San Isidro del Valle,alto,red,False
+29,San Isidro del Valle,medio,pozo,False
+30,San Isidro del Valle,bajo,red,False
+31,San Isidro del Valle,bajo,red,False
+32,San Isidro del Valle,bajo,pozo,True
+33,San Isidro del Valle,bajo,pozo,True
+34,San Isidro del Valle,bajo,red,False
+35,San Isidro del Valle,medio,red,True
+36,San Isidro del Valle,bajo,pozo,True
+37,San Isidro del Valle,bajo,pozo,False
+38,San Isidro del Valle,bajo,pozo,True
+39,San Isidro del Valle,medio,red,False
+40,San Isidro del Valle,bajo,pozo,False
+41,San Isidro del Valle,bajo,red,False
+42,San Isidro del Valle,medio,red,False
+43,San Isidro del Valle,bajo,pozo,True
+44,San Isidro del Valle,medio,red,False
+45,San Isidro del Valle,medio,red,False
+46,San Isidro del Valle,medio,pozo,False
+47,San Isidro del Valle,bajo,red,False
+48,San Isidro del Valle,bajo,pozo,True
+49,San Isidro del Valle,bajo,pozo,True
+50,San Isidro del Valle,medio,red,False
+51,San Isidro del Valle,bajo,pozo,True
+52,San Isidro del Valle,medio,red,False
+53,San Isidro del Valle,bajo,pozo,True
+54,San Isidro del Valle,bajo,pozo,False
+55,San Isidro del Valle,bajo,red,False
+56,San Isidro del Valle,bajo,pozo,False
+57,San Isidro del Valle,medio,pozo,True
+58,San Isidro del Valle,bajo,pozo,False
+59,San Isidro del Valle,alto,pozo,False
+60,San Isidro del Valle,medio,red,False
+61,San Isidro del Valle,medio,pozo,False
+62,San Isidro del Valle,medio,pozo,True
+63,San Isidro del Valle,medio,pozo,True
+64,San Isidro del Valle,bajo,red,False
+65,San Isidro del Valle,bajo,pozo,False
+66,San Isidro del Valle,bajo,pozo,True
+67,San Isidro del Valle,bajo,pozo,False
+68,San Isidro del Valle,bajo,pozo,False
+69,San Isidro del Valle,alto,pozo,False
+70,San Isidro del Valle,bajo,pozo,False
+71,San Isidro del Valle,medio,red,False
+72,San Isidro del Valle,bajo,pozo,False
+73,San Isidro del Valle,medio,red,False
+74,San Isidro del Valle,medio,pozo,False
+75,San Isidro del Valle,bajo,pozo,False
+76,San Isidro del Valle,medio,pozo,True
+77,San Isidro del Valle,alto,red,False
+78,San Isidro del Valle,alto,red,False
+79,San Isidro del Valle,medio,red,False
+80,San Isidro del Valle,bajo,pozo,True
+81,San Isidro del Valle,bajo,pozo,True
+82,San Isidro del Valle,alto,red,False
+83,San Isidro del Valle,medio,red,False
+84,San Isidro del Valle,bajo,pozo,True
+85,San Isidro del Valle,medio,pozo,False
+86,San Isidro del Valle,medio,red,False
+87,San Isidro del Valle,medio,red,False
+88,San Isidro del Valle,bajo,pozo,False
+89,San Isidro del Valle,bajo,red,False
+90,San Isidro del Valle,bajo,pozo,False
+91,San Isidro del Valle,bajo,red,True
+92,San Isidro del Valle,medio,red,False
+93,San Isidro del Valle,bajo,red,True
+94,San Isidro del Valle,bajo,pozo,False
+95,San Isidro del Valle,bajo,pozo,True
+96,San Isidro del Valle,medio,red,False
+97,San Isidro del Valle,bajo,pozo,True
+98,San Isidro del Valle,bajo,red,False
+99,San Isidro del Valle,bajo,pozo,True
+100,San Isidro del Valle,bajo,pozo,True
+101,San Isidro del Valle,alto,red,False
+102,San Isidro del Valle,medio,red,False
+103,San Isidro del Valle,bajo,pozo,False
+104,San Isidro del Valle,bajo,red,False
+105,San Isidro del Valle,medio,pozo,False
+106,San Isidro del Valle,bajo,pozo,True
+107,San Isidro del Valle,medio,pozo,False
+108,San Isidro del Valle,medio,pozo,True
+109,San Isidro del Valle,bajo,red,False
+110,San Isidro del Valle,bajo,pozo,False
+111,San Isidro del Valle,medio,pozo,False
+112,San Isidro del Valle,alto,red,False
+113,San Isidro del Valle,bajo,pozo,False
+114,San Isidro del Valle,alto,red,False
+115,San Isidro del Valle,bajo,red,True
+116,San Isidro del Valle,medio,pozo,True
+117,San Isidro del Valle,medio,red,False
+118,San Isidro del Valle,bajo,pozo,False
+119,San Isidro del Valle,bajo,pozo,False
+120,San Isidro del Valle,medio,red,False
+121,San Isidro del Valle,bajo,pozo,True
+122,San Isidro del Valle,medio,red,True
+123,San Isidro del Valle,medio,pozo,False
+124,San Isidro del Valle,bajo,red,False
+125,San Isidro del Valle,medio,red,False
+126,San Isidro del Valle,bajo,pozo,False
+127,San Isidro del Valle,bajo,pozo,False
+128,San Isidro del Valle,bajo,pozo,True
+129,San Isidro del Valle,bajo,pozo,True
+130,San Isidro del Valle,bajo,red,False
+131,San Isidro del Valle,alto,red,False
+132,San Isidro del Valle,medio,pozo,False
+133,San Isidro del Valle,bajo,pozo,False
+134,San Isidro del Valle,bajo,pozo,False
+135,San Isidro del Valle,alto,red,False
+136,San Isidro del Valle,bajo,pozo,False
+137,San Isidro del Valle,alto,red,False
+138,San Isidro del Valle,bajo,pozo,False
+139,San Isidro del Valle,bajo,red,False
+140,San Isidro del Valle,medio,red,False
+141,Colonia Güemes,medio,pozo,True
+142,Colonia Güemes,medio,red,False
+143,Colonia Güemes,bajo,pozo,True
+144,Colonia Güemes,medio,pozo,False
+145,Colonia Güemes,bajo,red,False
+146,Colonia Güemes,alto,red,False
+147,Colonia Güemes,medio,red,False
+148,Colonia Güemes,medio,red,False
+149,Colonia Güemes,medio,pozo,False
+150,Colonia Güemes,medio,red,False
+151,Colonia Güemes,medio,red,False
+152,Colonia Güemes,bajo,pozo,True
+153,Colonia Güemes,medio,pozo,False
+154,Colonia Güemes,medio,red,True
+155,Colonia Güemes,alto,red,False
+156,Colonia Güemes,bajo,pozo,True
+157,Colonia Güemes,medio,red,False
+158,Colonia Güemes,medio,pozo,False
+159,Colonia Güemes,medio,pozo,False
+160,Colonia Güemes,bajo,pozo,True
+161,Colonia Güemes,medio,red,False
+162,Colonia Güemes,bajo,red,False
+163,Colonia Güemes,bajo,pozo,True
+164,Colonia Güemes,alto,red,False
+165,Colonia Güemes,bajo,red,False
+166,Colonia Güemes,medio,red,False
+167,Colonia Güemes,medio,pozo,False
+168,Colonia Güemes,medio,pozo,False
+169,Colonia Güemes,medio,red,False
+170,Colonia Güemes,medio,red,False
+171,Colonia Güemes,medio,red,False
+172,Colonia Güemes,medio,red,False
+173,Colonia Güemes,medio,pozo,False
+174,Colonia Güemes,medio,pozo,False
+175,Colonia Güemes,medio,red,False
+176,Colonia Güemes,medio,red,False
+177,Colonia Güemes,medio,pozo,True
+178,Colonia Güemes,bajo,pozo,True
+179,Colonia Güemes,medio,pozo,False
+180,Colonia Güemes,bajo,red,False
+181,Colonia Güemes,medio,red,False
+182,Colonia Güemes,medio,red,False
+183,Colonia Güemes,medio,pozo,False
+184,Colonia Güemes,bajo,pozo,True
+185,Colonia Güemes,medio,red,False
+186,Colonia Güemes,bajo,pozo,True
+187,Colonia Güemes,medio,red,False
+188,Colonia Güemes,medio,red,False
+189,Colonia Güemes,medio,red,False
+190,Colonia Güemes,medio,red,True
+191,Colonia Güemes,bajo,pozo,False
+192,Colonia Güemes,bajo,pozo,True
+193,Colonia Güemes,alto,red,False
+194,Colonia Güemes,medio,pozo,False
+195,Colonia Güemes,medio,red,False
+196,Colonia Güemes,medio,pozo,False
+197,Colonia Güemes,medio,red,False
+198,Colonia Güemes,medio,pozo,False
+199,Colonia Güemes,medio,red,False
+200,Colonia Güemes,bajo,pozo,False
+201,Colonia Güemes,bajo,pozo,True
+202,Colonia Güemes,bajo,pozo,True
+203,Colonia Güemes,medio,red,False
+204,Colonia Güemes,alto,red,False
+205,Colonia Güemes,bajo,pozo,True
+206,Colonia Güemes,medio,pozo,True
+207,Colonia Güemes,bajo,pozo,True
+208,Colonia Güemes,medio,red,False
+209,Colonia Güemes,alto,red,False
+210,Colonia Güemes,alto,red,False
+211,Colonia Güemes,bajo,pozo,True
+212,Colonia Güemes,bajo,pozo,False
+213,Colonia Güemes,alto,red,False
+214,Colonia Güemes,medio,pozo,False
+215,Colonia Güemes,medio,red,False
+216,Colonia Güemes,bajo,pozo,False
+217,Colonia Güemes,alto,red,False
+218,Colonia Güemes,bajo,pozo,True
+219,Colonia Güemes,medio,red,False
+220,Colonia Güemes,bajo,pozo,False
+221,Colonia Güemes,medio,pozo,True
+222,Colonia Güemes,medio,pozo,True
+223,Colonia Güemes,medio,pozo,False
+224,Colonia Güemes,medio,red,False
+225,Colonia Güemes,medio,red,False
+226,Colonia Güemes,medio,red,False
+227,Colonia Güemes,bajo,pozo,False
+228,Colonia Güemes,medio,red,False
+229,Colonia Güemes,bajo,pozo,False
+230,Colonia Güemes,bajo,pozo,False
+231,Colonia Güemes,medio,red,False
+232,Colonia Güemes,medio,red,False
+233,Colonia Güemes,bajo,pozo,True
+234,Colonia Güemes,medio,pozo,False
+235,Colonia Güemes,medio,red,False
+236,Colonia Güemes,medio,pozo,False
+237,Colonia Güemes,bajo,red,True
+238,Colonia Güemes,medio,pozo,True
+239,Colonia Güemes,bajo,red,False
+240,Colonia Güemes,medio,pozo,False
+241,Colonia Güemes,bajo,pozo,False
+242,Colonia Güemes,medio,red,True
+243,Colonia Güemes,bajo,pozo,False
+244,Colonia Güemes,medio,red,False
+245,Colonia Güemes,medio,red,False
+246,Colonia Güemes,medio,pozo,False
+247,Colonia Güemes,bajo,red,True
+248,Colonia Güemes,alto,red,False
+249,Colonia Güemes,bajo,red,True
+250,Colonia Güemes,bajo,red,True
+251,Villa Aparicio,bajo,pozo,True
+252,Villa Aparicio,medio,red,False
+253,Villa Aparicio,bajo,pozo,False
+254,Villa Aparicio,bajo,pozo,True
+255,Villa Aparicio,bajo,pozo,True
+256,Villa Aparicio,bajo,red,False
+257,Villa Aparicio,bajo,pozo,True
+258,Villa Aparicio,bajo,red,False
+259,Villa Aparicio,bajo,pozo,False
+260,Villa Aparicio,bajo,red,True
+261,Villa Aparicio,bajo,pozo,False
+262,Villa Aparicio,bajo,pozo,True
+263,Villa Aparicio,bajo,pozo,True
+264,Villa Aparicio,bajo,pozo,False
+265,Villa Aparicio,bajo,pozo,True
+266,Villa Aparicio,medio,pozo,True
+267,Villa Aparicio,bajo,pozo,False
+268,Villa Aparicio,bajo,pozo,True
+269,Villa Aparicio,medio,red,True
+270,Villa Aparicio,bajo,pozo,False
+271,Villa Aparicio,medio,red,False
+272,Villa Aparicio,alto,pozo,False
+273,Villa Aparicio,bajo,pozo,True
+274,Villa Aparicio,medio,pozo,True
+275,Villa Aparicio,bajo,pozo,True
+276,Villa Aparicio,bajo,pozo,False
+277,Villa Aparicio,bajo,pozo,True
+278,Villa Aparicio,bajo,pozo,False
+279,Villa Aparicio,alto,red,False
+280,Villa Aparicio,bajo,pozo,True
+281,Villa Aparicio,medio,pozo,False
+282,Villa Aparicio,bajo,red,False
+283,Villa Aparicio,bajo,pozo,False
+284,Villa Aparicio,alto,pozo,False
+285,Villa Aparicio,medio,pozo,True
+286,Villa Aparicio,bajo,pozo,False
+287,Villa Aparicio,alto,red,False
+288,Villa Aparicio,bajo,pozo,True
+289,Villa Aparicio,bajo,red,False
+290,Villa Aparicio,bajo,pozo,False
+291,Villa Aparicio,alto,red,False
+292,Villa Aparicio,bajo,pozo,True
+293,Villa Aparicio,alto,red,False
+294,Villa Aparicio,bajo,pozo,False
+295,Villa Aparicio,bajo,red,False
+296,Villa Aparicio,bajo,pozo,True
+297,Villa Aparicio,bajo,red,False
+298,Villa Aparicio,bajo,pozo,True
+299,Villa Aparicio,medio,red,False
+300,Villa Aparicio,medio,pozo,False
+301,Villa Aparicio,alto,red,False
+302,Villa Aparicio,bajo,red,False
+303,Villa Aparicio,medio,pozo,True
+304,Villa Aparicio,bajo,pozo,False
+305,Villa Aparicio,medio,red,False
+306,Villa Aparicio,medio,red,False
+307,Villa Aparicio,alto,red,True
+308,Villa Aparicio,bajo,pozo,True
+309,Villa Aparicio,bajo,pozo,False
+310,Villa Aparicio,alto,red,False
+311,Villa Aparicio,alto,red,False
+312,Villa Aparicio,bajo,pozo,True
+313,Villa Aparicio,alto,pozo,False
+314,Villa Aparicio,bajo,pozo,False
+315,Villa Aparicio,bajo,pozo,False
+316,Villa Aparicio,medio,pozo,False
+317,Villa Aparicio,bajo,red,False
+318,Villa Aparicio,bajo,pozo,False
+319,Villa Aparicio,bajo,pozo,False
+320,Villa Aparicio,bajo,pozo,False
+321,Villa Aparicio,bajo,pozo,False
+322,Villa Aparicio,bajo,red,True
+323,Villa Aparicio,medio,red,False
+324,Villa Aparicio,bajo,pozo,True
+325,Villa Aparicio,medio,pozo,True
+326,Villa Aparicio,medio,red,False
+327,Villa Aparicio,bajo,pozo,False
+328,Villa Aparicio,bajo,red,False
+329,Villa Aparicio,bajo,pozo,True
+330,Villa Aparicio,bajo,red,False
+331,Villa Aparicio,medio,red,False
+332,Villa Aparicio,bajo,pozo,False
+333,Villa Aparicio,bajo,pozo,False
+334,Villa Aparicio,bajo,pozo,True
+335,Villa Aparicio,bajo,pozo,False
+336,Villa Aparicio,bajo,red,True
+337,Villa Aparicio,medio,pozo,True
+338,Villa Aparicio,medio,pozo,True
+339,Villa Aparicio,bajo,pozo,False
+340,Villa Aparicio,bajo,pozo,True

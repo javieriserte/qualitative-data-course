@@ -1,0 +1,938 @@
+variedad,ubicacion,temporada,riego,inoculante,aplicacion_fungicida,lote_numero,rinde_kg_ha
+Pampeador,Pergamino,2022/23,sin_riego,Control,True,L1,8222.3
+Pampeador,Pergamino,2023/24,sin_riego,Control,True,L2,7641.6
+Pampeador,Pergamino,2023/24,sin_riego,Control,False,L2,6910.5
+Pampeador,Pergamino,2024/25,sin_riego,Control,False,L3,8178.9
+Pampeador,Pergamino,2022/23,con_riego,Control,True,L1,9352.1
+Pampeador,Pergamino,2022/23,con_riego,Control,False,L3,8478.1
+Pampeador,Pergamino,2023/24,con_riego,Control,True,L1,8630.0
+Pampeador,Pergamino,2024/25,con_riego,Control,True,L2,9761.5
+Pampeador,Pergamino,2022/23,sin_riego,NitroMax,False,L3,8148.9
+Pampeador,Pergamino,2023/24,sin_riego,NitroMax,False,L3,6606.2
+Pampeador,Pergamino,2024/25,sin_riego,NitroMax,True,L2,8010.6
+Pampeador,Pergamino,2024/25,sin_riego,NitroMax,False,L1,8165.8
+Pampeador,Pergamino,2022/23,con_riego,NitroMax,False,L2,8253.7
+Pampeador,Pergamino,2024/25,con_riego,NitroMax,True,L1,8849.7
+Pampeador,Pergamino,2024/25,con_riego,NitroMax,False,L3,8563.9
+Pampeador,Pergamino,2022/23,sin_riego,BioRaiz,True,L3,8717.7
+Pampeador,Pergamino,2022/23,sin_riego,BioRaiz,False,L2,8051.3
+Pampeador,Pergamino,2023/24,sin_riego,BioRaiz,True,L2,7767.8
+Pampeador,Pergamino,2023/24,sin_riego,BioRaiz,False,L3,7241.2
+Pampeador,Pergamino,2024/25,sin_riego,BioRaiz,False,L2,8030.5
+Pampeador,Pergamino,2022/23,con_riego,BioRaiz,False,L1,8783.7
+Pampeador,Pergamino,2024/25,con_riego,BioRaiz,True,L3,10338.9
+Pampeador,Pergamino,2024/25,con_riego,BioRaiz,False,L1,9263.3
+Pampeador,Pergamino,2022/23,sin_riego,TerraFix,True,L3,8368.3
+Pampeador,Pergamino,2022/23,sin_riego,TerraFix,False,L3,7463.1
+Pampeador,Pergamino,2023/24,sin_riego,TerraFix,False,L2,6897.9
+Pampeador,Pergamino,2024/25,sin_riego,TerraFix,True,L1,8070.2
+Pampeador,Pergamino,2022/23,con_riego,TerraFix,True,L3,8327.5
+Pampeador,Pergamino,2022/23,con_riego,TerraFix,False,L2,8164.2
+Pampeador,Pergamino,2023/24,con_riego,TerraFix,True,L1,7913.0
+Pampeador,Pergamino,2024/25,con_riego,TerraFix,True,L2,8590.1
+Pampeador,Pergamino,2024/25,con_riego,TerraFix,False,L3,8365.3
+Pampeador,Venado Tuerto,2023/24,sin_riego,Control,True,L2,6621.0
+Pampeador,Venado Tuerto,2024/25,sin_riego,Control,True,L1,7037.6
+Pampeador,Venado Tuerto,2024/25,sin_riego,Control,False,L1,7411.4
+Pampeador,Venado Tuerto,2022/23,con_riego,Control,True,L1,7965.1
+Pampeador,Venado Tuerto,2022/23,con_riego,Control,False,L1,8069.1
+Pampeador,Venado Tuerto,2023/24,con_riego,Control,True,L2,6947.7
+Pampeador,Venado Tuerto,2022/23,sin_riego,NitroMax,True,L2,7046.7
+Pampeador,Venado Tuerto,2022/23,sin_riego,NitroMax,False,L2,7104.0
+Pampeador,Venado Tuerto,2023/24,sin_riego,NitroMax,False,L2,6088.5
+Pampeador,Venado Tuerto,2024/25,sin_riego,NitroMax,True,L1,7206.7
+Pampeador,Venado Tuerto,2024/25,sin_riego,NitroMax,False,L1,7208.5
+Pampeador,Venado Tuerto,2022/23,con_riego,NitroMax,False,L1,7696.1
+Pampeador,Venado Tuerto,2023/24,con_riego,NitroMax,True,L1,6885.6
+Pampeador,Venado Tuerto,2023/24,con_riego,NitroMax,False,L1,6868.4
+Pampeador,Venado Tuerto,2024/25,con_riego,NitroMax,True,L2,8024.2
+Pampeador,Venado Tuerto,2024/25,con_riego,NitroMax,False,L1,8091.6
+Pampeador,Venado Tuerto,2022/23,sin_riego,BioRaiz,True,L1,7158.1
+Pampeador,Venado Tuerto,2022/23,sin_riego,BioRaiz,False,L1,7387.4
+Pampeador,Venado Tuerto,2023/24,sin_riego,BioRaiz,False,L1,6889.8
+Pampeador,Venado Tuerto,2024/25,sin_riego,BioRaiz,True,L1,7703.1
+Pampeador,Venado Tuerto,2024/25,sin_riego,BioRaiz,False,L1,7964.5
+Pampeador,Venado Tuerto,2022/23,con_riego,BioRaiz,True,L2,8687.6
+Pampeador,Venado Tuerto,2022/23,con_riego,BioRaiz,False,L2,8049.6
+Pampeador,Venado Tuerto,2023/24,con_riego,BioRaiz,True,L2,8151.4
+Pampeador,Venado Tuerto,2023/24,con_riego,BioRaiz,False,L1,7531.3
+Pampeador,Venado Tuerto,2024/25,con_riego,BioRaiz,True,L1,8772.6
+Pampeador,Venado Tuerto,2024/25,con_riego,BioRaiz,False,L2,8499.0
+Pampeador,Venado Tuerto,2023/24,sin_riego,TerraFix,True,L1,6134.6
+Pampeador,Venado Tuerto,2023/24,sin_riego,TerraFix,False,L1,5743.8
+Pampeador,Venado Tuerto,2024/25,sin_riego,TerraFix,True,L2,7002.0
+Pampeador,Venado Tuerto,2024/25,sin_riego,TerraFix,False,L2,6613.4
+Pampeador,Venado Tuerto,2022/23,con_riego,TerraFix,True,L1,8120.8
+Pampeador,Venado Tuerto,2022/23,con_riego,TerraFix,False,L2,8274.7
+Pampeador,Venado Tuerto,2023/24,con_riego,TerraFix,False,L1,6976.9
+Pampeador,Venado Tuerto,2024/25,con_riego,TerraFix,True,L2,8084.6
+Pampeador,Río Cuarto,2022/23,sin_riego,Control,True,L1,7796.9
+Pampeador,Río Cuarto,2023/24,sin_riego,Control,True,L2,7174.0
+Pampeador,Río Cuarto,2023/24,sin_riego,Control,False,L1,7566.9
+Pampeador,Río Cuarto,2024/25,sin_riego,Control,True,L3,8139.2
+Pampeador,Río Cuarto,2024/25,sin_riego,Control,False,L1,8637.1
+Pampeador,Río Cuarto,2022/23,con_riego,Control,False,L1,8815.0
+Pampeador,Río Cuarto,2023/24,con_riego,Control,False,L3,8579.8
+Pampeador,Río Cuarto,2024/25,con_riego,Control,True,L3,9127.3
+Pampeador,Río Cuarto,2024/25,sin_riego,NitroMax,True,L2,8372.8
+Pampeador,Río Cuarto,2024/25,sin_riego,NitroMax,False,L2,8024.8
+Pampeador,Río Cuarto,2022/23,con_riego,NitroMax,False,L2,8936.1
+Pampeador,Río Cuarto,2023/24,con_riego,NitroMax,True,L1,8267.7
+Pampeador,Río Cuarto,2024/25,con_riego,NitroMax,True,L1,8865.9
+Pampeador,Río Cuarto,2024/25,con_riego,NitroMax,False,L1,9285.4
+Pampeador,Río Cuarto,2022/23,sin_riego,BioRaiz,True,L2,8662.1
+Pampeador,Río Cuarto,2023/24,sin_riego,BioRaiz,True,L2,7996.2
+Pampeador,Río Cuarto,2024/25,sin_riego,BioRaiz,True,L3,9060.4
+Pampeador,Río Cuarto,2024/25,sin_riego,BioRaiz,False,L2,9035.8
+Pampeador,Río Cuarto,2022/23,con_riego,BioRaiz,True,L1,9325.0
+Pampeador,Río Cuarto,2024/25,con_riego,BioRaiz,True,L2,9684.5
+Pampeador,Río Cuarto,2022/23,sin_riego,TerraFix,True,L1,7825.4
+Pampeador,Río Cuarto,2022/23,sin_riego,TerraFix,False,L2,8006.5
+Pampeador,Río Cuarto,2023/24,sin_riego,TerraFix,True,L3,7182.1
+Pampeador,Río Cuarto,2024/25,sin_riego,TerraFix,False,L1,8603.6
+Pampeador,Río Cuarto,2023/24,con_riego,TerraFix,True,L3,8401.8
+Pampeador,Río Cuarto,2024/25,con_riego,TerraFix,True,L1,9039.0
+Pampeador,Junín,2023/24,sin_riego,Control,True,L1,6834.2
+Pampeador,Junín,2023/24,sin_riego,Control,False,L1,5892.2
+Pampeador,Junín,2024/25,sin_riego,Control,False,L1,6736.1
+Pampeador,Junín,2023/24,con_riego,Control,True,L2,7672.8
+Pampeador,Junín,2024/25,con_riego,Control,True,L1,8266.9
+Pampeador,Junín,2024/25,con_riego,Control,False,L2,8320.1
+Pampeador,Junín,2022/23,sin_riego,NitroMax,True,L1,6778.6
+Pampeador,Junín,2022/23,sin_riego,NitroMax,False,L2,7143.5
+Pampeador,Junín,2024/25,sin_riego,NitroMax,True,L2,7861.0
+Pampeador,Junín,2024/25,sin_riego,NitroMax,False,L2,7530.8
+Pampeador,Junín,2022/23,con_riego,NitroMax,True,L1,8147.5
+Pampeador,Junín,2023/24,con_riego,NitroMax,True,L1,7327.1
+Pampeador,Junín,2024/25,con_riego,NitroMax,False,L1,8139.5
+Pampeador,Junín,2022/23,sin_riego,BioRaiz,True,L1,7033.8
+Pampeador,Junín,2022/23,sin_riego,BioRaiz,False,L1,7702.1
+Pampeador,Junín,2023/24,sin_riego,BioRaiz,True,L1,7216.7
+Pampeador,Junín,2024/25,sin_riego,BioRaiz,True,L2,7338.8
+Pampeador,Junín,2024/25,sin_riego,BioRaiz,False,L2,7594.8
+Pampeador,Junín,2022/23,con_riego,BioRaiz,True,L2,8255.9
+Pampeador,Junín,2023/24,con_riego,BioRaiz,True,L2,7659.7
+Pampeador,Junín,2023/24,con_riego,BioRaiz,False,L1,7945.0
+Pampeador,Junín,2022/23,sin_riego,TerraFix,False,L1,6566.4
+Pampeador,Junín,2023/24,sin_riego,TerraFix,True,L1,6672.0
+Pampeador,Junín,2024/25,sin_riego,TerraFix,True,L1,7511.1
+Pampeador,Junín,2024/25,sin_riego,TerraFix,False,L1,7229.7
+Pampeador,Junín,2023/24,con_riego,TerraFix,True,L1,6755.4
+Pampeador,Junín,2023/24,con_riego,TerraFix,False,L1,7171.0
+Pampeador,Junín,2024/25,con_riego,TerraFix,False,L2,8595.2
+Pampeador,Marcos Juárez,2022/23,sin_riego,Control,False,L2,7022.2
+Pampeador,Marcos Juárez,2024/25,sin_riego,Control,True,L2,8372.7
+Pampeador,Marcos Juárez,2024/25,sin_riego,Control,False,L1,7619.6
+Pampeador,Marcos Juárez,2022/23,con_riego,Control,True,L2,9495.3
+Pampeador,Marcos Juárez,2022/23,con_riego,Control,False,L3,8561.0
+Pampeador,Marcos Juárez,2023/24,con_riego,Control,True,L2,8733.1
+Pampeador,Marcos Juárez,2024/25,con_riego,Control,True,L2,9578.3
+Pampeador,Marcos Juárez,2024/25,con_riego,Control,False,L3,9414.1
+Pampeador,Marcos Juárez,2022/23,sin_riego,NitroMax,True,L2,8263.2
+Pampeador,Marcos Juárez,2022/23,sin_riego,NitroMax,False,L1,7905.3
+Pampeador,Marcos Juárez,2023/24,sin_riego,NitroMax,True,L3,7254.2
+Pampeador,Marcos Juárez,2024/25,sin_riego,NitroMax,True,L1,8803.3
+Pampeador,Marcos Juárez,2024/25,sin_riego,NitroMax,False,L3,7737.1
+Pampeador,Marcos Juárez,2022/23,con_riego,NitroMax,False,L3,8593.0
+Pampeador,Marcos Juárez,2023/24,con_riego,NitroMax,True,L3,8613.8
+Pampeador,Marcos Juárez,2024/25,con_riego,NitroMax,False,L1,8462.4
+Pampeador,Marcos Juárez,2023/24,sin_riego,BioRaiz,True,L2,8214.1
+Pampeador,Marcos Juárez,2023/24,sin_riego,BioRaiz,False,L3,7900.9
+Pampeador,Marcos Juárez,2024/25,sin_riego,BioRaiz,True,L1,9032.0
+Pampeador,Marcos Juárez,2024/25,sin_riego,BioRaiz,False,L2,7985.1
+Pampeador,Marcos Juárez,2022/23,con_riego,BioRaiz,False,L1,9195.3
+Pampeador,Marcos Juárez,2023/24,con_riego,BioRaiz,True,L3,9307.8
+Pampeador,Marcos Juárez,2024/25,con_riego,BioRaiz,False,L2,8854.2
+Pampeador,Marcos Juárez,2022/23,sin_riego,TerraFix,True,L2,8019.1
+Pampeador,Marcos Juárez,2023/24,sin_riego,TerraFix,False,L3,7395.4
+Pampeador,Marcos Juárez,2024/25,sin_riego,TerraFix,True,L1,8545.6
+Pampeador,Marcos Juárez,2022/23,con_riego,TerraFix,False,L3,8865.4
+Pampeador,Marcos Juárez,2023/24,con_riego,TerraFix,False,L2,8620.7
+Pampeador,Marcos Juárez,2024/25,con_riego,TerraFix,True,L1,9551.2
+Pampeador,Tandil,2022/23,sin_riego,Control,False,L2,6884.2
+Pampeador,Tandil,2023/24,sin_riego,Control,True,L1,7329.0
+Pampeador,Tandil,2024/25,sin_riego,Control,True,L2,7310.1
+Pampeador,Tandil,2022/23,con_riego,Control,True,L2,7946.6
+Pampeador,Tandil,2022/23,con_riego,Control,False,L1,7769.8
+Pampeador,Tandil,2024/25,con_riego,Control,True,L1,8442.9
+Pampeador,Tandil,2022/23,sin_riego,NitroMax,False,L1,6552.5
+Pampeador,Tandil,2023/24,sin_riego,NitroMax,False,L1,5760.9
+Pampeador,Tandil,2022/23,con_riego,NitroMax,True,L1,8816.8
+Pampeador,Tandil,2022/23,con_riego,NitroMax,False,L2,7741.5
+Pampeador,Tandil,2024/25,con_riego,NitroMax,True,L1,8115.0
+Pampeador,Tandil,2022/23,sin_riego,BioRaiz,True,L2,7956.5
+Pampeador,Tandil,2022/23,sin_riego,BioRaiz,False,L2,7149.4
+Pampeador,Tandil,2023/24,sin_riego,BioRaiz,False,L1,6459.2
+Pampeador,Tandil,2024/25,sin_riego,BioRaiz,True,L2,8007.4
+Pampeador,Tandil,2022/23,con_riego,BioRaiz,True,L1,8288.3
+Pampeador,Tandil,2023/24,con_riego,BioRaiz,True,L1,8098.7
+Pampeador,Tandil,2023/24,con_riego,BioRaiz,False,L2,8015.6
+Pampeador,Tandil,2024/25,con_riego,BioRaiz,True,L1,8930.5
+Pampeador,Tandil,2024/25,con_riego,BioRaiz,False,L1,8174.7
+Pampeador,Tandil,2022/23,sin_riego,TerraFix,True,L1,7078.0
+Pampeador,Tandil,2022/23,sin_riego,TerraFix,False,L2,6585.1
+Pampeador,Tandil,2023/24,sin_riego,TerraFix,False,L1,5978.9
+Pampeador,Tandil,2024/25,sin_riego,TerraFix,True,L1,7264.2
+Pampeador,Tandil,2024/25,sin_riego,TerraFix,False,L1,7106.6
+Pampeador,Tandil,2022/23,con_riego,TerraFix,True,L2,7684.7
+Pampeador,Tandil,2023/24,con_riego,TerraFix,False,L2,7241.4
+Pampeador,Tandil,2024/25,con_riego,TerraFix,True,L1,8213.7
+Pampeador,Tandil,2024/25,con_riego,TerraFix,False,L2,7905.5
+Sudestada,Pergamino,2022/23,sin_riego,Control,True,L2,9304.4
+Sudestada,Pergamino,2022/23,sin_riego,Control,False,L2,9472.0
+Sudestada,Pergamino,2023/24,sin_riego,Control,True,L3,9318.8
+Sudestada,Pergamino,2023/24,sin_riego,Control,False,L1,8718.7
+Sudestada,Pergamino,2024/25,sin_riego,Control,True,L3,9345.9
+Sudestada,Pergamino,2022/23,con_riego,Control,False,L2,10282.2
+Sudestada,Pergamino,2022/23,sin_riego,NitroMax,True,L2,9733.4
+Sudestada,Pergamino,2022/23,sin_riego,NitroMax,False,L3,8650.5
+Sudestada,Pergamino,2023/24,sin_riego,NitroMax,True,L1,8963.2
+Sudestada,Pergamino,2023/24,sin_riego,NitroMax,False,L3,8552.1
+Sudestada,Pergamino,2024/25,sin_riego,NitroMax,True,L2,9925.7
+Sudestada,Pergamino,2024/25,sin_riego,NitroMax,False,L1,9299.6
+Sudestada,Pergamino,2022/23,con_riego,NitroMax,True,L1,10651.5
+Sudestada,Pergamino,2023/24,con_riego,NitroMax,False,L1,9812.6
+Sudestada,Pergamino,2024/25,con_riego,NitroMax,False,L3,10543.3
+Sudestada,Pergamino,2023/24,sin_riego,BioRaiz,True,L1,8647.2
+Sudestada,Pergamino,2023/24,sin_riego,BioRaiz,False,L2,8841.1
+Sudestada,Pergamino,2024/25,sin_riego,BioRaiz,True,L3,10203.9
+Sudestada,Pergamino,2022/23,con_riego,BioRaiz,True,L3,10559.4
+Sudestada,Pergamino,2023/24,con_riego,BioRaiz,False,L1,9906.4
+Sudestada,Pergamino,2024/25,con_riego,BioRaiz,False,L3,11029.7
+Sudestada,Pergamino,2022/23,sin_riego,TerraFix,True,L3,9315.8
+Sudestada,Pergamino,2022/23,sin_riego,TerraFix,False,L1,9194.2
+Sudestada,Pergamino,2023/24,sin_riego,TerraFix,False,L1,8193.6
+Sudestada,Pergamino,2024/25,sin_riego,TerraFix,True,L1,9581.9
+Sudestada,Pergamino,2024/25,sin_riego,TerraFix,False,L2,9663.7
+Sudestada,Pergamino,2023/24,con_riego,TerraFix,True,L1,9768.1
+Sudestada,Pergamino,2023/24,con_riego,TerraFix,False,L3,9529.4
+Sudestada,Pergamino,2024/25,con_riego,TerraFix,False,L3,9676.1
+Sudestada,Venado Tuerto,2023/24,sin_riego,Control,True,L1,8271.4
+Sudestada,Venado Tuerto,2023/24,sin_riego,Control,False,L2,7918.7
+Sudestada,Venado Tuerto,2022/23,con_riego,Control,True,L2,9298.9
+Sudestada,Venado Tuerto,2023/24,con_riego,Control,True,L2,8861.2
+Sudestada,Venado Tuerto,2023/24,con_riego,Control,False,L1,8305.3
+Sudestada,Venado Tuerto,2024/25,con_riego,Control,True,L2,9831.1
+Sudestada,Venado Tuerto,2024/25,con_riego,Control,False,L2,9409.3
+Sudestada,Venado Tuerto,2023/24,sin_riego,NitroMax,True,L2,7692.9
+Sudestada,Venado Tuerto,2023/24,sin_riego,NitroMax,False,L1,7612.3
+Sudestada,Venado Tuerto,2024/25,sin_riego,NitroMax,True,L1,8387.4
+Sudestada,Venado Tuerto,2024/25,sin_riego,NitroMax,False,L1,8744.5
+Sudestada,Venado Tuerto,2022/23,con_riego,NitroMax,True,L2,9421.7
+Sudestada,Venado Tuerto,2022/23,con_riego,NitroMax,False,L2,9532.5
+Sudestada,Venado Tuerto,2023/24,con_riego,NitroMax,True,L1,8697.5
+Sudestada,Venado Tuerto,2023/24,con_riego,NitroMax,False,L2,8843.7
+Sudestada,Venado Tuerto,2024/25,con_riego,NitroMax,True,L1,9382.7
+Sudestada,Venado Tuerto,2022/23,sin_riego,BioRaiz,True,L2,9504.3
+Sudestada,Venado Tuerto,2022/23,sin_riego,BioRaiz,False,L2,8441.0
+Sudestada,Venado Tuerto,2023/24,sin_riego,BioRaiz,True,L1,8583.1
+Sudestada,Venado Tuerto,2023/24,sin_riego,BioRaiz,False,L2,8613.0
+Sudestada,Venado Tuerto,2024/25,sin_riego,BioRaiz,False,L2,8791.4
+Sudestada,Venado Tuerto,2022/23,con_riego,BioRaiz,True,L1,10454.2
+Sudestada,Venado Tuerto,2022/23,con_riego,BioRaiz,False,L1,10108.7
+Sudestada,Venado Tuerto,2023/24,con_riego,BioRaiz,True,L1,9451.9
+Sudestada,Venado Tuerto,2023/24,con_riego,BioRaiz,False,L2,9187.8
+Sudestada,Venado Tuerto,2024/25,con_riego,BioRaiz,True,L1,9919.2
+Sudestada,Venado Tuerto,2022/23,sin_riego,TerraFix,True,L1,8341.4
+Sudestada,Venado Tuerto,2022/23,sin_riego,TerraFix,False,L1,8509.3
+Sudestada,Venado Tuerto,2023/24,sin_riego,TerraFix,True,L2,8142.3
+Sudestada,Venado Tuerto,2023/24,sin_riego,TerraFix,False,L1,7800.8
+Sudestada,Venado Tuerto,2024/25,sin_riego,TerraFix,True,L2,8294.8
+Sudestada,Venado Tuerto,2022/23,con_riego,TerraFix,True,L1,9580.8
+Sudestada,Venado Tuerto,2022/23,con_riego,TerraFix,False,L1,9607.9
+Sudestada,Venado Tuerto,2023/24,con_riego,TerraFix,True,L1,8883.3
+Sudestada,Venado Tuerto,2023/24,con_riego,TerraFix,False,L2,8908.7
+Sudestada,Venado Tuerto,2024/25,con_riego,TerraFix,True,L2,9424.1
+Sudestada,Venado Tuerto,2024/25,con_riego,TerraFix,False,L1,9239.9
+Sudestada,Río Cuarto,2022/23,sin_riego,Control,False,L1,9256.9
+Sudestada,Río Cuarto,2023/24,sin_riego,Control,False,L3,8392.1
+Sudestada,Río Cuarto,2024/25,sin_riego,Control,False,L1,9716.3
+Sudestada,Río Cuarto,2022/23,con_riego,Control,True,L3,10426.6
+Sudestada,Río Cuarto,2022/23,con_riego,Control,False,L1,10326.8
+Sudestada,Río Cuarto,2023/24,con_riego,Control,False,L2,8972.4
+Sudestada,Río Cuarto,2024/25,con_riego,Control,True,L3,10250.8
+Sudestada,Río Cuarto,2024/25,con_riego,Control,False,L3,10913.8
+Sudestada,Río Cuarto,2022/23,sin_riego,NitroMax,True,L1,9313.9
+Sudestada,Río Cuarto,2022/23,sin_riego,NitroMax,False,L1,9601.0
+Sudestada,Río Cuarto,2024/25,sin_riego,NitroMax,True,L3,9260.6
+Sudestada,Río Cuarto,2024/25,sin_riego,NitroMax,False,L3,10052.8
+Sudestada,Río Cuarto,2022/23,con_riego,NitroMax,False,L3,10409.7
+Sudestada,Río Cuarto,2023/24,con_riego,NitroMax,True,L2,9881.2
+Sudestada,Río Cuarto,2023/24,con_riego,NitroMax,False,L2,10451.2
+Sudestada,Río Cuarto,2022/23,sin_riego,BioRaiz,True,L3,10404.6
+Sudestada,Río Cuarto,2022/23,sin_riego,BioRaiz,False,L1,9894.2
+Sudestada,Río Cuarto,2023/24,sin_riego,BioRaiz,True,L1,9163.9
+Sudestada,Río Cuarto,2023/24,sin_riego,BioRaiz,False,L1,9238.8
+Sudestada,Río Cuarto,2022/23,con_riego,BioRaiz,True,L1,11072.8
+Sudestada,Río Cuarto,2023/24,con_riego,BioRaiz,True,L3,10250.5
+Sudestada,Río Cuarto,2024/25,con_riego,BioRaiz,True,L1,10969.3
+Sudestada,Río Cuarto,2024/25,con_riego,BioRaiz,False,L2,11490.8
+Sudestada,Río Cuarto,2022/23,sin_riego,TerraFix,True,L3,9468.0
+Sudestada,Río Cuarto,2022/23,sin_riego,TerraFix,False,L3,10143.9
+Sudestada,Río Cuarto,2023/24,sin_riego,TerraFix,True,L3,8875.4
+Sudestada,Río Cuarto,2024/25,sin_riego,TerraFix,True,L2,10149.9
+Sudestada,Río Cuarto,2024/25,sin_riego,TerraFix,False,L1,9750.0
+Sudestada,Río Cuarto,2022/23,con_riego,TerraFix,True,L3,10719.6
+Sudestada,Río Cuarto,2022/23,con_riego,TerraFix,False,L3,10247.1
+Sudestada,Río Cuarto,2023/24,con_riego,TerraFix,False,L3,9560.9
+Sudestada,Río Cuarto,2024/25,con_riego,TerraFix,False,L3,10728.7
+Sudestada,Junín,2022/23,sin_riego,Control,True,L2,8926.8
+Sudestada,Junín,2022/23,sin_riego,Control,False,L1,8661.3
+Sudestada,Junín,2022/23,con_riego,Control,True,L1,9239.8
+Sudestada,Junín,2022/23,con_riego,Control,False,L1,9219.1
+Sudestada,Junín,2023/24,con_riego,Control,True,L2,8550.4
+Sudestada,Junín,2023/24,con_riego,Control,False,L1,8455.1
+Sudestada,Junín,2024/25,con_riego,Control,True,L1,9780.7
+Sudestada,Junín,2022/23,sin_riego,NitroMax,True,L2,8965.0
+Sudestada,Junín,2022/23,sin_riego,NitroMax,False,L2,8646.2
+Sudestada,Junín,2023/24,sin_riego,NitroMax,True,L1,7367.1
+Sudestada,Junín,2024/25,sin_riego,NitroMax,True,L2,8746.6
+Sudestada,Junín,2024/25,sin_riego,NitroMax,False,L1,8754.4
+Sudestada,Junín,2022/23,con_riego,NitroMax,True,L2,10186.9
+Sudestada,Junín,2022/23,con_riego,NitroMax,False,L2,9192.0
+Sudestada,Junín,2023/24,con_riego,NitroMax,True,L1,8840.6
+Sudestada,Junín,2023/24,con_riego,NitroMax,False,L1,9427.6
+Sudestada,Junín,2024/25,con_riego,NitroMax,True,L2,9876.0
+Sudestada,Junín,2024/25,con_riego,NitroMax,False,L2,9907.7
+Sudestada,Junín,2022/23,sin_riego,BioRaiz,True,L1,9162.1
+Sudestada,Junín,2022/23,sin_riego,BioRaiz,False,L2,9222.4
+Sudestada,Junín,2023/24,sin_riego,BioRaiz,True,L2,8697.7
+Sudestada,Junín,2023/24,sin_riego,BioRaiz,False,L1,8253.3
+Sudestada,Junín,2024/25,sin_riego,BioRaiz,False,L1,9525.9
+Sudestada,Junín,2022/23,con_riego,BioRaiz,True,L2,9695.6
+Sudestada,Junín,2023/24,con_riego,BioRaiz,True,L1,9521.9
+Sudestada,Junín,2024/25,con_riego,BioRaiz,False,L2,10280.0
+Sudestada,Junín,2024/25,sin_riego,TerraFix,True,L1,8627.4
+Sudestada,Junín,2024/25,sin_riego,TerraFix,False,L1,8793.6
+Sudestada,Junín,2022/23,con_riego,TerraFix,False,L2,9425.7
+Sudestada,Junín,2023/24,con_riego,TerraFix,True,L2,8649.9
+Sudestada,Junín,2024/25,con_riego,TerraFix,False,L1,9651.0
+Sudestada,Marcos Juárez,2022/23,sin_riego,Control,True,L1,9510.9
+Sudestada,Marcos Juárez,2024/25,sin_riego,Control,False,L1,9540.4
+Sudestada,Marcos Juárez,2022/23,con_riego,Control,True,L2,10448.0
+Sudestada,Marcos Juárez,2022/23,con_riego,Control,False,L2,10449.4
+Sudestada,Marcos Juárez,2023/24,con_riego,Control,True,L3,9789.2
+Sudestada,Marcos Juárez,2024/25,con_riego,Control,True,L3,10761.4
+Sudestada,Marcos Juárez,2024/25,con_riego,Control,False,L3,10225.1
+Sudestada,Marcos Juárez,2023/24,sin_riego,NitroMax,True,L1,9541.0
+Sudestada,Marcos Juárez,2023/24,sin_riego,NitroMax,False,L2,8742.5
+Sudestada,Marcos Juárez,2024/25,sin_riego,NitroMax,True,L1,9910.7
+Sudestada,Marcos Juárez,2024/25,sin_riego,NitroMax,False,L2,9589.6
+Sudestada,Marcos Juárez,2022/23,con_riego,NitroMax,True,L3,10180.0
+Sudestada,Marcos Juárez,2022/23,con_riego,NitroMax,False,L2,10237.9
+Sudestada,Marcos Juárez,2024/25,con_riego,NitroMax,False,L3,10959.3
+Sudestada,Marcos Juárez,2022/23,sin_riego,BioRaiz,True,L1,10337.1
+Sudestada,Marcos Juárez,2024/25,sin_riego,BioRaiz,True,L1,10469.0
+Sudestada,Marcos Juárez,2022/23,con_riego,BioRaiz,True,L3,11403.5
+Sudestada,Marcos Juárez,2022/23,con_riego,BioRaiz,False,L3,10980.8
+Sudestada,Marcos Juárez,2024/25,con_riego,BioRaiz,True,L3,10840.7
+Sudestada,Marcos Juárez,2022/23,sin_riego,TerraFix,False,L1,8828.9
+Sudestada,Marcos Juárez,2023/24,sin_riego,TerraFix,True,L2,9228.9
+Sudestada,Marcos Juárez,2023/24,sin_riego,TerraFix,False,L2,8449.8
+Sudestada,Marcos Juárez,2024/25,sin_riego,TerraFix,True,L2,10337.4
+Sudestada,Marcos Juárez,2024/25,sin_riego,TerraFix,False,L1,9361.8
+Sudestada,Marcos Juárez,2022/23,con_riego,TerraFix,True,L1,10228.3
+Sudestada,Marcos Juárez,2022/23,con_riego,TerraFix,False,L3,9895.0
+Sudestada,Marcos Juárez,2023/24,con_riego,TerraFix,True,L1,9350.1
+Sudestada,Marcos Juárez,2023/24,con_riego,TerraFix,False,L1,9534.4
+Sudestada,Marcos Juárez,2024/25,con_riego,TerraFix,True,L3,10867.3
+Sudestada,Marcos Juárez,2024/25,con_riego,TerraFix,False,L1,10281.2
+Sudestada,Tandil,2022/23,sin_riego,Control,False,L2,8502.1
+Sudestada,Tandil,2023/24,sin_riego,Control,False,L1,7885.6
+Sudestada,Tandil,2024/25,sin_riego,Control,True,L1,8822.3
+Sudestada,Tandil,2022/23,con_riego,Control,False,L1,8552.3
+Sudestada,Tandil,2023/24,con_riego,Control,True,L1,9192.8
+Sudestada,Tandil,2023/24,con_riego,Control,False,L1,8655.5
+Sudestada,Tandil,2024/25,con_riego,Control,True,L2,9906.6
+Sudestada,Tandil,2024/25,con_riego,Control,False,L1,9574.8
+Sudestada,Tandil,2022/23,sin_riego,NitroMax,True,L2,8393.8
+Sudestada,Tandil,2023/24,sin_riego,NitroMax,True,L1,8632.5
+Sudestada,Tandil,2023/24,sin_riego,NitroMax,False,L1,7281.4
+Sudestada,Tandil,2024/25,sin_riego,NitroMax,False,L1,8559.8
+Sudestada,Tandil,2023/24,con_riego,NitroMax,True,L2,8547.5
+Sudestada,Tandil,2023/24,con_riego,NitroMax,False,L2,8239.5
+Sudestada,Tandil,2024/25,con_riego,NitroMax,True,L2,10244.6
+Sudestada,Tandil,2022/23,sin_riego,BioRaiz,True,L2,9126.9
+Sudestada,Tandil,2022/23,sin_riego,BioRaiz,False,L1,8915.2
+Sudestada,Tandil,2023/24,sin_riego,BioRaiz,True,L2,8616.3
+Sudestada,Tandil,2023/24,sin_riego,BioRaiz,False,L2,8000.6
+Sudestada,Tandil,2022/23,con_riego,BioRaiz,True,L2,10531.9
+Sudestada,Tandil,2023/24,con_riego,BioRaiz,False,L1,8913.7
+Sudestada,Tandil,2024/25,con_riego,BioRaiz,True,L1,9801.4
+Sudestada,Tandil,2024/25,con_riego,BioRaiz,False,L1,9555.1
+Sudestada,Tandil,2022/23,sin_riego,TerraFix,True,L2,8874.3
+Sudestada,Tandil,2023/24,sin_riego,TerraFix,True,L1,8180.7
+Sudestada,Tandil,2024/25,sin_riego,TerraFix,False,L2,7911.2
+Sudestada,Tandil,2022/23,con_riego,TerraFix,True,L2,9467.2
+Sudestada,Tandil,2022/23,con_riego,TerraFix,False,L1,8987.1
+Sudestada,Tandil,2023/24,con_riego,TerraFix,False,L1,8397.7
+Sudestada,Tandil,2024/25,con_riego,TerraFix,True,L1,9434.7
+Sudestada,Tandil,2024/25,con_riego,TerraFix,False,L1,9124.1
+Zonda,Pergamino,2022/23,sin_riego,Control,True,L3,7116.0
+Zonda,Pergamino,2022/23,sin_riego,Control,False,L2,7016.0
+Zonda,Pergamino,2023/24,sin_riego,Control,True,L3,6896.6
+Zonda,Pergamino,2023/24,sin_riego,Control,False,L1,6109.2
+Zonda,Pergamino,2024/25,sin_riego,Control,True,L1,7360.2
+Zonda,Pergamino,2024/25,sin_riego,Control,False,L3,6989.2
+Zonda,Pergamino,2022/23,con_riego,Control,True,L1,8041.4
+Zonda,Pergamino,2022/23,con_riego,Control,False,L1,7428.9
+Zonda,Pergamino,2023/24,con_riego,Control,True,L2,7356.7
+Zonda,Pergamino,2023/24,con_riego,Control,False,L3,6922.3
+Zonda,Pergamino,2024/25,con_riego,Control,True,L3,8094.2
+Zonda,Pergamino,2024/25,con_riego,Control,False,L1,7945.4
+Zonda,Pergamino,2022/23,sin_riego,NitroMax,False,L3,7004.3
+Zonda,Pergamino,2023/24,sin_riego,NitroMax,True,L3,6225.6
+Zonda,Pergamino,2024/25,sin_riego,NitroMax,False,L3,6957.0
+Zonda,Pergamino,2022/23,con_riego,NitroMax,True,L1,8208.4
+Zonda,Pergamino,2022/23,con_riego,NitroMax,False,L3,7845.6
+Zonda,Pergamino,2023/24,con_riego,NitroMax,True,L2,7616.4
+Zonda,Pergamino,2023/24,con_riego,NitroMax,False,L3,6693.0
+Zonda,Pergamino,2024/25,con_riego,NitroMax,False,L2,7546.5
+Zonda,Pergamino,2022/23,sin_riego,BioRaiz,True,L2,7808.2
+Zonda,Pergamino,2022/23,sin_riego,BioRaiz,False,L3,7568.1
+Zonda,Pergamino,2023/24,sin_riego,BioRaiz,True,L3,6530.0
+Zonda,Pergamino,2023/24,sin_riego,BioRaiz,False,L1,6726.8
+Zonda,Pergamino,2024/25,sin_riego,BioRaiz,True,L3,8283.1
+Zonda,Pergamino,2022/23,con_riego,BioRaiz,True,L1,8707.2
+Zonda,Pergamino,2023/24,con_riego,BioRaiz,False,L3,7734.1
+Zonda,Pergamino,2024/25,con_riego,BioRaiz,False,L2,8183.1
+Zonda,Pergamino,2023/24,sin_riego,TerraFix,True,L3,6636.6
+Zonda,Pergamino,2022/23,con_riego,TerraFix,True,L1,7816.1
+Zonda,Pergamino,2022/23,con_riego,TerraFix,False,L1,7093.6
+Zonda,Pergamino,2024/25,con_riego,TerraFix,True,L1,8684.0
+Zonda,Venado Tuerto,2022/23,sin_riego,Control,True,L2,5824.2
+Zonda,Venado Tuerto,2022/23,sin_riego,Control,False,L1,5972.5
+Zonda,Venado Tuerto,2023/24,sin_riego,Control,True,L1,5061.8
+Zonda,Venado Tuerto,2023/24,sin_riego,Control,False,L1,5055.2
+Zonda,Venado Tuerto,2022/23,con_riego,Control,True,L2,7001.3
+Zonda,Venado Tuerto,2022/23,con_riego,Control,False,L1,6845.7
+Zonda,Venado Tuerto,2023/24,con_riego,Control,True,L1,6505.8
+Zonda,Venado Tuerto,2023/24,con_riego,Control,False,L1,6526.7
+Zonda,Venado Tuerto,2024/25,con_riego,Control,True,L1,7289.8
+Zonda,Venado Tuerto,2024/25,con_riego,Control,False,L2,7266.8
+Zonda,Venado Tuerto,2022/23,sin_riego,NitroMax,True,L1,6541.8
+Zonda,Venado Tuerto,2023/24,sin_riego,NitroMax,True,L2,5151.1
+Zonda,Venado Tuerto,2024/25,sin_riego,NitroMax,True,L2,6234.6
+Zonda,Venado Tuerto,2024/25,sin_riego,NitroMax,False,L2,6567.2
+Zonda,Venado Tuerto,2023/24,con_riego,NitroMax,True,L2,6754.1
+Zonda,Venado Tuerto,2024/25,con_riego,NitroMax,False,L2,6801.9
+Zonda,Venado Tuerto,2022/23,sin_riego,BioRaiz,True,L2,6492.5
+Zonda,Venado Tuerto,2023/24,sin_riego,BioRaiz,False,L2,6310.3
+Zonda,Venado Tuerto,2024/25,sin_riego,BioRaiz,False,L2,6872.3
+Zonda,Venado Tuerto,2022/23,con_riego,BioRaiz,True,L2,7584.7
+Zonda,Venado Tuerto,2022/23,con_riego,BioRaiz,False,L2,7469.0
+Zonda,Venado Tuerto,2024/25,con_riego,BioRaiz,True,L1,7572.5
+Zonda,Venado Tuerto,2024/25,con_riego,BioRaiz,False,L1,7760.7
+Zonda,Venado Tuerto,2022/23,sin_riego,TerraFix,True,L1,6029.3
+Zonda,Venado Tuerto,2022/23,sin_riego,TerraFix,False,L2,6088.1
+Zonda,Venado Tuerto,2023/24,sin_riego,TerraFix,False,L1,5472.0
+Zonda,Venado Tuerto,2024/25,sin_riego,TerraFix,True,L2,6060.1
+Zonda,Venado Tuerto,2024/25,sin_riego,TerraFix,False,L2,6399.0
+Zonda,Venado Tuerto,2022/23,con_riego,TerraFix,True,L2,7866.0
+Zonda,Venado Tuerto,2022/23,con_riego,TerraFix,False,L2,6552.4
+Zonda,Venado Tuerto,2023/24,con_riego,TerraFix,True,L2,6490.7
+Zonda,Venado Tuerto,2023/24,con_riego,TerraFix,False,L1,6187.1
+Zonda,Venado Tuerto,2024/25,con_riego,TerraFix,True,L2,7361.7
+Zonda,Venado Tuerto,2024/25,con_riego,TerraFix,False,L2,7213.0
+Zonda,Río Cuarto,2022/23,sin_riego,Control,True,L2,7413.3
+Zonda,Río Cuarto,2022/23,sin_riego,Control,False,L1,7529.1
+Zonda,Río Cuarto,2023/24,sin_riego,Control,True,L2,6603.9
+Zonda,Río Cuarto,2023/24,sin_riego,Control,False,L3,6867.0
+Zonda,Río Cuarto,2022/23,con_riego,Control,False,L3,7493.6
+Zonda,Río Cuarto,2023/24,con_riego,Control,True,L3,7945.3
+Zonda,Río Cuarto,2023/24,con_riego,Control,False,L1,7605.0
+Zonda,Río Cuarto,2024/25,con_riego,Control,True,L3,8601.8
+Zonda,Río Cuarto,2024/25,con_riego,Control,False,L3,7958.4
+Zonda,Río Cuarto,2022/23,sin_riego,NitroMax,True,L1,6967.4
+Zonda,Río Cuarto,2023/24,sin_riego,NitroMax,True,L2,6590.9
+Zonda,Río Cuarto,2024/25,sin_riego,NitroMax,False,L3,7345.2
+Zonda,Río Cuarto,2022/23,con_riego,NitroMax,True,L3,8229.3
+Zonda,Río Cuarto,2022/23,con_riego,NitroMax,False,L3,8453.7
+Zonda,Río Cuarto,2023/24,con_riego,NitroMax,True,L3,7005.7
+Zonda,Río Cuarto,2023/24,con_riego,NitroMax,False,L3,7772.7
+Zonda,Río Cuarto,2024/25,con_riego,NitroMax,False,L1,8302.3
+Zonda,Río Cuarto,2022/23,sin_riego,BioRaiz,True,L3,7622.9
+Zonda,Río Cuarto,2022/23,sin_riego,BioRaiz,False,L2,7268.1
+Zonda,Río Cuarto,2024/25,sin_riego,BioRaiz,True,L2,7970.9
+Zonda,Río Cuarto,2022/23,con_riego,BioRaiz,True,L1,7954.0
+Zonda,Río Cuarto,2022/23,con_riego,BioRaiz,False,L1,8811.6
+Zonda,Río Cuarto,2023/24,con_riego,BioRaiz,True,L1,7562.2
+Zonda,Río Cuarto,2024/25,con_riego,BioRaiz,True,L1,8795.0
+Zonda,Río Cuarto,2022/23,sin_riego,TerraFix,True,L2,7166.6
+Zonda,Río Cuarto,2022/23,sin_riego,TerraFix,False,L2,7527.5
+Zonda,Río Cuarto,2023/24,sin_riego,TerraFix,False,L2,6500.0
+Zonda,Río Cuarto,2024/25,sin_riego,TerraFix,True,L3,7155.6
+Zonda,Río Cuarto,2024/25,sin_riego,TerraFix,False,L3,7208.2
+Zonda,Río Cuarto,2022/23,con_riego,TerraFix,True,L3,8506.4
+Zonda,Río Cuarto,2022/23,con_riego,TerraFix,False,L3,8300.2
+Zonda,Río Cuarto,2023/24,con_riego,TerraFix,True,L2,7392.0
+Zonda,Río Cuarto,2024/25,con_riego,TerraFix,True,L1,8233.8
+Zonda,Río Cuarto,2024/25,con_riego,TerraFix,False,L2,7861.2
+Zonda,Junín,2022/23,sin_riego,Control,True,L1,6458.8
+Zonda,Junín,2023/24,sin_riego,Control,True,L2,5207.3
+Zonda,Junín,2023/24,sin_riego,Control,False,L1,5910.5
+Zonda,Junín,2024/25,sin_riego,Control,True,L2,6536.0
+Zonda,Junín,2022/23,con_riego,Control,False,L1,7968.3
+Zonda,Junín,2023/24,con_riego,Control,True,L1,6342.0
+Zonda,Junín,2022/23,sin_riego,NitroMax,True,L2,6321.3
+Zonda,Junín,2022/23,sin_riego,NitroMax,False,L2,6853.5
+Zonda,Junín,2023/24,sin_riego,NitroMax,True,L1,6033.6
+Zonda,Junín,2023/24,sin_riego,NitroMax,False,L2,5505.1
+Zonda,Junín,2024/25,sin_riego,NitroMax,True,L2,6562.7
+Zonda,Junín,2024/25,sin_riego,NitroMax,False,L1,6500.6
+Zonda,Junín,2022/23,con_riego,NitroMax,True,L2,7378.9
+Zonda,Junín,2023/24,con_riego,NitroMax,True,L2,6454.4
+Zonda,Junín,2023/24,con_riego,NitroMax,False,L2,6625.0
+Zonda,Junín,2022/23,sin_riego,BioRaiz,True,L2,6382.5
+Zonda,Junín,2022/23,sin_riego,BioRaiz,False,L1,6867.8
+Zonda,Junín,2023/24,sin_riego,BioRaiz,True,L2,6306.0
+Zonda,Junín,2024/25,sin_riego,BioRaiz,True,L1,6916.3
+Zonda,Junín,2024/25,sin_riego,BioRaiz,False,L1,6527.8
+Zonda,Junín,2023/24,con_riego,BioRaiz,False,L2,7406.8
+Zonda,Junín,2024/25,con_riego,BioRaiz,True,L2,8032.1
+Zonda,Junín,2024/25,con_riego,BioRaiz,False,L1,7726.7
+Zonda,Junín,2022/23,sin_riego,TerraFix,False,L1,6271.4
+Zonda,Junín,2024/25,sin_riego,TerraFix,True,L1,6079.8
+Zonda,Junín,2022/23,con_riego,TerraFix,True,L2,7012.9
+Zonda,Junín,2023/24,con_riego,TerraFix,True,L1,6499.4
+Zonda,Junín,2023/24,con_riego,TerraFix,False,L2,6994.0
+Zonda,Junín,2024/25,con_riego,TerraFix,False,L1,7270.9
+Zonda,Marcos Juárez,2022/23,sin_riego,Control,True,L1,7699.3
+Zonda,Marcos Juárez,2022/23,sin_riego,Control,False,L2,6849.3
+Zonda,Marcos Juárez,2023/24,sin_riego,Control,False,L3,6419.4
+Zonda,Marcos Juárez,2024/25,sin_riego,Control,True,L1,7630.4
+Zonda,Marcos Juárez,2024/25,sin_riego,Control,False,L3,7394.5
+Zonda,Marcos Juárez,2022/23,con_riego,Control,True,L3,8320.3
+Zonda,Marcos Juárez,2022/23,con_riego,Control,False,L3,7509.7
+Zonda,Marcos Juárez,2023/24,con_riego,Control,False,L1,6913.1
+Zonda,Marcos Juárez,2024/25,con_riego,Control,True,L1,8471.1
+Zonda,Marcos Juárez,2024/25,con_riego,Control,False,L3,7750.3
+Zonda,Marcos Juárez,2022/23,sin_riego,NitroMax,True,L3,7634.9
+Zonda,Marcos Juárez,2023/24,sin_riego,NitroMax,False,L1,6219.6
+Zonda,Marcos Juárez,2022/23,con_riego,NitroMax,True,L1,9134.9
+Zonda,Marcos Juárez,2022/23,con_riego,NitroMax,False,L3,7463.4
+Zonda,Marcos Juárez,2023/24,con_riego,NitroMax,True,L2,7877.0
+Zonda,Marcos Juárez,2024/25,con_riego,NitroMax,True,L1,8304.2
+Zonda,Marcos Juárez,2022/23,sin_riego,BioRaiz,True,L3,7861.8
+Zonda,Marcos Juárez,2022/23,sin_riego,BioRaiz,False,L3,7519.6
+Zonda,Marcos Juárez,2024/25,sin_riego,BioRaiz,False,L2,6978.9
+Zonda,Marcos Juárez,2022/23,con_riego,BioRaiz,True,L1,9016.3
+Zonda,Marcos Juárez,2022/23,con_riego,BioRaiz,False,L2,8962.8
+Zonda,Marcos Juárez,2023/24,con_riego,BioRaiz,False,L1,7653.0
+Zonda,Marcos Juárez,2024/25,con_riego,BioRaiz,True,L2,9172.7
+Zonda,Marcos Juárez,2024/25,con_riego,BioRaiz,False,L3,8867.0
+Zonda,Marcos Juárez,2022/23,sin_riego,TerraFix,True,L3,7474.1
+Zonda,Marcos Juárez,2022/23,sin_riego,TerraFix,False,L3,6837.3
+Zonda,Marcos Juárez,2023/24,sin_riego,TerraFix,True,L2,6232.8
+Zonda,Marcos Juárez,2023/24,sin_riego,TerraFix,False,L1,6529.5
+Zonda,Marcos Juárez,2024/25,sin_riego,TerraFix,True,L2,7638.3
+Zonda,Marcos Juárez,2024/25,sin_riego,TerraFix,False,L3,6866.4
+Zonda,Marcos Juárez,2022/23,con_riego,TerraFix,True,L1,8505.4
+Zonda,Marcos Juárez,2023/24,con_riego,TerraFix,True,L3,7656.6
+Zonda,Marcos Juárez,2023/24,con_riego,TerraFix,False,L1,7152.0
+Zonda,Tandil,2022/23,sin_riego,Control,True,L1,6589.8
+Zonda,Tandil,2022/23,sin_riego,Control,False,L1,5525.3
+Zonda,Tandil,2024/25,sin_riego,Control,True,L1,6863.2
+Zonda,Tandil,2022/23,con_riego,Control,True,L1,6978.6
+Zonda,Tandil,2022/23,con_riego,Control,False,L2,6664.4
+Zonda,Tandil,2023/24,con_riego,Control,True,L2,7258.4
+Zonda,Tandil,2023/24,con_riego,Control,False,L1,6515.7
+Zonda,Tandil,2024/25,con_riego,Control,False,L2,7027.3
+Zonda,Tandil,2022/23,sin_riego,NitroMax,False,L1,5636.7
+Zonda,Tandil,2023/24,sin_riego,NitroMax,True,L1,5621.8
+Zonda,Tandil,2023/24,sin_riego,NitroMax,False,L1,5270.5
+Zonda,Tandil,2024/25,sin_riego,NitroMax,True,L1,6580.5
+Zonda,Tandil,2024/25,sin_riego,NitroMax,False,L1,6024.6
+Zonda,Tandil,2022/23,con_riego,NitroMax,True,L2,7361.4
+Zonda,Tandil,2022/23,con_riego,NitroMax,False,L2,6790.0
+Zonda,Tandil,2023/24,con_riego,NitroMax,True,L2,6316.2
+Zonda,Tandil,2023/24,con_riego,NitroMax,False,L1,6055.4
+Zonda,Tandil,2024/25,con_riego,NitroMax,False,L2,7256.1
+Zonda,Tandil,2022/23,sin_riego,BioRaiz,True,L1,6516.9
+Zonda,Tandil,2023/24,sin_riego,BioRaiz,False,L1,5676.9
+Zonda,Tandil,2024/25,sin_riego,BioRaiz,True,L1,6820.5
+Zonda,Tandil,2024/25,sin_riego,BioRaiz,False,L1,6561.2
+Zonda,Tandil,2022/23,con_riego,BioRaiz,False,L1,7221.2
+Zonda,Tandil,2023/24,con_riego,BioRaiz,False,L2,7093.7
+Zonda,Tandil,2024/25,con_riego,BioRaiz,True,L2,8141.8
+Zonda,Tandil,2024/25,con_riego,BioRaiz,False,L2,7112.7
+Zonda,Tandil,2022/23,sin_riego,TerraFix,True,L2,6607.9
+Zonda,Tandil,2023/24,sin_riego,TerraFix,False,L2,5033.1
+Zonda,Tandil,2024/25,sin_riego,TerraFix,True,L1,6408.4
+Zonda,Tandil,2024/25,sin_riego,TerraFix,False,L1,6137.9
+Zonda,Tandil,2022/23,con_riego,TerraFix,True,L2,7232.3
+Zonda,Tandil,2023/24,con_riego,TerraFix,False,L2,6450.0
+Zonda,Tandil,2024/25,con_riego,TerraFix,True,L1,7303.1
+Zonda,Tandil,2024/25,con_riego,TerraFix,False,L2,6826.7
+Pampero,Pergamino,2022/23,sin_riego,Control,True,L3,10036.2
+Pampero,Pergamino,2022/23,sin_riego,Control,False,L3,9541.6
+Pampero,Pergamino,2023/24,sin_riego,Control,True,L3,9877.8
+Pampero,Pergamino,2023/24,sin_riego,Control,False,L3,9226.1
+Pampero,Pergamino,2022/23,con_riego,Control,False,L1,11128.8
+Pampero,Pergamino,2023/24,con_riego,Control,True,L1,11154.9
+Pampero,Pergamino,2023/24,con_riego,Control,False,L1,9711.4
+Pampero,Pergamino,2024/25,con_riego,Control,False,L2,10819.7
+Pampero,Pergamino,2022/23,sin_riego,NitroMax,True,L2,9890.7
+Pampero,Pergamino,2022/23,sin_riego,NitroMax,False,L3,9482.3
+Pampero,Pergamino,2024/25,sin_riego,NitroMax,True,L1,10193.6
+Pampero,Pergamino,2024/25,sin_riego,NitroMax,False,L3,9554.0
+Pampero,Pergamino,2022/23,con_riego,NitroMax,False,L1,10355.5
+Pampero,Pergamino,2024/25,con_riego,NitroMax,True,L1,11279.6
+Pampero,Pergamino,2022/23,sin_riego,BioRaiz,False,L1,9839.3
+Pampero,Pergamino,2023/24,sin_riego,BioRaiz,True,L1,10285.8
+Pampero,Pergamino,2024/25,sin_riego,BioRaiz,False,L3,10073.0
+Pampero,Pergamino,2022/23,con_riego,BioRaiz,True,L3,12436.7
+Pampero,Pergamino,2023/24,con_riego,BioRaiz,False,L1,10353.6
+Pampero,Pergamino,2024/25,con_riego,BioRaiz,True,L1,11820.2
+Pampero,Pergamino,2024/25,con_riego,BioRaiz,False,L2,10917.3
+Pampero,Pergamino,2022/23,sin_riego,TerraFix,False,L1,10177.7
+Pampero,Pergamino,2023/24,sin_riego,TerraFix,True,L1,9883.5
+Pampero,Pergamino,2023/24,sin_riego,TerraFix,False,L3,9133.1
+Pampero,Pergamino,2024/25,sin_riego,TerraFix,False,L3,9472.9
+Pampero,Pergamino,2022/23,con_riego,TerraFix,False,L1,10709.0
+Pampero,Pergamino,2023/24,con_riego,TerraFix,False,L1,9686.0
+Pampero,Pergamino,2024/25,con_riego,TerraFix,True,L3,11729.5
+Pampero,Pergamino,2024/25,con_riego,TerraFix,False,L1,11026.6
+Pampero,Venado Tuerto,2022/23,sin_riego,Control,True,L1,9026.7
+Pampero,Venado Tuerto,2022/23,sin_riego,Control,False,L2,8317.8
+Pampero,Venado Tuerto,2023/24,sin_riego,Control,True,L2,8074.6
+Pampero,Venado Tuerto,2023/24,sin_riego,Control,False,L1,8542.6
+Pampero,Venado Tuerto,2024/25,sin_riego,Control,True,L2,9489.6
+Pampero,Venado Tuerto,2022/23,con_riego,Control,True,L1,10260.6
+Pampero,Venado Tuerto,2022/23,con_riego,Control,False,L2,9504.2
+Pampero,Venado Tuerto,2023/24,con_riego,Control,True,L2,9384.4
+Pampero,Venado Tuerto,2024/25,con_riego,Control,True,L1,10384.3
+Pampero,Venado Tuerto,2024/25,con_riego,Control,False,L1,9635.7
+Pampero,Venado Tuerto,2022/23,sin_riego,NitroMax,True,L1,8997.8
+Pampero,Venado Tuerto,2022/23,sin_riego,NitroMax,False,L2,9076.7
+Pampero,Venado Tuerto,2023/24,sin_riego,NitroMax,False,L1,8265.8
+Pampero,Venado Tuerto,2024/25,sin_riego,NitroMax,True,L1,8631.4
+Pampero,Venado Tuerto,2024/25,sin_riego,NitroMax,False,L2,9058.8
+Pampero,Venado Tuerto,2022/23,con_riego,NitroMax,True,L2,9858.4
+Pampero,Venado Tuerto,2022/23,con_riego,NitroMax,False,L2,9908.5
+Pampero,Venado Tuerto,2023/24,con_riego,NitroMax,False,L2,9142.2
+Pampero,Venado Tuerto,2024/25,con_riego,NitroMax,True,L1,9976.0
+Pampero,Venado Tuerto,2024/25,con_riego,NitroMax,False,L2,10088.9
+Pampero,Venado Tuerto,2022/23,sin_riego,BioRaiz,False,L1,9603.9
+Pampero,Venado Tuerto,2023/24,sin_riego,BioRaiz,True,L1,8744.8
+Pampero,Venado Tuerto,2024/25,sin_riego,BioRaiz,False,L1,9515.3
+Pampero,Venado Tuerto,2023/24,con_riego,BioRaiz,True,L1,9805.9
+Pampero,Venado Tuerto,2024/25,con_riego,BioRaiz,True,L2,10042.1
+Pampero,Venado Tuerto,2024/25,con_riego,BioRaiz,False,L1,10713.6
+Pampero,Venado Tuerto,2022/23,sin_riego,TerraFix,True,L2,8999.8
+Pampero,Venado Tuerto,2023/24,sin_riego,TerraFix,True,L1,8361.1
+Pampero,Venado Tuerto,2023/24,sin_riego,TerraFix,False,L1,8619.0
+Pampero,Venado Tuerto,2024/25,sin_riego,TerraFix,True,L2,8603.2
+Pampero,Venado Tuerto,2024/25,sin_riego,TerraFix,False,L1,8597.3
+Pampero,Venado Tuerto,2022/23,con_riego,TerraFix,True,L2,10026.7
+Pampero,Venado Tuerto,2022/23,con_riego,TerraFix,False,L2,9948.0
+Pampero,Venado Tuerto,2024/25,con_riego,TerraFix,True,L2,10147.6
+Pampero,Río Cuarto,2022/23,sin_riego,Control,False,L2,9970.6
+Pampero,Río Cuarto,2023/24,sin_riego,Control,True,L3,9636.0
+Pampero,Río Cuarto,2023/24,sin_riego,Control,False,L1,9711.1
+Pampero,Río Cuarto,2024/25,sin_riego,Control,True,L3,10385.5
+Pampero,Río Cuarto,2024/25,sin_riego,Control,False,L2,10177.0
+Pampero,Río Cuarto,2022/23,con_riego,Control,True,L2,10459.8
+Pampero,Río Cuarto,2022/23,con_riego,Control,False,L1,11265.4
+Pampero,Río Cuarto,2023/24,con_riego,Control,True,L3,10742.1
+Pampero,Río Cuarto,2024/25,con_riego,Control,True,L1,11380.5
+Pampero,Río Cuarto,2024/25,con_riego,Control,False,L2,10953.7
+Pampero,Río Cuarto,2022/23,sin_riego,NitroMax,True,L2,10288.7
+Pampero,Río Cuarto,2022/23,sin_riego,NitroMax,False,L2,10340.9
+Pampero,Río Cuarto,2023/24,sin_riego,NitroMax,False,L1,9886.5
+Pampero,Río Cuarto,2022/23,con_riego,NitroMax,False,L2,10804.7
+Pampero,Río Cuarto,2023/24,con_riego,NitroMax,True,L2,10336.6
+Pampero,Río Cuarto,2024/25,con_riego,NitroMax,True,L2,11409.2
+Pampero,Río Cuarto,2024/25,con_riego,NitroMax,False,L2,11216.1
+Pampero,Río Cuarto,2023/24,sin_riego,BioRaiz,True,L2,9617.1
+Pampero,Río Cuarto,2024/25,sin_riego,BioRaiz,True,L1,10846.1
+Pampero,Río Cuarto,2024/25,sin_riego,BioRaiz,False,L3,10892.0
+Pampero,Río Cuarto,2022/23,con_riego,BioRaiz,True,L2,11554.6
+Pampero,Río Cuarto,2022/23,con_riego,BioRaiz,False,L2,11591.5
+Pampero,Río Cuarto,2023/24,con_riego,BioRaiz,True,L1,10807.6
+Pampero,Río Cuarto,2023/24,con_riego,BioRaiz,False,L2,11293.9
+Pampero,Río Cuarto,2024/25,con_riego,BioRaiz,True,L2,11427.8
+Pampero,Río Cuarto,2022/23,sin_riego,TerraFix,True,L2,9935.6
+Pampero,Río Cuarto,2023/24,sin_riego,TerraFix,True,L3,9453.1
+Pampero,Río Cuarto,2024/25,sin_riego,TerraFix,True,L3,10496.1
+Pampero,Río Cuarto,2024/25,sin_riego,TerraFix,False,L3,9830.7
+Pampero,Río Cuarto,2022/23,con_riego,TerraFix,True,L2,10683.1
+Pampero,Río Cuarto,2023/24,con_riego,TerraFix,False,L3,9829.4
+Pampero,Río Cuarto,2024/25,con_riego,TerraFix,True,L3,11209.2
+Pampero,Junín,2023/24,sin_riego,Control,True,L1,8286.9
+Pampero,Junín,2023/24,sin_riego,Control,False,L2,8492.3
+Pampero,Junín,2024/25,sin_riego,Control,True,L1,9585.2
+Pampero,Junín,2022/23,con_riego,Control,True,L2,10020.4
+Pampero,Junín,2022/23,con_riego,Control,False,L2,10264.8
+Pampero,Junín,2023/24,con_riego,Control,True,L1,9466.2
+Pampero,Junín,2023/24,con_riego,Control,False,L1,9738.2
+Pampero,Junín,2024/25,con_riego,Control,True,L1,10483.0
+Pampero,Junín,2024/25,con_riego,Control,False,L1,10156.3
+Pampero,Junín,2022/23,sin_riego,NitroMax,True,L1,9202.8
+Pampero,Junín,2023/24,sin_riego,NitroMax,False,L2,8892.2
+Pampero,Junín,2024/25,sin_riego,NitroMax,True,L2,9510.1
+Pampero,Junín,2024/25,sin_riego,NitroMax,False,L1,9008.9
+Pampero,Junín,2022/23,con_riego,NitroMax,True,L1,10383.6
+Pampero,Junín,2022/23,con_riego,NitroMax,False,L1,9896.3
+Pampero,Junín,2023/24,con_riego,NitroMax,True,L2,9945.5
+Pampero,Junín,2024/25,con_riego,NitroMax,False,L1,10636.7
+Pampero,Junín,2022/23,sin_riego,BioRaiz,True,L2,9811.2
+Pampero,Junín,2023/24,sin_riego,BioRaiz,True,L1,9124.0
+Pampero,Junín,2024/25,sin_riego,BioRaiz,True,L2,9821.5
+Pampero,Junín,2022/23,con_riego,BioRaiz,True,L1,10870.0
+Pampero,Junín,2023/24,con_riego,BioRaiz,True,L2,9926.2
+Pampero,Junín,2023/24,con_riego,BioRaiz,False,L2,10096.0
+Pampero,Junín,2024/25,con_riego,BioRaiz,False,L1,11074.1
+Pampero,Junín,2022/23,sin_riego,TerraFix,True,L2,9092.7
+Pampero,Junín,2022/23,sin_riego,TerraFix,False,L1,9077.5
+Pampero,Junín,2023/24,sin_riego,TerraFix,True,L1,8265.6
+Pampero,Junín,2023/24,sin_riego,TerraFix,False,L2,8301.9
+Pampero,Junín,2024/25,sin_riego,TerraFix,True,L2,8888.0
+Pampero,Junín,2024/25,sin_riego,TerraFix,False,L1,9604.4
+Pampero,Junín,2023/24,con_riego,TerraFix,True,L2,10056.5
+Pampero,Junín,2023/24,con_riego,TerraFix,False,L2,9949.1
+Pampero,Junín,2024/25,con_riego,TerraFix,True,L1,9894.7
+Pampero,Marcos Juárez,2022/23,sin_riego,Control,True,L2,10623.0
+Pampero,Marcos Juárez,2023/24,sin_riego,Control,True,L2,10168.2
+Pampero,Marcos Juárez,2023/24,sin_riego,Control,False,L1,9122.1
+Pampero,Marcos Juárez,2024/25,sin_riego,Control,False,L3,10078.4
+Pampero,Marcos Juárez,2022/23,con_riego,Control,True,L1,10807.8
+Pampero,Marcos Juárez,2022/23,con_riego,Control,False,L3,10924.7
+Pampero,Marcos Juárez,2024/25,con_riego,Control,False,L2,10702.2
+Pampero,Marcos Juárez,2022/23,sin_riego,NitroMax,True,L2,10475.9
+Pampero,Marcos Juárez,2022/23,sin_riego,NitroMax,False,L1,9462.9
+Pampero,Marcos Juárez,2023/24,sin_riego,NitroMax,True,L3,9922.0
+Pampero,Marcos Juárez,2024/25,sin_riego,NitroMax,True,L3,10856.9
+Pampero,Marcos Juárez,2024/25,sin_riego,NitroMax,False,L2,9830.7
+Pampero,Marcos Juárez,2022/23,con_riego,NitroMax,True,L2,11051.7
+Pampero,Marcos Juárez,2022/23,con_riego,NitroMax,False,L1,10246.3
+Pampero,Marcos Juárez,2023/24,con_riego,NitroMax,True,L3,10645.4
+Pampero,Marcos Juárez,2023/24,con_riego,NitroMax,False,L1,10037.2
+Pampero,Marcos Juárez,2024/25,con_riego,NitroMax,True,L2,11085.7
+Pampero,Marcos Juárez,2024/25,con_riego,NitroMax,False,L3,11126.8
+Pampero,Marcos Juárez,2022/23,sin_riego,BioRaiz,True,L3,10774.0
+Pampero,Marcos Juárez,2022/23,sin_riego,BioRaiz,False,L3,10078.8
+Pampero,Marcos Juárez,2023/24,sin_riego,BioRaiz,True,L3,10094.7
+Pampero,Marcos Juárez,2023/24,sin_riego,BioRaiz,False,L2,10030.0
+Pampero,Marcos Juárez,2024/25,sin_riego,BioRaiz,False,L3,10698.8
+Pampero,Marcos Juárez,2022/23,con_riego,BioRaiz,False,L3,11293.6
+Pampero,Marcos Juárez,2023/24,con_riego,BioRaiz,True,L2,11373.3
+Pampero,Marcos Juárez,2023/24,con_riego,BioRaiz,False,L1,10354.9
+Pampero,Marcos Juárez,2024/25,con_riego,BioRaiz,True,L2,12009.1
+Pampero,Marcos Juárez,2024/25,con_riego,BioRaiz,False,L2,11521.3
+Pampero,Marcos Juárez,2022/23,sin_riego,TerraFix,True,L3,10288.4
+Pampero,Marcos Juárez,2022/23,sin_riego,TerraFix,False,L2,10021.9
+Pampero,Marcos Juárez,2023/24,sin_riego,TerraFix,False,L1,9031.5
+Pampero,Marcos Juárez,2024/25,sin_riego,TerraFix,False,L3,10192.7
+Pampero,Marcos Juárez,2022/23,con_riego,TerraFix,True,L1,11524.5
+Pampero,Marcos Juárez,2023/24,con_riego,TerraFix,True,L2,9903.2
+Pampero,Marcos Juárez,2023/24,con_riego,TerraFix,False,L2,10533.3
+Pampero,Marcos Juárez,2024/25,con_riego,TerraFix,False,L1,10146.7
+Pampero,Tandil,2022/23,sin_riego,Control,True,L1,9147.5
+Pampero,Tandil,2023/24,sin_riego,Control,True,L1,8957.1
+Pampero,Tandil,2024/25,sin_riego,Control,False,L1,8861.2
+Pampero,Tandil,2022/23,con_riego,Control,False,L1,9339.5
+Pampero,Tandil,2023/24,con_riego,Control,True,L1,9313.8
+Pampero,Tandil,2023/24,con_riego,Control,False,L1,9387.5
+Pampero,Tandil,2022/23,sin_riego,NitroMax,True,L2,8782.0
+Pampero,Tandil,2022/23,sin_riego,NitroMax,False,L2,9116.1
+Pampero,Tandil,2024/25,sin_riego,NitroMax,True,L1,9454.6
+Pampero,Tandil,2024/25,sin_riego,NitroMax,False,L1,8616.1
+Pampero,Tandil,2022/23,con_riego,NitroMax,True,L1,10106.7
+Pampero,Tandil,2022/23,con_riego,NitroMax,False,L1,9465.2
+Pampero,Tandil,2023/24,con_riego,NitroMax,True,L2,9862.5
+Pampero,Tandil,2023/24,con_riego,NitroMax,False,L2,9305.1
+Pampero,Tandil,2024/25,con_riego,NitroMax,True,L2,9938.6
+Pampero,Tandil,2024/25,con_riego,NitroMax,False,L2,9787.0
+Pampero,Tandil,2022/23,sin_riego,BioRaiz,True,L2,9558.3
+Pampero,Tandil,2022/23,sin_riego,BioRaiz,False,L2,9642.2
+Pampero,Tandil,2023/24,sin_riego,BioRaiz,True,L1,8772.0
+Pampero,Tandil,2023/24,sin_riego,BioRaiz,False,L2,9079.2
+Pampero,Tandil,2024/25,sin_riego,BioRaiz,True,L2,9940.7
+Pampero,Tandil,2024/25,sin_riego,BioRaiz,False,L2,9104.7
+Pampero,Tandil,2023/24,con_riego,BioRaiz,True,L2,9910.4
+Pampero,Tandil,2024/25,con_riego,BioRaiz,True,L2,10675.5
+Pampero,Tandil,2024/25,con_riego,BioRaiz,False,L2,10023.1
+Pampero,Tandil,2022/23,sin_riego,TerraFix,True,L2,9346.6
+Pampero,Tandil,2022/23,sin_riego,TerraFix,False,L1,8456.2
+Pampero,Tandil,2023/24,sin_riego,TerraFix,False,L2,7539.5
+Pampero,Tandil,2024/25,sin_riego,TerraFix,True,L1,9363.7
+Pampero,Tandil,2022/23,con_riego,TerraFix,True,L2,9765.2
+Pampero,Tandil,2022/23,con_riego,TerraFix,False,L2,9539.4
+Pampero,Tandil,2023/24,con_riego,TerraFix,False,L2,8845.5
+Ñandubay,Pergamino,2023/24,con_riego,Control,False,L2,8456.1
+Ñandubay,Pergamino,2024/25,con_riego,Control,False,L2,10060.3
+Ñandubay,Pergamino,2022/23,sin_riego,NitroMax,True,L2,8935.8
+Ñandubay,Pergamino,2022/23,sin_riego,NitroMax,False,L1,8468.7
+Ñandubay,Pergamino,2023/24,sin_riego,NitroMax,True,L1,7772.6
+Ñandubay,Pergamino,2023/24,sin_riego,NitroMax,False,L2,7566.9
+Ñandubay,Pergamino,2024/25,sin_riego,NitroMax,False,L3,8610.3
+Ñandubay,Pergamino,2022/23,con_riego,NitroMax,True,L2,9583.1
+Ñandubay,Pergamino,2022/23,con_riego,NitroMax,False,L2,9604.3
+Ñandubay,Pergamino,2023/24,con_riego,NitroMax,False,L1,8363.2
+Ñandubay,Pergamino,2024/25,con_riego,NitroMax,True,L1,9939.8
+Ñandubay,Pergamino,2022/23,sin_riego,BioRaiz,True,L1,9235.9
+Ñandubay,Pergamino,2022/23,sin_riego,BioRaiz,False,L1,8926.0
+Ñandubay,Pergamino,2023/24,sin_riego,BioRaiz,True,L1,8570.7
+Ñandubay,Pergamino,2023/24,sin_riego,BioRaiz,False,L1,8154.1
+Ñandubay,Pergamino,2024/25,sin_riego,BioRaiz,True,L2,9483.9
+Ñandubay,Pergamino,2022/23,con_riego,BioRaiz,False,L2,9624.4
+Ñandubay,Pergamino,2024/25,con_riego,BioRaiz,True,L1,10635.8
+Ñandubay,Pergamino,2022/23,sin_riego,TerraFix,True,L2,8986.7
+Ñandubay,Pergamino,2022/23,sin_riego,TerraFix,False,L1,8375.2
+Ñandubay,Pergamino,2023/24,sin_riego,TerraFix,True,L2,8149.5
+Ñandubay,Pergamino,2023/24,sin_riego,TerraFix,False,L1,7973.0
+Ñandubay,Pergamino,2022/23,con_riego,TerraFix,True,L2,9804.0
+Ñandubay,Pergamino,2022/23,con_riego,TerraFix,False,L2,9264.1
+Ñandubay,Pergamino,2023/24,con_riego,TerraFix,True,L3,9249.3
+Ñandubay,Pergamino,2023/24,con_riego,TerraFix,False,L3,9175.0
+Ñandubay,Pergamino,2024/25,con_riego,TerraFix,True,L3,9644.7
+Ñandubay,Pergamino,2024/25,con_riego,TerraFix,False,L2,9715.6
+Ñandubay,Venado Tuerto,2022/23,sin_riego,Control,True,L2,7169.9
+Ñandubay,Venado Tuerto,2022/23,sin_riego,Control,False,L1,7760.8
+Ñandubay,Venado Tuerto,2023/24,sin_riego,Control,True,L2,7491.0
+Ñandubay,Venado Tuerto,2024/25,sin_riego,Control,True,L2,7986.8
+Ñandubay,Venado Tuerto,2022/23,con_riego,Control,True,L2,8697.8
+Ñandubay,Venado Tuerto,2022/23,con_riego,Control,False,L2,8493.1
+Ñandubay,Venado Tuerto,2023/24,con_riego,Control,True,L1,8008.7
+Ñandubay,Venado Tuerto,2023/24,con_riego,Control,False,L2,7929.4
+Ñandubay,Venado Tuerto,2024/25,con_riego,Control,False,L2,8579.9
+Ñandubay,Venado Tuerto,2022/23,sin_riego,NitroMax,True,L1,7618.8
+Ñandubay,Venado Tuerto,2022/23,sin_riego,NitroMax,False,L2,7755.5
+Ñandubay,Venado Tuerto,2024/25,sin_riego,NitroMax,True,L2,7635.2
+Ñandubay,Venado Tuerto,2022/23,con_riego,NitroMax,False,L1,8424.2
+Ñandubay,Venado Tuerto,2024/25,con_riego,NitroMax,True,L2,8419.1
+Ñandubay,Venado Tuerto,2022/23,sin_riego,BioRaiz,True,L1,8289.4
+Ñandubay,Venado Tuerto,2023/24,sin_riego,BioRaiz,True,L1,7682.7
+Ñandubay,Venado Tuerto,2023/24,sin_riego,BioRaiz,False,L2,7594.9
+Ñandubay,Venado Tuerto,2022/23,con_riego,BioRaiz,False,L2,9400.2
+Ñandubay,Venado Tuerto,2024/25,con_riego,BioRaiz,True,L2,9304.6
+Ñandubay,Venado Tuerto,2022/23,sin_riego,TerraFix,False,L1,7809.8
+Ñandubay,Venado Tuerto,2023/24,sin_riego,TerraFix,True,L1,7135.1
+Ñandubay,Venado Tuerto,2022/23,con_riego,TerraFix,True,L2,8624.4
+Ñandubay,Venado Tuerto,2023/24,con_riego,TerraFix,False,L2,7851.4
+Ñandubay,Venado Tuerto,2024/25,con_riego,TerraFix,True,L2,9420.0
+Ñandubay,Río Cuarto,2024/25,sin_riego,Control,True,L1,8823.5
+Ñandubay,Río Cuarto,2022/23,con_riego,Control,True,L2,9563.6
+Ñandubay,Río Cuarto,2023/24,con_riego,Control,True,L1,9221.5
+Ñandubay,Río Cuarto,2024/25,con_riego,Control,True,L2,9970.5
+Ñandubay,Río Cuarto,2022/23,sin_riego,NitroMax,True,L1,8406.7
+Ñandubay,Río Cuarto,2022/23,sin_riego,NitroMax,False,L3,9114.3
+Ñandubay,Río Cuarto,2023/24,sin_riego,NitroMax,False,L3,8123.6
+Ñandubay,Río Cuarto,2024/25,sin_riego,NitroMax,False,L1,8638.9
+Ñandubay,Río Cuarto,2023/24,con_riego,NitroMax,True,L3,9432.9
+Ñandubay,Río Cuarto,2024/25,con_riego,NitroMax,True,L2,10075.2
+Ñandubay,Río Cuarto,2024/25,con_riego,NitroMax,False,L1,9545.9
+Ñandubay,Río Cuarto,2022/23,sin_riego,BioRaiz,True,L3,9777.6
+Ñandubay,Río Cuarto,2022/23,con_riego,BioRaiz,False,L3,10414.5
+Ñandubay,Río Cuarto,2023/24,con_riego,BioRaiz,True,L3,9577.1
+Ñandubay,Río Cuarto,2023/24,con_riego,BioRaiz,False,L3,10025.3
+Ñandubay,Río Cuarto,2024/25,con_riego,BioRaiz,True,L2,10424.6
+Ñandubay,Río Cuarto,2024/25,con_riego,BioRaiz,False,L3,10372.1
+Ñandubay,Río Cuarto,2022/23,sin_riego,TerraFix,True,L2,8615.1
+Ñandubay,Río Cuarto,2022/23,sin_riego,TerraFix,False,L1,8962.9
+Ñandubay,Río Cuarto,2023/24,sin_riego,TerraFix,False,L1,8283.4
+Ñandubay,Río Cuarto,2024/25,sin_riego,TerraFix,True,L1,8954.1
+Ñandubay,Río Cuarto,2024/25,sin_riego,TerraFix,False,L2,8728.8
+Ñandubay,Río Cuarto,2022/23,con_riego,TerraFix,False,L3,9786.4
+Ñandubay,Río Cuarto,2023/24,con_riego,TerraFix,False,L1,9080.5
+Ñandubay,Junín,2022/23,sin_riego,Control,True,L1,7576.6
+Ñandubay,Junín,2022/23,sin_riego,Control,False,L2,7537.9
+Ñandubay,Junín,2024/25,sin_riego,Control,True,L2,8258.2
+Ñandubay,Junín,2023/24,con_riego,Control,False,L2,7521.5
+Ñandubay,Junín,2024/25,con_riego,Control,True,L1,9107.5
+Ñandubay,Junín,2024/25,con_riego,Control,False,L1,8916.1
+Ñandubay,Junín,2022/23,sin_riego,NitroMax,True,L1,8316.3
+Ñandubay,Junín,2022/23,sin_riego,NitroMax,False,L2,7811.8
+Ñandubay,Junín,2023/24,sin_riego,NitroMax,False,L1,7484.7
+Ñandubay,Junín,2024/25,sin_riego,NitroMax,True,L2,7988.9
+Ñandubay,Junín,2024/25,sin_riego,NitroMax,False,L2,8131.8
+Ñandubay,Junín,2023/24,con_riego,NitroMax,True,L2,8456.3
+Ñandubay,Junín,2023/24,con_riego,NitroMax,False,L2,8120.5
+Ñandubay,Junín,2024/25,con_riego,NitroMax,True,L1,9329.0
+Ñandubay,Junín,2024/25,con_riego,NitroMax,False,L1,8771.8
+Ñandubay,Junín,2022/23,sin_riego,BioRaiz,True,L1,8512.5
+Ñandubay,Junín,2022/23,sin_riego,BioRaiz,False,L1,8688.3
+Ñandubay,Junín,2024/25,sin_riego,BioRaiz,True,L2,8764.8
+Ñandubay,Junín,2022/23,con_riego,BioRaiz,True,L2,9916.6
+Ñandubay,Junín,2022/23,con_riego,BioRaiz,False,L1,9166.2
+Ñandubay,Junín,2024/25,con_riego,BioRaiz,True,L1,9143.8
+Ñandubay,Junín,2024/25,con_riego,BioRaiz,False,L2,9251.6
+Ñandubay,Junín,2022/23,sin_riego,TerraFix,True,L1,8134.9
+Ñandubay,Junín,2023/24,sin_riego,TerraFix,False,L2,7439.4
+Ñandubay,Junín,2024/25,sin_riego,TerraFix,True,L2,8128.6
+Ñandubay,Junín,2024/25,sin_riego,TerraFix,False,L1,7785.6
+Ñandubay,Junín,2022/23,con_riego,TerraFix,True,L2,9114.7
+Ñandubay,Junín,2022/23,con_riego,TerraFix,False,L1,8557.1
+Ñandubay,Junín,2023/24,con_riego,TerraFix,True,L2,8574.5
+Ñandubay,Junín,2023/24,con_riego,TerraFix,False,L1,9050.1
+Ñandubay,Junín,2024/25,con_riego,TerraFix,True,L1,9152.6
+Ñandubay,Junín,2024/25,con_riego,TerraFix,False,L2,9213.3
+Ñandubay,Marcos Juárez,2022/23,sin_riego,Control,True,L1,8982.0
+Ñandubay,Marcos Juárez,2022/23,sin_riego,Control,False,L3,8093.1
+Ñandubay,Marcos Juárez,2023/24,sin_riego,Control,True,L3,8301.2
+Ñandubay,Marcos Juárez,2023/24,sin_riego,Control,False,L3,7644.0
+Ñandubay,Marcos Juárez,2024/25,sin_riego,Control,False,L2,8344.8
+Ñandubay,Marcos Juárez,2022/23,con_riego,Control,True,L1,10552.3
+Ñandubay,Marcos Juárez,2022/23,con_riego,Control,False,L2,9626.4
+Ñandubay,Marcos Juárez,2023/24,con_riego,Control,True,L2,9526.3
+Ñandubay,Marcos Juárez,2023/24,con_riego,Control,False,L3,8813.5
+Ñandubay,Marcos Juárez,2024/25,con_riego,Control,True,L1,10171.6
+Ñandubay,Marcos Juárez,2024/25,con_riego,Control,False,L2,9970.1
+Ñandubay,Marcos Juárez,2022/23,sin_riego,NitroMax,False,L1,8590.9
+Ñandubay,Marcos Juárez,2024/25,sin_riego,NitroMax,True,L1,9418.6
+Ñandubay,Marcos Juárez,2024/25,sin_riego,NitroMax,False,L1,8695.1
+Ñandubay,Marcos Juárez,2022/23,con_riego,NitroMax,True,L2,9974.2
+Ñandubay,Marcos Juárez,2022/23,con_riego,NitroMax,False,L1,9156.1
+Ñandubay,Marcos Juárez,2024/25,con_riego,NitroMax,True,L1,9666.2
+Ñandubay,Marcos Juárez,2022/23,sin_riego,BioRaiz,True,L3,9526.8
+Ñandubay,Marcos Juárez,2022/23,sin_riego,BioRaiz,False,L2,9095.8
+Ñandubay,Marcos Juárez,2023/24,sin_riego,BioRaiz,True,L3,8589.9
+Ñandubay,Marcos Juárez,2023/24,sin_riego,BioRaiz,False,L2,8420.3
+Ñandubay,Marcos Juárez,2024/25,sin_riego,BioRaiz,True,L2,9765.1
+Ñandubay,Marcos Juárez,2022/23,con_riego,BioRaiz,False,L3,9426.3
+Ñandubay,Marcos Juárez,2023/24,con_riego,BioRaiz,True,L3,9643.8
+Ñandubay,Marcos Juárez,2023/24,con_riego,BioRaiz,False,L3,9494.0
+Ñandubay,Marcos Juárez,2024/25,con_riego,BioRaiz,False,L2,10288.4
+Ñandubay,Marcos Juárez,2022/23,sin_riego,TerraFix,True,L3,8797.0
+Ñandubay,Marcos Juárez,2022/23,sin_riego,TerraFix,False,L1,8644.4
+Ñandubay,Marcos Juárez,2023/24,sin_riego,TerraFix,True,L2,8756.3
+Ñandubay,Marcos Juárez,2023/24,sin_riego,TerraFix,False,L3,8167.6
+Ñandubay,Marcos Juárez,2024/25,sin_riego,TerraFix,True,L2,9243.3
+Ñandubay,Marcos Juárez,2022/23,con_riego,TerraFix,True,L2,9939.0
+Ñandubay,Marcos Juárez,2022/23,con_riego,TerraFix,False,L1,9373.8
+Ñandubay,Marcos Juárez,2023/24,con_riego,TerraFix,True,L3,9551.0
+Ñandubay,Marcos Juárez,2023/24,con_riego,TerraFix,False,L3,8954.6
+Ñandubay,Marcos Juárez,2024/25,con_riego,TerraFix,True,L1,10396.2
+Ñandubay,Marcos Juárez,2024/25,con_riego,TerraFix,False,L2,9736.9
+Ñandubay,Tandil,2022/23,sin_riego,Control,True,L2,8249.3
+Ñandubay,Tandil,2023/24,sin_riego,Control,False,L2,6876.5
+Ñandubay,Tandil,2024/25,sin_riego,Control,True,L2,8389.7
+Ñandubay,Tandil,2024/25,sin_riego,Control,False,L2,7893.8
+Ñandubay,Tandil,2022/23,con_riego,Control,True,L1,8744.7
+Ñandubay,Tandil,2022/23,con_riego,Control,False,L1,7943.7
+Ñandubay,Tandil,2023/24,con_riego,Control,True,L2,8752.2
+Ñandubay,Tandil,2023/24,con_riego,Control,False,L1,7871.9
+Ñandubay,Tandil,2024/25,con_riego,Control,False,L1,8119.9
+Ñandubay,Tandil,2022/23,sin_riego,NitroMax,True,L1,7820.1
+Ñandubay,Tandil,2022/23,sin_riego,NitroMax,False,L1,7716.1
+Ñandubay,Tandil,2023/24,sin_riego,NitroMax,True,L1,7291.7
+Ñandubay,Tandil,2023/24,sin_riego,NitroMax,False,L2,6706.6
+Ñandubay,Tandil,2022/23,con_riego,NitroMax,False,L2,8842.2
+Ñandubay,Tandil,2024/25,con_riego,NitroMax,True,L2,8826.8
+Ñandubay,Tandil,2024/25,con_riego,NitroMax,False,L2,8376.5
+Ñandubay,Tandil,2022/23,sin_riego,BioRaiz,True,L2,8559.2
+Ñandubay,Tandil,2022/23,sin_riego,BioRaiz,False,L1,8089.3
+Ñandubay,Tandil,2023/24,sin_riego,BioRaiz,True,L2,7989.0
+Ñandubay,Tandil,2023/24,sin_riego,BioRaiz,False,L1,7585.1
+Ñandubay,Tandil,2024/25,sin_riego,BioRaiz,False,L2,8185.6
+Ñandubay,Tandil,2022/23,con_riego,BioRaiz,False,L2,9067.0
+Ñandubay,Tandil,2023/24,con_riego,BioRaiz,True,L1,8727.4
+Ñandubay,Tandil,2024/25,con_riego,BioRaiz,True,L2,9617.6
+Ñandubay,Tandil,2023/24,sin_riego,TerraFix,False,L1,6880.1
+Ñandubay,Tandil,2024/25,sin_riego,TerraFix,False,L2,7710.2
+Ñandubay,Tandil,2022/23,con_riego,TerraFix,True,L1,9186.3
+Ñandubay,Tandil,2022/23,con_riego,TerraFix,False,L1,8605.4
+Ñandubay,Tandil,2023/24,con_riego,TerraFix,True,L1,8332.4
+Ñandubay,Tandil,2023/24,con_riego,TerraFix,False,L2,7573.4
+Ñandubay,Tandil,2024/25,con_riego,TerraFix,False,L2,8618.9

@@ -1,0 +1,1001 @@
+centro_de_salud_cercano,cobertura_de_salud,comorbilidad_cardiaca,comorbilidad_sistema_digestivo,comorbilidad_sistema_endocrino,consulta_en_el_ano_previo_al_diagnostico,edad,estadio_al_momento_de_diagnostica,estado_nodos_linfatico,estado_receptor_hormonas,grado_diferenciacion_tumor,provincia,tamano_tumor,sobrevida_a_cinco_anos
+True,Publico,True,True,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Corrientes,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,positivo,Ninguno,bajo,Buenos Aires,grande,True
+True,Publico,False,False,False,False,mas_de_60,II,negativo,ER,alto,Chaco,mediano,False
+True,Publico,False,False,False,False,mas_de_60,I,positivo,Ninguno,alto,Córdoba,pequeno,False
+False,Publico,True,False,True,False,mas_de_60,IV,negativo,Ninguno,bajo,Corrientes,pequeno,True
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,grande,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,medio,San Luis,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,bajo,Buenos Aires,grande,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Mendoza,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,positivo,PR,bajo,Entre Ríos,mediano,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,entre_40_y_50,IV,negativo,ER/PR,alto,Misiones,pequeno,False
+False,Proveedor C,False,True,False,False,entre_50_y_60,I,negativo,PR,bajo,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,Ninguno,bajo,San Luis,pequeno,True
+True,Proveedor A,True,True,False,False,mas_de_60,III,negativo,ER/PR,medio,Córdoba,grande,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER,medio,Mendoza,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,True,False,False,menos_de_40,II,negativo,Ninguno,medio,Córdoba,grande,True
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,ER,bajo,Corrientes,mediano,False
+False,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,alto,Entre Ríos,grande,True
+True,Proveedor B,True,False,False,False,entre_50_y_60,I,negativo,ER,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Neuquén,grande,True
+True,Proveedor C,True,False,False,False,mas_de_60,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,True,True,False,entre_50_y_60,II,negativo,Ninguno,bajo,Santa Fe,pequeno,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,bajo,Chaco,pequeno,False
+False,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,alto,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,True,False,mas_de_60,IV,positivo,Ninguno,bajo,Buenos Aires,mediano,True
+False,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER,medio,San Luis,pequeno,False
+True,Proveedor B,False,True,False,True,mas_de_60,I,negativo,ER,alto,Catamarca,mediano,False
+False,Publico,False,False,False,False,mas_de_60,III,negativo,ER,alto,Santa Fe,mediano,False
+False,Proveedor B,True,False,False,True,entre_40_y_50,I,negativo,ER,medio,Mendoza,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER,medio,Santa Fe,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Santa Fe,grande,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,bajo,Catamarca,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,positivo,Ninguno,bajo,Tucumán,pequeno,True
+False,Proveedor A,True,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Chaco,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,IV,negativo,ER/PR,alto,Buenos Aires,grande,False
+True,Proveedor B,False,False,False,True,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,positivo,PR,medio,San Luis,grande,True
+True,Publico,True,True,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Salta,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,IV,negativo,ER,medio,Buenos Aires,grande,True
+True,Proveedor B,True,True,False,False,menos_de_40,IV,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,True,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Catamarca,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,alto,Mendoza,pequeno,False
+False,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER,medio,Neuquén,pequeno,False
+True,Proveedor A,True,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,positivo,ER,medio,CABA,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,III,negativo,PR,medio,Misiones,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,Ninguno,bajo,Corrientes,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,alto,Chaco,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Mendoza,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,menos_de_40,II,negativo,PR,medio,CABA,mediano,False
+True,Publico,False,True,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,entre_50_y_60,I,negativo,Ninguno,alto,Buenos Aires,mediano,False
+True,Proveedor A,False,False,True,False,menos_de_40,I,negativo,Ninguno,medio,Córdoba,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,entre_50_y_60,II,negativo,ER,medio,CABA,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,positivo,ER,alto,Buenos Aires,mediano,False
+True,Proveedor C,True,False,False,False,mas_de_60,I,positivo,ER/PR,medio,Buenos Aires,grande,True
+True,Publico,True,True,False,False,menos_de_40,III,negativo,PR,bajo,Mendoza,grande,True
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,positivo,PR,bajo,Mendoza,mediano,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Mendoza,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,True,False,menos_de_40,II,negativo,ER/PR,alto,Córdoba,pequeno,False
+False,Publico,True,False,False,False,entre_40_y_50,II,negativo,ER/PR,alto,Salta,pequeno,False
+True,Proveedor A,False,True,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Entre Ríos,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,True,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Salta,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,III,positivo,Ninguno,bajo,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,III,negativo,PR,medio,Buenos Aires,mediano,False
+False,Publico,True,False,False,True,menos_de_40,I,negativo,ER,medio,Chaco,mediano,False
+True,Proveedor B,False,True,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Tucumán,mediano,False
+True,Publico,True,False,False,False,entre_40_y_50,II,negativo,ER,bajo,San Luis,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Córdoba,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,II,negativo,Ninguno,alto,Santa Cruz,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Córdoba,mediano,False
+False,Publico,False,False,False,False,mas_de_60,I,negativo,PR,medio,Entre Ríos,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,ER,alto,Entre Ríos,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Santa Fe,pequeno,False
+False,Publico,False,True,False,False,menos_de_40,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,alto,Misiones,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,III,positivo,PR,alto,Córdoba,mediano,False
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,ER,medio,CABA,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Chaco,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,II,negativo,ER/PR,bajo,Misiones,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,II,positivo,ER/PR,medio,Buenos Aires,pequeno,False
+False,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,PR,medio,Corrientes,grande,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,III,negativo,PR,alto,Córdoba,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,III,negativo,Ninguno,bajo,Misiones,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,Ninguno,alto,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,bajo,San Luis,pequeno,False
+False,Proveedor C,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,CABA,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,CABA,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Salta,mediano,False
+False,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,CABA,pequeno,False
+True,Proveedor B,False,False,True,False,entre_40_y_50,III,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,True,False,entre_50_y_60,II,negativo,ER,alto,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor C,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,alto,CABA,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Chaco,mediano,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Santa Fe,grande,False
+True,Proveedor C,True,False,False,False,entre_40_y_50,I,negativo,ER,medio,Córdoba,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,positivo,ER/PR,medio,Formosa,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,PR,medio,Neuquén,pequeno,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Tucumán,grande,True
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,Ninguno,alto,Chubut,mediano,False
+True,Proveedor C,True,False,False,False,entre_50_y_60,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,PR,alto,Córdoba,mediano,False
+True,Proveedor A,True,True,False,False,menos_de_40,II,negativo,ER/PR,bajo,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,medio,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER/PR,alto,CABA,grande,False
+True,Publico,True,False,False,False,entre_50_y_60,II,negativo,ER/PR,medio,Santiago del Estero,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,IV,positivo,ER,medio,Chaco,pequeno,True
+False,Proveedor B,False,False,False,False,menos_de_40,III,negativo,PR,bajo,Mendoza,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Santa Fe,mediano,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Chubut,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Publico,True,False,False,True,menos_de_40,III,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Publico,False,True,False,False,mas_de_60,I,negativo,ER/PR,bajo,Tucumán,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Tucumán,pequeno,False
+True,Proveedor C,False,True,False,False,menos_de_40,III,positivo,Ninguno,bajo,Buenos Aires,mediano,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Río Negro,grande,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Tucumán,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,II,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Córdoba,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Mendoza,pequeno,False
+True,Publico,False,True,False,False,entre_50_y_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,PR,medio,CABA,pequeno,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,III,negativo,Ninguno,bajo,Corrientes,grande,True
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Santa Fe,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,II,positivo,ER,alto,CABA,mediano,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,bajo,La Rioja,pequeno,False
+False,Proveedor B,False,False,False,False,entre_40_y_50,III,negativo,Ninguno,bajo,Neuquén,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,alto,Córdoba,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Tucumán,grande,False
+False,Publico,True,True,False,False,mas_de_60,IV,negativo,ER,bajo,Buenos Aires,pequeno,True
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,medio,CABA,mediano,False
+True,Publico,True,False,False,False,entre_40_y_50,III,negativo,ER/PR,alto,Buenos Aires,grande,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Formosa,pequeno,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,III,positivo,Ninguno,alto,Santa Fe,pequeno,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,PR,medio,Mendoza,pequeno,False
+True,Proveedor A,True,False,False,False,entre_40_y_50,II,negativo,ER,medio,Corrientes,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,negativo,PR,alto,Chubut,pequeno,False
+False,Proveedor A,False,False,True,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Santa Fe,grande,False
+True,Proveedor C,False,False,True,False,entre_40_y_50,II,negativo,PR,alto,Córdoba,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,IV,negativo,Ninguno,alto,Buenos Aires,grande,True
+True,Proveedor B,True,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+False,Proveedor A,True,False,False,False,entre_50_y_60,IV,negativo,ER/PR,bajo,Jujuy,mediano,False
+False,Publico,False,False,False,False,menos_de_40,II,negativo,PR,bajo,Buenos Aires,grande,True
+True,Proveedor B,True,False,False,False,mas_de_60,I,negativo,ER,medio,Mendoza,mediano,False
+True,Proveedor B,True,True,True,False,mas_de_60,I,negativo,Ninguno,alto,Santa Fe,mediano,True
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Buenos Aires,grande,True
+False,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+False,Publico,False,True,False,False,menos_de_40,III,negativo,Ninguno,alto,Tucumán,grande,True
+True,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,II,negativo,Ninguno,alto,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,ER,bajo,CABA,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,positivo,PR,medio,Río Negro,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Santa Fe,mediano,False
+True,Proveedor B,False,False,False,False,menos_de_40,IV,negativo,ER/PR,medio,Santa Fe,mediano,False
+False,Publico,True,False,True,False,entre_50_y_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,True
+True,Publico,True,False,False,True,mas_de_60,I,positivo,PR,bajo,Buenos Aires,pequeno,True
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Buenos Aires,grande,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Tucumán,mediano,False
+True,Publico,False,True,False,False,entre_50_y_60,I,negativo,ER,bajo,Mendoza,mediano,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,CABA,mediano,False
+True,Publico,True,False,False,False,menos_de_40,IV,negativo,ER/PR,alto,Chaco,mediano,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Córdoba,pequeno,False
+True,Proveedor C,True,False,False,True,menos_de_40,I,negativo,ER,bajo,Santa Fe,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,I,positivo,ER/PR,bajo,San Luis,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,alto,Misiones,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,medio,Jujuy,grande,False
+True,Proveedor B,False,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Proveedor A,True,False,False,False,entre_40_y_50,I,positivo,ER,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,II,negativo,PR,alto,Santa Fe,pequeno,False
+True,Proveedor C,False,True,False,False,entre_40_y_50,II,negativo,Ninguno,alto,CABA,pequeno,False
+True,Proveedor B,False,True,False,False,entre_50_y_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+False,Publico,True,False,False,True,entre_50_y_60,II,negativo,Ninguno,bajo,Mendoza,pequeno,True
+True,Proveedor B,False,False,True,False,entre_40_y_50,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Santa Fe,grande,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Río Negro,mediano,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Río Negro,pequeno,False
+True,Publico,True,False,False,True,menos_de_40,III,negativo,ER/PR,medio,Salta,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Tucumán,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Buenos Aires,pequeno,True
+False,Proveedor C,False,False,False,False,menos_de_40,I,negativo,PR,bajo,CABA,mediano,False
+True,Publico,True,True,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor A,True,False,False,False,entre_50_y_60,II,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Córdoba,pequeno,False
+False,Publico,False,True,True,False,entre_50_y_60,I,negativo,Ninguno,alto,Santa Fe,mediano,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,True,False,False,False,entre_50_y_60,III,negativo,ER,medio,Buenos Aires,mediano,False
+True,Publico,True,False,True,False,menos_de_40,I,negativo,PR,alto,Jujuy,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,Córdoba,grande,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Santa Fe,grande,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+False,Proveedor A,False,False,False,False,menos_de_40,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,True,False,False,False,menos_de_40,III,negativo,ER,alto,Catamarca,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER,alto,CABA,mediano,False
+True,Publico,False,False,False,False,mas_de_60,II,positivo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,True,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Tucumán,mediano,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,alto,CABA,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,bajo,Misiones,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER,medio,Río Negro,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,entre_40_y_50,IV,positivo,ER/PR,alto,Mendoza,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,bajo,Chaco,grande,False
+False,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+False,Publico,True,False,False,False,entre_50_y_60,I,negativo,PR,bajo,Córdoba,mediano,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,ER/PR,alto,Formosa,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,positivo,ER,alto,Córdoba,mediano,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,entre_50_y_60,IV,negativo,Ninguno,alto,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Buenos Aires,mediano,False
+True,Proveedor A,True,True,False,False,mas_de_60,IV,positivo,ER,bajo,Córdoba,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,True,False,False,False,entre_40_y_50,II,negativo,ER/PR,alto,CABA,pequeno,False
+True,Proveedor A,True,False,False,True,entre_40_y_50,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,IV,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Mendoza,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,CABA,mediano,False
+True,Publico,True,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Corrientes,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,True,False,True,True,entre_40_y_50,II,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,True,False,mas_de_60,I,negativo,ER,alto,Córdoba,pequeno,False
+False,Publico,False,False,False,True,entre_50_y_60,I,negativo,Ninguno,medio,CABA,mediano,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,IV,negativo,ER,alto,Santa Fe,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,bajo,Santa Cruz,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,True,False,menos_de_40,II,negativo,ER/PR,bajo,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,III,negativo,Ninguno,bajo,Buenos Aires,grande,True
+True,Publico,False,False,False,False,mas_de_60,III,negativo,Ninguno,alto,Buenos Aires,grande,True
+False,Proveedor B,True,False,False,True,entre_50_y_60,III,negativo,Ninguno,bajo,Córdoba,pequeno,True
+True,Publico,False,False,False,True,mas_de_60,II,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Salta,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,IV,negativo,PR,alto,Córdoba,pequeno,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Salta,mediano,False
+True,Publico,False,False,True,False,menos_de_40,I,negativo,ER,medio,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,IV,negativo,Ninguno,medio,Buenos Aires,pequeno,True
+True,Proveedor C,False,False,False,False,mas_de_60,I,positivo,ER/PR,alto,Mendoza,pequeno,False
+False,Proveedor C,False,False,False,True,menos_de_40,IV,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,III,negativo,PR,bajo,Mendoza,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Santa Fe,pequeno,False
+True,Proveedor C,False,True,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,PR,alto,Mendoza,mediano,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER,alto,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Santa Fe,pequeno,False
+False,Proveedor A,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor C,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Santa Fe,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Jujuy,mediano,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,III,negativo,ER/PR,bajo,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,grande,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,positivo,PR,bajo,Mendoza,pequeno,False
+True,Publico,False,True,False,False,mas_de_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,True,menos_de_40,III,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Formosa,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,mediano,False
+True,Proveedor A,False,True,False,True,menos_de_40,II,negativo,Ninguno,bajo,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,positivo,ER,alto,Buenos Aires,pequeno,False
+False,Proveedor B,True,False,False,False,entre_50_y_60,II,negativo,PR,medio,San Juan,mediano,False
+False,Publico,True,False,True,False,entre_50_y_60,I,negativo,Ninguno,bajo,Chaco,grande,True
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,III,negativo,ER,medio,Buenos Aires,mediano,False
+False,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,CABA,pequeno,False
+True,Publico,True,True,False,False,menos_de_40,III,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,IV,negativo,ER,medio,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Chaco,mediano,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,I,negativo,Ninguno,alto,Corrientes,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,medio,CABA,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,II,positivo,ER/PR,medio,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER,alto,Entre Ríos,pequeno,False
+False,Proveedor C,False,False,False,False,mas_de_60,II,negativo,ER/PR,medio,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Córdoba,grande,False
+False,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,True,True,False,False,mas_de_60,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,True,menos_de_40,I,negativo,ER/PR,alto,Jujuy,pequeno,False
+True,Publico,False,False,False,True,menos_de_40,I,negativo,PR,bajo,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,mediano,False
+False,Publico,True,True,False,False,menos_de_40,III,negativo,ER,alto,CABA,mediano,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,III,negativo,PR,alto,Salta,pequeno,False
+True,Proveedor C,False,True,False,False,mas_de_60,I,positivo,PR,alto,Buenos Aires,grande,True
+True,Publico,False,False,False,True,menos_de_40,IV,negativo,ER/PR,bajo,Misiones,mediano,False
+True,Proveedor C,True,False,True,False,entre_40_y_50,I,negativo,PR,medio,Tierra del Fuego,mediano,False
+True,Proveedor A,False,True,False,True,menos_de_40,III,negativo,ER/PR,bajo,Chaco,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Buenos Aires,grande,True
+True,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Catamarca,pequeno,False
+False,Publico,False,False,False,False,mas_de_60,II,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,bajo,Jujuy,pequeno,True
+False,Publico,False,False,False,False,mas_de_60,II,negativo,ER,alto,Tucumán,mediano,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,mas_de_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER,bajo,Neuquén,pequeno,False
+True,Publico,True,False,True,False,entre_50_y_60,I,negativo,ER/PR,medio,Buenos Aires,grande,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,PR,alto,Córdoba,pequeno,False
+True,Proveedor A,False,True,False,False,mas_de_60,IV,negativo,Ninguno,alto,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,mas_de_60,I,positivo,Ninguno,bajo,Buenos Aires,pequeno,True
+False,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Catamarca,pequeno,False
+False,Publico,False,False,True,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,medio,Corrientes,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,Ninguno,bajo,La Pampa,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,IV,negativo,ER/PR,medio,Río Negro,grande,False
+False,Proveedor B,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Chaco,grande,False
+False,Proveedor C,False,False,False,False,menos_de_40,I,positivo,ER/PR,bajo,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Córdoba,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,IV,negativo,PR,bajo,CABA,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,positivo,ER,alto,Mendoza,pequeno,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Salta,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,II,negativo,Ninguno,alto,Formosa,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor B,False,True,False,False,entre_40_y_50,III,negativo,Ninguno,bajo,Buenos Aires,mediano,True
+True,Publico,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,Chaco,grande,True
+True,Publico,True,False,True,False,mas_de_60,III,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,III,negativo,ER,alto,Buenos Aires,mediano,False
+False,Proveedor B,False,True,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,True,False,False,False,entre_40_y_50,III,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Chubut,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,II,positivo,ER/PR,medio,CABA,grande,False
+True,Publico,False,False,True,False,menos_de_40,III,negativo,ER/PR,medio,San Juan,grande,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Buenos Aires,grande,True
+True,Proveedor B,True,False,False,False,menos_de_40,II,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,III,negativo,ER/PR,medio,Misiones,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,La Pampa,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,positivo,Ninguno,alto,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,Ninguno,medio,Catamarca,mediano,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,alto,CABA,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,bajo,Corrientes,grande,True
+False,Proveedor C,False,False,False,True,menos_de_40,I,negativo,ER/PR,bajo,Salta,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Mendoza,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER/PR,alto,Buenos Aires,grande,False
+True,Publico,False,False,False,False,mas_de_60,IV,negativo,PR,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Salta,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,PR,medio,CABA,mediano,False
+True,Proveedor C,False,True,False,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,IV,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,mas_de_60,IV,negativo,PR,alto,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,bajo,San Juan,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Misiones,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,ER,medio,Santa Fe,mediano,False
+True,Publico,False,False,False,True,entre_50_y_60,II,negativo,Ninguno,medio,Buenos Aires,mediano,False
+False,Publico,False,False,True,False,menos_de_40,I,negativo,ER,alto,Buenos Aires,mediano,False
+True,Publico,True,False,False,True,menos_de_40,II,positivo,ER/PR,alto,Chubut,pequeno,False
+True,Proveedor C,True,True,False,False,menos_de_40,II,negativo,Ninguno,bajo,Tucumán,mediano,True
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,bajo,Santa Fe,grande,False
+True,Proveedor B,False,False,True,False,mas_de_60,IV,negativo,PR,medio,Buenos Aires,mediano,False
+True,Proveedor B,True,False,False,False,menos_de_40,IV,negativo,PR,alto,Corrientes,mediano,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,positivo,ER/PR,medio,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,I,positivo,Ninguno,alto,Formosa,pequeno,False
+True,Publico,False,False,True,False,mas_de_60,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,III,negativo,ER,alto,Córdoba,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Formosa,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,IV,negativo,ER/PR,alto,Jujuy,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Salta,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,III,positivo,ER/PR,medio,Entre Ríos,grande,False
+False,Publico,True,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,San Luis,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,Ninguno,bajo,CABA,mediano,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER,medio,Jujuy,pequeno,False
+False,Publico,False,False,True,False,menos_de_40,I,positivo,PR,alto,Neuquén,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Chubut,pequeno,False
+True,Publico,False,True,False,False,mas_de_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Santa Fe,mediano,False
+False,Publico,False,False,False,False,entre_40_y_50,IV,negativo,PR,bajo,Santiago del Estero,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,II,negativo,Ninguno,alto,Mendoza,mediano,False
+False,Proveedor B,False,False,True,False,entre_40_y_50,I,positivo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,IV,negativo,PR,alto,Santa Cruz,grande,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,La Rioja,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,grande,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,mediano,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,ER,alto,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER/PR,medio,Neuquén,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Santa Fe,mediano,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,positivo,ER,medio,San Luis,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,PR,bajo,Chaco,mediano,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,III,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,positivo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,False,True,False,False,mas_de_60,I,negativo,ER,medio,Mendoza,pequeno,False
+True,Proveedor C,True,True,False,False,menos_de_40,III,negativo,PR,alto,Buenos Aires,mediano,False
+False,Proveedor A,False,False,False,False,mas_de_60,III,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER/PR,medio,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Santiago del Estero,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,PR,medio,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,entre_40_y_50,II,negativo,ER/PR,alto,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,Ninguno,medio,Santa Fe,pequeno,False
+True,Publico,False,False,True,False,entre_40_y_50,IV,negativo,ER/PR,alto,Entre Ríos,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Misiones,pequeno,False
+True,Publico,False,True,False,False,entre_50_y_60,I,negativo,ER,alto,Santa Cruz,mediano,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,IV,negativo,ER,bajo,Río Negro,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Jujuy,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Entre Ríos,mediano,True
+True,Proveedor B,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,IV,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER,medio,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,CABA,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,II,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Salta,pequeno,False
+True,Proveedor A,False,False,True,True,menos_de_40,I,negativo,ER/PR,bajo,San Juan,pequeno,False
+True,Proveedor C,True,True,False,True,entre_50_y_60,III,negativo,ER,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,True,entre_40_y_50,I,negativo,Ninguno,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Publico,True,True,True,True,mas_de_60,I,negativo,Ninguno,medio,Mendoza,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,True,False,menos_de_40,II,negativo,Ninguno,bajo,CABA,mediano,True
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,CABA,grande,False
+False,Proveedor B,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,bajo,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,ER,medio,Tucumán,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,III,negativo,Ninguno,bajo,Santa Fe,pequeno,False
+False,Proveedor C,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,mas_de_60,I,negativo,Ninguno,alto,Chaco,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,negativo,PR,alto,Tucumán,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,bajo,San Juan,grande,False
+True,Publico,True,True,False,False,menos_de_40,IV,positivo,Ninguno,bajo,Salta,pequeno,True
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,True,entre_50_y_60,IV,negativo,ER/PR,alto,Río Negro,mediano,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,Ninguno,bajo,La Rioja,pequeno,False
+True,Publico,True,False,True,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,grande,True
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,Santa Fe,mediano,False
+True,Publico,True,False,False,False,entre_50_y_60,IV,negativo,ER,medio,Neuquén,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,CABA,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,Tucumán,grande,True
+True,Publico,False,False,False,False,mas_de_60,I,positivo,Ninguno,alto,Chubut,pequeno,False
+True,Proveedor A,False,True,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,positivo,ER/PR,medio,Córdoba,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER,alto,Córdoba,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,mas_de_60,I,negativo,Ninguno,bajo,CABA,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,negativo,ER/PR,alto,CABA,pequeno,False
+True,Proveedor C,False,True,False,False,menos_de_40,II,negativo,ER,alto,CABA,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,II,negativo,Ninguno,medio,Santa Fe,pequeno,False
+False,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,bajo,CABA,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Tucumán,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,II,negativo,ER/PR,medio,Corrientes,mediano,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,PR,bajo,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,mas_de_60,IV,positivo,ER,alto,San Luis,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,bajo,Córdoba,mediano,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,True,False,mas_de_60,II,negativo,ER/PR,alto,Salta,mediano,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,True,entre_40_y_50,I,negativo,ER,medio,Catamarca,pequeno,False
+True,Proveedor C,False,False,False,True,entre_40_y_50,II,negativo,ER,medio,Mendoza,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,ER,bajo,Formosa,grande,False
+False,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Proveedor C,True,True,False,False,mas_de_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,True
+True,Publico,True,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Formosa,grande,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Tucumán,pequeno,False
+True,Proveedor A,False,True,False,False,entre_50_y_60,III,negativo,Ninguno,bajo,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,III,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,IV,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,medio,Salta,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,II,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,San Juan,pequeno,False
+False,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Proveedor B,False,True,False,False,entre_50_y_60,IV,negativo,PR,bajo,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,mas_de_60,I,positivo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,III,positivo,ER,bajo,Formosa,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,True,entre_40_y_50,I,negativo,ER/PR,medio,San Juan,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,positivo,ER,bajo,Buenos Aires,grande,True
+True,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,Córdoba,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,Buenos Aires,grande,True
+False,Publico,True,False,False,False,entre_50_y_60,II,negativo,Ninguno,alto,Misiones,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,positivo,Ninguno,alto,San Luis,pequeno,True
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,PR,medio,Tucumán,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Río Negro,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Córdoba,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Tucumán,pequeno,False
+True,Proveedor B,False,True,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+False,Publico,True,False,True,False,entre_40_y_50,IV,negativo,Ninguno,bajo,Tucumán,pequeno,True
+False,Proveedor C,False,True,False,True,menos_de_40,I,negativo,PR,alto,Chaco,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+False,Proveedor B,True,True,False,False,entre_50_y_60,I,negativo,PR,alto,Corrientes,mediano,False
+False,Publico,True,False,True,False,entre_50_y_60,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,True,menos_de_40,I,negativo,ER,medio,CABA,mediano,False
+False,Proveedor A,True,False,False,False,entre_50_y_60,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,positivo,PR,alto,Salta,grande,True
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Mendoza,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,alto,Formosa,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,medio,Formosa,pequeno,False
+False,Publico,False,True,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,alto,Salta,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Neuquén,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,III,negativo,PR,medio,CABA,mediano,False
+False,Publico,False,False,False,False,menos_de_40,IV,positivo,ER/PR,bajo,Santa Fe,mediano,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Entre Ríos,mediano,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,PR,medio,Mendoza,grande,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,Ninguno,medio,Mendoza,pequeno,False
+False,Publico,True,False,False,False,entre_50_y_60,I,negativo,PR,medio,Santa Fe,grande,True
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,II,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,True,False,entre_50_y_60,II,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Proveedor B,False,False,False,False,menos_de_40,III,negativo,ER,alto,Tucumán,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,II,negativo,Ninguno,medio,Buenos Aires,grande,True
+True,Publico,True,False,False,False,menos_de_40,II,negativo,ER/PR,bajo,Chaco,pequeno,False
+False,Proveedor A,True,False,False,False,entre_50_y_60,II,negativo,ER,bajo,Buenos Aires,mediano,False
+False,Proveedor A,False,False,False,True,entre_40_y_50,I,negativo,ER/PR,medio,CABA,grande,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,Santa Cruz,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,positivo,ER/PR,alto,Río Negro,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,True,mas_de_60,II,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER,alto,Buenos Aires,grande,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Chaco,pequeno,False
+True,Publico,False,True,False,False,entre_50_y_60,I,negativo,PR,alto,Jujuy,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,PR,bajo,Córdoba,mediano,False
+False,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER/PR,bajo,Chaco,mediano,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,medio,CABA,grande,True
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,grande,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,PR,bajo,Misiones,pequeno,False
+True,Proveedor C,True,True,False,False,menos_de_40,II,negativo,ER/PR,bajo,Mendoza,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,positivo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,True,entre_40_y_50,III,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,CABA,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER,alto,Jujuy,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,II,positivo,Ninguno,bajo,Tierra del Fuego,mediano,True
+True,Proveedor C,False,True,False,False,entre_40_y_50,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,True,False,entre_50_y_60,I,negativo,PR,bajo,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,negativo,ER/PR,medio,Buenos Aires,grande,False
+True,Publico,False,True,True,False,entre_50_y_60,I,negativo,Ninguno,alto,Buenos Aires,mediano,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,bajo,San Juan,mediano,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,CABA,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Santa Fe,mediano,False
+True,Publico,False,True,False,False,entre_50_y_60,I,negativo,ER,bajo,Neuquén,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,PR,alto,Santa Fe,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,Corrientes,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,IV,negativo,PR,alto,Santa Fe,pequeno,False
+True,Publico,False,False,True,False,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Jujuy,pequeno,True
+False,Proveedor C,True,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,entre_50_y_60,II,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,mas_de_60,I,positivo,PR,medio,La Pampa,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,II,negativo,PR,alto,Entre Ríos,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Tucumán,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+False,Publico,True,False,False,False,entre_40_y_50,II,negativo,ER,medio,Mendoza,pequeno,False
+False,Proveedor C,False,False,False,False,menos_de_40,I,positivo,PR,medio,Buenos Aires,mediano,False
+True,Publico,False,True,False,False,menos_de_40,III,positivo,Ninguno,bajo,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Corrientes,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,II,negativo,ER/PR,alto,Catamarca,mediano,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,I,negativo,ER,bajo,Chaco,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Buenos Aires,grande,False
+False,Proveedor A,False,False,False,False,mas_de_60,II,positivo,Ninguno,alto,Mendoza,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER,alto,Catamarca,pequeno,False
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,False,True,False,True,menos_de_40,I,negativo,ER,alto,Buenos Aires,mediano,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,II,negativo,ER/PR,medio,Córdoba,grande,False
+False,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,IV,negativo,ER,medio,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,CABA,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,grande,True
+True,Publico,False,False,False,True,mas_de_60,I,negativo,Ninguno,medio,Salta,mediano,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,ER,medio,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Catamarca,grande,True
+False,Proveedor C,False,False,False,False,menos_de_40,I,negativo,ER,alto,Mendoza,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,II,negativo,Ninguno,medio,Santa Fe,mediano,False
+True,Proveedor A,False,True,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,I,negativo,Ninguno,alto,Buenos Aires,mediano,False
+False,Publico,False,False,True,False,entre_50_y_60,II,negativo,PR,medio,Córdoba,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,IV,negativo,ER/PR,bajo,Misiones,grande,True
+False,Publico,False,False,True,False,mas_de_60,II,negativo,ER/PR,alto,CABA,grande,False
+True,Proveedor B,False,True,False,False,menos_de_40,II,negativo,ER/PR,bajo,Corrientes,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER,alto,Santa Fe,mediano,False
+False,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER,bajo,Salta,mediano,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,IV,positivo,Ninguno,alto,Buenos Aires,pequeno,True
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,PR,alto,Salta,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER,bajo,Chaco,pequeno,False
+True,Publico,True,True,False,False,entre_40_y_50,I,negativo,ER,alto,Santiago del Estero,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,I,positivo,PR,alto,CABA,mediano,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,III,negativo,Ninguno,medio,Buenos Aires,grande,True
+True,Proveedor C,True,False,False,False,entre_50_y_60,III,negativo,Ninguno,alto,Corrientes,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER,alto,Córdoba,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER,alto,Santa Fe,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,positivo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,III,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,entre_40_y_50,II,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor A,True,False,False,False,entre_40_y_50,I,positivo,PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Entre Ríos,pequeno,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,medio,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,Ninguno,alto,CABA,pequeno,False
+False,Proveedor B,False,True,False,True,entre_40_y_50,I,negativo,ER/PR,alto,Corrientes,pequeno,False
+True,Proveedor B,True,False,False,False,mas_de_60,I,positivo,PR,medio,Buenos Aires,grande,True
+True,Proveedor A,True,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,III,negativo,ER,alto,Buenos Aires,mediano,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,III,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+False,Proveedor A,False,False,False,False,menos_de_40,II,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,IV,negativo,PR,medio,Buenos Aires,grande,True
+False,Proveedor B,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,True,False,menos_de_40,I,negativo,ER,alto,Entre Ríos,pequeno,False
+True,Proveedor C,False,False,False,False,mas_de_60,II,positivo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,True,entre_40_y_50,II,negativo,ER/PR,alto,Formosa,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Santa Fe,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,positivo,ER,alto,Misiones,grande,True
+True,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Santiago del Estero,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,IV,negativo,ER,bajo,CABA,pequeno,False
+True,Proveedor C,True,False,False,True,entre_50_y_60,III,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,medio,Chubut,mediano,False
+True,Proveedor A,False,True,False,False,menos_de_40,II,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Jujuy,pequeno,False
+True,Proveedor B,False,True,False,False,mas_de_60,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,III,negativo,ER,bajo,Chubut,grande,True
+True,Proveedor C,True,True,False,True,entre_40_y_50,I,negativo,PR,medio,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Mendoza,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,positivo,Ninguno,bajo,La Pampa,pequeno,True
+True,Publico,True,False,False,False,menos_de_40,III,positivo,Ninguno,bajo,CABA,mediano,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,IV,positivo,PR,alto,Buenos Aires,grande,True
+True,Proveedor C,True,False,False,False,entre_40_y_50,II,positivo,ER,bajo,Buenos Aires,grande,True
+False,Publico,False,False,False,True,entre_40_y_50,I,negativo,ER/PR,bajo,Entre Ríos,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Córdoba,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,II,negativo,Ninguno,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,PR,medio,Buenos Aires,grande,False
+True,Publico,True,True,False,False,mas_de_60,II,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Salta,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,II,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,entre_40_y_50,III,negativo,PR,bajo,CABA,pequeno,False
+True,Publico,True,True,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,positivo,ER,bajo,Jujuy,grande,True
+True,Publico,False,False,False,False,mas_de_60,III,positivo,ER/PR,alto,CABA,mediano,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,PR,alto,Salta,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,IV,negativo,PR,medio,Entre Ríos,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Chubut,pequeno,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,IV,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,positivo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Santa Fe,mediano,False
+True,Proveedor A,True,False,False,False,menos_de_40,III,negativo,ER/PR,medio,Santa Fe,mediano,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Río Negro,mediano,False
+False,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,ER,alto,Tucumán,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,True,entre_40_y_50,I,negativo,Ninguno,alto,Jujuy,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,I,positivo,ER,alto,Jujuy,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,IV,negativo,PR,bajo,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,II,positivo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Santa Fe,mediano,False
+True,Publico,True,False,False,False,entre_50_y_60,II,negativo,ER,medio,Buenos Aires,grande,False
+True,Proveedor C,False,False,False,True,entre_50_y_60,I,negativo,PR,medio,San Luis,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,IV,negativo,ER,bajo,CABA,mediano,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,bajo,Santa Fe,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,III,negativo,Ninguno,bajo,CABA,grande,True
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,medio,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,III,negativo,ER/PR,medio,Entre Ríos,pequeno,False
+True,Proveedor A,True,False,False,False,mas_de_60,IV,negativo,Ninguno,bajo,Entre Ríos,pequeno,True
+True,Proveedor B,True,False,False,True,entre_40_y_50,IV,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,III,negativo,Ninguno,bajo,Entre Ríos,pequeno,True
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER,alto,Misiones,pequeno,False
+False,Proveedor B,True,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Santa Fe,pequeno,False
+True,Proveedor A,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,alto,La Rioja,mediano,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Santiago del Estero,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Tucumán,grande,False
+False,Proveedor B,False,False,False,True,menos_de_40,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,CABA,pequeno,False
+True,Proveedor C,False,True,False,False,menos_de_40,I,negativo,PR,medio,Entre Ríos,mediano,False
+True,Proveedor B,False,True,False,False,menos_de_40,I,negativo,Ninguno,medio,Buenos Aires,mediano,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Buenos Aires,grande,False
+False,Publico,True,False,False,False,menos_de_40,II,negativo,ER,alto,Santa Fe,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+False,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Santa Fe,pequeno,False
+True,Proveedor B,False,False,True,False,menos_de_40,I,negativo,Ninguno,alto,Chaco,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,Córdoba,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,II,negativo,ER,alto,Corrientes,grande,False
+True,Publico,True,False,False,False,mas_de_60,I,positivo,ER/PR,medio,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,I,negativo,PR,medio,Misiones,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,alto,Santa Fe,grande,True
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,I,negativo,ER,bajo,Formosa,grande,True
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor C,True,False,False,False,mas_de_60,I,negativo,ER/PR,bajo,Entre Ríos,pequeno,False
+True,Publico,False,False,False,True,mas_de_60,I,negativo,Ninguno,alto,Buenos Aires,mediano,False
+False,Proveedor C,False,False,False,False,menos_de_40,III,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor A,True,False,False,False,mas_de_60,I,positivo,Ninguno,medio,Corrientes,pequeno,True
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,II,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Córdoba,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,III,negativo,Ninguno,bajo,Neuquén,mediano,True
+False,Proveedor B,False,False,False,False,entre_50_y_60,II,negativo,ER,bajo,Buenos Aires,pequeno,False
+True,Publico,True,True,False,False,menos_de_40,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,True,True,mas_de_60,II,positivo,Ninguno,medio,Buenos Aires,pequeno,True
+True,Publico,True,False,False,False,menos_de_40,IV,negativo,PR,bajo,Jujuy,mediano,True
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,mediano,False
+False,Proveedor A,False,True,False,False,entre_40_y_50,II,negativo,PR,alto,San Juan,pequeno,False
+False,Proveedor C,False,False,False,False,entre_40_y_50,I,negativo,PR,bajo,CABA,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,positivo,ER/PR,medio,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER,medio,CABA,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER,alto,Santiago del Estero,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,IV,negativo,Ninguno,alto,Tucumán,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,I,positivo,Ninguno,bajo,Mendoza,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Tucumán,mediano,False
+True,Publico,False,False,False,False,mas_de_60,III,positivo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,True,entre_40_y_50,III,negativo,Ninguno,bajo,Santa Fe,mediano,False
+True,Proveedor A,False,False,True,False,entre_40_y_50,I,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+True,Publico,False,False,False,True,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,Ninguno,medio,Río Negro,pequeno,False
+False,Publico,False,True,False,False,menos_de_40,III,negativo,Ninguno,alto,Mendoza,mediano,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,positivo,ER,alto,Misiones,pequeno,False
+True,Proveedor C,False,False,True,True,menos_de_40,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,III,negativo,PR,alto,Corrientes,mediano,False
+False,Publico,True,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Corrientes,grande,False
+True,Proveedor A,True,False,True,False,mas_de_60,I,negativo,ER,bajo,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,mas_de_60,I,negativo,ER,medio,Tucumán,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,bajo,Buenos Aires,grande,False
+False,Proveedor A,False,False,False,False,entre_40_y_50,IV,positivo,Ninguno,bajo,Tucumán,mediano,True
+True,Publico,True,False,False,True,menos_de_40,I,negativo,ER/PR,alto,Tucumán,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,II,negativo,PR,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,positivo,Ninguno,medio,Córdoba,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,III,positivo,Ninguno,bajo,Buenos Aires,mediano,True
+True,Publico,True,False,False,False,mas_de_60,IV,negativo,Ninguno,medio,Buenos Aires,mediano,True
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,PR,bajo,Misiones,pequeno,False
+True,Proveedor A,True,False,False,True,mas_de_60,I,negativo,Ninguno,bajo,Misiones,grande,True
+False,Publico,False,True,False,False,entre_50_y_60,III,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,True,entre_40_y_50,II,negativo,ER/PR,medio,Mendoza,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Córdoba,pequeno,False
+False,Publico,False,False,False,True,entre_50_y_60,I,negativo,Ninguno,bajo,CABA,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,II,negativo,PR,medio,Tucumán,mediano,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,ER,alto,Santa Cruz,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Santa Fe,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,True,entre_50_y_60,II,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor C,True,False,False,False,entre_50_y_60,I,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,True,True,False,menos_de_40,IV,negativo,ER/PR,bajo,Buenos Aires,mediano,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,Misiones,pequeno,False
+True,Publico,True,False,False,False,entre_40_y_50,I,positivo,Ninguno,bajo,Salta,grande,True
+True,Proveedor B,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,medio,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,III,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,III,negativo,Ninguno,alto,Catamarca,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER,alto,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,positivo,ER,alto,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,entre_50_y_60,I,negativo,ER,alto,Corrientes,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,medio,Tucumán,pequeno,False
+True,Publico,False,True,False,False,entre_50_y_60,II,negativo,PR,alto,Salta,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,II,negativo,PR,medio,Formosa,pequeno,False
+False,Publico,False,False,False,False,entre_40_y_50,I,positivo,ER/PR,bajo,Córdoba,pequeno,False
+True,Proveedor A,True,False,False,False,entre_50_y_60,II,negativo,ER,bajo,Salta,pequeno,False
+True,Proveedor C,False,False,True,False,mas_de_60,I,positivo,ER/PR,medio,Corrientes,mediano,False
+False,Proveedor C,True,False,False,False,entre_40_y_50,I,positivo,PR,bajo,Neuquén,pequeno,True
+True,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Publico,False,True,True,False,entre_40_y_50,I,negativo,ER,medio,Buenos Aires,mediano,False
+True,Publico,True,False,False,False,entre_50_y_60,III,negativo,ER,medio,Tierra del Fuego,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,ER,alto,Salta,mediano,False
+True,Publico,False,False,False,False,menos_de_40,III,negativo,ER,alto,Catamarca,mediano,False
+True,Publico,False,False,False,False,entre_50_y_60,I,positivo,Ninguno,bajo,Corrientes,pequeno,True
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,medio,Misiones,mediano,True
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,PR,alto,Santiago del Estero,pequeno,False
+True,Publico,True,False,False,True,entre_40_y_50,III,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,III,negativo,PR,alto,Córdoba,mediano,False
+True,Proveedor A,False,True,False,False,mas_de_60,II,positivo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER,medio,Buenos Aires,grande,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,bajo,Chubut,grande,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,positivo,Ninguno,bajo,Entre Ríos,grande,True
+True,Proveedor C,False,False,False,True,menos_de_40,III,negativo,ER/PR,bajo,Salta,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,bajo,Salta,mediano,False
+False,Proveedor A,False,False,False,False,menos_de_40,I,negativo,PR,bajo,Chaco,mediano,False
+False,Proveedor A,True,False,False,False,entre_40_y_50,II,negativo,Ninguno,alto,Buenos Aires,grande,True
+True,Publico,False,True,False,False,menos_de_40,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER,medio,Santa Fe,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,I,negativo,ER,medio,Buenos Aires,grande,False
+True,Proveedor C,False,False,False,False,menos_de_40,III,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,I,negativo,PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,I,positivo,PR,medio,Corrientes,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,II,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,PR,medio,Mendoza,pequeno,False
+False,Proveedor B,False,False,False,False,menos_de_40,III,negativo,ER/PR,alto,Buenos Aires,mediano,False
+True,Proveedor B,False,False,False,False,entre_50_y_60,III,negativo,PR,alto,Entre Ríos,pequeno,False
+False,Proveedor A,False,False,False,True,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,I,negativo,ER,bajo,Buenos Aires,grande,False
+False,Proveedor C,False,False,False,False,entre_40_y_50,III,negativo,PR,alto,CABA,grande,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Córdoba,mediano,False
+True,Proveedor A,True,False,False,False,mas_de_60,I,negativo,PR,bajo,Santa Fe,grande,True
+True,Publico,False,False,False,False,entre_40_y_50,I,positivo,Ninguno,bajo,Buenos Aires,pequeno,True
+False,Proveedor B,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,Misiones,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,positivo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,PR,medio,Chaco,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,medio,CABA,mediano,False
+False,Publico,False,False,True,False,entre_40_y_50,I,negativo,PR,alto,Buenos Aires,mediano,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,III,negativo,Ninguno,bajo,Chaco,mediano,False
+True,Proveedor B,True,False,False,False,menos_de_40,III,negativo,Ninguno,bajo,Buenos Aires,mediano,True
+True,Publico,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,La Rioja,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,bajo,Buenos Aires,pequeno,True
+False,Proveedor A,True,False,False,False,entre_50_y_60,IV,negativo,Ninguno,bajo,Santiago del Estero,grande,True
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,PR,bajo,Córdoba,grande,False
+False,Publico,False,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,San Juan,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,II,negativo,ER,bajo,San Juan,mediano,False
+False,Proveedor C,True,False,False,False,mas_de_60,IV,positivo,ER,medio,Corrientes,grande,True
+True,Proveedor C,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,mas_de_60,I,negativo,ER,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,positivo,ER/PR,medio,Buenos Aires,mediano,False
+True,Proveedor C,False,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,Santa Cruz,pequeno,False
+True,Proveedor C,False,False,False,False,menos_de_40,I,negativo,PR,alto,CABA,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,positivo,ER/PR,alto,Buenos Aires,mediano,False
+True,Proveedor A,False,False,False,False,menos_de_40,III,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,PR,alto,Buenos Aires,pequeno,False
+False,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER,medio,Córdoba,grande,False
+True,Publico,False,False,False,False,menos_de_40,II,positivo,Ninguno,bajo,CABA,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,I,positivo,Ninguno,alto,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,entre_40_y_50,IV,negativo,PR,bajo,La Pampa,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,PR,alto,Jujuy,pequeno,False
+False,Proveedor B,True,False,True,False,mas_de_60,II,negativo,PR,medio,Salta,grande,True
+False,Proveedor C,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Buenos Aires,grande,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor A,True,True,False,False,menos_de_40,I,negativo,Ninguno,bajo,CABA,pequeno,True
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,bajo,Santa Cruz,pequeno,False
+True,Proveedor A,True,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,San Juan,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Santa Fe,pequeno,False
+True,Proveedor C,False,True,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,True,False,False,False,menos_de_40,I,negativo,PR,medio,Formosa,pequeno,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,IV,negativo,PR,bajo,Buenos Aires,mediano,False
+True,Proveedor A,False,False,False,False,menos_de_40,III,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,III,negativo,PR,medio,Corrientes,mediano,False
+False,Proveedor B,False,False,False,False,entre_50_y_60,III,positivo,Ninguno,medio,Buenos Aires,mediano,True
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,ER/PR,medio,Misiones,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER,medio,Santa Fe,mediano,False
+True,Publico,True,True,False,True,menos_de_40,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor A,False,True,False,False,entre_50_y_60,III,negativo,ER/PR,medio,CABA,mediano,False
+False,Publico,False,True,False,False,mas_de_60,IV,negativo,Ninguno,alto,Buenos Aires,pequeno,True
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Salta,mediano,False
+True,Proveedor B,False,True,False,False,entre_40_y_50,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,Ninguno,alto,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,alto,Misiones,pequeno,False
+False,Publico,False,False,True,False,menos_de_40,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Santa Fe,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,IV,negativo,ER,alto,San Luis,mediano,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,True,False,False,mas_de_60,I,negativo,PR,alto,Chubut,pequeno,False
+True,Publico,False,True,False,False,entre_50_y_60,I,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Proveedor A,False,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Salta,pequeno,False
+True,Publico,False,True,False,False,menos_de_40,III,positivo,PR,medio,San Juan,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,ER/PR,alto,Buenos Aires,mediano,False
+False,Publico,False,False,False,False,entre_50_y_60,III,negativo,Ninguno,bajo,Río Negro,pequeno,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Entre Ríos,mediano,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,IV,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor C,False,False,False,False,entre_40_y_50,IV,negativo,ER,alto,Buenos Aires,mediano,False
+False,Publico,False,False,False,False,menos_de_40,III,negativo,PR,bajo,Buenos Aires,mediano,False
+True,Publico,False,True,False,False,menos_de_40,II,negativo,ER,bajo,Entre Ríos,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,Ninguno,bajo,CABA,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,IV,negativo,PR,medio,Santa Fe,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,III,negativo,ER/PR,alto,Mendoza,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,ER,medio,San Juan,grande,False
+False,Publico,False,True,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,mas_de_60,I,negativo,Ninguno,alto,Santa Fe,mediano,False
+True,Publico,False,False,False,False,menos_de_40,II,negativo,Ninguno,alto,Santiago del Estero,pequeno,False
+False,Proveedor B,False,False,False,False,mas_de_60,II,negativo,PR,alto,Jujuy,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,IV,negativo,ER/PR,alto,Entre Ríos,mediano,False
+True,Proveedor C,False,True,False,False,entre_50_y_60,I,negativo,ER,medio,CABA,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,positivo,ER/PR,medio,CABA,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,PR,medio,Mendoza,grande,False
+True,Publico,False,True,False,False,entre_50_y_60,II,negativo,ER/PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,Ninguno,medio,Buenos Aires,pequeno,False
+False,Publico,True,False,False,False,menos_de_40,I,negativo,ER,medio,Formosa,pequeno,False
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+False,Proveedor C,False,False,False,False,entre_40_y_50,IV,negativo,Ninguno,bajo,Misiones,mediano,True
+True,Proveedor B,False,False,False,False,mas_de_60,III,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,IV,negativo,ER/PR,bajo,Buenos Aires,grande,True
+True,Publico,False,True,False,False,entre_40_y_50,I,negativo,ER,alto,Buenos Aires,mediano,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,medio,Tucumán,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,Neuquén,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,I,negativo,ER/PR,alto,Formosa,pequeno,False
+True,Publico,False,False,False,False,mas_de_60,IV,negativo,PR,medio,Corrientes,pequeno,False
+True,Proveedor A,False,False,False,False,entre_50_y_60,I,positivo,Ninguno,medio,Neuquén,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,I,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Proveedor B,False,False,False,False,entre_40_y_50,I,negativo,PR,medio,Chaco,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,Ninguno,bajo,Neuquén,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER,alto,Santa Fe,pequeno,False
+True,Publico,False,False,True,False,entre_50_y_60,I,negativo,PR,alto,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_40_y_50,II,negativo,ER/PR,medio,Santa Fe,pequeno,False
+False,Publico,False,True,False,True,entre_50_y_60,III,negativo,ER/PR,alto,Misiones,pequeno,False
+True,Publico,True,True,False,False,menos_de_40,I,negativo,ER/PR,medio,Santa Fe,pequeno,False
+True,Proveedor C,True,False,False,False,menos_de_40,IV,negativo,Ninguno,bajo,Santa Fe,mediano,True
+False,Publico,True,True,False,False,entre_40_y_50,I,negativo,ER/PR,bajo,Buenos Aires,pequeno,False
+True,Publico,False,False,True,False,entre_50_y_60,I,negativo,PR,medio,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,entre_50_y_60,II,negativo,PR,medio,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,mas_de_60,II,negativo,ER/PR,alto,Tucumán,grande,False
+True,Publico,True,True,False,False,mas_de_60,I,negativo,ER/PR,alto,Córdoba,mediano,False
+True,Publico,True,False,False,False,mas_de_60,I,negativo,Ninguno,bajo,Córdoba,pequeno,True
+True,Publico,False,False,False,False,menos_de_40,II,negativo,ER/PR,alto,Santa Fe,mediano,False
+True,Proveedor A,True,False,False,False,entre_40_y_50,I,negativo,Ninguno,alto,Buenos Aires,mediano,False
+False,Proveedor A,False,False,False,True,mas_de_60,I,negativo,ER,alto,CABA,mediano,False
+True,Publico,False,False,False,False,entre_40_y_50,III,negativo,PR,bajo,Mendoza,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,III,negativo,Ninguno,medio,Salta,pequeno,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,bajo,Río Negro,pequeno,False
+False,Publico,False,False,False,False,menos_de_40,III,negativo,ER,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,IV,negativo,ER/PR,alto,Córdoba,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,ER/PR,alto,CABA,mediano,False
+True,Proveedor C,False,False,False,False,entre_50_y_60,III,negativo,PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,True,False,menos_de_40,II,negativo,Ninguno,alto,Río Negro,pequeno,False
+True,Proveedor B,False,False,False,False,menos_de_40,I,negativo,PR,alto,Buenos Aires,mediano,False
+True,Publico,False,False,False,False,menos_de_40,I,negativo,PR,alto,Chaco,mediano,False
+True,Proveedor A,False,False,False,False,entre_40_y_50,II,negativo,Ninguno,bajo,Buenos Aires,pequeno,False
+True,Publico,True,False,False,False,entre_50_y_60,IV,negativo,ER/PR,medio,Córdoba,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,III,negativo,ER/PR,alto,Corrientes,pequeno,False
+True,Proveedor C,False,True,True,False,entre_50_y_60,IV,negativo,ER/PR,medio,Buenos Aires,pequeno,False
+True,Publico,False,False,False,False,entre_50_y_60,I,negativo,ER/PR,alto,Buenos Aires,mediano,False

@@ -743,14 +743,6 @@
 ]
 #pagebreak()
 #counter-display
-#stitle("Estadísticos de resumen", sub: "Tipos")
-#sstitle("Estadísticos de resumen")
-#align(center)[
-  #figure(image("images/media_mediana_moda.png", height: 75%))
-]
-
-#pagebreak()
-#counter-display
 #stitle("Tendencia central", sub: "Media")
 #sstitle("Media aritmética")
 #slide[
@@ -853,6 +845,14 @@
       ]
     ]
   )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Estadísticos de resumen", sub: "Tipos")
+#sstitle("Estadísticos de resumen")
+#align(center)[
+  #figure(image("images/media_mediana_moda.png", height: 75%))
 ]
 
 #pagebreak()
