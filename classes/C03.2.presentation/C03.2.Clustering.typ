@@ -156,6 +156,7 @@
   + Elección del número de clusters — método del codo
   + DBSCAN
   + Elección del parámetro ε
+  + Análisis de Clases Latentes (LCA)
 ]
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -648,6 +649,295 @@
       #align(center + horizon)[
         #figure(image("images/cell_19.png", height: 245pt))
       ]
+    ],
+  )
+]
+
+// ════════════════════════════════════════════════════════════════════════════
+// SECCIÓN 8 — ANÁLISIS DE CLASES LATENTES
+// ════════════════════════════════════════════════════════════════════════════
+#section-divider("8", "Clases Latentes", subtitle: "Latent Class Analysis — LCA")
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Concepto y motivación")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    [
+      #text(size: 12pt)[
+        El *Análisis de Clases Latentes* (LCA) es un método probabilístico
+        de clustering diseñado para variables *categóricas*.
+      ]
+      #v(6pt)
+      #text(fill: gry, size: 12pt)[
+        La idea central es que existe una *variable latente* (no observable)
+        que divide a la población en grupos. Dentro de cada grupo, las
+        variables observadas son *condicionalmente independientes* entre sí.
+        #v(6pt)
+        A diferencia de K-means, LCA no asigna cada individuo a un cluster
+        con certeza, sino que calcula una *probabilidad de pertenencia*
+        a cada clase.
+      ]
+      #v(8pt)
+      #block(stroke: 2pt + cm3, inset: 12pt, radius: 5pt)[
+        #text(fill: gry, size: 12pt)[
+          *Ejemplo típico:* encuesta de salud con respuestas Sí/No.
+          LCA puede revelar perfiles de pacientes latentes
+          (ej.: "bajo riesgo", "riesgo moderado", "alto riesgo")
+          sin que esa clasificación haya sido definida de antemano.
+        ]
+      ]
+    ],
+    [
+      #ssstitle[LCA vs. K-means]
+      #v(6pt)
+      #styled-table(
+        columns: (auto, 1fr, 1fr),
+        th[Aspecto], th[K-means], th[LCA],
+        td[*Tipo de datos*],     tdg[Numéricos],       tdg[Categóricos],
+        td[*Asignación*],        tdg[Dura (un cluster)], tdg[Blanda (probabilidades)],
+        td[*Supuesto*],          tdg[Clusters esféricos], tdg[Indep. condicional],
+        td[*Parámetro*],         tdg[K (número de clusters)], tdg[C (número de clases)],
+        td[*Estimación*],        tdg[Minimiza WCSS],    tdg[Maximiza verosimilitud (EM)],
+      )
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Modelo probabilístico")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    [
+      #ssstitle[Parámetros del modelo]
+      #v(6pt)
+      #text(fill: gry, size: 13pt)[
+        El modelo LCA con $C$ clases tiene dos conjuntos de parámetros:
+      ]
+      #v(6pt)
+      #block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
+        #text(fill: gry, size: 13pt)[
+          *Probabilidades de clase* $pi_c$: proporción de la población
+          que pertenece a la clase $c$.
+          $ sum_c pi_c = 1 $
+        ]
+      ]
+      #v(8pt)
+      #block(stroke: 2pt + cm1, inset: 14pt, radius: 5pt)[
+        #text(fill: gry, size: 13pt)[
+          *Probabilidades de respuesta* $rho_(c,j,r)$: probabilidad de
+          que un miembro de la clase $c$ responda $r$ en el ítem $j$.
+        ]
+      ]
+    ],
+    [
+      #ssstitle[Algoritmo EM]
+      #v(6pt)
+      #text(fill: gry, size: 13pt)[
+        Los parámetros se estiman por *máxima verosimilitud* usando el
+        algoritmo *Expectation-Maximization*:
+      ]
+      #v(8pt)
+      #set enum(numbering: "1.")
+      #text(fill: gry, size: 13pt)[
+        + *E-step:* calcular la probabilidad posterior de que cada
+          individuo pertenezca a cada clase, dados los parámetros actuales.
+
+        + *M-step:* actualizar $pi_c$ y $rho_(c,j,r)$ maximizando
+          la verosimilitud esperada.
+
+        + *Repetir* hasta convergencia.
+      ]
+      #v(8pt)
+      #text(fill: gry, size: 12pt)[
+        Se ejecuta con múltiples inicializaciones para evitar
+        mínimos locales.
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Elección del número de clases")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    [
+      #text(fill: gry, size: 13pt)[
+        No hay un equivalente al método del codo. En LCA se comparan
+        modelos con distinto número de clases $C$ usando criterios de
+        *información*, que penalizan la complejidad:
+      ]
+      #v(8pt)
+      #styled-table(
+        columns: (auto, 1fr, auto),
+        th[Criterio], th[Descripción], th[Preferir],
+        td[*AIC*], tdg[Akaike Information Criterion], tdg[Valor menor],
+        td[*BIC*], tdg[Bayesian Information Criterion — penaliza más], tdg[Valor menor],
+        td[*LRT*], tdg[Likelihood Ratio Test entre $C$ y $C-1$ clases], tdg[p > 0.05],
+      )
+      #v(8pt)
+      #text(fill: gry, size: 12pt)[
+        En la práctica se elige el modelo con *BIC mínimo* que además
+        produzca clases interpretables y de tamaño razonable.
+      ]
+    ],
+    [
+      #ssstitle[Código en Python]
+      #v(6pt)
+      #block(
+        width: 100%, fill: rgb("#f0fdf4"),
+        stroke: 0.5pt + cm3, inset: (x: 12pt, y: 10pt), radius: 4pt,
+        text(size: 11pt)[
+          ```python
+          from sklearn.mixture import GaussianMixture
+
+          bic_scores = []
+          for n in range(2, 7):
+              model = GaussianMixture(
+                n_components=n,
+                random_state=42
+              )
+              model.fit(X)
+              bic_scores.append(model.bic(X))
+
+          best_C = range(2, 7)[bic_scores.index(min(bic_scores))]
+          ```
+        ]
+      )
+      #v(6pt)
+      #text(fill: gry, size: 12pt)[
+        `GaussianMixture` de sklearn implementa el algoritmo EM y expone
+        el mismo criterio BIC. Para datos binarios o codificados es una
+        aproximación práctica al LCA clásico.
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Interpretación de resultados")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    [
+      #ssstitle[Perfil de clases]
+      #v(6pt)
+      #text(fill: gry, size: 13pt)[
+        El resultado central es la tabla de *probabilidades de respuesta*
+        por clase: para cada variable y cada clase, la probabilidad de
+        cada categoría.
+        #v(6pt)
+        Un perfil con valores extremos (cercanos a 0 o 1) es más
+        interpretable — la clase tiene un patrón de respuesta claro.
+      ]
+      #v(8pt)
+      #styled-table(
+        columns: (auto, 1fr, 1fr, 1fr),
+        th[Variable], th[Clase 1], th[Clase 2], th[Clase 3],
+        td[Ítem A — Sí], tdg[0.92], tdg[0.45], tdg[0.08],
+        td[Ítem B — Sí], tdg[0.88], tdg[0.40], tdg[0.11],
+        td[Ítem C — Sí], tdg[0.10], tdg[0.85], tdg[0.15],
+        td[*Prevalencia*], tdg[35%], tdg[40%], tdg[25%],
+      )
+    ],
+    [
+      #ssstitle[Probabilidades de pertenencia]
+      #v(6pt)
+      #text(fill: gry, size: 13pt)[
+        Cada individuo recibe una *probabilidad posterior* para cada clase.
+        Se puede hacer asignación *dura* (clase con mayor probabilidad)
+        o trabajar con la distribución completa.
+      ]
+      #v(8pt)
+      #block(
+        width: 100%, fill: rgb("#f0fdf4"),
+        stroke: 0.5pt + cm3, inset: (x: 12pt, y: 10pt), radius: 4pt,
+        text(size: 11pt)[
+          ```python
+          # Probabilidades de pertenencia
+          probs = model.predict_proba(X)
+
+          # Asignación dura
+          labels = model.predict(X)
+          ```
+        ]
+      )
+      #v(8pt)
+      #text(fill: gry, size: 12pt)[
+        Un modelo con *entropía baja* (promedio sobre todos los individuos)
+        indica que la mayoría tiene pertenencia clara a una sola clase
+        → las clases están bien separadas.
+        Entropía alta señala individuos ambiguos, difíciles de asignar.
+      ]
+    ],
+  )
+]
+
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Ejemplo con datos sintéticos — código")
+#slide[
+  #text(fill: gry, size: 12pt)[
+    Se generan 300 individuos con 4 ítems binarios (0/1) provenientes
+    de 3 clases latentes con perfiles de respuesta distintos.
+    Se ajusta `GaussianMixture` y se obtienen las probabilidades de pertenencia.
+  ]
+  #v(8pt)
+  #block(
+    width: 88%, fill: rgb("#f0fdf4"),
+    stroke: 0.5pt + cm3, inset: (x: 12pt, y: 10pt), radius: 4pt,
+    text(size: 11pt)[
+      ```python
+      import numpy as np
+      from sklearn.mixture import GaussianMixture
+
+      rng = np.random.default_rng(42)
+
+      # Perfiles de respuesta por clase (prob. de responder 1)
+      perfiles = np.array([
+          [0.9, 0.8, 0.1, 0.2],  # clase 0
+          [0.1, 0.2, 0.9, 0.8],  # clase 1
+          [0.5, 0.5, 0.5, 0.5],  # clase 2
+      ])
+      clases_reales = rng.choice(3, size=300, p=[0.4, 0.4, 0.2])
+      X = rng.binomial(1, perfiles[clases_reales]).astype(float)
+
+      model = GaussianMixture(n_components=3, random_state=42)
+      model.fit(X)
+      probs = model.predict_proba(X)
+      labels = model.predict(X)
+      ```
+    ]
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Clustering", sub: "Clases Latentes")
+#sstitle("Ejemplo con datos sintéticos — resultado")
+#slide[
+  #align(center)[
+    #figure(image("images/lca_example.png", width: 90%))
+  ]
+  #v(4pt)
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    text(fill: gry, size: 12pt)[
+      *Izquierda:* mapa de calor de probabilidades de pertenencia ordenado
+      por clase asignada. Las bandas bien definidas indican *entropía baja*:
+      cada individuo tiene probabilidad alta en una sola clase.
+    ],
+    text(fill: gry, size: 12pt)[
+      *Derecha:* dispersión de ítems A y B coloreada por clase asignada.
+      La clase 2 (perfil uniforme $p=0.5$) se superpone con las demás,
+      reflejando mayor ambigüedad en su separación.
     ],
   )
 ]
