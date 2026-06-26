@@ -472,7 +472,7 @@
 
       #v(6pt)
       *Variable objetivo:* `Sex` — sexo del estudiante, codificado como :
-      
+
       - *0* = Male
       - *1* = Female.
 
@@ -867,30 +867,83 @@
     gutter: 16pt,
     [
       #text(size: 13pt)[
-        La curva *ROC* resume el desempeño del clasificador a
-        *todos los umbrales posibles*, graficando FPR vs TPR.
+        La curva *ROC* (Receiver Operating Characteristic) grafica *TPR vs FPR*
+        al variar el umbral de decisión $tau$ de 1 a 0.
+      ]
+      #v(6pt)
+      #block(stroke: 1.5pt + cm2, inset: 8pt, radius: 4pt, width: 100%)[
+        #text(size: 12pt, fill: cm2, weight: "bold")[Ejes]
+        #v(3pt)
+        #text(fill: gry, size: 11pt)[
+          - *Eje X — FPR* $= (F P)/(F P + T N)$: fracción de negativos
+            clasificados incorrectamente como positivos. \
+            _(1 − Especificidad)_
+          - *Eje Y — TPR* $= (T P)/(T P + F N)$: fracción de positivos
+            detectados correctamente. \
+            _(Sensibilidad / Recall)_
+        ]
       ]
       #v(4pt)
-      #text(fill: gry, size: 12pt)[
-        *Procedimiento:*
-        + Ordenar las predicciones de mayor a menor probabilidad.
-        + Para cada umbral calcular TPR $= T P/(T P + F N)$ y FPR $= F P/(F P + T N)$.
-        + Graficar FPR (eje X) vs TPR (eje Y).
+      #text(fill: gry, size: 11pt)[
+        Cada punto de la curva corresponde a un umbral $tau$ distinto.
+        Al bajar $tau$ se clasifican más observaciones como positivas:
+        *sube TPR pero también sube FPR*.
       ]
-      #v(5pt)
-      #styled-table(
-        columns: (auto, auto, auto, auto),
-        th[Pred], th[Etiq.], th[TPR],  th[FPR],
-        tdg[0.9], td[TRUE],  tdg[0.25], tdg[0.00],
-        tdg[0.8], td[FALSE], tdg[0.25], tdg[0.25],
-        tdg[0.7], td[TRUE],  tdg[0.50], tdg[0.25],
-        tdg[0.6], td[FALSE], tdg[0.50], tdg[0.50],
-        tdg[0.5], td[TRUE],  tdg[0.75], tdg[0.50],
-        tdg[0.4], td[TRUE],  tdg[1.00], tdg[0.50],
-      )
     ],
     align(center + horizon)[
       #figure(image("images/cell_15.png", height: 210pt))
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Curva ROC y AUC")
+#sstitle("Construcción paso a paso — ejemplo")
+#slide[
+  #grid(
+    columns: (1.05fr, 1fr),
+    gutter: 16pt,
+    [
+      #text(fill: gry, size: 11pt)[
+        8 observaciones: 4 positivas (P) y 4 negativas (N).
+        Ordenadas de mayor a menor probabilidad predicha:
+      ]
+      #v(4pt)
+      #styled-table(
+        columns: (auto, auto, auto, auto, auto),
+        th[$tau$ baja hasta…], th[$hat(p)$], th[Etiq.], th[TPR], th[FPR],
+        td[inicio],  tdg[—],   tdg[—],   tdg[0/4 = 0.00], tdg[0/4 = 0.00],
+        td[0.90],    tdg[0.90], td[*P*],  tdg[1/4 = 0.25], tdg[0/4 = 0.00],
+        td[0.80],    tdg[0.80], td[N],    tdg[1/4 = 0.25], tdg[1/4 = 0.25],
+        td[0.70],    tdg[0.70], td[*P*],  tdg[2/4 = 0.50], tdg[1/4 = 0.25],
+        td[0.60],    tdg[0.60], td[N],    tdg[2/4 = 0.50], tdg[2/4 = 0.50],
+        td[0.50],    tdg[0.50], td[*P*],  tdg[3/4 = 0.75], tdg[2/4 = 0.50],
+        td[0.40],    tdg[0.40], td[*P*],  tdg[4/4 = 1.00], tdg[2/4 = 0.50],
+        td[0.30],    tdg[0.30], td[N],    tdg[4/4 = 1.00], tdg[3/4 = 0.75],
+        td[0.20],    tdg[0.20], td[N],    tdg[4/4 = 1.00], tdg[4/4 = 1.00],
+      )
+    ],
+    [
+      #text(size: 12pt, fill: cm2, weight: "bold")[Procedimiento]
+      #v(4pt)
+      #text(fill: gry, size: 11pt)[
+        + Ordenar observaciones de *mayor a menor* $hat(p)$.
+        + Partir del origen $(0, 0)$: umbral = 1, nadie clasificado positivo.
+        + Bajar $tau$ una observación a la vez:
+          - Si la observación es *positiva* → moverse *arriba* (↑ TPR).
+          - Si la observación es *negativa* → moverse *a la derecha* (↑ FPR).
+        + Conectar los puntos. El área bajo la curva resultante es el *AUC*.
+      ]
+      #v(6pt)
+      #block(stroke: 1.5pt + cm3, inset: 8pt, radius: 4pt, width: 100%)[
+        #text(size: 11pt)[
+          *Punto final siempre en* $(1, 1)$: con $tau = 0$ todo es positivo,
+          TPR = 1 y FPR = 1. \
+          *Diagonal* = clasificador aleatorio (AUC = 0.5). \
+          *Esquina superior izquierda* $(0, 1)$ = clasificador perfecto.
+        ]
+      ]
     ],
   )
 ]
@@ -970,55 +1023,55 @@
   )
 ]
 
-#pagebreak()
-#counter-display
-#stitle("Unidad II", sub: "Curva ROC y AUC")
-#sstitle("Calibración del modelo")
-#slide[
-  #grid(
-    columns: (1fr, 1fr),
-    gutter: 14pt,
-    [
-      #text(size: 13pt)[
-        Un modelo puede tener buen AUC pero *probabilidades mal calibradas*:
-        predice $hat(p) = 0.9$ cuando la probabilidad real es $0.6$.
-      ]
-      #v(3pt)
-      #ssstitle[¿Qué es la calibración?]
-      #v(2pt)
-      #text(fill: gry, size: 12pt)[
-        Un modelo está bien calibrado si, entre las observaciones a
-        las que asigna probabilidad $hat(p) = q$, aproximadamente una
-        fracción $q$ son realmente positivas.
-      ]
-      #v(3pt)
-      #ssstitle[Curva de calibración (reliability diagram)]
-      #v(2pt)
-      #text(fill: gry, size: 12pt)[
-        Grafica $hat(p)$ promedio (eje X) vs fracción de positivos observados
-        (eje Y). Calibración perfecta cae sobre la diagonal.
-      ]
-    ],
-    [
-      #block(stroke: 2pt + cm1, inset: 8pt, radius: 5pt, width: 100%)[
-        #text(size: 13pt, fill: cm2, weight: "bold")[Discriminación ≠ Calibración]
-        #v(3pt)
-        #text(fill: gry, size: 12pt)[
-          - *Discriminación* (AUC): ¿el modelo distingue positivos de negativos?
-          - *Calibración*: ¿las probabilidades son numéricamente correctas?
-          #v(3pt)
-          Ambas son necesarias. En medicina, la calibración es crítica
-          porque las probabilidades se usan para decisiones clínicas,
-          no solo para ordenar pacientes.
-          #v(3pt)
-          *Prueba de Hosmer-Lemeshow:* test formal de calibración.
-          Divide observaciones en deciles de riesgo predicho y compara
-          con la frecuencia observada mediante $chi^2$.
-        ]
-      ]
-    ],
-  )
-]
+// #pagebreak()
+// #counter-display
+// #stitle("Unidad II", sub: "Curva ROC y AUC")
+// #sstitle("Calibración del modelo")
+// #slide[
+//   #grid(
+//     columns: (1fr, 1fr),
+//     gutter: 14pt,
+//     [
+//       #text(size: 13pt)[
+//         Un modelo puede tener buen AUC pero *probabilidades mal calibradas*:
+//         predice $hat(p) = 0.9$ cuando la probabilidad real es $0.6$.
+//       ]
+//       #v(3pt)
+//       #ssstitle[¿Qué es la calibración?]
+//       #v(2pt)
+//       #text(fill: gry, size: 12pt)[
+//         Un modelo está bien calibrado si, entre las observaciones a
+//         las que asigna probabilidad $hat(p) = q$, aproximadamente una
+//         fracción $q$ son realmente positivas.
+//       ]
+//       #v(3pt)
+//       #ssstitle[Curva de calibración (reliability diagram)]
+//       #v(2pt)
+//       #text(fill: gry, size: 12pt)[
+//         Grafica $hat(p)$ promedio (eje X) vs fracción de positivos observados
+//         (eje Y). Calibración perfecta cae sobre la diagonal.
+//       ]
+//     ],
+//     [
+//       #block(stroke: 2pt + cm1, inset: 8pt, radius: 5pt, width: 100%)[
+//         #text(size: 13pt, fill: cm2, weight: "bold")[Discriminación ≠ Calibración]
+//         #v(3pt)
+//         #text(fill: gry, size: 12pt)[
+//           - *Discriminación* (AUC): ¿el modelo distingue positivos de negativos?
+//           - *Calibración*: ¿las probabilidades son numéricamente correctas?
+//           #v(3pt)
+//           Ambas son necesarias. En medicina, la calibración es crítica
+//           porque las probabilidades se usan para decisiones clínicas,
+//           no solo para ordenar pacientes.
+//           #v(3pt)
+//           *Prueba de Hosmer-Lemeshow:* test formal de calibración.
+//           Divide observaciones en deciles de riesgo predicho y compara
+//           con la frecuencia observada mediante $chi^2$.
+//         ]
+//       ]
+//     ],
+//   )
+// ]
 
 // ════════════════════════════════════════════════════════════════════════════
 // 8. COMPARACIÓN DE MÉTRICAS

@@ -157,6 +157,7 @@
   + Random Forest
   + Importancia de variables
   + Árbol CHAID
+  + Métodos modernos — Gradient Boosting, XGBoost, LightGBM, CatBoost
 ]
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -169,13 +170,14 @@
 #stitle("Unidad III", sub: "Árboles de decisión")
 #sstitle("Concepto")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.5fr), gutter: 20pt,
     [
-      Un *árbol de decisión* divide el espacio n-dimensional de las variables
-      en regiones, asignando una categoría a cada región.
-
-      #v(10pt)
-      #text(fill: gry, size: 14pt)[
+      #text(size:12pt)[
+        Un *árbol de decisión* divide el espacio n-dimensional de las variables
+        en regiones, asignando una categoría a cada región.
+      ]
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         - Cada división parte el espacio en *dos subregiones*.
         - La división se da por el valor de *una única variable*.
         - Cada subregión puede volver a subdividirse.
@@ -183,8 +185,8 @@
           que se asignan a una categoría.
       ]
 
-      #v(10pt)
-      #text(fill: gry, size: 14pt)[
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         Durante el entrenamiento se eligen las *variables* y los
         *valores de corte* de cada división que maximizan la
         reducción de impureza.
@@ -203,7 +205,7 @@
 #stitle("Unidad III", sub: "Árboles de decisión")
 #sstitle("Divisiones sucesivas")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.5fr), gutter: 20pt,
     [
       #text(fill: gry, size: 14pt)[
         Cada corte divide el espacio en dos regiones. Las divisiones
@@ -362,19 +364,19 @@
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 11pt)[
         `plot_tree` muestra la estructura completa del árbol:
         cada nodo indica la *variable de corte*, el *umbral*,
         el *Gini* y el *número de muestras*.
-        #v(8pt)
         Los nodos hoja muestran la distribución de clases y
         el valor de la predicción.
       ]
-      #v(10pt)
+    ],
+    [
       #block(
         width: 100%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 8pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 10pt)[
           ```python
           from sklearn.tree import plot_tree
 
@@ -384,12 +386,10 @@
         ]
       )
     ],
-    [
-      #align(center + horizon)[
-        #figure(image("images/cell_11.png", height: 270pt))
-      ]
-    ],
   )
+  #align(center + horizon)[
+    #figure(image("images/cell_11.png", height: 240pt))
+  ]
 ]
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -402,21 +402,21 @@
 #stitle("Unidad III", sub: "Iris")
 #sstitle("Árbol ajustado sobre Iris")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.6fr), gutter: 20pt,
     [
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Se divide el dataset Iris en entrenamiento y test con `train_test_split`,
         se ajusta un `DecisionTreeClassifier` y se visualiza el árbol resultante.
-        #v(8pt)
+        #v(0pt)
         Las variables más importantes quedan en los nodos superiores del árbol.
         El árbol sin poda tiende a sobreajustar al crecer hasta clasificar
         perfectamente el conjunto de entrenamiento.
       ]
-      #v(10pt)
+      #v(0pt)
       #block(
         width: 100%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 8pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 10pt)[
           ```python
           from sklearn.tree import DecisionTreeClassifier
           from sklearn.model_selection import train_test_split
@@ -521,17 +521,18 @@
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
-      La *post-poda* deja crecer el árbol completamente y luego
-      *elimina ramas* que no aportan suficiente reducción de error.
-
-      #v(10pt)
+      #text(size:12pt)[
+        La *post-poda* deja crecer el árbol completamente y luego
+        *elimina ramas* que no aportan suficiente reducción de error.
+      ]
+      #v(0pt)
       #text(fill: gry, size: 14pt)[
         El criterio de poda penaliza la complejidad del árbol:
       ]
 
       $ R_alpha (T) = R(T) + alpha dot |T| $
 
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         donde $R(T)$ es el error del árbol, $|T|$ el número de hojas y
         $alpha >= 0$ controla el equilibrio entre *ajuste y simplicidad*.
         #v(6pt)
@@ -547,7 +548,7 @@
       #block(
         width: 100%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 10pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 11pt)[
           ```python
           from sklearn.tree import DecisionTreeClassifier
           from sklearn.model_selection import cross_val_score
@@ -591,7 +592,7 @@
     block(stroke: 2pt + cm3, inset: 16pt, radius: 5pt)[
       #ssstitle[Bootstrap sampling]
       #v(6pt)
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Cada árbol se entrena con una muestra del dataset tomada
         *con reemplazo*.
         #v(4pt)
@@ -605,7 +606,7 @@
     block(stroke: 2pt + cm1, inset: 16pt, radius: 5pt)[
       #ssstitle[Random feature selection]
       #v(6pt)
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         En cada partición de cada árbol, *no se consideran todas las variables*,
         sino un subconjunto aleatorio de tamaño `max_features`.
         #v(4pt)
@@ -633,14 +634,13 @@
         td[*Clasificación*], tdg[Votación mayoritaria entre todos los árboles],
         td[*Regresión*],    tdg[Promedio de las predicciones de cada árbol],
       )
-
-      #v(12pt)
+      #v(10pt)
       #ssstitle[Código en Python]
-      #v(6pt)
+      #v(0pt)
       #block(
         width: 100%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 8pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 11pt)[
           ```python
           from sklearn.ensemble import RandomForestClassifier
           from sklearn.model_selection import cross_val_score
@@ -690,8 +690,7 @@
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     block(stroke: 2pt + cm3, inset: 16pt, radius: 5pt)[
       #ssstitle[Gini Importance]
-      #v(6pt)
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Es la *reducción promedio de impureza* que produce cada variable
         a lo largo de todos los árboles del bosque.
         #v(6pt)
@@ -712,11 +711,10 @@
     ],
     block(stroke: 2pt + cm1, inset: 16pt, radius: 5pt)[
       #ssstitle[Permutation Importance (recomendada)]
-      #v(6pt)
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Mide cuánto *empeora la predicción* cuando se permuta una columna
         (rompiendo su relación con el target).
-        #v(6pt)
+        #v(0pt)
         - Más *confiable y menos sesgada*.
         - Requiere más cómputo: evalúa el modelo varias veces.
         - Funciona con cualquier modelo, no solo árboles.
@@ -792,7 +790,7 @@
       *CHAID* decide las divisiones usando *pruebas estadísticas* en lugar de
       medidas de impureza como Gini o entropía.
 
-      #v(10pt)
+      #v(0pt)
       #text(fill: gry, size: 14pt)[
         Su objetivo es encontrar *segmentos* de la población que sean
         estadísticamente diferentes respecto a la variable objetivo.
@@ -801,7 +799,7 @@
         *dos o más ramas*, no necesariamente dos.
       ]
 
-      #v(10pt)
+      #v(0pt)
       #styled-table(
         columns: (auto, 1fr),
         th[Tipo de variable objetivo], th[Prueba estadística],
@@ -844,10 +842,9 @@
     th[Aspecto], th[CART (Gini / Entropía)], th[CHAID],
     td[*Tipo de split*],        tdg[Siempre binario],                     tdg[Binario o multi-vía],
     td[*Criterio de división*], tdg[Reducción de impureza],               tdg[Significancia estadística (p-valor)],
-    td[*Variables*],            tdg[Numéricas y categóricas],              tdg[Principalmente categóricas],
+    td[*Variables*],            tdg[Numéricas y categóricas],              tdg[Categóricas],
     td[*Fusión de categorías*], tdg[No],                                  tdg[Sí — fusiona categorías similares],
     td[*Poda*],                 tdg[Post-poda (cost-complexity pruning)],  tdg[Poda implícita vía umbral de p-valor],
-    td[*Interpretación*],       tdg[Visual; nodos siempre binarios],       tdg[Segmentación de mercado; múltiples ramas],
   )
   #v(10pt)
   #text(fill: gry, size: 13pt)[
@@ -856,6 +853,90 @@
   ]
 ]
 
+// ════════════════════════════════════════════════════════════════════════════
+// SECCIÓN 9 — MÉTODOS MODERNOS
+// ════════════════════════════════════════════════════════════════════════════
+#section-divider("9", "Métodos modernos", subtitle: "Gradient Boosting · XGBoost · LightGBM · CatBoost")
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "Métodos modernos")
+#sstitle("Más allá del Random Forest")
+#slide[
+  #set text(size: 12pt)
+  #grid(columns: (1fr, 1fr), gutter: 16pt,
+    [
+      #block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
+        #ssstitle[Gradient Boosting (sklearn / XGBoost)]
+        #v(4pt)
+        #text(fill: gry, size: 12pt)[
+          En lugar de entrenar árboles en paralelo (*bagging*), los
+          construye *en secuencia*: cada árbol corrige los errores del anterior.
+          #v(4pt)
+          - *`GradientBoostingClassifier`* de sklearn: implementación de referencia.
+          - *XGBoost*: añade regularización L1/L2, manejo nativo de valores
+            faltantes y soporte GPU. Dominó competencias Kaggle durante años.
+          - Hiperparámetros clave: `n_estimators`, `learning_rate`, `max_depth`,
+            `subsample`.
+        ]
+      ]
+    ],
+    [
+      #block(stroke: 2pt + grn, inset: 14pt, radius: 5pt)[
+        #ssstitle[CatBoost]
+        #v(4pt)
+        #text(fill: gry, size: 12pt)[
+          Desarrollado por Yandex. Especializado en variables *categóricas de alta
+          cardinalidad* sin necesidad de encoding previo.
+          #v(4pt)
+          - Usa *ordered boosting* para reducir el sesgo de predicción.
+          - Resultados competitivos con mínima configuración.
+          - Muy usado en datos tabulares con muchas categorías.
+        ]
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "Métodos modernos")
+#sstitle("Más allá del Random Forest")
+#slide[
+  #set text(size: 12pt)
+  #grid(columns: (1fr, 1fr), gutter: 16pt,
+    [
+      #block(stroke: 2pt + cm1, inset: 14pt, radius: 5pt)[
+        #ssstitle[LightGBM]
+        #v(4pt)
+        #text(fill: gry, size: 12pt)[
+          Desarrollado por Microsoft. Crece los árboles *leaf-wise* en vez de
+          level-wise, lo que permite mayor precisión con menos iteraciones.
+          #v(4pt)
+          - Muy rápido en datasets grandes (millones de filas).
+          - Soporta variables categóricas de forma nativa.
+          - Consume menos memoria que XGBoost para datasets anchos.
+        ]
+      ]
+    ],
+    [
+      #block(stroke: 2pt + cm2, inset: 14pt, radius: 5pt)[
+        #ssstitle[¿Cuándo usar cada uno?]
+        #v(4pt)
+        #scale(80%, reflow:true)[
+          #styled-table(
+            columns: (1fr, 1fr),
+            th[Situación], th[Recomendación],
+            td[Dataset pequeño / interpretabilidad], tdg[Árbol único o Random Forest],
+            td[Rendimiento máximo — datos numéricos], tdg[XGBoost / LightGBM],
+            td[Datos con muchas variables categóricas], tdg[CatBoost],
+            td[Dataset muy grande (>10M filas)], tdg[LightGBM],
+          )
+        ]
+      ]
+    ],
+  )
+]
 // ════════════════════════════════════════════════════════════════════════════
 // CIERRE
 // ════════════════════════════════════════════════════════════════════════════

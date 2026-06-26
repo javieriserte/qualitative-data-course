@@ -246,35 +246,34 @@
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
-      #text(size: 15pt)[
+      #text(size: 12pt)[
         El proceso *bottom-up* es iterativo:
       ]
-      #v(8pt)
+      #v(0pt)
       #set enum(numbering: "1.")
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 10pt)[
         + Cada punto comienza en su *propio cluster*.
         + Se identifican los *dos clusters más cercanos* y se fusionan.
         + Se repite hasta formar *un único cluster*.
       ]
-      #v(10pt)
-      #text(fill: gry, size: 14pt)[
+    ],
+    [
+      #text(fill: gry, size: 10pt)[
         El dendrograma crece *desde abajo hacia arriba*. \
         El *umbral de corte* (distancia) determina cuántos clusters
         se obtienen al final.
       ]
-    ],
-    [
-      #ssstitle[Ejemplo — iris dataset]
-      #v(6pt)
-      #text(fill: gry, size: 13pt)[
-        Dendrograma con método de Ward, umbral = 60:
-      ]
-      #v(4pt)
-      #align(center)[
-        #figure(image("images/cell_07.png", height: 200pt))
-      ]
-    ],
+    ]
   )
+  #ssstitle[Ejemplo — iris dataset]
+  #v(0pt)
+  #text(fill: gry, size: 10pt)[
+    Dendrograma con método de Ward, umbral = 60:
+  ]
+  #v(0pt)
+  #align(center)[
+    #figure(image("images/cell_07.png", height: 150pt))
+  ]
 ]
 
 #pagebreak()
@@ -282,14 +281,14 @@
 #stitle("Clustering", sub: "Jerárquico")
 #sstitle("Resultado sobre Iris")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.8fr), gutter: 20pt,
     [
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Los *marcadores* indican la especie real; el *color* el cluster asignado.
-        #v(6pt)
+        #v(0pt)
         Con umbral = 60 y método Ward se obtienen *3 clusters*, que
         corresponden aproximadamente a las tres especies del dataset.
-        #v(6pt)
+        #v(0pt)
         *setosa* queda perfectamente separada. \
         *versicolor* y *virginica* muestran cierta superposición en el
         espacio de características.
@@ -313,10 +312,12 @@
 #stitle("Clustering", sub: "Linkage")
 #sstitle("Estrategias de enlace")
 #slide[
-  Para decidir qué clusters unir hay que definir la *distancia entre clusters*,
-  no solo entre puntos.
+  #text(size:12pt)[
+    Para decidir qué clusters unir hay que definir la *distancia entre clusters*,
+    no solo entre puntos.
+  ]
 
-  #v(10pt)
+  #scale(80%, reflow:true)[
   #styled-table(
     columns: (auto, 1fr, 1fr),
     th[Método], th[Definición], th[Característica],
@@ -333,6 +334,7 @@
     tdg[Minimiza el aumento en *varianza interna* al unir],
     tdg[Clusters esféricos y bien definidos. El más utilizado],
   )
+  ]
 ]
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -391,40 +393,46 @@
 #stitle("Clustering", sub: "K-means")
 #sstitle("Algoritmo — pasos")
 #slide[
-  #set enum(numbering: "1.")
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.5fr), gutter: 20pt,
     [
-      #text(size: 15pt)[*1. Inicializar*]
-      #v(2pt)
-      #text(fill: gry, size: 14pt)[Elegir *K centroides iniciales* (aleatorios o K-means++).]
+      #text(size: 11pt)[*1. Inicializar*]
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[Elegir *K centroides iniciales* (aleatorios o K-means++).]
 
-      #v(10pt)
-      #text(size: 15pt)[*2. Asignación*]
-      #v(2pt)
-      #text(fill: gry, size: 14pt)[Cada punto se asigna al centroide *más cercano*:]
+      #v(0pt)
+      #text(size: 11pt)[*2. Asignación*]
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[Cada punto se asigna al centroide *más cercano*:]
 
-      $ "cluster"(x_i) = arg min_k |x_i - mu_k| $
-
-      #v(10pt)
-      #text(size: 15pt)[*3. Actualización*]
-      #v(2pt)
-      #text(fill: gry, size: 14pt)[Recalcular cada centroide como el *promedio* de los puntos asignados:]
-
-      $ mu_k = frac(1, |C_k|) sum_(x_i in C_k) x_i $
-    ],
-    [
-      #text(size: 15pt)[*4. Repetir*]
-      #v(2pt)
-      #text(fill: gry, size: 14pt)[
+      #align(center)[
+        #scale(80%, reflow:true)[
+          $ "cluster"(x_i) = arg min_k |x_i - mu_k| $
+        ]
+      ]
+      #v(0pt)
+      #text(size: 11pt)[*3. Actualización*]
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[Recalcular cada centroide como el *promedio* de los puntos asignados:]
+      #align(center)[
+        #scale(80%, reflow:true)[
+          $ mu_k = frac(1, |C_k|) sum_(x_i in C_k) x_i $
+        ]
+      ]
+      #v(0pt)
+      #text(size: 11pt)[*4. Repetir*]
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[
         Volver a los pasos 2 y 3 hasta que:
         - los centroides ya no cambian, o
         - se alcanza el máximo de iteraciones.
       ]
-      #v(16pt)
+    ],
+    [
+      #v(1pt)
       #ssstitle[Resultado sobre Iris]
-      #v(6pt)
+      #v(0pt)
       #align(center)[
-        #figure(image("images/cell_13.png", height: 200pt))
+        #figure(image("images/cell_13.png", height: 270pt))
       ]
     ],
   )
@@ -440,22 +448,22 @@
 #stitle("Clustering", sub: "Elección de K")
 #sstitle("Método del codo (Elbow Method)")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.6fr), gutter: 20pt,
     [
-      Uno de los métodos más usados para elegir el valor óptimo de *K*:
-
-      #v(10pt)
-      #set enum(numbering: "1.")
-      #text(fill: gry, size: 14pt)[
+      #text(size:12pt)[
+        Uno de los métodos más usados para elegir el valor óptimo de *K*:
+      ]
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[
         + Entrenar K-means para varios valores de $K$.
         + Calcular el *WCSS* (Within-Cluster Sum of Squares), también llamado *inertia*.
         + Graficar $K$ vs. WCSS.
         + Buscar el *punto donde la curva cambia de pendiente* abruptamente.
       ]
 
-      #v(10pt)
-      #text(fill: gry, size: 13pt)[
-        El "codo" señala el valor de $K$ a partir del cual agregar más
+      #v(0pt)
+      #text(fill: gry, size: 10pt)[
+        El *codo* señala el valor de $K$ a partir del cual agregar más
         clusters ya no reduce significativamente la varianza interna.
       ]
 
@@ -463,11 +471,13 @@
       #block(
         width: 88%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 8pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 11pt)[
           ```python
           wcss = []
           for k in range(1, 11):
-              km = KMeans(n_clusters=k, random_state=42)
+              km = KMeans(
+                n_clusters=k,
+                random_state=42)
               km.fit(data)
               wcss.append(km.inertia_)
           ```
@@ -494,20 +504,22 @@
 #slide[
   #grid(columns: (1fr, 1fr), gutter: 20pt,
     [
-      *DBSCAN* (*Density-Based Spatial Clustering of Applications with Noise*)
-      identifica clusters como *regiones densas* separadas por zonas de baja densidad.
+      #text(size:12pt)[
+        *DBSCAN* (*Density-Based Spatial Clustering of Applications with Noise*)
+        identifica clusters como *regiones densas* separadas por zonas de baja densidad.
+      ]
 
-      #v(8pt)
+      #v(0pt)
       #ssstitle[Dos parámetros]
-      #v(6pt)
+      #v(0pt)
       #styled-table(
         columns: (auto, 1fr),
         th[Parámetro], th[Descripción],
         td[*ε (epsilon)*], tdg[Radio para considerar si un punto está *cerca* de otro],
         td[*minPts*], tdg[Puntos mínimos en el vecindario de radio ε para considerar densidad],
       )
-      #v(6pt)
-      #text(fill: gry, size: 13pt)[
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         Configuración típica: `minPts = 2 × dimensión + 1`; \
         ε se elige con el *gráfico k-distance*.
       ]
@@ -572,14 +584,13 @@
 #stitle("Clustering", sub: "DBSCAN")
 #sstitle("Resultado sobre Iris")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.7fr), gutter: 20pt,
     [
-      #text(fill: gry, size: 14pt)[
+      #text(fill: gry, size: 12pt)[
         Parámetros usados: `eps=1`, `min_samples=7`.
-        #v(6pt)
+        #v(0pt)
         Los *marcadores* indican la especie real; el *color* el cluster asignado
-        por DBSCAN. El color gris (etiqueta −1) corresponde a los puntos
-        clasificados como *ruido*.
+        por DBSCAN. Pueden quedar puntos "grises" clasificados como *ruido*.
         #v(6pt)
         DBSCAN logra separar las regiones densas sin necesitar el número
         de clusters como entrada.
@@ -588,7 +599,7 @@
       #block(
         width: 88%, fill: rgb("#f0fdf4"),
         stroke: 0.5pt + cm3, inset: (x: 12pt, y: 8pt), radius: 4pt,
-        text(size: 13pt)[
+        text(size: 11pt)[
           ```python
           from sklearn.cluster import DBSCAN
           dbscan = DBSCAN(eps=1, min_samples=7)
@@ -615,28 +626,27 @@
 #stitle("Clustering", sub: "Elección de ε")
 #sstitle("Gráfico k-distance")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.9fr), gutter: 20pt,
     [
-      #text(size: 15pt)[Se usa el *gráfico k-distance* para elegir ε:]
+      #text(size: 12pt)[Se usa el *gráfico k-distance* para elegir ε:]
 
-      #v(10pt)
-      #set enum(numbering: "1.")
-      #text(fill: gry, size: 14pt)[
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         + Para cada punto, calcular su distancia al *vecino número k = minPts*.
         + *Ordenar* esas distancias de menor a mayor.
         + Buscar el *punto de inflexión* ("codo") donde la curva sube repentinamente.
         + Ese valor es un buen candidato para ε.
       ]
 
-      #v(10pt)
-      #text(fill: gry, size: 13pt)[
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         Un ε demasiado pequeño clasifica muchos puntos como ruido. \
         Un ε demasiado grande fusiona clusters distintos.
       ]
     ],
     [
       #align(center + horizon)[
-        #figure(image("images/cell_19.png", height: 290pt))
+        #figure(image("images/cell_19.png", height: 245pt))
       ]
     ],
   )

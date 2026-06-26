@@ -309,6 +309,139 @@
   ]
 ]
 
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Regresión Lineal Simple")
+#sstitle("Python OLS — datos y ajuste")
+#slide[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 16pt,
+    [
+      #text(size: 12pt)[
+        Modelamos *horas de estudio* ($X$) vs. *nota* ($Y$) con 10 observaciones.
+      ]
+      #block(
+        width: 100%,
+        fill: rgb("#f0fdf4"),
+        stroke: 0.5pt + cm3,
+        inset: (x: 12pt, y: 10pt),
+        radius: 4pt,
+        text(size: 12pt)[
+          ```python
+          import numpy as np
+          import statsmodels.api as sm
+          import matplotlib.pyplot as plt
+
+          # 1. Datos observados
+          x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+          y = np.array([3.1, 4.0, 4.8, 5.5, 6.2, 6.8, 7.9, 8.1, 9.0, 9.7])
+
+          # 2. Columna de unos para el intercepto
+          exog = sm.add_constant(x)
+
+          # 3. Ajustar OLS y ver resumen
+          res = sm.OLS(endog=y, exog=exog).fit()
+          print(res.summary())
+          # const (α̂) ≈ 2.19  p < 0.001
+          # x     (β̂) ≈ 0.76  p < 0.001
+          # R²  = 0.991
+          ```
+        ],
+      )
+    ],
+    align(center + horizon)[
+      #lq.diagram(
+        width: 240pt,
+        height: 200pt,
+        xlabel: lq.label[#text(size: 10pt)[Horas de estudio]],
+        ylabel: lq.label[#text(size: 10pt)[Nota]],
+        xlim: (0, 11),
+        ylim: (2, 11),
+        lq.scatter(
+          (1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+          (3.1, 4.0, 4.8, 5.5, 6.2, 6.8, 7.9, 8.1, 9.0, 9.7),
+          color: cm2,
+          size: 6pt,
+        ),
+        lq.line((1, 2.95), (10, 9.79),
+          stroke: cm3 + 2pt,
+          label: lq.label[#text(size: 9pt)[$hat(Y) = 2.19 + 0.76 X$]]),
+      )
+      #v(4pt)
+      #text(fill: gry, size: 12pt)[
+        Los puntos siguen la recta muy de cerca ($R^2 = 0.991$).
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Regresión Lineal Simple")
+#sstitle("Python OLS — interpretación y diagnóstico")
+#slide[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 16pt,
+    [
+      #block(
+        width: 100%,
+        fill: rgb("#f0fdf4"),
+        stroke: 0.5pt + cm3,
+        inset: (x: 12pt, y: 10pt),
+        radius: 4pt,
+        text(size: 12pt)[
+          ```python
+          # 4. Extraer coeficientes estimados
+          alpha_hat = res.params[0]  # ≈ 2.19
+          beta_hat  = res.params[1]  # ≈ 0.76
+
+          # 5. Predecir nuevos valores
+          x_new = sm.add_constant([4.5, 11.0])
+          y_pred = res.predict(x_new)
+          # → [5.61, 10.55]
+
+          # 6. Diagnóstico: residuos vs. predichos
+          plt.scatter(res.fittedvalues, res.resid, color='blue')
+          plt.axhline(0, color='tomato', linestyle='--')
+          plt.xlabel("Valores predichos")
+          plt.ylabel("Residuos")
+          plt.show()
+
+          # 7. Métricas globales
+          print(f"R²   = {res.rsquared:.3f}")
+          print(f"F    = {res.fvalue:.1f}")
+          print(f"p(F) = {res.f_pvalue:.4f}")
+          ```
+        ],
+      )
+    ],
+    align(center + horizon)[
+      #lq.diagram(
+        width: 240pt,
+        height: 200pt,
+        xlabel: lq.label[#text(size: 10pt)[Valores predichos $hat(Y)$]],
+        ylabel: lq.label[#text(size: 10pt)[Residuos $E_i$]],
+        xlim: (2.5, 10.5),
+        ylim: (-0.7, 0.7),
+        lq.scatter(
+          (2.95, 3.71, 4.47, 5.23, 5.99, 6.75, 7.51, 8.27, 9.03, 9.79),
+          (0.15, 0.29, 0.33, 0.27, 0.21, 0.05, 0.39, -0.17, -0.03, -0.09),
+          color: cm2,
+          size: 6pt,
+        ),
+        lq.hlines(0, stroke: (paint: rgb("#e74c3c"), dash: "dashed", thickness: 1.5pt)),
+      )
+      #v(4pt)
+      #text(fill: gry, size: 12pt)[
+        Nube aleatoria alrededor de cero: supuestos de linealidad
+        y homocedasticidad satisfechos.
+      ]
+    ],
+  )
+]
+
 // ════════════════════════════════════════════════════════════════════════════
 // 2. REGRESIÓN LINEAL MÚLTIPLE
 // ════════════════════════════════════════════════════════════════════════════
@@ -393,28 +526,115 @@
           que ya estaban en el modelo
       ]
     ],
+    align(center + horizon)[
+      #lq.diagram(
+        width: 240pt,
+        height: 195pt,
+        xlabel: lq.label[#text(size: 10pt)[Riego $X_1$]],
+        ylabel: lq.label[#text(size: 10pt)[Rendimiento $Y$]],
+        xlim: (0, 10),
+        ylim: (0, 10),
+        legend: (position: right + bottom),
+        // Grupo A: alta radiación (arriba, puntos cm3)
+        lq.scatter(
+          (5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5),
+          (6.0, 5.8, 6.2, 5.9, 6.4, 6.1, 6.5, 6.3),
+          color: cm3, size: 5pt,
+          label: lq.label[#text(size: 8pt)[Alta radiación]],
+        ),
+        // Grupo B: baja radiación (abajo, puntos cm1)
+        lq.scatter(
+          (1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0),
+          (3.2, 3.0, 3.4, 3.1, 3.5, 3.3, 3.6, 3.4),
+          color: cm1, size: 5pt,
+          label: lq.label[#text(size: 8pt)[Baja radiación]],
+        ),
+        // Recta marginal (ignora grupos): pendiente positiva espuria
+        lq.line((1.5, 2.5), (8.5, 7.0),
+          stroke: rgb("#e74c3c") + 1.5pt,
+          label: lq.label[#text(size: 8pt)[Sin controlar $X_2$]]),
+        // Recta dentro de cada grupo: casi plana (efecto real del riego)
+        lq.line((1.5, 3.1), (5.0, 3.4), stroke: (paint: cm1, thickness: 1pt,  dash: "dashed")),
+        lq.line((5.0, 5.9), (8.5, 6.2), stroke: (paint: cm3, thickness: 1pt, dash: "dashed")),
+      )
+      #v(4pt)
+      #text(fill: gry, size: 11pt)[
+        La recta marginal (roja) sugiere efecto positivo del riego.
+        Dentro de cada grupo de radiación el efecto es casi nulo.
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Regresión Lineal Múltiple")
+#sstitle("Paradoja de Simpson — mecanismo")
+#slide[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 20pt,
     [
-      #ssstitle[Ejemplo — paradoja de Simpson]
+      #text(size: 13pt)[
+        Las parcelas con más riego también reciben más radiación solar.
+        Al ignorar la radiación, el modelo le *atribuye al riego* el mérito
+        de la radiación.
+      ]
       #v(8pt)
-      #text(fill: gry, size: 14pt)[
-        Supongamos que se modela el rendimiento de plantas ($Y$) en función
-        del riego ($X_1$) y la radiación solar ($X_2$).
+      #styled-table(
+        columns: (auto, 1fr, 1fr),
+        th[Modelo],
+        th[$hat(beta)_"riego"$],
+        th[Problema],
+        td[$Y tilde X_1$],
+        tdg[$+0.51$],
+        tdg[Confundido con $X_2$],
+        td[$Y tilde X_1 + X_2$],
+        tdg[$+0.04$],
+        tdg[Efecto real, casi nulo],
+        td[$Y tilde X_2$],
+        tdg[—],
+        tdg[$hat(beta)_"rad." approx 0.82$],
+      )
+      #v(10pt)
+      #block(stroke: 2pt + cm1, inset: 12pt, radius: 5pt)[
+        #text(size: 13pt)[
+          La variable omitida ($X_2$) se llama *confundidor* o
+          *variable de confusión*. Controlarla en el modelo es lo que
+          permite recuperar el efecto causal de $X_1$.
+        ]
+      ]
+    ],
+    [
+      #ssstitle[¿Por qué ocurre?]
+      #v(8pt)
+      #text(fill: gry, size: 13pt)[
+        Se dan simultáneamente tres condiciones:
       ]
       #v(6pt)
       #styled-table(
-        columns: (1fr, 1fr),
-        th[Modelo],
-        th[$hat(beta)_"riego"$],
-        tdg[$Y tilde X_1$ (simple)],
-        tdg[$+0.3$],
-        tdg[$Y tilde X_1 + X_2$ (múltiple)],
-        tdg[$-0.1$],
+        columns: (auto, 1fr),
+        th[Condición],
+        th[En el ejemplo],
+        td[*1.*],
+        tdg[$X_2$ (radiación) afecta a $Y$ (rendimiento)],
+        td[*2.*],
+        tdg[$X_1$ (riego) y $X_2$ están correlacionados],
+        td[*3.*],
+        tdg[$X_2$ fue omitida del modelo simple],
       )
-      #v(8pt)
+      #v(10pt)
       #text(fill: gry, size: 13pt)[
-        Si riego y radiación están correlacionados, ignorar $X_2$ puede
-        producir un coeficiente de $X_1$ con signo incorrecto.
-        La regresión múltiple *desconfunde* el efecto de cada variable.
+        La paradoja no es un fallo aritmético: es una consecuencia de
+        *mezclar grupos heterogéneos* sin controlar por la variable que
+        los hace diferentes.
+      ]
+      #v(0pt)
+      #block(stroke: 1.5pt + cm3, inset: 10pt, radius: 4pt)[
+        #text(size: 11pt)[
+          Regresión múltiple *no elimina* la confusión automáticamente
+          — solo si el confundidor está *incluido* en el modelo.
+        ]
       ]
     ],
   )
@@ -430,7 +650,7 @@
     gutter: 20pt,
     [
       #text(size: 14pt)[
-        La regresión simple tiene 4 supuestos. La regresión múltiple agrega uno:
+        La regresión simple tiene 5 supuestos. La regresión múltiple agrega uno:
       ]
 
       #v(1pt)
@@ -564,20 +784,20 @@
       // Indicadores verticales
       lq.line((4.7, 8), (4.7, 14), stroke: cm1 + 2.5pt), // SS_tot
       lq.line((5.0, 8), (5.0, 11), stroke: cm3 + 2.5pt), // SS_reg
-      lq.line((5.3, 11), (5.3, 14), stroke: rgb("#e74c3c") + 2.5pt), // SS_res
+      lq.line((5.7, 11), (5.7, 14), stroke: rgb("#e74c3c") + 2.5pt), // SS_res
 
       // Etiquetas de los segmentos
       lq.place(4.55, 11.0, align: right + horizon)[
         #text(fill: cm1, size: 8pt, weight: "bold")[$S S_"tot"$]],
       lq.place(5.4, 9.3, align: left + horizon)[
         #text(fill: cm3, size: 8pt, weight: "bold")[$S S_"reg"$]],
-      lq.place(5.4, 12.7, align: left + horizon)[
+      lq.place(5.8, 11.7, align: left + horizon)[
         #text(fill: rgb("#e74c3c"), size: 8pt, weight: "bold")[$S S_"res"$]],
 
       // Etiquetas de los puntos clave
       lq.place(5.15, 14.3, align: left + horizon)[
         #text(fill: cm1, size: 7pt)[$Y_i$]],
-      lq.place(5.15, 11.4, align: left + horizon)[
+      lq.place(4.80, 12, align: left + horizon)[
         #text(fill: cm3, size: 7pt)[$hat(Y)_i$]],
       lq.place(0.65, 8.45, align: left + horizon)[
         #text(fill: gry, size: 7pt)[$overline(Y)$]],
@@ -974,6 +1194,163 @@
   )
 ]
 
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Diagnóstico de residuos")
+#sstitle("Qué hacer con puntos de alta distancia de Cook")
+#slide[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 20pt,
+    [
+      #text(size: 13pt)[
+        Antes de actuar, *entender por qué* el punto es influyente:
+      ]
+      #v(6pt)
+      #styled-table(
+        columns: (auto, 1fr),
+        th[Causa],
+        th[Acción recomendada],
+        td[*Error de datos*],
+        tdg[Corregir o eliminar la observación],
+        td[*Caso legítimo atípico*],
+        tdg[Reportarlo; ajustar con y sin él],
+        td[*Estructura no lineal*],
+        tdg[Agregar término cuadrático o transformar X],
+        td[*Variable omitida*],
+        tdg[Incluir el confundidor en el modelo],
+        td[*Grupo diferente*],
+        tdg[Modelar por separado o agregar interacción],
+      )
+      #v(8pt)
+      #block(stroke: 2pt + cm1, inset: 12pt, radius: 5pt)[
+        #text(size: 13pt)[
+          *Nunca* eliminar un punto influyente solo para mejorar el $R^2$.
+          La decisión debe basarse en criterio sustantivo, no estadístico.
+        ]
+      ]
+    ],
+    align(center + horizon)[
+      // Gráfico: recta con y sin punto influyente
+      #lq.diagram(
+        width: 240pt,
+        height: 210pt,
+        xlabel: lq.label[#text(size: 10pt)[X]],
+        ylabel: lq.label[#text(size: 10pt)[Y]],
+        xlim: (0, 12),
+        ylim: (0, 12),
+        legend: (position: left + top),
+        // Puntos normales
+        lq.scatter(
+          (1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5),
+          (1.8, 2.4, 2.9, 3.5, 4.1, 4.6, 5.2, 5.7, 6.3, 6.8),
+          color: cm2, size: 5pt,
+        ),
+        // Punto influyente (esquina superior derecha)
+        lq.scatter((10.5,), (2.0,), color: cm1, size: 9pt,
+          label: lq.label[#text(size: 9pt)[Influyente]]),
+        // Recta sin punto influyente (pendiente ~1.1)
+        lq.line((0.5, 1.0), (6.5, 7.6),
+          stroke: cm3 + 2pt,
+          label: lq.label[#text(size: 9pt)[Sin influyente]]),
+        // Recta con punto influyente (pendiente reducida)
+        lq.line((0.5, 3.2), (10.5, 2.0),
+          stroke: (paint:cm1, thickness:1.5pt,  dash: "dashed"),
+          label: lq.label[#text(size: 9pt)[Con influyente]]),
+      )
+      #v(4pt)
+      #text(fill: gry, size: 11pt)[
+        Un solo punto en el extremo puede torcer la recta
+        y cambiar por completo los coeficientes.
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad II", sub: "Diagnóstico de residuos")
+#sstitle("Identificar puntos influyentes con Python")
+#slide[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 20pt,
+    [
+      #block(
+        width: 100%,
+        fill: rgb("#f0fdf4"),
+        stroke: 0.5pt + cm3,
+        inset: (x: 12pt, y: 10pt),
+        radius: 4pt,
+        text(size: 10pt)[
+          ```python
+          import statsmodels.api as sm
+          import numpy as np
+          import matplotlib.pyplot as plt
+
+          res = sm.OLS(y, sm.add_constant(x)).fit()
+
+          # Distancia de Cook e índices influyentes
+          influence = res.get_influence()
+          cook_d, _ = influence.cooks_distance
+
+          umbral = 4 / len(y)
+          influyentes = np.where(cook_d > umbral)[0]
+          print("Índices influyentes:", influyentes)
+
+          # Gráfico de barras
+          plt.bar(range(len(cook_d)), cook_d, color='steelblue')
+          plt.axhline(umbral, color='red', linestyle='--',
+                      label=f'4/n = {umbral:.3f}')
+          plt.xlabel("Observación")
+          plt.ylabel("Distancia de Cook")
+          plt.legend(); plt.show()
+          ```
+        ],
+      )
+      #v(2pt)
+      #text(fill: gry, size: 10pt)[
+        `get_influence()` también provee leverage ($h_i$)
+      ]
+    ],
+    align(center + horizon)[
+      // Gráfico de barras de distancia de Cook simulado
+      #lq.diagram(
+        width: 240pt,
+        height: 210pt,
+        xlabel: lq.label[#text(size: 10pt)[Observación $i$]],
+        ylabel: lq.label(angle:-90deg)[#text(size: 10pt)[Distancia de Cook $D_i$]],
+        xlim: (-0.5, 11.5),
+        ylim: (0, 0.55),
+        // Barras normales (por debajo del umbral 4/n ≈ 0.17 para n=24)
+        lq.bar(
+          (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11),
+          (0.03, 0.06, 0.02, 0.08, 0.04, 0.07, 0.05, 0.09, 0.03, 0.06, 0.04),
+          fill: cm2,
+          width: 0.6,
+        ),
+        // Barra influyente (observación 10, por encima del umbral)
+        lq.bar(
+          (10,),
+          (0.47,),
+          fill: cm1,
+          width: 0.6,
+          label: lq.label[#text(size: 9pt)[Influyente]],
+        ),
+        // Línea de umbral 4/n
+        lq.hlines(0.17,
+          stroke: (paint: rgb("#e74c3c"), dash: "dashed", thickness: 1.5pt),
+          label: lq.label[#text(size: 9pt)[$4 slash n$]]),
+      )
+      #v(4pt)
+      #text(fill: gry, size: 11pt)[
+        La observación 10 supera el umbral $4/n$:
+        candidata a revisión.
+      ]
+    ],
+  )
+]
+
 // ════════════════════════════════════════════════════════════════════════════
 // 5. SIMULACIÓN
 // ════════════════════════════════════════════════════════════════════════════
@@ -1144,10 +1521,10 @@
 #sstitle("WLS — Mínimos cuadrados ponderados")
 #slide[
   #grid(
-    columns: (1fr, 1fr),
+    columns: (1fr, 1.7fr),
     gutter: 20pt,
     [
-      #text(size: 14pt)[
+      #text(size: 12pt)[
         Cuando hay *heterocedasticidad*, los coeficientes OLS siguen siendo
         *insesgados*, pero los *errores estándar quedan mal estimados*,
         invalidando p-valores e intervalos de confianza.
@@ -1156,18 +1533,18 @@
 
       $ sum_(i=1)^n w_i (Y_i - hat(Y)_i)^2 $
 
-      #text(size: 14pt)[
+      #text(size: 12pt)[
         Si se conoce la varianza de cada punto: $w_i = 1 slash "Var"(E_i)$
       ]
-
-      #text(fill: gry, size: 14pt)[
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
         Si la varianza crece con X (p.e. $"Var"(E_i) prop X_i^2$),
         se usan pesos $w_i = 1 slash X_i^2$.
         Cuando la varianza no se conoce, se estima a partir de los
         residuos de un ajuste OLS preliminar.
       ]
     ],
-    align(center + horizon, figure(image("images/cell_22.png", height: 170pt))),
+    align(center + horizon, figure(image("images/cell_22.png", height: 210pt))),
   )
 ]
 
