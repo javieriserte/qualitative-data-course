@@ -783,51 +783,107 @@
 #pagebreak()
 #counter-display
 #stitle("Unidad III", sub: "CHAID")
-#sstitle("Definición y diferencias")
+#sstitle("¿Qué es CHAID?")
 #slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
+  #grid(columns: (1fr, 1.8fr), gutter: 5pt,
     [
-      *CHAID* decide las divisiones usando *pruebas estadísticas* en lugar de
-      medidas de impureza como Gini o entropía.
-
-      #v(0pt)
-      #text(fill: gry, size: 14pt)[
-        Su objetivo es encontrar *segmentos* de la población que sean
-        estadísticamente diferentes respecto a la variable objetivo.
-        #v(6pt)
-        A diferencia de los árboles CART, una división CHAID puede producir
-        *dos o más ramas*, no necesariamente dos.
+      #text(size: 12pt)[
+        *CHAID* (Chi-square Automatic Interaction Detection) es un método
+        de árbol de decisión que usa *pruebas estadísticas* para decidir
+        cada división, en lugar de medidas de impureza como Gini o entropía.
       ]
-
+      #v(0pt)
+      #text(fill: gry, size: 12pt)[
+        Su objetivo: encontrar *segmentos de la población* que sean
+        estadísticamente distintos respecto a la variable objetivo.
+      ]
       #v(0pt)
       #styled-table(
         columns: (auto, 1fr),
-        th[Tipo de variable objetivo], th[Prueba estadística],
-        td[*Categórica*],  tdg[Chi-cuadrado],
+        th[Variable objetivo], th[Prueba estadística],
+        td[*Categórica*],  tdg[Chi-cuadrado (χ²)],
         td[*Continua*],    tdg[ANOVA / prueba F],
       )
+      #v(0pt)
+      #text(fill: cm1, size: 12pt, weight: "bold")[
+        Diferencia clave:
+      ]
+      #text(fill: gry, size: 12pt)[
+        una división CHAID puede producir
+        *dos o más ramas*
+      ]
     ],
     [
-      #ssstitle[Algoritmo — tres pasos por nodo]
-      #v(6pt)
+      #align(center + horizon)[
+        #figure(image("images/chaid_tree.png", height: 190pt))
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "CHAID")
+#sstitle("Paso clave: fusión de categorías")
+#slide[
+  #text(fill: gry, size: 13pt)[
+    Antes de dividir, CHAID *fusiona las categorías de un predictor* que no
+    muestran diferencias significativas en la variable objetivo.
+    Solo las categorías estadísticamente distintas forman ramas separadas.
+  ]
+  #v(10pt)
+  #align(center)[
+    #figure(image("images/chaid_merge.png", height: 255pt))
+  ]
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "CHAID")
+#sstitle("Algoritmo — tres pasos por nodo")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 24pt,
+    [
       #set enum(numbering: "1.")
       #text(fill: gry, size: 14pt)[
-        + *Agrupar categorías* no significativamente diferentes.
-          CHAID fusiona las categorías con respuestas similares usando
-          chi-cuadrado o ANOVA.
+        + *Fusionar categorías* similares. \
+          Para cada predictor candidato, se fusionan las categorías cuyas
+          distribuciones de respuesta no difieren significativamente
+          (p > umbral, típicamente 0.05).
 
-        + *Elegir la variable* con mayor significancia estadística
-          (p-valor más pequeño) entre todas las candidatas.
+        + *Elegir el mejor predictor*: el que tenga el p-valor más pequeño
+          tras la fusión — es decir, el que más explica la variación
+          en la variable objetivo.
 
-        + *Dividir el nodo* usando esa variable.
-          El número de ramas depende de los grupos estadísticamente
-          distintos formados en el paso 1.
+        + *Dividir el nodo* usando ese predictor.
+          Cada grupo resultante del paso 1 se convierte en una rama.
       ]
-      #v(6pt)
-      #text(fill: gry, size: 13pt)[
-        El proceso se detiene cuando no hay divisiones significativas,
-        se alcanza la profundidad máxima o las particiones son muy pequeñas.
+      #v(8pt)
+      #text(fill: gry, size: 12pt)[
+        El proceso se detiene cuando ningún predictor supera el umbral de
+        significancia, se alcanza la profundidad máxima o las particiones
+        son demasiado pequeñas.
       ]
+    ],
+    [
+      #block(stroke: 2pt + cm1, inset: 14pt, radius: 5pt)[
+        #ssstitle[Ejemplo: variable "Estado civil"]
+        #v(6pt)
+        #text(fill: gry, size: 13pt)[
+          Categorías originales: Soltero, Casado, Divorciado, Viudo, Unión libre.
+          #v(6pt)
+          CHAID evalúa si las tasas de respuesta difieren:
+          - Divorciado ≈ Viudo → *se fusionan*
+          - Unión libre ≈ Soltero → *se fusionan*
+          #v(6pt)
+          Resultado: *3 ramas* en lugar de 5, con mayor potencia estadística
+          en cada grupo al tener más observaciones.
+        ]
+      ]
+      // #v(10pt)
+      // #align(center)[
+      //   #figure(image("images/chaid_vs_cart.png", height: 185pt))
+      // ]
     ],
   )
 ]
@@ -840,16 +896,18 @@
   #styled-table(
     columns: (auto, 1fr, 1fr),
     th[Aspecto], th[CART (Gini / Entropía)], th[CHAID],
-    td[*Tipo de split*],        tdg[Siempre binario],                     tdg[Binario o multi-vía],
-    td[*Criterio de división*], tdg[Reducción de impureza],               tdg[Significancia estadística (p-valor)],
-    td[*Variables*],            tdg[Numéricas y categóricas],              tdg[Categóricas],
-    td[*Fusión de categorías*], tdg[No],                                  tdg[Sí — fusiona categorías similares],
-    td[*Poda*],                 tdg[Post-poda (cost-complexity pruning)],  tdg[Poda implícita vía umbral de p-valor],
+    td[*Tipo de split*],        tdg[Siempre binario (2 ramas)],            tdg[Multi-vía (2 o más ramas)],
+    td[*Criterio de división*], tdg[Reducción de impureza],                tdg[Significancia estadística (p-valor)],
+    td[*Variables*],            tdg[Numéricas y categóricas],              tdg[Principalmente categóricas],
+    td[*Fusión de categorías*], tdg[No — cada categoría es una rama],      tdg[Sí — fusiona categorías similares],
+    td[*Poda*],                 tdg[Post-poda (cost-complexity pruning)],  tdg[Implícita vía umbral de p-valor],
+    td[*Interpretación*],       tdg[Fronteras de decisión geométricas],    tdg[Segmentos estadísticamente válidos],
   )
   #v(10pt)
   #text(fill: gry, size: 13pt)[
-    CHAID es especialmente útil en *análisis de encuestas y segmentación de mercado*
-    donde las variables son categóricas y se busca una interpretación estadística clara.
+    CHAID es especialmente útil en *análisis de encuestas y segmentación de mercado*:
+    las variables son categóricas, los segmentos resultantes tienen respaldo estadístico
+    y el árbol es directamente interpretable por equipos no técnicos.
   ]
 ]
 
