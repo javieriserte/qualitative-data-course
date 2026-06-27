@@ -509,6 +509,76 @@
   )
 ]
 
+
+// ════════════════════════════════════════════════════════════════════════════
+// SECCIÓN 4 — DISTRIBUCIÓN ESTACIONARIA
+// ════════════════════════════════════════════════════════════════════════════
+#section-divider("4", "Distribución estacionaria", subtitle: "Comportamiento a largo plazo")
+
+#pagebreak()
+#counter-display
+#stitle("Cadenas de Markov", sub: "Distribución Estacionaria")
+#sstitle("Comportamiento a largo plazo")
+#slide[
+  #grid(columns: (1fr, 1fr), gutter: 20pt,
+    [
+      #text(size: 13pt)[
+        Si aplicamos la matriz de transición repetidamente, la
+        distribución sobre los estados *converge* a una distribución
+        estable llamada *distribución estacionaria* $pi$.
+      ]
+      #v(8pt)
+      #block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
+        #text(fill: gry, size: 13pt)[
+          La distribución $pi$ satisface:
+          $ pi P = pi $
+          $ sum_i pi_i = 1, quad pi_i >= 0 $
+
+          Es el *vector propio izquierdo* de $P$ asociado al autovalor 1.
+        ]
+      ]
+    ],
+    [
+      #ssstitle[Resultado para el ejemplo clima]
+      #v(8pt)
+      #align(center)[
+        #canvas(length: 1.0cm, {
+          import draw: *
+          let cc = rgb("#00a1ae")
+          let cg1 = rgb("#a3804c")
+          let cgr = rgb("#6B7280")
+          let cd = rgb("#032e35")
+
+          let pi = (0.4681, 0.2766, 0.2553)
+          let labels = ("S", "N", "L")
+          let colors = (cc, cg1, cgr)
+          let maxh = 3.0
+
+          for i in range(3) {
+            let x = i * 1.5
+            let h = pi.at(i) * maxh
+            rect((x, 0), (x + 1.1, h),
+              fill: colors.at(i).lighten(60%),
+              stroke: 1pt + colors.at(i))
+            content((x + 0.55, h + 0.3),
+              text(fill: cd, size: 10pt, weight: "bold")[#str(calc.round(pi.at(i) * 100, digits: 1))%])
+            content((x + 0.55, -0.35),
+              text(fill: colors.at(i), size: 11pt, weight: "bold")[#labels.at(i)])
+          }
+
+          content((2.2, -0.9),
+            text(fill: cd, size: 9pt)[Soleado · Nublado · Lluvioso])
+        })
+      ]
+      #v(10pt)
+      #text(fill: gry, size: 12pt)[
+        A largo plazo el sistema estará *Soleado* ~47% del tiempo,
+        *Nublado* ~28% y *Lluvioso* ~26%, sin importar el estado inicial.
+      ]
+    ],
+  )
+]
+
 #pagebreak()
 #counter-display
 #stitle("Cadenas de Markov", sub: "Matriz de Transición")
@@ -597,76 +667,6 @@
     ]
   ]
 ]
-
-// ════════════════════════════════════════════════════════════════════════════
-// SECCIÓN 4 — DISTRIBUCIÓN ESTACIONARIA
-// ════════════════════════════════════════════════════════════════════════════
-#section-divider("4", "Distribución estacionaria", subtitle: "Comportamiento a largo plazo")
-
-#pagebreak()
-#counter-display
-#stitle("Cadenas de Markov", sub: "Distribución Estacionaria")
-#sstitle("Comportamiento a largo plazo")
-#slide[
-  #grid(columns: (1fr, 1fr), gutter: 20pt,
-    [
-      #text(size: 13pt)[
-        Si aplicamos la matriz de transición repetidamente, la
-        distribución sobre los estados *converge* a una distribución
-        estable llamada *distribución estacionaria* $pi$.
-      ]
-      #v(8pt)
-      #block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
-        #text(fill: gry, size: 13pt)[
-          La distribución $pi$ satisface:
-          $ pi P = pi $
-          $ sum_i pi_i = 1, quad pi_i >= 0 $
-
-          Es el *vector propio izquierdo* de $P$ asociado al autovalor 1.
-        ]
-      ]
-    ],
-    [
-      #ssstitle[Resultado para el ejemplo clima]
-      #v(8pt)
-      #align(center)[
-        #canvas(length: 1.0cm, {
-          import draw: *
-          let cc = rgb("#00a1ae")
-          let cg1 = rgb("#a3804c")
-          let cgr = rgb("#6B7280")
-          let cd = rgb("#032e35")
-
-          let pi = (0.4681, 0.2766, 0.2553)
-          let labels = ("S", "N", "L")
-          let colors = (cc, cg1, cgr)
-          let maxh = 3.0
-
-          for i in range(3) {
-            let x = i * 1.5
-            let h = pi.at(i) * maxh
-            rect((x, 0), (x + 1.1, h),
-              fill: colors.at(i).lighten(60%),
-              stroke: 1pt + colors.at(i))
-            content((x + 0.55, h + 0.3),
-              text(fill: cd, size: 10pt, weight: "bold")[#str(calc.round(pi.at(i) * 100, digits: 1))%])
-            content((x + 0.55, -0.35),
-              text(fill: colors.at(i), size: 11pt, weight: "bold")[#labels.at(i)])
-          }
-
-          content((2.2, -0.9),
-            text(fill: cd, size: 9pt)[Soleado · Nublado · Lluvioso])
-        })
-      ]
-      #v(10pt)
-      #text(fill: gry, size: 12pt)[
-        A largo plazo el sistema estará *Soleado* ~47% del tiempo,
-        *Nublado* ~28% y *Lluvioso* ~26%, sin importar el estado inicial.
-      ]
-    ],
-  )
-]
-
 // ════════════════════════════════════════════════════════════════════════════
 // SECCIÓN 5 — ESTIMACIÓN DESDE DATOS
 // ════════════════════════════════════════════════════════════════════════════
