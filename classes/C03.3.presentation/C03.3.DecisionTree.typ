@@ -236,8 +236,11 @@
 #slide[
   En cada subdivisión se maximiza la *reducción de impureza*
   (también llamada *ganancia de información*).
+  #text(fill: gry, size: 12pt)[
+    Notación: $p_k$ es la *proporción de muestras de la clase $k$* en el nodo.
+  ]
 
-  #v(10pt)
+  #v(6pt)
   #grid(columns: (1fr, 1fr, 1fr), gutter: 12pt,
     block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
       #ssstitle[Índice Gini]
@@ -919,23 +922,85 @@
 #pagebreak()
 #counter-display
 #stitle("Unidad III", sub: "Métodos modernos")
-#sstitle("Más allá del Random Forest")
+#sstitle("Bagging vs. Boosting")
+#slide[
+  #align(center)[
+    #figure(image("images/gb_sequential.png", height: 275pt))
+  ]
+  #text(fill: gry, size: 10pt)[
+    En *bagging* (Random Forest) los árboles se entrenan en *paralelo* sobre muestras bootstrap independientes
+    y se combinan por votación. En *boosting* cada árbol se entrena *en secuencia* ajustando los errores
+    que cometió el ensemble anterior.
+  ]
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "Métodos modernos")
+#sstitle("Gradient Boosting — cómo aprende")
+#slide[
+  #text(fill: gry, size: 10pt)[
+    El ensemble parte de una predicción inicial $F_0$ (la media de $y$).
+    En cada iteración se ajusta un árbol *sobre los residuos* $epsilon_t = y - hat(y)_t$
+    y se suma a la predicción con paso $eta$ (learning rate):
+  ]
+  #align(center)[
+    #scale(75%, reflow:true)[$ F_(t+1) = F_t + eta dot h_t(x) $]
+  ]
+  #v(0pt)
+  #align(center)[
+    #figure(image("images/gb_residuals.png", height: 235pt))
+  ]
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "Métodos modernos")
+#sstitle("Hiperparámetros clave")
+#slide[
+  #grid(columns: (1fr, 2.7fr), gutter: 0pt,
+    [
+      #scale(80%, reflow:true)[
+      #styled-table(
+        columns: (0.50fr, 1fr),
+        th[Hiperparám.], th[Efecto],
+        td[`n_estimators`],   tdg[Número de árboles. Más árboles → más capacidad, más riesgo de sobreajuste],
+        td[`learning_rate`],  tdg[Peso de cada árbol. Valores pequeños requieren más árboles],
+        td[`max_depth`],      tdg[Profundidad de cada árbol. Típicamente 3–5],
+        td[`subsample`],      tdg[Fracción del dataset por árbol. Añade estocasticidad],
+      )
+      ]
+      #text(fill: gry, size: 10pt)[
+        Regla práctica: *learning rate bajo + muchos árboles* (con early stopping)
+        suele dar el mejor resultado.
+      ]
+    ],
+    [
+      #align(center + horizon)[
+        #figure(image("images/gb_learning_rate.png", height: 205pt))
+      ]
+    ],
+  )
+]
+
+#pagebreak()
+#counter-display
+#stitle("Unidad III", sub: "Métodos modernos")
+#sstitle("Implementaciones modernas")
 #slide[
   #set text(size: 12pt)
   #grid(columns: (1fr, 1fr), gutter: 16pt,
     [
       #block(stroke: 2pt + cm3, inset: 14pt, radius: 5pt)[
-        #ssstitle[Gradient Boosting (sklearn / XGBoost)]
+        #ssstitle[XGBoost]
         #v(4pt)
         #text(fill: gry, size: 12pt)[
-          En lugar de entrenar árboles en paralelo (*bagging*), los
-          construye *en secuencia*: cada árbol corrige los errores del anterior.
+          Gradient Boosting con regularización L1/L2, manejo nativo de
+          valores faltantes y soporte GPU.
+          Dominó competencias Kaggle durante años.
           #v(4pt)
-          - *`GradientBoostingClassifier`* de sklearn: implementación de referencia.
-          - *XGBoost*: añade regularización L1/L2, manejo nativo de valores
-            faltantes y soporte GPU. Dominó competencias Kaggle durante años.
-          - Hiperparámetros clave: `n_estimators`, `learning_rate`, `max_depth`,
-            `subsample`.
+          - Hiperparámetros clave: `n_estimators`, `learning_rate`,
+            `max_depth`, `subsample`, `reg_alpha`, `reg_lambda`.
         ]
       ]
     ],
